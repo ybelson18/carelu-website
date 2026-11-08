@@ -35,6 +35,18 @@ const MO_BHS_G5 = { title: 'MO HealthNet Behavioral Health Services Manual (May 
 const MO_APPEAL_BODY_G5 =
   'Appealing a denied ABA precertification. The ABA section (§ 1.16) of the Behavioral Health Services Manual sets no appeal process of its own; the manual’s participant appeal rights sit in its precertification section (§ 1.5): when a precertification request is denied, “the participant will receive a letter that outlines the reason for the denial and the procedure for appeal,” and may request a State Fair Hearing through the Participant Services Unit at (800) 392-2161, StateFairHearings@dss.mo.gov, or MO HealthNet Division Participant Services Unit, P.O. Box 6500, Jefferson City, MO 65102. “The participant must contact the PSU within 90 days of the date of the denial letter if they wish to request a hearing. After 90 days, requests to appeal are denied.” Because MCO members get ABA fee-for-service, this is the route for every MO HealthNet child, whichever health plan card they carry; confirm with the Behavioral Health Services help desk, (866) 771-3350, that it is the route for an ABA denial.';
 
+/* Credentialing timeline — Missouri law (weekly refresh 2026-11-08, revisor.mo.gov read 2026-11-08). */
+const MO_1578_G8 = { title: 'RSMo § 376.1578 — Credentialing procedure, health carrier duties (60-day decision; payment for the credentialing period) (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1578' };
+const MO_1575_G8 = { title: 'RSMo § 376.1575 — Definitions for §§ 376.1575 to 376.1580 ("practitioner") (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1575' };
+const MO_CRED_SECTION_G8 = {
+  h2: 'How long credentialing a new BCBA takes: why Missouri\'s 60-day law may not apply',
+  body: [
+    'Missouri has a credentialing clock, RSMo § 376.1578. A health carrier must send notice of receipt within two working days, ask for anything missing within ten days, and decide a completed application "within sixty days of the date of receipt." If the application is approved, the carrier pays for covered services the practitioner delivered during the credentialing period on behalf of an entity that already had a contract with it, and those claims are due within six months after approval. During that period the practitioner may not bill the patient.',
+    'The law protects only a "practitioner" as § 376.1575 defines it: physicians and physician assistants, pharmacists, dentists, chiropractors, optometrists, podiatrists, "a psychologist or licensed clinical social worker eligible to provide services under chapter 337," and advanced practice nurses. Licensed behavior analysts are not on the list. A BCBA who is not also a licensed psychologist therefore gets no statutory 60-day decision and no paid credentialing period; the plan\'s own timeline governs. A licensed psychologist who delivers ABA does have both.',
+  ],
+  cites: [MO_1578_G8, MO_1575_G8],
+};
+
 export const missouriPayers: Record<string, PayerConfig> = {
   'missouri-medicaid': {
     slug: 'missouri-medicaid',
@@ -111,8 +123,11 @@ export const missouriPayers: Record<string, PayerConfig> = {
         h2: 'Rates: the modifier scheme is the revenue model',
         body: [
           'Missouri pays by rendering-practitioner tier, flagged with modifiers: HO = behavior analyst or psychologist, HN = assistant behavior analyst, HM = behavior technician/RBT (billed by the licensed supervisor), U8 = home or other place of service, TM = school-based IEP direct services (billed by the school district, not telemedicine). Per 15-minute unit from the official fee schedule: 97151 assessment pays $25.26 (max 32 units); 97153 direct treatment pays $20.13 at both the HO and HN tiers but $16.37 with the HM technician modifier (both raised effective 7/1/2024, from $17.73 and $15.00; max 32 units — 8 hours/day); 97155 pays $25.26 HO ($27.46 with U8 in-home, $17.73 HN; max 24 units); 97156 family training pays $25.26 HO / $20.13 HN (max 16 units). Two quirks worth wiring into billing: the TM rows on the fee file, marked as not requiring prior authorization, are school-based IEP services billed by the school district (telemedicine uses the ordinary code with POS 02 or 10 and needs the same precertification as in person), and technicians\' claims must never carry the U8 modifier. The daily unit maximums are real — an October 2022 hot tip confirmed a system fix after 97153/97155 claims wrongly denied on limit restrictions.',
+          'Where to find the file, and a page change coming. The ABA fee schedule is the "Applied Behavioral Analysis" workbook on MHD\'s fee-schedule download portal (apps.dss.mo.gov/fmsfeeschedules); on 11/8/2026 the cited file and portal still answered, and the workbook was last modified 10/5/2026. DSS\'s "Fee Schedules and Rate Lists" address currently opens the CPT license agreement that leads to that portal. A November 5, 2026 MHD hot tip says MHD "will soon launch redesigned Fee Schedule and Rate List webpages": providers will accept the disclaimer, then use a main landing page holding the general fee-schedule information, rate lists and the fee schedule crosswalk, with one download button for "all Fee Schedules and Rate List files." No launch date is given, so file links may move; start from the landing page if a link breaks, and MHD says to keep cross-checking the fee schedule against the program\'s provider manual.',
         ],
         cites: [
+          { title: 'MO HealthNet — Fee Schedules and Rate Lists (landing page; opens the CPT license agreement, then the fee-schedule portal)', url: 'https://dss.mo.gov/mhd/fee-schedules-rate-lists' },
+          { title: 'MO HealthNet hot tip — MO HealthNet Fee Schedules Are Getting Easier! (11/5/2026)', url: 'https://dss.mo.gov/mhd/hot-tips/mo-healthnet-fee-schedules-are-getting-easier' },
           { title: 'MHD Applied Behavioral Analysis fee schedule (official download portal)', url: 'https://apps.dss.mo.gov/fmsfeeschedules/DLFiles.aspx' },
           { title: 'MHD Applied Behavioral Analysis fee schedule (xlsx, file dated 10/2/2026)', url: 'https://apps.dss.mo.gov/fmsfeeschedules/dlfiles/Applied%20Behavioral%20Analysis.xlsx' },
           { title: 'MO HealthNet Provider Bulletin Vol. 47 No. 09 — Rate Update for ABA Services (7/12/2024, eff. 7/1/2024)', url: 'https://dss.mo.gov/sites/mydss/files/media/pdf/2024/08/ABA-Rate-Increase-Bulletin-FY25-4709.pdf' },
@@ -246,6 +261,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
     sources: [ MO_BHS_G5,
       { title: 'MHD Applied Behavioral Analysis fee schedule (xlsx, file dated 10/2/2026)', url: 'https://apps.dss.mo.gov/fmsfeeschedules/dlfiles/Applied%20Behavioral%20Analysis.xlsx' },
       { title: 'MO HealthNet Behavioral Health Services Manual, §1.16 ABA Services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' },
+      { title: 'MO HealthNet — Fee Schedules and Rate Lists (landing page; redesign announced 11/5/2026)', url: 'https://dss.mo.gov/mhd/fee-schedules-rate-lists' },
       { title: 'MHD Applied Behavioral Analysis fee schedule (official download portal)', url: 'https://apps.dss.mo.gov/fmsfeeschedules/DLFiles.aspx' },
       { title: 'MO HealthNet Behavioral Health Services page (precert form 2575-045, bulletins)', url: 'https://mydss.mo.gov/mhd/behavioral-health-services' },
       { title: 'MHD ABA provider training — Applied Behavior Analysis Services (April 2022)', url: 'https://dss.mo.gov/mhd/providers/education/files/rodgers-applied-behavior-analysis.pdf' },
@@ -561,6 +577,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
         body: [AETNA_APPEALS_BODY_G5, AETNA_TOC_BODY_G5],
         cites: [AETNA_OM_G5],
       },
+      MO_CRED_SECTION_G8,
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies — including MO\'s unusual reach into governmental and school self-insured plans) vs. self-funded private ERISA (exempt). Ask for the employer and check the card.' },
@@ -568,7 +585,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date.' },
       { title: 'Age vs. the cap', desc: 'The ABA dollar cap runs through age 18 and is CPI-indexed — verify the current adjusted value and year-to-date usage before projecting hours.' },
     ],
-    sources: [ AETNA_OM_G5,
+    sources: [ MO_1578_G8, AETNA_OM_G5,
       MO_HMO_DCI,
       MO_HMO_1350,
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
@@ -598,11 +615,9 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
       billAsProvider: {
         value:
-          'Aetna does not publish the rendering-versus-billing NPI convention for ABA. Missouri\'s mandate does supply one half of the answer for plans it reaches: reimbursement is directed to the autism service provider, or to the entity or group the supervising board-certified behavior analyst works for, and it expressly includes line-therapist services delivered under that supervision when they are in the treatment plan and medically necessary.',
-        status: 'plan-dependent',
-        cites: [{ title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }, { title: 'Aetna CPB 0554 \u2014 Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' }],
-        verifyVia: 'Aetna provider services or Availity \u2014 confirm the rendering-versus-billing NPI convention and any required degree-level modifiers before the first claim.',
-        blocker: 'per-case',
+          'The analyst bills, not the technician. Aetna\'s ABA medical necessity guide says "Services must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists where behavior analysis is within their scope of practice definition, unless state mandates, plan documents or contracts require otherwise." Missouri licenses behavior analysts, so for a Missouri child that means the licensed behavior analyst or psychologist. Missouri\'s mandate points the same way for plans it reaches: reimbursement is directed to the autism service provider, or to the entity or group the supervising board-certified behavior analyst works for, and it expressly includes line-therapist services delivered under that supervision when they are in the treatment plan and medically necessary. The guide\'s escape clause ("unless ... contracts require otherwise") means your Aetna agreement can move the line, so check it before loading technicians as rendering providers.',
+        status: 'verified',
+        cites: [{ title: 'Aetna — Applied behavior analysis medical necessity guide (©2026, 7244850-01-01; re-read 2026-11-08)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'RSMo \u00a7 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' }],
       },
       dailyLimits: {
         value:
@@ -723,6 +738,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'Which form does Aetna use for an ABA assessment request?', a: 'Form GR-69017-4 (7-26), which since August 1, 2026 replaces all other Aetna ABA precertification forms (except in Maryland and Massachusetts). Start the request on Availity or by phone first, then attach the form if the case pends. Request 97151, 97152 and 0362T in hours per authorization period.' },
       { q: 'Does Aetna accept H0031 or H0032 for ABA?', a: 'Aetna’s precertification list, its ABA precertification request and CPB 0554 list only CPT 97151–97158, 0362T and 0373T for ABA. No H-code appears in them, so bill the CPT codes unless Aetna tells you otherwise for a specific plan.' },
       { q: 'Does Aetna require graphs for ABA reassessments?', a: 'Aetna’s documents ask for data, not graphs: a standardized functioning assessment within the past 12 months, baseline and quantifiable progress measures for each target behavior, and documentation of improvement or of treatment changes. Its precertification request also asks for baseline, interim and current data for all goals and a repeat validated assessment every 6–12 months.' },
+      { q: 'How long does it take to credential a new BCBA with Aetna in Missouri?', a: 'Missouri\'s 60-day credentialing law (RSMo § 376.1578) covers physicians, psychologists, licensed clinical social workers and a few other listed practitioners, but not licensed behavior analysts. Unless the BCBA is also a licensed psychologist, the plan\'s own timeline governs and there is no statutory pay for the credentialing period.' },
     ],
   },
 
@@ -889,6 +905,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
         body: [EBH_APPEALS_BODY_G5, EBH_OON_BODY_G5],
         cites: [EBH_ADMIN_G5],
       },
+      MO_CRED_SECTION_G8,
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies — including MO\'s unusual reach into governmental and school self-insured plans) vs. self-funded private ERISA (exempt). Ask for the employer and check the card.' },
@@ -896,7 +913,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date.' },
       { title: 'Age vs. the cap', desc: 'The ABA dollar cap runs through age 18 and is CPI-indexed — verify the current adjusted value and year-to-date usage before projecting hours.' },
     ],
-    sources: [ EBH_ADMIN_G5,
+    sources: [ MO_1578_G8, EBH_ADMIN_G5,
       MO_HMO_DCI,
       MO_HMO_1350,
       { title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
@@ -941,11 +958,10 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'Not published as a payable-settings list. Two sourced facts bear on setting nonetheless: the treatment plan must carry dated baseline data per setting, so settings are declared and measured rather than assumed; and every session note must record the location. Whether a given setting is payable is a plan-benefit question.',
-        status: 'unverified',
-        cites: [{ title: 'Evernorth EN0499 \u2014 Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
-        verifyVia: 'Benefits verification on the specific plan \u2014 ask which places of service are payable for ABA, and whether school-based delivery is excluded before you write school goals.',
-        blocker: 'per-case',
+          'Home, clinic, school or community, by the policy\'s own words: care "must be deliverable in any setting that is relevant for the individual to achieve treatment goals—whether in the home, at school, in a clinic or center, or in the community," and EN0499 lists residential treatment facilities, childcare facilities, homes, schools, transportation, community settings, clinics, vocational or other educational classes, and recreational and social environments as sites where ABA "may be provided" when medically necessary. The treatment plan must name each setting and report data separately by location. The limits are purpose, not place: services "primarily educational or vocational in nature" are not covered, and ABA may not "replace or replicate activities that are the responsibility of the setting" (classroom aide, 1:1 teacher, tutor, respite). EN0499 also allows in-person, telehealth or hybrid delivery. EN0499 names no POS codes; a plan\'s own benefit document can still exclude a setting.',
+        status: 'verified',
+        cites: [{ title: 'Evernorth EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026; General Background: treatment settings; re-read 2026-11-08)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
+        verifyVia: 'Benefits verification on the specific plan \u2014 ask whether its benefit document excludes school-based delivery before you write school goals.',
       },
     },
     intakeGates: {
@@ -1033,6 +1049,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'Does Cigna require a referring provider NPI on ABA claims?', a: 'No. Cigna\'s ABA billing instructions cover boxes 31 and 33 only, and Evernorth states that referrals are not required for behavioral health services.' },
       { q: 'Does Cigna accept H0031 or H0032 for ABA?', a: 'No. Evernorth’s autism resource guide requires all ABA services to be billed with CPT 97151–97158, 0362T and 0373T only, in 15-minute units.' },
       { q: 'Does Cigna require graphs for ABA reassessments?', a: 'No graph is required. EN0499 requires dated quantitative baseline, interim and current data for every behavior and skill (current data no older than 60 days at the request and the start date), a standardized assessment within the past year, and caregiver-goal data. Data may be reported as data points or averages.' },
+      { q: 'How long does it take to credential a new BCBA with Cigna in Missouri?', a: 'Missouri\'s 60-day credentialing law (RSMo § 376.1578) covers physicians, psychologists, licensed clinical social workers and a few other listed practitioners, but not licensed behavior analysts. Unless the BCBA is also a licensed psychologist, the plan\'s own timeline governs and there is no statutory pay for the credentialing period.' },
     ],
   },
 
@@ -1218,6 +1235,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
         body: [OPTUM_APPEALS_BODY_G5, OPTUM_AUTH_BODY_G5],
         cites: [OPTUM_NNM_G5],
       },
+      MO_CRED_SECTION_G8,
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies — including MO\'s unusual reach into governmental and school self-insured plans) vs. self-funded private ERISA (exempt). Ask for the employer and check the card.' },
@@ -1226,7 +1244,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date.' },
       { title: 'Age vs. the cap', desc: 'The ABA dollar cap runs through age 18 and is CPI-indexed — verify the current adjusted value and year-to-date usage before projecting hours.' },
     ],
-    sources: [ OPTUM_NNM_G5,
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' },  MO_1578_G8, OPTUM_NNM_G5,
       MO_HMO_DCI,
       MO_HMO_1350,
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
@@ -1369,6 +1387,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
       { q: 'Are there any HMOs in Missouri?', a: 'Yes. Missouri\'s Department of Commerce & Insurance lists 17 licensed HMOs with the counties each may serve; this carrier\'s is UnitedHealthcare of the Midwest Inc (70 counties). Missouri\'s autism mandate (RSMo § 376.1224) reaches HMO plans because § 376.1350 counts a health maintenance organization as a health carrier. See “HMOs in Missouri” above for the full list.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Missouri?', a: 'Yes — under Optum\'s national ABA criteria (Missouri has no entry in Optum\'s State Mandates supplement), layered on Missouri\'s mandate (RSMo § 376.1224) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Missouri autism mandate require?', a: 'Coverage of ASD diagnosis and treatment including ABA, with a $40,000-per-year ABA cap through age 18 — a CPI-indexed statutory base that can be exceeded with plan approval when medically necessary. Treatment-plan reviews are limited to once every 6 months, and ABA must be supervised by a Chapter 337-licensed behavior analyst.' },
@@ -1384,6 +1403,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'Can ABA overlap with speech therapy under UnitedHealthcare?', a: 'Optum publishes no clock-time rule, but its criteria say ABA must not duplicate other medical or behavioral services, and they weigh participation in other therapies when setting hours. Document the other therapies and schedule around them.' },
       { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Not on commercial plans. Optum’s commercial ABA reimbursement policy codes ABA on CPT 97151–97158, 0362T and 0373T and lists no H-codes; only 97151 and 97152 may be billed for assessment or reassessment.' },
       { q: 'Does UnitedHealthcare require graphs for ABA reauthorization?', a: 'Optum’s criteria do not require graphs. They require updated progress for each target measured the same way as baseline: mastery rates, change scores, updated standardized adaptive measures and caregiver progress, plus an explanation and changed plan if progress lagged over six months.' },
+      { q: 'How long does it take to credential a new BCBA with UnitedHealthcare in Missouri?', a: 'Missouri\'s 60-day credentialing law (RSMo § 376.1578) covers physicians, psychologists, licensed clinical social workers and a few other listed practitioners, but not licensed behavior analysts. Unless the BCBA is also a licensed psychologist, the plan\'s own timeline governs and there is no statutory pay for the credentialing period.' },
     ],
   },
 
@@ -1590,6 +1610,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
         ],
         cites: [MO_HMO_DCI, MO_HMO_1224, MO_HMO_1350],
       },
+      MO_CRED_SECTION_G8,
     ],
     collect: [
       { title: 'Plan funding type, first', desc: 'Fully insured Missouri plan (mandate applies), a self-insured governmental, MEWA or school-district plan (the statute reaches these too, for plans established or renewed on or after 1/1/2020), or a private self-funded ERISA plan (preempted). An Anthem Missouri card can be any of these — RIT administers self-funded plans without underwriting them.' },
@@ -1600,7 +1621,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'Realistic weekly schedule', desc: 'Weekly approved units since March 2026 turn the family\'s sustainable weekly availability into a billing constraint.' },
       { title: 'A doctorate-level diagnostic evaluation', desc: 'For an assessment-only request (97151/97152/0362T), or where the member has new coverage, Anthem\'s form requires a diagnostic evaluation by a doctorate-level clinician or allowable QHCP showing DSM-5-TR criteria and naming the standardized tools used. Ask for the full report, not the one-line diagnosis letter.' },
     ],
-    sources: [
+    sources: [ MO_1578_G8,
       MO_HMO_DCI,
       MO_HMO_1350,
       { title: 'RSMo § 376.1224 (Missouri Revisor of Statutes)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
@@ -1749,6 +1770,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'Does Anthem Missouri want the referring provider on ABA claims?', a: 'Its provider manual says paper claims must carry "complete provider information, including referring, rendering and billing NPI." Where a referral or a mandate order exists, put that clinician in box 17.' },
       { q: 'How does BlueCard work for an out-of-state Blue member getting ABA in Missouri?', a: 'File the claim with Anthem, the local plan, which is "the sole contact for Claims payment, adjustments, and issue resolution." The member\'s home Blue plan sets the medical policy and prior-authorization rules, so look them up by alpha prefix on Anthem\'s "Medical Policy and Prior Authorization for Blue Plans" tool. Clinical appeals go to the home plan.' },
       { q: 'Does Anthem accept H0031 or H0032 for ABA in Missouri?', a: 'Anthem’s ABA resource guide lists only CPT 97151–97158, 0362T and 0373T for ABA, with HM/HN/HO credential modifiers. It names no H-codes, so check your contract before using one.' },
+      { q: 'How long does it take to credential a new BCBA with Anthem in Missouri?', a: 'Missouri\'s 60-day credentialing law (RSMo § 376.1578) covers physicians, psychologists, licensed clinical social workers and a few other listed practitioners, but not licensed behavior analysts. Unless the BCBA is also a licensed psychologist, the plan\'s own timeline governs and there is no statutory pay for the credentialing period.' },
     ],
   },
 };

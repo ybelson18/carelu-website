@@ -136,6 +136,17 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'OAC 5160-26-03 — Managed health care programs: covered services (eff. 7/18/2022)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03' },
         ],
       },
+      {
+        h2: 'How long does Ohio Medicaid credentialing take?',
+        body: [
+          'Credentialing for Ohio Medicaid is done once, by ODM. ODM’s Centralized Credentialing FAQ: “If a provider is participating with a managed care entity for Medicaid-only credentials or MyCare credentials, the credentialing process will be done through ODM,” and “a provider will still need to contract with a given MCE to participate with them.” ODM publishes no fixed completion time. Its Credentialing Guide and Requirements (last updated December 31, 2025): “Please allow 30 business days before inquiring about application status. If an application has been returned for additional information, processing time will be extended.” A returned application “must be returned to ODM in the PNM portal within 9 days of the issuance of RTP letter. Failure to respond will result in application cancellation and denial,” and ODM calls submitting everything up front, including the completed CAQH profile, “the fastest way to complete the enrollment and credentialing processes.” Adding a new BCBA: the analyst enrolls and is credentialed through the PNM portal (Certified Ohio Behavior Analysts are among the practitioners OAC 5160-1-42 requires ODM to credential), and the group’s administrator affiliates them; the FAQ notes that “Group administrators can access the PNM secure portal to search for active providers for affiliation with their agency.”',
+        ],
+        cites: [
+          { title: 'Ohio Department of Medicaid — Credentialing Guide and Requirements (last updated Dec. 31, 2025)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Enrollment%20and%20Support/Credentialing_Guide_and_Requirements_Final_Rev_12-31-2025.pdf' },
+          { title: 'Ohio Department of Medicaid — Centralized Credentialing Frequently Asked Questions (September 2022)', url: 'https://dam.assets.ohio.gov/image/upload/managedcare.medicaid.ohio.gov/PNM/Centralized-Credentialing-FAQ.pdf' },
+          { title: 'OAC 5160-1-42 — Medicaid provider credentialing', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-42' },
+        ],
+      },
     ],
     collect: [
       { title: 'Member ID & Next Gen MCO', desc: 'CareSource, Buckeye, Molina, Anthem, UHC, AmeriHealth Caritas, or Humana — several run materially different ABA policies.' },
@@ -325,6 +336,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How long does it take to credential a new BCBA with Ohio Medicaid?', a: 'ODM sets no fixed completion time. Its credentialing guide asks providers to “allow 30 business days before inquiring about application status,” longer if the application is returned for more information, and a returned application must be completed in the PNM portal within 9 days or it is cancelled. Credentialing is centralized at ODM; each MCO still needs its own contract.' },
       { q: 'Does Ohio Medicaid cover ABA therapy?', a: 'Yes — as adaptive behavior services for ASD. There is no in-force ABA rule yet (ODM\'s OAC 5160-34 package is an unfiled draft, paused in 2025), so prior authorization and review cycles come from the member\'s MCO; the plans we read require PA for ABA treatment, and CareSource reviews at baseline and every six months.' },
       { q: 'Does OhioRISE cover ABA?', a: 'No — ODM\'s Mixed Services Protocol assigns ABA claims to the member\'s Medicaid MCO (or FFS) even for OhioRISE-enrolled youth. Always identify the underlying MCO.' },
       { q: 'What does Ohio Medicaid pay for ABA?', a: 'No in-force schedule is published. ODM’s only ABA rate table is in its unfiled draft rule (ERF188422B): per 15-minute unit, 97153 at $16.04 (RBT), 97155 at $27.28 and 97151 at $30.49 at the COBA/BCBA tier, with lower BCaBA-tier amounts. MCOs pay their own contracted rates, which are not published.' },
@@ -441,6 +453,17 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'ODM 10295 (8/2022) — MCE Out-of-Network and Single Case Agreement Provider Application', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Resources/Publications/Forms/ODM10295Fillx.pdf' },
           { title: 'ODM 10282 (11/2021) — MCE Out-of-Network and Managed Care-Only Provider Application', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Resources/Publications/Forms/ODM10282Fillx.pdf' },
           { title: 'OAC 5160-26-03 — Managed health care programs: covered services (eff. 7/18/2022)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03' },
+        ],
+      },
+      {
+        h2: 'How long does credentialing take with CareSource?',
+        body: [
+          'Credentialing for Ohio Medicaid is done once, by ODM, not by CareSource. ODM’s Centralized Credentialing FAQ: “If a provider is participating with a managed care entity for Medicaid-only credentials or MyCare credentials, the credentialing process will be done through ODM,” and “a provider will still need to contract with a given MCE to participate with them.” ODM publishes no fixed completion time. Its Credentialing Guide and Requirements (last updated December 31, 2025): “Please allow 30 business days before inquiring about application status. If an application has been returned for additional information, processing time will be extended.” A returned application “must be returned to ODM in the PNM portal within 9 days of the issuance of RTP letter. Failure to respond will result in application cancellation and denial,” and ODM calls submitting everything up front, including the completed CAQH profile, “the fastest way to complete the enrollment and credentialing processes.” Adding a new BCBA: the analyst enrolls and is credentialed through the PNM portal (Certified Ohio Behavior Analysts are among the practitioners OAC 5160-1-42 requires ODM to credential), and the group’s administrator affiliates them; the FAQ notes that “Group administrators can access the PNM secure portal to search for active providers for affiliation with their agency.” Then ask CareSource to add the analyst under your contract; it publishes no ABA-specific loading time.',
+        ],
+        cites: [
+          { title: 'Ohio Department of Medicaid — Credentialing Guide and Requirements (last updated Dec. 31, 2025)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Enrollment%20and%20Support/Credentialing_Guide_and_Requirements_Final_Rev_12-31-2025.pdf' },
+          { title: 'Ohio Department of Medicaid — Centralized Credentialing Frequently Asked Questions (September 2022)', url: 'https://dam.assets.ohio.gov/image/upload/managedcare.medicaid.ohio.gov/PNM/Centralized-Credentialing-FAQ.pdf' },
+          { title: 'OAC 5160-1-42 — Medicaid provider credentialing', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-42' },
         ],
       },
     ],
@@ -611,6 +634,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How long does it take to credential a new BCBA with CareSource in Ohio?', a: 'Credentialing runs through ODM, not the plan. ODM asks providers to “allow 30 business days before inquiring about application status,” longer if the application is returned for information (a returned application must be completed within 9 days or it is cancelled). Then CareSource adds the analyst under your contract.' },
       { q: 'Does CareSource Ohio cover ABA therapy?', a: 'Yes — under policy MM-0028 (eff. 9/1/2026) plus its companion reimbursement policy PY-1638, with medical-necessity review on all ABA at baseline and every 6 months. It sets its own diagnostician-specialty, instrument and documentation rules; Ohio has no in-force ABA rule.' },
       { q: 'Who can diagnose autism for CareSource Ohio ABA?', a: 'A child/adolescent psychiatrist, psychologist, child neurologist, or developmental pediatrician, using ADOS, ADI-R, or CARS-2 — narrower than the state baseline.' },
       { q: 'Why did CareSource reject our claim?', a: 'A distinctive rule, now sited in reimbursement policy PY-1638: treatment documentation must be submitted before claims. Claims without accompanying treatment records are not accepted — check the documentation pipeline first.' },
@@ -720,6 +744,17 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'ODM 10295 (8/2022) — MCE Out-of-Network and Single Case Agreement Provider Application', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Resources/Publications/Forms/ODM10295Fillx.pdf' },
           { title: 'ODM 10282 (11/2021) — MCE Out-of-Network and Managed Care-Only Provider Application', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Resources/Publications/Forms/ODM10282Fillx.pdf' },
           { title: 'OAC 5160-26-03 — Managed health care programs: covered services (eff. 7/18/2022)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03' },
+        ],
+      },
+      {
+        h2: 'How long does credentialing take with Buckeye?',
+        body: [
+          'Credentialing for Ohio Medicaid is done once, by ODM, not by Buckeye. ODM’s Centralized Credentialing FAQ: “If a provider is participating with a managed care entity for Medicaid-only credentials or MyCare credentials, the credentialing process will be done through ODM,” and “a provider will still need to contract with a given MCE to participate with them.” ODM publishes no fixed completion time. Its Credentialing Guide and Requirements (last updated December 31, 2025): “Please allow 30 business days before inquiring about application status. If an application has been returned for additional information, processing time will be extended.” A returned application “must be returned to ODM in the PNM portal within 9 days of the issuance of RTP letter. Failure to respond will result in application cancellation and denial,” and ODM calls submitting everything up front, including the completed CAQH profile, “the fastest way to complete the enrollment and credentialing processes.” Adding a new BCBA: the analyst enrolls and is credentialed through the PNM portal (Certified Ohio Behavior Analysts are among the practitioners OAC 5160-1-42 requires ODM to credential), and the group’s administrator affiliates them; the FAQ notes that “Group administrators can access the PNM secure portal to search for active providers for affiliation with their agency.” Then ask Buckeye to add the analyst under your contract; it publishes no ABA-specific loading time.',
+        ],
+        cites: [
+          { title: 'Ohio Department of Medicaid — Credentialing Guide and Requirements (last updated Dec. 31, 2025)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Enrollment%20and%20Support/Credentialing_Guide_and_Requirements_Final_Rev_12-31-2025.pdf' },
+          { title: 'Ohio Department of Medicaid — Centralized Credentialing Frequently Asked Questions (September 2022)', url: 'https://dam.assets.ohio.gov/image/upload/managedcare.medicaid.ohio.gov/PNM/Centralized-Credentialing-FAQ.pdf' },
+          { title: 'OAC 5160-1-42 — Medicaid provider credentialing', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-42' },
         ],
       },
     ],
@@ -890,6 +925,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How long does it take to credential a new BCBA with Buckeye in Ohio?', a: 'Credentialing runs through ODM, not the plan. ODM asks providers to “allow 30 business days before inquiring about application status,” longer if the application is returned for information (a returned application must be completed within 9 days or it is cancelled). Then Buckeye adds the analyst under your contract.' },
       { q: 'Does Buckeye Health Plan cover ABA therapy?', a: 'Yes — under Centene\'s CP.BH.104 policy. In-network assessments (97151, 97152) need no prior authorization; treatment codes require PA via the Autism Services form.' },
       { q: 'What are Buckeye\'s ABA hour limits?', a: 'No more than 6 hours/day and 30 hours/week without detailed clinical justification, and under 20 hours/week expected for full-time students. Protocol modification runs 2 hrs/week or 10% of direct hours, capped at 20% unless justified.' },
       { q: 'How current must the autism diagnosis be for Buckeye?', a: 'The comprehensive diagnostic evaluation is accepted if conducted within the past 5 years.' },
@@ -983,6 +1019,17 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'ODM 10295 (8/2022) — MCE Out-of-Network and Single Case Agreement Provider Application', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Resources/Publications/Forms/ODM10295Fillx.pdf' },
           { title: 'ODM 10282 (11/2021) — MCE Out-of-Network and Managed Care-Only Provider Application', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Resources/Publications/Forms/ODM10282Fillx.pdf' },
           { title: 'OAC 5160-26-03 — Managed health care programs: covered services (eff. 7/18/2022)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03' },
+        ],
+      },
+      {
+        h2: 'How long does credentialing take with Molina?',
+        body: [
+          'Credentialing for Ohio Medicaid is done once, by ODM, not by Molina. ODM’s Centralized Credentialing FAQ: “If a provider is participating with a managed care entity for Medicaid-only credentials or MyCare credentials, the credentialing process will be done through ODM,” and “a provider will still need to contract with a given MCE to participate with them.” ODM publishes no fixed completion time. Its Credentialing Guide and Requirements (last updated December 31, 2025): “Please allow 30 business days before inquiring about application status. If an application has been returned for additional information, processing time will be extended.” A returned application “must be returned to ODM in the PNM portal within 9 days of the issuance of RTP letter. Failure to respond will result in application cancellation and denial,” and ODM calls submitting everything up front, including the completed CAQH profile, “the fastest way to complete the enrollment and credentialing processes.” Adding a new BCBA: the analyst enrolls and is credentialed through the PNM portal (Certified Ohio Behavior Analysts are among the practitioners OAC 5160-1-42 requires ODM to credential), and the group’s administrator affiliates them; the FAQ notes that “Group administrators can access the PNM secure portal to search for active providers for affiliation with their agency.” Then ask Molina to add the analyst under your contract; it publishes no ABA-specific loading time.',
+        ],
+        cites: [
+          { title: 'Ohio Department of Medicaid — Credentialing Guide and Requirements (last updated Dec. 31, 2025)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Enrollment%20and%20Support/Credentialing_Guide_and_Requirements_Final_Rev_12-31-2025.pdf' },
+          { title: 'Ohio Department of Medicaid — Centralized Credentialing Frequently Asked Questions (September 2022)', url: 'https://dam.assets.ohio.gov/image/upload/managedcare.medicaid.ohio.gov/PNM/Centralized-Credentialing-FAQ.pdf' },
+          { title: 'OAC 5160-1-42 — Medicaid provider credentialing', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-42' },
         ],
       },
     ],
@@ -1146,6 +1193,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How long does it take to credential a new BCBA with Molina in Ohio?', a: 'Credentialing runs through ODM, not the plan. ODM asks providers to “allow 30 business days before inquiring about application status,” longer if the application is returned for information (a returned application must be completed within 9 days or it is cancelled). Then Molina adds the analyst under your contract.' },
       { q: 'Does Molina Healthcare of Ohio cover ABA therapy?', a: 'Yes — with prior authorization required on ABA services through Availity. Molina publishes no Ohio ABA clinical policy, and Ohio has no in-force ABA rule (ODM\'s OAC 5160-34 package is an unfiled draft).' },
       { q: 'How do I submit an ABA authorization to Molina Ohio?', a: 'Through Availity Essentials — Molina discontinued fax PA submissions in Ohio effective January 1, 2026.' },
       { q: 'What is Molina Ohio’s timely filing limit and payment time for ABA claims?', a: 'ODM’s MCO contract requires Molina to accept claims for 365 calendar days from the date of service and to pay or deny 90% of clean claims within 21 calendar days, 99% within 60 and all within 90, unless your provider contract sets another schedule. Molina’s own manual could not be read, so confirm its corrected-claim and secondary-claim windows with Molina.' },
@@ -1232,6 +1280,17 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'ODM 10295 (8/2022) — MCE Out-of-Network and Single Case Agreement Provider Application', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Resources/Publications/Forms/ODM10295Fillx.pdf' },
           { title: 'ODM 10282 (11/2021) — MCE Out-of-Network and Managed Care-Only Provider Application', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Resources/Publications/Forms/ODM10282Fillx.pdf' },
           { title: 'OAC 5160-26-03 — Managed health care programs: covered services (eff. 7/18/2022)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03' },
+        ],
+      },
+      {
+        h2: 'How long does credentialing take with Anthem?',
+        body: [
+          'Credentialing for Ohio Medicaid is done once, by ODM, not by Anthem. ODM’s Centralized Credentialing FAQ: “If a provider is participating with a managed care entity for Medicaid-only credentials or MyCare credentials, the credentialing process will be done through ODM,” and “a provider will still need to contract with a given MCE to participate with them.” ODM publishes no fixed completion time. Its Credentialing Guide and Requirements (last updated December 31, 2025): “Please allow 30 business days before inquiring about application status. If an application has been returned for additional information, processing time will be extended.” A returned application “must be returned to ODM in the PNM portal within 9 days of the issuance of RTP letter. Failure to respond will result in application cancellation and denial,” and ODM calls submitting everything up front, including the completed CAQH profile, “the fastest way to complete the enrollment and credentialing processes.” Adding a new BCBA: the analyst enrolls and is credentialed through the PNM portal (Certified Ohio Behavior Analysts are among the practitioners OAC 5160-1-42 requires ODM to credential), and the group’s administrator affiliates them; the FAQ notes that “Group administrators can access the PNM secure portal to search for active providers for affiliation with their agency.” Then ask Anthem to add the analyst under your contract; it publishes no ABA-specific loading time.',
+        ],
+        cites: [
+          { title: 'Ohio Department of Medicaid — Credentialing Guide and Requirements (last updated Dec. 31, 2025)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Enrollment%20and%20Support/Credentialing_Guide_and_Requirements_Final_Rev_12-31-2025.pdf' },
+          { title: 'Ohio Department of Medicaid — Centralized Credentialing Frequently Asked Questions (September 2022)', url: 'https://dam.assets.ohio.gov/image/upload/managedcare.medicaid.ohio.gov/PNM/Centralized-Credentialing-FAQ.pdf' },
+          { title: 'OAC 5160-1-42 — Medicaid provider credentialing', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-42' },
         ],
       },
     ],
@@ -1407,6 +1466,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How long does it take to credential a new BCBA with Anthem in Ohio?', a: 'Credentialing runs through ODM, not the plan. ODM asks providers to “allow 30 business days before inquiring about application status,” longer if the application is returned for information (a returned application must be completed within 9 days or it is cancelled). Then Anthem adds the analyst under your contract.' },
       { q: 'Does Anthem Ohio Medicaid cover ABA therapy?', a: 'Yes — under its adopted CG-BEH-02 adaptive behavioral treatment guideline (Ohio has no in-force ABA rule), submitted via Availity\'s Interactive Care Reviewer, with EPSDT protections for under-21 members.' },
       { q: 'Does OhioRISE change anything for Anthem ABA members?', a: 'Inpatient psychiatric care for under-21s routes to OhioRISE, but ABA always stays with Anthem (per ODM\'s mixed-services protocol) — bill the MCO, not OhioRISE.' },
       { q: 'Does Anthem Ohio Medicaid require taxonomy on ABA claims?', a: 'Yes. Show the billing and rendering providers’ taxonomy codes as certified with Ohio Medicaid; missing or invalid numbers may result in nonpayment (Anthem Ohio Medicaid provider manual).' },
@@ -1506,6 +1566,17 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'ODM 10295 (8/2022) — MCE Out-of-Network and Single Case Agreement Provider Application', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Resources/Publications/Forms/ODM10295Fillx.pdf' },
           { title: 'ODM 10282 (11/2021) — MCE Out-of-Network and Managed Care-Only Provider Application', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Resources/Publications/Forms/ODM10282Fillx.pdf' },
           { title: 'OAC 5160-26-03 — Managed health care programs: covered services (eff. 7/18/2022)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03' },
+        ],
+      },
+      {
+        h2: 'How long does credentialing take with UnitedHealthcare Community Plan?',
+        body: [
+          'Credentialing for Ohio Medicaid is done once, by ODM, not by UnitedHealthcare Community Plan. ODM’s Centralized Credentialing FAQ: “If a provider is participating with a managed care entity for Medicaid-only credentials or MyCare credentials, the credentialing process will be done through ODM,” and “a provider will still need to contract with a given MCE to participate with them.” ODM publishes no fixed completion time. Its Credentialing Guide and Requirements (last updated December 31, 2025): “Please allow 30 business days before inquiring about application status. If an application has been returned for additional information, processing time will be extended.” A returned application “must be returned to ODM in the PNM portal within 9 days of the issuance of RTP letter. Failure to respond will result in application cancellation and denial,” and ODM calls submitting everything up front, including the completed CAQH profile, “the fastest way to complete the enrollment and credentialing processes.” Adding a new BCBA: the analyst enrolls and is credentialed through the PNM portal (Certified Ohio Behavior Analysts are among the practitioners OAC 5160-1-42 requires ODM to credential), and the group’s administrator affiliates them; the FAQ notes that “Group administrators can access the PNM secure portal to search for active providers for affiliation with their agency.” Then ask UnitedHealthcare Community Plan to add the analyst under your contract; it publishes no ABA-specific loading time.',
+        ],
+        cites: [
+          { title: 'Ohio Department of Medicaid — Credentialing Guide and Requirements (last updated Dec. 31, 2025)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Enrollment%20and%20Support/Credentialing_Guide_and_Requirements_Final_Rev_12-31-2025.pdf' },
+          { title: 'Ohio Department of Medicaid — Centralized Credentialing Frequently Asked Questions (September 2022)', url: 'https://dam.assets.ohio.gov/image/upload/managedcare.medicaid.ohio.gov/PNM/Centralized-Credentialing-FAQ.pdf' },
+          { title: 'OAC 5160-1-42 — Medicaid provider credentialing', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-42' },
         ],
       },
     ],
@@ -1666,6 +1737,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How long does it take to credential a new BCBA with UnitedHealthcare Community Plan in Ohio?', a: 'Credentialing runs through ODM, not the plan. ODM asks providers to “allow 30 business days before inquiring about application status,” longer if the application is returned for information (a returned application must be completed within 9 days or it is cancelled). Then UnitedHealthcare Community Plan adds the analyst under your contract.' },
       { q: 'Does UnitedHealthcare Community Plan of Ohio cover ABA?', a: 'Yes — through Optum under Ohio-specific supplemental clinical criteria that defer to the OAC on eligibility and PA while adding Optum\'s UM requirements (diagnostic tools, supervision ratios, the 80% utilization trigger).' },
       { q: 'What happens if a family uses fewer hours than authorized?', a: 'Utilization below 80% of authorized hours over a two-week period triggers scrutiny at continued-treatment review, with barrier documentation required — request hours the family can actually attend.' },
       { q: 'How do I credential for UHC Ohio ABA?', a: 'Enroll with Ohio Medicaid as Provider Type 19, Specialty 190 (rendering + group NPIs), then join the Optum network via Provider Express\'s Ohio Medicaid ABA Program page.' },
@@ -1775,6 +1847,17 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'ODM 10295 (8/2022) — MCE Out-of-Network and Single Case Agreement Provider Application', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Resources/Publications/Forms/ODM10295Fillx.pdf' },
           { title: 'ODM 10282 (11/2021) — MCE Out-of-Network and Managed Care-Only Provider Application', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Resources/Publications/Forms/ODM10282Fillx.pdf' },
           { title: 'OAC 5160-26-03 — Managed health care programs: covered services (eff. 7/18/2022)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03' },
+        ],
+      },
+      {
+        h2: 'How long does credentialing take with AmeriHealth Caritas Ohio?',
+        body: [
+          'Credentialing for Ohio Medicaid is done once, by ODM, not by AmeriHealth Caritas Ohio. ODM’s Centralized Credentialing FAQ: “If a provider is participating with a managed care entity for Medicaid-only credentials or MyCare credentials, the credentialing process will be done through ODM,” and “a provider will still need to contract with a given MCE to participate with them.” ODM publishes no fixed completion time. Its Credentialing Guide and Requirements (last updated December 31, 2025): “Please allow 30 business days before inquiring about application status. If an application has been returned for additional information, processing time will be extended.” A returned application “must be returned to ODM in the PNM portal within 9 days of the issuance of RTP letter. Failure to respond will result in application cancellation and denial,” and ODM calls submitting everything up front, including the completed CAQH profile, “the fastest way to complete the enrollment and credentialing processes.” Adding a new BCBA: the analyst enrolls and is credentialed through the PNM portal (Certified Ohio Behavior Analysts are among the practitioners OAC 5160-1-42 requires ODM to credential), and the group’s administrator affiliates them; the FAQ notes that “Group administrators can access the PNM secure portal to search for active providers for affiliation with their agency.” Then ask AmeriHealth Caritas Ohio to add the analyst under your contract; it publishes no ABA-specific loading time.',
+        ],
+        cites: [
+          { title: 'Ohio Department of Medicaid — Credentialing Guide and Requirements (last updated Dec. 31, 2025)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Enrollment%20and%20Support/Credentialing_Guide_and_Requirements_Final_Rev_12-31-2025.pdf' },
+          { title: 'Ohio Department of Medicaid — Centralized Credentialing Frequently Asked Questions (September 2022)', url: 'https://dam.assets.ohio.gov/image/upload/managedcare.medicaid.ohio.gov/PNM/Centralized-Credentialing-FAQ.pdf' },
+          { title: 'OAC 5160-1-42 — Medicaid provider credentialing', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-42' },
         ],
       },
     ],
@@ -1940,6 +2023,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How long does it take to credential a new BCBA with AmeriHealth Caritas Ohio in Ohio?', a: 'Credentialing runs through ODM, not the plan. ODM asks providers to “allow 30 business days before inquiring about application status,” longer if the application is returned for information (a returned application must be completed within 9 days or it is cancelled). Then AmeriHealth Caritas Ohio adds the analyst under your contract.' },
       { q: 'Does AmeriHealth Caritas Ohio cover ABA therapy?', a: 'Yes. "Behavioral Analysis Therapy for Autism Spectrum Disorder" is on the plan\'s prior-authorization list; submit through Jiva via NaviNet, fax 1-833-329-6411, or call UM at 1-833-735-7700. The plan does not publish its authorization-period length.' },
       { q: 'How long do AmeriHealth Caritas Ohio ABA authorizations take?', a: 'Standard decisions are due “no later than seven calendar days following receipt of the request for service” under OAC 5160-26-03.1 (effective 1/1/2026), and expedited decisions within 48 hours. The plan’s January 2026 provider manual still prints “no later than 10 calendar days” — treat 7 as the binding outer limit.' },
       { q: 'What does AmeriHealth Caritas Ohio pay for ABA?', a: 'No ABA rate table is published. In-network rates are in your plan contract. A non-contracted provider is paid 75% of the applicable fee schedule amount for covered non-emergent services, and out-of-network care needs prior authorization.' },
@@ -2027,6 +2111,17 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'ODM 10295 (8/2022) — MCE Out-of-Network and Single Case Agreement Provider Application', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Resources/Publications/Forms/ODM10295Fillx.pdf' },
           { title: 'ODM 10282 (11/2021) — MCE Out-of-Network and Managed Care-Only Provider Application', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Resources/Publications/Forms/ODM10282Fillx.pdf' },
           { title: 'OAC 5160-26-03 — Managed health care programs: covered services (eff. 7/18/2022)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-26-03' },
+        ],
+      },
+      {
+        h2: 'How long does credentialing take with Humana Healthy Horizons?',
+        body: [
+          'Credentialing for Ohio Medicaid is done once, by ODM, not by Humana Healthy Horizons. ODM’s Centralized Credentialing FAQ: “If a provider is participating with a managed care entity for Medicaid-only credentials or MyCare credentials, the credentialing process will be done through ODM,” and “a provider will still need to contract with a given MCE to participate with them.” ODM publishes no fixed completion time. Its Credentialing Guide and Requirements (last updated December 31, 2025): “Please allow 30 business days before inquiring about application status. If an application has been returned for additional information, processing time will be extended.” A returned application “must be returned to ODM in the PNM portal within 9 days of the issuance of RTP letter. Failure to respond will result in application cancellation and denial,” and ODM calls submitting everything up front, including the completed CAQH profile, “the fastest way to complete the enrollment and credentialing processes.” Adding a new BCBA: the analyst enrolls and is credentialed through the PNM portal (Certified Ohio Behavior Analysts are among the practitioners OAC 5160-1-42 requires ODM to credential), and the group’s administrator affiliates them; the FAQ notes that “Group administrators can access the PNM secure portal to search for active providers for affiliation with their agency.” Then ask Humana Healthy Horizons to add the analyst under your contract; it publishes no ABA-specific loading time.',
+        ],
+        cites: [
+          { title: 'Ohio Department of Medicaid — Credentialing Guide and Requirements (last updated Dec. 31, 2025)', url: 'https://dam.assets.ohio.gov/image/upload/medicaid.ohio.gov/Providers/Enrollment%20and%20Support/Credentialing_Guide_and_Requirements_Final_Rev_12-31-2025.pdf' },
+          { title: 'Ohio Department of Medicaid — Centralized Credentialing Frequently Asked Questions (September 2022)', url: 'https://dam.assets.ohio.gov/image/upload/managedcare.medicaid.ohio.gov/PNM/Centralized-Credentialing-FAQ.pdf' },
+          { title: 'OAC 5160-1-42 — Medicaid provider credentialing', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-42' },
         ],
       },
     ],
@@ -2189,6 +2284,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How long does it take to credential a new BCBA with Humana Healthy Horizons in Ohio?', a: 'Credentialing runs through ODM, not the plan. ODM asks providers to “allow 30 business days before inquiring about application status,” longer if the application is returned for information (a returned application must be completed within 9 days or it is cancelled). Then Humana Healthy Horizons adds the analyst under your contract.' },
       { q: 'Does Humana Healthy Horizons in Ohio cover ABA?', a: 'Yes — on the state clinical framework, with prior authorization required on every ABA code including assessments, submitted via Availity Essentials.' },
       { q: 'What happens if we deliver ABA without a Humana authorization?', a: 'The service is subject to retrospective medical-necessity review and financial penalties — treat authorization-before-service as non-negotiable.' },
       { q: 'Does Humana Healthy Horizons in Ohio require taxonomy on ABA claims?', a: 'Yes. Billing and rendering taxonomy codes must match the ODM Master Provider List (Humana Ohio provider manual, 2026). Claims are due within 365 days of the date of service.' },
@@ -2323,6 +2419,16 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Aetna — Disputes and appeals overview (reconsideration and appeal time frames)', url: 'https://www.aetna.com/health-care-professionals/disputes-appeals/disputes-appeals-overview.html' },
           { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' },
           { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' },
+        ],
+      },
+      {
+        h2: 'How long does credentialing take with Aetna in Ohio?',
+        body: [
+          'Ohio law puts a clock on commercial credentialing. Under ORC 3963.06 the credentialing process begins when the provider first submits a credentialing form, and the contracting entity “shall complete the credentialing process not later than ninety days” after receiving it. If it misses the 90 days, it owes the provider either “a civil penalty payable to the provider in the amount of five hundred dollars per day” from the end of the 90 days until the application is granted or denied, or retroactive reimbursement under the contract for services given to enrollees from that point; the contracting entity picks which and tells the provider. An incomplete form must be flagged as deficient within 21 days of receipt. Chapter 3963 defines a contracting entity as “any person that has a primary business purpose of contracting with participating providers” for the delivery of health care services (ORC 3963.01). Aetna publishes no Ohio ABA-specific credentialing turnaround that we found, so the statute is the outside limit: date-stamp the day each new BCBA’s complete application went in, and hold the plan to the 90 days.',
+        ],
+        cites: [
+          { title: 'Ohio Revised Code 3963.06 — Credentialing process: 90-day completion, deficiency notice, penalty (codes.ohio.gov)', url: 'https://codes.ohio.gov/ohio-revised-code/section-3963.06' },
+          { title: 'Ohio Revised Code 3963.01 — Definitions for Chapter 3963 (contracting entity, credentialing, enrollee, product) (codes.ohio.gov)', url: 'https://codes.ohio.gov/ohio-revised-code/section-3963.01' },
         ],
       },
     ],
@@ -2479,6 +2585,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How long can Aetna take to credential a new BCBA in Ohio?', a: 'Ohio law (ORC 3963.06) gives a contracting entity 90 days from receiving the credentialing form to complete credentialing; past that it owes the provider $500 a day or retroactive reimbursement, its choice. An incomplete form must be flagged within 21 days.' },
       { q: 'Does Aetna cover ABA therapy in Ohio?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Ohio\'s mandate (Ohio R.C. § 3923.84) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Ohio autism mandate require?', a: 'Ohio’s mandate (HB 463, 2017; R.C. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does Aetna pay for ABA in Ohio?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Ohio Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
@@ -2617,6 +2724,16 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Evernorth — Billing Codes for Applied Behavior Analysis', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDBwCBillingCodesForABA.html' },
           { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' },
           { title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
+        ],
+      },
+      {
+        h2: 'How long does credentialing take with Cigna / Evernorth in Ohio?',
+        body: [
+          'Ohio law puts a clock on commercial credentialing. Under ORC 3963.06 the credentialing process begins when the provider first submits a credentialing form, and the contracting entity “shall complete the credentialing process not later than ninety days” after receiving it. If it misses the 90 days, it owes the provider either “a civil penalty payable to the provider in the amount of five hundred dollars per day” from the end of the 90 days until the application is granted or denied, or retroactive reimbursement under the contract for services given to enrollees from that point; the contracting entity picks which and tells the provider. An incomplete form must be flagged as deficient within 21 days of receipt. Chapter 3963 defines a contracting entity as “any person that has a primary business purpose of contracting with participating providers” for the delivery of health care services (ORC 3963.01). Cigna / Evernorth publishes no Ohio ABA-specific credentialing turnaround that we found, so the statute is the outside limit: date-stamp the day each new BCBA’s complete application went in, and hold the plan to the 90 days.',
+        ],
+        cites: [
+          { title: 'Ohio Revised Code 3963.06 — Credentialing process: 90-day completion, deficiency notice, penalty (codes.ohio.gov)', url: 'https://codes.ohio.gov/ohio-revised-code/section-3963.06' },
+          { title: 'Ohio Revised Code 3963.01 — Definitions for Chapter 3963 (contracting entity, credentialing, enrollee, product) (codes.ohio.gov)', url: 'https://codes.ohio.gov/ohio-revised-code/section-3963.01' },
         ],
       },
     ],
@@ -2762,6 +2879,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How long can Cigna / Evernorth take to credential a new BCBA in Ohio?', a: 'Ohio law (ORC 3963.06) gives a contracting entity 90 days from receiving the credentialing form to complete credentialing; past that it owes the provider $500 a day or retroactive reimbursement, its choice. An incomplete form must be flagged within 21 days.' },
       { q: 'Does Cigna cover ABA therapy in Ohio?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Ohio\'s mandate (Ohio R.C. § 3923.84) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Ohio autism mandate require?', a: 'Ohio’s mandate (HB 463, 2017; R.C. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does Cigna pay for ABA in Ohio?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Ohio Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
@@ -2910,6 +3028,16 @@ export const ohioPayers: Record<string, PayerConfig> = {
           { title: 'Optum — ABA Request for Services Checklist (BH00853-25-QRG)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/BH00853-25-QRG_ABAQRG.pdf' },
         ],
       },
+      {
+        h2: 'How long does credentialing take with UnitedHealthcare / Optum in Ohio?',
+        body: [
+          'Ohio law puts a clock on commercial credentialing. Under ORC 3963.06 the credentialing process begins when the provider first submits a credentialing form, and the contracting entity “shall complete the credentialing process not later than ninety days” after receiving it. If it misses the 90 days, it owes the provider either “a civil penalty payable to the provider in the amount of five hundred dollars per day” from the end of the 90 days until the application is granted or denied, or retroactive reimbursement under the contract for services given to enrollees from that point; the contracting entity picks which and tells the provider. An incomplete form must be flagged as deficient within 21 days of receipt. Chapter 3963 defines a contracting entity as “any person that has a primary business purpose of contracting with participating providers” for the delivery of health care services (ORC 3963.01). UnitedHealthcare / Optum publishes no Ohio ABA-specific credentialing turnaround that we found, so the statute is the outside limit: date-stamp the day each new BCBA’s complete application went in, and hold the plan to the 90 days.',
+        ],
+        cites: [
+          { title: 'Ohio Revised Code 3963.06 — Credentialing process: 90-day completion, deficiency notice, penalty (codes.ohio.gov)', url: 'https://codes.ohio.gov/ohio-revised-code/section-3963.06' },
+          { title: 'Ohio Revised Code 3963.01 — Definitions for Chapter 3963 (contracting entity, credentialing, enrollee, product) (codes.ohio.gov)', url: 'https://codes.ohio.gov/ohio-revised-code/section-3963.01' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (mandate applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2918,7 +3046,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date.' },
       { title: 'Age', desc: 'Where the mandate carries age terms, flag edge cases for the parity analysis rather than turning families away.' },
     ],
-    sources: [{ title: 'R.C. 3923.041 — prior authorization: sickness and accident insurers and public employee benefit plans', url: 'https://codes.ohio.gov/ohio-revised-code/section-3923.041' }, { title: 'R.C. 1751.72 — prior authorization: health insuring corporations', url: 'https://codes.ohio.gov/ohio-revised-code/section-1751.72' }, { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' }, { title: '45 CFR 147.136 — internal claims and appeals, group and individual coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-45/section-147.136' }, { title: 'OAC 3901-8-01 — Coordination of benefits (order of benefit determination)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-3901-8-01' }, { title: 'OAC 5160-1-08 — Medicaid coordination of benefits', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-08' }, { title: 'TRICARE — Using Other Health Insurance', url: 'https://www.tricare.mil/Plans/OHI' }, { title: 'VA — CHAMPVA: Information for Outpatient Providers (IB 10-1587, updated 9/20/2023)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/factsheets/FactSheet_01-20.pdf' }, 
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, { title: 'R.C. 3923.041 — prior authorization: sickness and accident insurers and public employee benefit plans', url: 'https://codes.ohio.gov/ohio-revised-code/section-3923.041' }, { title: 'R.C. 1751.72 — prior authorization: health insuring corporations', url: 'https://codes.ohio.gov/ohio-revised-code/section-1751.72' }, { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' }, { title: '45 CFR 147.136 — internal claims and appeals, group and individual coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-45/section-147.136' }, { title: 'OAC 3901-8-01 — Coordination of benefits (order of benefit determination)', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-3901-8-01' }, { title: 'OAC 5160-1-08 — Medicaid coordination of benefits', url: 'https://codes.ohio.gov/ohio-administrative-code/rule-5160-1-08' }, { title: 'TRICARE — Using Other Health Insurance', url: 'https://www.tricare.mil/Plans/OHI' }, { title: 'VA — CHAMPVA: Information for Outpatient Providers (IB 10-1587, updated 9/20/2023)', url: 'https://www.va.gov/COMMUNITYCARE/docs/pubfiles/factsheets/FactSheet_01-20.pdf' }, 
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Ohio Rev. Code § 3923.84 (autism coverage mandate)', url: 'https://codes.findlaw.com/oh/title-xxxix-insurance/oh-rev-code-sect-3923-84/' },
       { title: 'Ohio Admin. Code 4783-4-01 — COBA requirements', url: 'https://www.law.cornell.edu/regulations/ohio/Ohio-Admin-Code-4783-4-01' },
@@ -3061,6 +3189,8 @@ export const ohioPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
+      { q: 'How long can UnitedHealthcare / Optum take to credential a new BCBA in Ohio?', a: 'Ohio law (ORC 3963.06) gives a contracting entity 90 days from receiving the credentialing form to complete credentialing; past that it owes the provider $500 a day or retroactive reimbursement, its choice. An incomplete form must be flagged within 21 days.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Ohio?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Ohio\'s mandate (Ohio R.C. § 3923.84) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Ohio autism mandate require?', a: 'Ohio’s mandate (HB 463, 2017; R.C. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
       { q: 'What does UnitedHealthcare pay for ABA in Ohio?', a: 'Commercial ABA rates are not published — they are negotiated in your participating-provider agreement. Benchmark against the Ohio Medicaid fee schedule where one exists, and treat rate-setting as part of contracting.' },
@@ -3218,6 +3348,16 @@ export const ohioPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Anthem — ABA provider resource guide (MULTI-BCBS-CM-084583-25, June 2025)', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/guides/aba-provider-resource-guide-abcbs.pdf' },
+        ],
+      },
+      {
+        h2: 'How long does credentialing take with Anthem in Ohio?',
+        body: [
+          'Ohio law puts a clock on commercial credentialing. Under ORC 3963.06 the credentialing process begins when the provider first submits a credentialing form, and the contracting entity “shall complete the credentialing process not later than ninety days” after receiving it. If it misses the 90 days, it owes the provider either “a civil penalty payable to the provider in the amount of five hundred dollars per day” from the end of the 90 days until the application is granted or denied, or retroactive reimbursement under the contract for services given to enrollees from that point; the contracting entity picks which and tells the provider. An incomplete form must be flagged as deficient within 21 days of receipt. Chapter 3963 defines a contracting entity as “any person that has a primary business purpose of contracting with participating providers” for the delivery of health care services (ORC 3963.01). Anthem publishes no Ohio ABA-specific credentialing turnaround that we found, so the statute is the outside limit: date-stamp the day each new BCBA’s complete application went in, and hold the plan to the 90 days.',
+        ],
+        cites: [
+          { title: 'Ohio Revised Code 3963.06 — Credentialing process: 90-day completion, deficiency notice, penalty (codes.ohio.gov)', url: 'https://codes.ohio.gov/ohio-revised-code/section-3963.06' },
+          { title: 'Ohio Revised Code 3963.01 — Definitions for Chapter 3963 (contracting entity, credentialing, enrollee, product) (codes.ohio.gov)', url: 'https://codes.ohio.gov/ohio-revised-code/section-3963.01' },
         ],
       },
     ],
@@ -3378,6 +3518,7 @@ export const ohioPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How long can Anthem take to credential a new BCBA in Ohio?', a: 'Ohio law (ORC 3963.06) gives a contracting entity 90 days from receiving the credentialing form to complete credentialing; past that it owes the provider $500 a day or retroactive reimbursement, its choice. An incomplete form must be flagged within 21 days.' },
       { q: 'Does Ohio cap ABA at 20 hours a week?', a: 'No — that is the most common misreading of R.C. 3923.84. Twenty hours a week of clinical therapeutic intervention is the minimum the statute requires for an insured under age fourteen, and the same section says it "shall not be construed as limiting benefits that are otherwise available to an insured under a policy." Ask for what is medically necessary; the 20 hours is the floor you can insist on, not the ceiling you must accept.' },
       { q: 'Which Ohio plans are exempt from the autism mandate?', a: 'Non-grandfathered plans in the individual and small group markets are carved out by name, along with Medicare supplement, accident-only, specified disease, hospital indemnity, disability income, long-term care and other limited-benefit policies. Self-funded ERISA plans sit outside state insurance law entirely. Those members may still have an ABA benefit, but not because of R.C. 3923.84.' },
       { q: 'Who can order ABA in Ohio?', a: 'The statute makes coverage contingent on the services being prescribed or ordered by a psychologist trained in autism, a developmental pediatrician, or — since Senate Bill 196 took effect on March 20, 2025 — a clinical nurse specialist or certified nurse practitioner specializing in pediatric health. Prior authorization is likewise written into the mandate as a condition of coverage.' },

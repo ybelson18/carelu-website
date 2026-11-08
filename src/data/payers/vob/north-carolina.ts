@@ -922,7 +922,7 @@ const wellcareEdi: EdiRouting = {
      documentation was used instead where it exists.
    - Vaya's provider-document library, reported bot-blocked in the
      original corpus compile, was retried this pass and is NOT
-     blocked: both its RB-BHT Authorization Guidelines v2.0 (Sept 2025)
+     blocked: both its RB-BHT Authorization Guidelines (v2.0 Sept 2025, now v3.0 Rev. 08.01.2026)
      and its RB-BHT Guidance (May 2025) are plain-text PDFs that
      extracted cleanly. What remains genuinely unverified for Vaya is
      a *current* (FY26-27-cycle) rate schedule — the only rate
@@ -998,7 +998,7 @@ const TRILLIUM_BENEFIT_PLAN = srcAt(
 );
 const VAYA_AUTH_GUIDELINES = src(
   'https://legacy.providers.vayahealth.com/wp-content/uploads/2025/09/Authorization_Guidelines_Medicaid_RB_BHT_ASD.pdf',
-  'Vaya Health — Authorization Guidelines: Medicaid RB-BHT for ASD, v2.0, effective 9/5/2025 — code-by-code SAR documentation requirements and passthrough thresholds (97151: notification SAR up to 32 units/6 months, then medical-necessity review; 97155: notification SAR up to 1 hour per 10 hours of 97153/97154, then review). Reported bot-blocked in the original corpus compile; retried this pass and retrieved cleanly as plain text (not a scanned image) via direct download + pdftotext — NOT currently blocked.'
+  'Vaya Health — Authorization Guidelines: Medicaid RB-BHT for ASD, Version 3.0, Rev. 08.01.2026 (effective 8/1/2026; re-checked 11/8/2026) — code-by-code SAR documentation requirements and passthrough thresholds (97151: notification SAR up to 32 units over 180 days or 16 over 90 days, then medical-necessity review; 97155: notification SAR up to 1 hour per 10 hours of 97153/97154, then review). Reported bot-blocked in the original corpus compile; retried this pass and retrieved cleanly as plain text (not a scanned image) via direct download + pdftotext — NOT currently blocked.'
 );
 const VAYA_RBBHT_GUIDANCE = src(
   'https://legacy.providers.vayahealth.com/wp-content/uploads/2025/05/RB_BHT_Guidance_20250522.pdf',
@@ -1447,7 +1447,7 @@ function vayaCodeGrid(): Record<string, CodeGridEntry> {
       paFieldStatus: 'verified',
       unitCap: '1 hour per 10 hours of 97153/97154 (10% passthrough threshold; higher ratios reviewed)',
       unitCapFieldStatus: 'verified',
-      notes: 'Confirmed by two independent Vaya documents (Authorization Guidelines v2.0 and the May-2025 RB-BHT Guidance) and consistent with the May-2019 NC Medicaid Bulletin restriction that 97155 does not cover routine technician-supervision/fidelity checks.',
+      notes: 'Confirmed by two independent Vaya documents (Authorization Guidelines v3.0, Rev. 08.01.2026, and the May-2025 RB-BHT Guidance) and consistent with the May-2019 NC Medicaid Bulletin restriction that 97155 does not cover routine technician-supervision/fidelity checks.',
       extraSources: [VAYA_AUTH_GUIDELINES, VAYA_RBBHT_GUIDANCE],
     }),
     '97156': ncTailoredPlanEntry({

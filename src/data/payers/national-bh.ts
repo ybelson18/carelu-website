@@ -174,6 +174,14 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'AMA CPT Editorial Panel — Summary of Panel Actions, September 2025 (tab 56, Adaptive Behavior Services Revisions) (PDF)', url: 'https://www.ama-assn.org/system/files/sept-2025-summary-of-panel-actions.pdf' }, { title: 'AMA RUC HCPAC — Vote Totals, CPT 2027 (adaptive behavior code family) (PDF)', url: 'https://www.ama-assn.org/system/files/hcpac-voting-2027.pdf' }, { title: 'Carelon Behavioral Health — ABA Authorization Request Form (effective 1/1/2026) (PDF)', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/clinical/aba-authorization-request-form.pdf' }],
       },
+      {
+        h2: 'How long does Carelon credentialing take, and how do you add a new BCBA?',
+        body: [
+          'Carelon\'s national provider handbook publishes no credentialing turnaround. "Initial credentialing processes begin with submission of completed and signed applications, along with all required supporting documentation": practitioners on CAQH add Carelon as an authorized plan and keep a current attestation, and practitioners not on CAQH call the National Provider Services Line at 800-397-1630. Groups not yet contracted apply through the Carelon Behavioral Health payer space on Availity (Provider Enrollment application), and a roster that lists a provider who is not credentialed is rejected for that provider until they submit a credentialing application through Availity or CAQH.',
+          'Status: log in to Availity and select "submitted applications," or call 800-397-1630. Once approved and contracted, "Carelon will advise of the effective date for specified lines of business." For a credentialed facility, Carelon "does not individually credential facility-based staff": the facility credentials and oversees its own clinicians. Incomplete or late applications "may result in rejection of request for participation status." A state credentialing law may set a clock of its own; see the state guide.',
+        ],
+        cites: [{ title: 'Carelon Behavioral Health Provider Handbook', url: 'https://www.carelonbehavioralhealth.com/content/dam/digital/carelon/cbh-assets/documents/global/carelon-behavioral-health-provider-handbook.pdf' }],
+      },
     ],
     collect: [
       { title: 'A photo of BOTH sides of the card', desc: 'The behavioral health administrator and its phone number live on the back. Front-only card photos are the root cause of most carve-out misroutes.' },
@@ -310,6 +318,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How long does Carelon take to credential a BCBA?', a: 'Carelon\'s provider handbook publishes no turnaround. Credentialing starts when a complete, signed application (CAQH, or via the National Provider Services Line 800-397-1630) is in, status is visible in Availity under "submitted applications," and Carelon tells you the effective date once you are approved and contracted.' },
       { q: 'Does Carelon require graphs for ABA reassessments?', a: 'Yes. Carelon’s ABA Provider Treatment Report Guidelines (v1.5) say a “Graphic representation of the data collected during the current authorization period, per goal, including baseline data and parent goals” is mandatory in every concurrent (progress) report, along with an interpretation of each graph. Plot the data at the unit the mastery criterion uses, per session or per week. Do not average it by month or quarter unless the goal was written that way. Send the report at least two weeks, and no more than 30 days, before the authorization ends.' },
       { q: 'Is Carelon Behavioral Health an insurance company?', a: 'No. Its provider handbook describes it as licensed in numerous states as a third-party administrator and/or utilization-review agent of behavioral health services, managing benefits under contract for employer groups, commercial and exchange health plans, Medicare Advantage and managed Medicaid plans, and government programs. Some affiliates are licensed health plans in specific states, but the entity you deal with for ABA is usually the administrator, not the insurer.' },
       { q: 'How do I know whether a family’s plan uses Carelon for ABA?', a: 'Look at the back of the card for a behavioral health number different from the medical one, or for a named program. The Empire Plan routes mental health and substance use to Carelon at option 3 of 1-877-7-NYSHIP while UnitedHealthcare runs medical and Anthem runs hospital; EmblemHealth routes behavioral health to Carelon through the BMP or EBHSP program named on the card. When in doubt, call the number on the back and ask who authorizes applied behavior analysis.' },
@@ -504,6 +513,13 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Magellan Healthcare — Provider Focus: Medical necessity criteria update on Nov. 14 (Summer 2026)', url: 'https://provider.magellanhealthcare.com/w/medical-necessity-criteria-updates-to-occur-in-fall-2026' }, { title: '2026–2027 Magellan Care Guidelines — Summary of Revisions (effective Nov. 14, 2026) (PDF)', url: 'https://www.magellanprovider.com/media/114562/mcg_summary.pdf' }, { title: 'AMA CPT Editorial Panel — Summary of Panel Actions, September 2025 (tab 56, Adaptive Behavior Services Revisions) (PDF)', url: 'https://www.ama-assn.org/system/files/sept-2025-summary-of-panel-actions.pdf' }],
       },
+      {
+        h2: 'How long does Magellan credentialing take?',
+        body: [
+          'Magellan\'s 2026 national provider handbook publishes no turnaround time. You submit a completed provider participation application (Magellan "promotes use of the CAQH Provider Data Portal"; give Magellan access and attest), a Group Association Form when a group asks for one, proof of professional liability coverage and any supplemental attestations for your level and location. Magellan will "Notify you promptly if any required information is missing," send the file to its Regional Network and Credentialing Committee once verification is complete, and "Notify you when the initial credentialing process is complete." Status: Provider Services Line 1-800-788-4005. Recredentialing "is conducted at least every 36 months, unless otherwise required." A state credentialing law may set a clock of its own; see the state guide.',
+        ],
+        cites: [{ title: 'Magellan — 2026 Handbook for the National Provider Network (11/25 v3) (PDF)', url: 'https://www.magellanprovider.com/media/11893/provider_handbook.pdf' }],
+      },
     ],
     collect: [
       { title: 'Both sides of the card plus the employer name', desc: 'Magellan tells providers to obtain a card copy at the first visit and to call “the appropriate toll-free number” — the plan/program number on the card is what routes you to the right ABA team and fax number.' },
@@ -627,6 +643,7 @@ export const nationalBhPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How long does Magellan take to credential a BCBA?', a: 'Magellan\'s handbook publishes no turnaround. It promises to flag missing information promptly and to notify you when initial credentialing is complete; call 1-800-788-4005 for status. Recredentialing runs at least every 36 months.' },
       { q: 'Can an LCSW diagnose autism for Magellan ABA?', a: 'No, under Magellan’s Care Guidelines. The diagnosis must be confirmed within 24 months by a doctoral-level clinician: a physician in family practice, pediatrics, developmental or neurodevelopmental pediatrics, pediatric neurology or psychiatry, or a PhD or PsyD psychologist. A client plan or state law may differ.' },
       { q: 'Does Magellan require graphs for ABA reassessments?', a: 'A graph is one accepted way to show progress. Magellan’s ABA orientation lists “Current frequency/graph of progress” among the required parts of the Behavior Plan, along with baseline data, mastery criteria and caregiver goals with progress information. Each request for more sessions needs a new treatment plan, plus a new Vineland or ABAS every 6 months. The diagnosis must be updated every 24 months.' },
       { q: 'Does Magellan require the referring provider in box 17 on ABA claims?', a: 'Its clean-claim standard lists the referring provider\u2019s name (field 17) and NPI (field 17b) among the required CMS-1500 elements, while noting that state guidelines may supersede them.' },

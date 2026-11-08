@@ -153,6 +153,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
           { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — General Information for Providers, claim filing limit', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
         ],
       },
+      {
+        h2: 'Record keeping: seven years from the date of service',
+        body: [
+          'The Medicaid Provider Manual (October 1, 2026), General Information for Providers, Section 14.1: providers "must maintain, in English and in a legible manner, written or electronic records necessary to fully disclose and document the extent of services provided to beneficiaries," including fiscal and clinical records, and appointment books and logs when the service billed is time-specific according to its procedure code. "The records are to be retained for a period of not less than seven years from the DOS, regardless of change in ownership or termination of participation in Medicaid for any reason," and the requirement extends to any subcontracted provider. Section 14.2: a provider rendering services "upon the order, prescription or referral of another provider (e.g., physician) must maintain that order, prescription and/or referral for a period of seven years." For ABA billed through a PIHP or CMHSP, keep the session notes, the PCP referral and the BHT recommendation on this schedule as well as any longer period your network contract sets.',
+        ],
+        cites: [
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — General Information for Providers, Section 14: Record Keeping (14.1 Record Retention, 14.2 Orders, Prescriptions and Referrals)', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+        ],
+      },
       cpt27Section('CPT 2027: MDHHS has not announced the new ABA codes yet', CPT27_MI_STATE + ' Expect a bulletin or a code-chart update before or soon after Jan. 1, 2027; until then, ask your PIHP how authorizations that list 0362T or 0373T will be handled.', [CPT27_MI_BULL, CPT27_MI_4626, CPT27_MI_CHART, CPT27_MI_PROP]),
     ],
     collect: [
@@ -329,6 +338,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { q: 'Is there a limit on ABA hours?', a: 'No preset cap. The manual describes focused intervention averaging 5–15 hours a week and comprehensive intervention averaging 16–25, and says a PIHP may not deny services based solely on preset limits.' },
       { q: 'Can ABA be done by telehealth under Michigan Medicaid?', a: 'Only analyst-level services: 97155, 97156, 97157 and 97158. Technician-delivered 97153/97154, the 97151 assessment and 0362T were removed from the MDHHS telemedicine database in 2023.' },
       { q: 'What is Michigan Medicaid\'s fee schedule for ABA?', a: 'There is no public ABA fee screen. ABA is paid by the PIHP or CMHSP under your network contract, and the Medicaid Provider Manual (Section 18.13) says only that "All PIHPs will reimburse BHT-ABA services at a minimum to the rate outlined with the most recent executed PIHP contract." Ask the PIHP/CMHSP contracting office for its ABA rates.' },
+      { q: 'How long must a Michigan Medicaid ABA provider keep records?', a: 'At least seven years from the date of service, in English and legible, even after a change of ownership or leaving Medicaid (Medicaid Provider Manual, General Information for Providers, Section 14.1). The physician order, prescription or referral the services rest on must also be kept for seven years (Section 14.2).' },
       { q: 'What is the Michigan Medicaid timely filing limit?', a: 'Twelve months from the date of service for claims billed to MDHHS. ABA billed to a PIHP or CMHSP follows that entity’s own claims rules, which this guide has not yet verified.' },
       { q: 'What documents does Michigan Medicaid need at intake for ABA (BHT)?', a: 'The route runs through the PIHP. A PCP screening, typically at an EPSDT well-child visit, and a full medical and physical exam come first. The PCP refers the child to the PIHP\'s autism access point, and families may also self-refer. The PIHP arranges a comprehensive diagnostic evaluation by a qualified practitioner using valid tools (in practice ADOS-2, ADI-R and the DD-CGAS, plus cognitive and adaptive testing). It also arranges the behavioral assessment. A physician or other licensed practitioner recommends BHT, and PIHP utilization management authorizes it before services start. Re-evaluations are needed no more than every three years unless medically necessary.' },
       { q: CPT27_FAQ_Q, a: 'Not yet, as of Nov. 1, 2026. CPT 2027 deletes 0362T and 0373T, revises 97151–97158 and adds 97148/97149, 97159/97160, 97173 and 97180 from Jan. 1, 2027. MDHHS bulletins through MMP 26-48 do not address ABA, and the SFY 2027 Behavioral Health Code Charts still list 0362T and 0373T. Ask your PIHP how existing authorizations carry over.' },
@@ -436,6 +446,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
         ],
       },
       cpt27Section('CPT 2027: the new ABA codes and DWIHN', CPT27_MI_STATE + ' DWIHN reports ABA encounters on those MDHHS code charts, and we found no DWIHN notice on the 2027 codes (its provider newsletter page, checked Nov. 1, 2026). Ask DWIHN how it will load the new codes and whether authorizations that list 0362T or 0373T carry over to dates of service from Jan. 1, 2027.', [CPT27_MI_BULL, CPT27_MI_CHART, { title: 'DWIHN — Provider newsletter', url: 'https://dwihn.org/provider-resources/provider-newsletter' }]),
+      {
+        h2: 'What does DWIHN pay for ABA?',
+        body: [
+          'MDHHS publishes no ABA fee screen for the autism benefit; the rate floor is in the Medicaid Provider Manual, Section 18.13: “All PIHPs will reimburse BHT-ABA services at a minimum to the rate outlined with the most recent executed PIHP contract.” The rate a provider is actually paid is the one in its network contract, so the answer to “what does DWIHN pay for 97153?” comes from the contract or rate sheet: ask DWIHN (provider network / contracting) for the current ABA rates by code and credential before signing.',
+        ],
+        cites: [
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18.13: ABA Rate', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Wayne County residence + Medicaid ID', desc: 'DWIHN serves Wayne County; Access checks insurance status on the first call.' },
@@ -626,6 +645,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What does DWIHN pay for ABA (97153)?', a: 'There is no public state fee screen. The Medicaid Provider Manual (Section 18.13) says PIHPs reimburse BHT-ABA “at a minimum to the rate outlined with the most recent executed PIHP contract”; your rate is in your network contract, so ask DWIHN for the current ABA rate sheet.' },
       { q: 'How do I start ABA with DWIHN?', a: 'Call the DWIHN Access Call Center at 1-800-241-4949. Access screens the child, and if autism signs are elevated schedules an evaluation at an independent evaluation center plus a support coordination appointment.' },
       { q: 'How long until therapy starts?', a: 'DWIHN says it may take up to 90 calendar days from the autism diagnosis to begin one-to-one ABA, depending on provider availability and completing the required appointments.' },
       { q: 'Does DWIHN cover ABA at school?', a: 'DWIHN lists home, clinic, community, and school or daycare settings "when appropriate"; state policy bars billing BHT for IDEA special-education services the school is responsible for.' },
@@ -722,6 +742,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
         ],
       },
       cpt27Section('CPT 2027: the new ABA codes and OCHN', CPT27_MI_STATE + ' OCHN reports ABA encounters on those MDHHS code charts, and we found no OCHN notice on the 2027 codes (its news and information page, checked Nov. 1, 2026). Ask OCHN how it will load the new codes and whether authorizations that list 0362T or 0373T carry over to dates of service from Jan. 1, 2027.', [CPT27_MI_BULL, CPT27_MI_CHART, { title: 'Oakland Community Health Network — News and information', url: 'https://oaklandchn.org/category/news-and-information/' }]),
+      {
+        h2: 'What does OCHN pay for ABA?',
+        body: [
+          'MDHHS publishes no ABA fee screen for the autism benefit; the rate floor is in the Medicaid Provider Manual, Section 18.13: “All PIHPs will reimburse BHT-ABA services at a minimum to the rate outlined with the most recent executed PIHP contract.” The rate a provider is actually paid is the one in its network contract, so the answer to “what does OCHN pay for 97153?” comes from the contract or rate sheet: ask OCHN (provider network / contracting) for the current ABA rates by code and credential before signing.',
+        ],
+        cites: [
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18.13: ABA Rate', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Oakland County residence + Medicaid ID', desc: 'OCHN Access verifies eligibility at screening.' },
@@ -907,6 +936,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What does OCHN pay for ABA (97153)?', a: 'There is no public state fee screen. The Medicaid Provider Manual (Section 18.13) says PIHPs reimburse BHT-ABA “at a minimum to the rate outlined with the most recent executed PIHP contract”; your rate is in your network contract, so ask OCHN for the current ABA rate sheet.' },
       { q: 'Who does the autism evaluation in Oakland County?', a: 'An OCHN clinical diagnostician, using a caregiver interview, records, developmental and cognitive testing, the DD-CGAS and the ADOS-2. OCHN then sends the documentation to MDHHS for approval.' },
       { q: 'How fast does ABA start after approval?', a: 'OCHN says MDHHS approves the documentation within 12–48 hours and eligible children are linked to a CPA/ABA provider within 7 days to begin coordination.' },
       { q: 'What are the eligibility rules?', a: 'Medicaid eligible, younger than 21, with an autism spectrum disorder diagnosis, plus the state manual’s medical-necessity criteria.' },
@@ -1007,6 +1037,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
         ],
       },
       cpt27Section('CPT 2027: the new ABA codes and MCCMH', CPT27_MI_STATE + ' MCCMH reports ABA encounters on those MDHHS code charts, and we found no MCCMH notice on the 2027 codes (its CMO updates page, checked Nov. 1, 2026). Ask MCCMH how it will load the new codes and whether authorizations that list 0362T or 0373T carry over to dates of service from Jan. 1, 2027.', [CPT27_MI_BULL, CPT27_MI_CHART, { title: 'MCCMH — CMO updates', url: 'https://www.mccmh.net/cmo-updates/' }]),
+      {
+        h2: 'What does MCCMH pay for ABA?',
+        body: [
+          'MDHHS publishes no ABA fee screen for the autism benefit; the rate floor is in the Medicaid Provider Manual, Section 18.13: “All PIHPs will reimburse BHT-ABA services at a minimum to the rate outlined with the most recent executed PIHP contract.” The rate a provider is actually paid is the one in its network contract, so the answer to “what does MCCMH pay for 97153?” comes from the contract or rate sheet: ask MCCMH (provider network / contracting) for the current ABA rates by code and credential before signing.',
+        ],
+        cites: [
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18.13: ABA Rate', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'Medical exam within the past year', desc: 'Must show further ASD testing is needed and that hearing and vision were checked; MCCMH will not schedule the evaluation without it.' },
@@ -1177,6 +1216,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What does MCCMH pay for ABA (97153)?', a: 'There is no public state fee screen. The Medicaid Provider Manual (Section 18.13) says PIHPs reimburse BHT-ABA “at a minimum to the rate outlined with the most recent executed PIHP contract”; your rate is in your network contract, so ask MCCMH for the current ABA rate sheet.' },
       { q: 'What is MCCMH’s timely filing limit, and how fast does it pay?', a: '60 calendar days from the date of service (60 days from the other payer’s final disposition when there is other insurance). MCCMH’s claims policy says it pays clean claims within 30 days of receipt and pays interest on clean claims processed after 90 days.' },
       { q: 'How do I start the autism benefit in Macomb County?', a: 'Call MCCMH Customer Service at 855-99-MCCMH (855-996-2264). MCCMH screens by phone and schedules an intake with Easterseals MORC, Specialized Children & Family Services or Hope Network.' },
       { q: 'Can an ABA authorization be backdated?', a: 'No. MCCMH’s procedure requires the authorization request 14 or more days before the expected start date, with no backdating.' },
@@ -1280,6 +1320,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
         ],
       },
       cpt27Section('CPT 2027: the new ABA codes and MSHN', CPT27_MI_STATE + ' MSHN reports ABA encounters on those MDHHS code charts, and we found no MSHN notice on the 2027 codes (its news page, checked Nov. 1, 2026). Ask MSHN how it will load the new codes and whether authorizations that list 0362T or 0373T carry over to dates of service from Jan. 1, 2027.', [CPT27_MI_BULL, CPT27_MI_CHART, { title: 'Mid-State Health Network — News', url: 'https://midstatehealthnetwork.org/stakeholders-resources/about-us/news' }]),
+      {
+        h2: 'What does Mid-State Health Network pay for ABA?',
+        body: [
+          'MDHHS publishes no ABA fee screen for the autism benefit; the rate floor is in the Medicaid Provider Manual, Section 18.13: “All PIHPs will reimburse BHT-ABA services at a minimum to the rate outlined with the most recent executed PIHP contract.” The rate a provider is actually paid is the one in its network contract, so the answer to “what does Mid-State Health Network pay for 97153?” comes from the contract or rate sheet: ask MSHN or the county CMHSP that holds your contract (provider network / contracting) for the current ABA rates by code and credential before signing.',
+        ],
+        cites: [
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18.13: ABA Rate', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'County of residence', desc: 'Decides which of MSHN’s 12 CMHSPs handles the referral.' },
@@ -1466,6 +1515,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What does Mid-State Health Network pay for ABA (97153)?', a: 'There is no public state fee screen. The Medicaid Provider Manual (Section 18.13) says PIHPs reimburse BHT-ABA “at a minimum to the rate outlined with the most recent executed PIHP contract”; your rate is in your network contract, so ask MSHN or the county CMHSP that holds your contract for the current ABA rate sheet.' },
       { q: 'Will Mid-State accept our private evaluation?', a: 'Often yes: MSHN tells its CMHSPs to accept an outside comprehensive diagnostic evaluation completed within the last three years, before BHT started, by a qualified licensed practitioner, meeting the content and DSM criteria. The CMHSP may ask a PIHP practitioner to review it.' },
       { q: 'Where do we call?', a: 'The Community Mental Health program for your county (for example, Clinton-Eaton-Ingham for the Lansing area or Saginaw County CMH). MSHN says there is no wrong door.' },
       { q: 'How long can an authorization decision take?', a: 'MSHN’s procedure (2024) allows 14 days for standard decisions and 72 hours for expedited ones, with a possible 14-day extension; federal rules shorten the standard cap to 7 days for contract periods starting on or after January 1, 2026.' },
@@ -1557,6 +1607,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
         ],
       },
       cpt27Section('CPT 2027: the new ABA codes and SWMBH', CPT27_MI_STATE + ' SWMBH reports ABA encounters on those MDHHS code charts, and we found no SWMBH notice on the 2027 codes (its newsletters page, checked Nov. 1, 2026). Ask SWMBH how it will load the new codes and whether authorizations that list 0362T or 0373T carry over to dates of service from Jan. 1, 2027.', [CPT27_MI_BULL, CPT27_MI_CHART, { title: 'Southwest Michigan Behavioral Health — Newsletters', url: 'https://www.swmbh.org/news-events/newsletters-from-southwest-michigan-behavioral-health/' }]),
+      {
+        h2: 'What does SWMBH pay for ABA?',
+        body: [
+          'MDHHS publishes no ABA fee screen for the autism benefit; the rate floor is in the Medicaid Provider Manual, Section 18.13: “All PIHPs will reimburse BHT-ABA services at a minimum to the rate outlined with the most recent executed PIHP contract.” The rate a provider is actually paid is the one in its network contract, so the answer to “what does SWMBH pay for 97153?” comes from the contract or rate sheet: ask SWMBH or the county CMHSP that holds your contract (provider network / contracting) for the current ABA rates by code and credential before signing.',
+        ],
+        cites: [
+          { title: 'Michigan Medicaid Provider Manual (October 1, 2026) — Behavioral Health and IDD Supports and Services chapter, Section 18.13: ABA Rate', url: 'https://www.mdch.state.mi.us/dch-medicaid/manuals/MedicaidProviderManual.pdf' },
+        ],
+      },
     ],
     collect: [
       { title: 'County of residence', desc: 'Picks which of SWMBH’s eight CMHSPs runs the screening and evaluation.' },
@@ -1720,6 +1779,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What does SWMBH pay for ABA (97153)?', a: 'There is no public state fee screen. The Medicaid Provider Manual (Section 18.13) says PIHPs reimburse BHT-ABA “at a minimum to the rate outlined with the most recent executed PIHP contract”; your rate is in your network contract, so ask SWMBH or the county CMHSP that holds your contract for the current ABA rate sheet.' },
       { q: 'Which autism benefit does SWMBH run?', a: 'The Medicaid, Healthy Michigan Plan and MIChild autism benefit for children under 21 in Kalamazoo, Calhoun, Berrien, Van Buren, St. Joseph, Branch, Cass and Barry counties.' },
       { q: 'What does the evaluation involve?', a: 'About three hours over two appointments using the ADOS-2, ADI-R and DD-CGAS; the results go to MDHHS for review and approval.' },
       { q: 'How much supervision does SWMBH expect?', a: 'One hour of BCBA or qualified behaviorist supervision per ten hours of technician treatment, matching the state rule.' },
@@ -2150,6 +2210,15 @@ export const michiganPayers: Record<string, PayerConfig> = {
         ],
       },
       cpt27Section('CPT 2027: what Priority Health has and has not said', 'Priority Health had published no 2027 adaptive-behavior code guidance as of Nov. 1, 2026: its provider news page (which does announce other Jan. 1, 2027 changes, such as the new provider portal) and its behavioral health billing page say nothing about the ABA codes. Ask Priority Health how it will load and price the new codes and whether authorizations that list 0362T or 0373T carry over.', [{ title: 'Priority Health — Provider news', url: 'https://www.priorityhealth.com/provider/manual/news/priority-health' }, { title: 'Priority Health provider manual — Behavioral health billing', url: 'https://www.priorityhealth.com/provider/manual/billing/bh-billing' }]),
+      {
+        h2: 'How long does credentialing take with Priority Health?',
+        body: [
+          'Priority Health’s provider manual: “When we receive your complete credentialing information, it can take us up to 80 calendar days to process your request,” and each step in the process “has a unique timeline that falls within the 80 days,”, credentialing being “the most time consuming.” Requests for missing information come through prism. “If your request has exceeded 80 calendar days, email us at exceedsprocessingtime@priorityhealth.com,” with the inquiry ID; Priority Health asks providers not to post status-update comments, which “will only delay your processing time.” “You shouldn’t see Priority Health members seeking in-network care until you get your network effective date from us,”, so add a new BCBA well before their first Priority Health session.',
+        ],
+        cites: [
+          { title: 'Priority Health — Provider manual: Credentialing application process', url: 'https://www.priorityhealth.com/provider/manual/standards/credentialing/application' },
+        ],
+      },
     ],
     collect: [
       { title: 'Plan type and funding', desc: 'Commercial vs. Priority Medicaid (routes to the PIHP), and fully insured vs. self-funded.' },
@@ -2326,6 +2395,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How long does it take to credential a new BCBA with Priority Health?', a: 'Up to 80 calendar days from receipt of complete credentialing information, per Priority Health’s provider manual. Past 80 days, email exceedsprocessingtime@priorityhealth.com with the inquiry ID. Do not see members in network until you have your network effective date.' },
       { q: 'What is Priority Health’s timely filing limit for ABA claims?', a: 'Billing, including fixing every claim discrepancy, must be complete within 12 months of the date of service; after that Priority Health denies corrected information as provider responsibility. Clean claims from insured plans must be paid within 45 days under MCL 500.2006.' },
       { q: 'Does Priority Health require prior authorization for the ABA assessment?', a: 'Yes. Policy 91615 lists 97151 through 97158 under "ABA treatment services – in center, office, or home – prior authorization required."' },
       { q: 'What supervision does Priority Health require?', a: 'A BCBA must supervise the treatment plan, with line-staff supervision of at least one hour for every 15 hours of treatment.' },
@@ -3370,7 +3440,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       { title: 'Physician or psychologist order', desc: 'Required for covered treatment on fully insured Michigan plans.' },
       { title: 'Virtual-visit attestation', desc: 'Needed before billing telehealth supervision or family training.' },
     ],
-    sources: [
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, 
       { title: 'Optum National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — FAQ: Autism/ABA using CPT codes (01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
@@ -3540,6 +3610,7 @@ export const michiganPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
       { q: 'Does UnitedHealthcare cover ABA in Michigan?', a: 'Yes, for ASD, managed by Optum Behavioral Health with prior authorization. Fully insured plans also follow Michigan’s mandate; self-funded plans are exempt.' },
       { q: 'Can the BCBA and technician bill at the same time?', a: 'Yes. Optum allows 97153 and 97155 (and 97154 with supervision) to be billed concurrently when supervision is provided.' },
       { q: 'Is there a Michigan-specific Optum ABA program?', a: 'Optum publishes no Michigan ABA program page and its state-mandates supplement has no Michigan entry; the national criteria and Michigan’s statute apply.' },

@@ -3657,7 +3657,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Member ID + card photo', desc: 'Enough to run a live benefits verification — the only reliable answer on limits and cost-sharing.' },
       { title: 'Diagnosis report', desc: 'DSM-5-TR ASD diagnosis confirmed with a validated tool (ADI-R, ADOS-2, etc.), diagnosing provider and credentials, evaluation date.' },
     ],
-    sources: [
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, 
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — ABA State Mandates supplemental criteria (BH803ABASTM12026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'SB 1590 — chaptered law (Laws 2025, ch. 142)', url: 'https://www.azleg.gov/legtext/57leg/1R/laws/0142.pdf' },
@@ -3800,6 +3800,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Arizona?', a: 'Yes — under Optum\'s national two-step authorization policy for ASD, layered on Steven\'s Law for state-regulated group plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'Does Arizona still cap ABA benefits at $50,000 a year?', a: 'No — SB 1590 (signed May 7, 2025) repealed the $50,000/$25,000 annual caps, and Optum\'s own Arizona state-mandate entry (effective January 2026) already reflects the repeal. No annual dollar ceiling remains on any state-regulated group plan.' },
       { q: 'What is UnitedHealthcare\u2019s fee schedule for ABA in Arizona?', a: 'There is no public one. Optum tells participating providers to bill “the applicable CPT code(s) listed on their fee schedule,” meaning the schedule in your Optum agreement, with payment subject to the member\u2019s benefits and prior authorization. Ask Optum network management for rates.' },

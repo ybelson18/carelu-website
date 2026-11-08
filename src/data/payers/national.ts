@@ -177,6 +177,14 @@ export const nationalPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'AMA CPT Editorial Panel — Summary of Panel Actions, September 2025 (tab 56, Adaptive Behavior Services Revisions) (PDF)', url: 'https://www.ama-assn.org/system/files/sept-2025-summary-of-panel-actions.pdf' }, { title: 'AMA RUC HCPAC — Vote Totals, CPT 2027 (adaptive behavior code family) (PDF)', url: 'https://www.ama-assn.org/system/files/hcpac-voting-2027.pdf' }, { title: 'Aetna — Behavioral health precertification list (effective August 1, 2024) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' }],
       },
+      {
+        h2: 'Does Aetna need a service order with the ABA precertification, and how long does credentialing take?',
+        body: [
+          'Service order: Aetna\'s own ABA documents do not ask for one. Precertification form GR-69017-4 (7-26) asks for the diagnosis, the diagnosing provider and their credentials, current impairment data and the treatment request, and says to submit the form "and all requested medical documentation" through Availity or to FaxHub at 833-596-0339. It does not request a physician order, referral or prescription, and the ABA Medical Necessity Guide names none. A state autism mandate that applies to a fully insured plan can add an order requirement, so check the state guide.',
+          'Credentialing: Aetna publishes no turnaround time. Its joining-the-network FAQs say credentialing "is a separate process from network contracting" and both must be complete before you are in network. If you are not on CAQH ProView, the registration kit "comes within 10 business days after you\'ve sent your Aetna application request form"; authorize Aetna to view your CAQH profile. "Once credentialing is complete, you\'ll get a written notice," and your network contact then finishes the contract. Status: Missouri providers use Aetna\'s online status form; everyone else calls 1-800-353-1232 (medical and behavioral health). The provider manual adds that credentialing is done by an NCQA-certified verification organization. A state credentialing law may set a clock of its own; see the state guide.',
+        ],
+        cites: [{ title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied Behavior Analysis Medical Necessity Guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, { title: 'Aetna — Joining the provider network FAQs', url: 'https://www.aetna.com/faqs-health-insurance/health-care-professionals-join-network.html' }, { title: 'Aetna — Join the Aetna network', url: 'https://www.aetna.com/health-care-professionals/join-the-aetna-network.html' }, { title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
+      },
     ],
     collect: [
       { title: 'Member ID, group ID & subscriber', desc: 'Plus a card photo — enough to run verification without a callback.' },
@@ -324,6 +332,8 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Do we have to send a prescription or service order with an Aetna ABA precertification?', a: 'Not under Aetna\'s own documents. Form GR-69017-4 (7-26) asks for the diagnosis, the diagnosing provider, impairment data and the treatment request, plus "all requested medical documentation," and asks for no physician order or prescription. A state mandate on a fully insured plan can add one; check the state guide.' },
+      { q: 'How long does Aetna credentialing take for a new BCBA?', a: 'Aetna publishes no turnaround. Credentialing runs through CAQH ProView, is separate from contracting, and ends with a written notice; a CAQH registration kit arrives within 10 business days of the application request. Check status at 1-800-353-1232.' },
       { q: 'Is there an Aetna template for the ABA assessment or treatment request?', a: 'Yes: precertification form GR-69017-4 (7-26), which “Effective August 1, 2026 … replaces all other Applied Behavior Health Analysis (ABA) precertification information request documents and forms” (not for Maryland or Massachusetts plans). It asks for hours per authorization period for 97151, 97152 and 0362T, hours per week for treatment codes, the diagnosing provider’s name and credentials, a standardized assessment such as the Vineland, ABAS or VB-MAPP from the past 12 months, and baseline, interim and current data for all goals. Start the request on Availity or by phone and attach the form.' },
       { q: 'Do we have to give a Good Faith Estimate to a family paying privately?', a: 'Yes, under federal law. 45 CFR § 149.610 treats a family as self-pay if it is uninsured or chooses not to submit a claim to its plan. Tell the family an estimate is available, and give it in writing within 1 business day of scheduling (3 business days if the start is at least 10 business days away, or after a request). One estimate can cover up to 12 months of recurring sessions. If the bill comes in at least $400 over the estimate, the family can dispute it within 120 days. For a service Aetna does not cover, Aetna’s manual also requires written notice and a signed consent each time.' },
       { q: 'Does Aetna use HM, HN, HO or HP modifiers on ABA claims?', a: 'Aetna’s ABA Medical Necessity Guide, precertification form and June 2026 provider manual name no credential modifiers for ABA. The guide says services “must be provided directly or billed by licensed behavior analysts …, board-certified behavior analysts, or licensed psychologists … unless state mandates, plan documents or contracts require otherwise.” Check your contract or a state rule for any modifier requirement.' },
@@ -512,6 +522,14 @@ export const nationalPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'AMA CPT Editorial Panel — Summary of Panel Actions, September 2025 (tab 56, Adaptive Behavior Services Revisions) (PDF)', url: 'https://www.ama-assn.org/system/files/sept-2025-summary-of-panel-actions.pdf' }, { title: 'AMA RUC HCPAC — Vote Totals, CPT 2027 (adaptive behavior code family) (PDF)', url: 'https://www.ama-assn.org/system/files/hcpac-voting-2027.pdf' }, { title: 'Cigna Medical Coverage Policy 0499 — Intensive Behavioral Interventions (effective 5/15/2026) (PDF)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Evernorth — Billing codes for ABA', url: 'https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhDBwCBillingCodesForABA.html' }],
       },
+      {
+        h2: 'Does Cigna need a service order sent with the ABA prior authorization form?',
+        body: [
+          'No. EN0499 requires no referral or physician order, and Evernorth\'s ABA Prior Authorization Form (07/26) asks you to "complete this form, attach supporting clinical documentation, and send it to ABA@Evernorth.com (preferred) or fax it to 860.687.9230." The documentation it lists is clinical: a fully completed ABA assessment with its date and the form or version used, how direct treatment time is used in each setting, baseline, interim and current goal data, and measurable mastery criteria. It asks for no order or prescription. Standard assessment requests (97151, 97152, 0362T) no longer need prior authorization; the form is used for an assessment only to request a network exception.',
+          'Credentialing status: the September 2026 Administrative Guidelines give practitioners the right to "Receive the status of your credentialing or recredentialing application, upon request" (Provider Services 800.926.2273 or BehavioralProviderRecruitment@Evernorth.com), and say "The decision to accept or deny participation will be communicated in writing within 60 days of the decision." Numeric decision clocks appear only in the state addenda (for example 90 days from a complete application, averaging no more than 60 days, in the Oregon and Washington sections).',
+        ],
+        cites: [{ title: 'Evernorth Behavioral Health — Applied Behavior Analysis Prior Authorization Form (PCOMM-2025-224, 07/26) (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/applied-behavior-analysis.pdf' }, { title: 'Cigna EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026) (PDF)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
+      },
     ],
     collect: [
       { title: 'Member ID + plan details', desc: 'Card photo, subscriber info, and whether the plan actually includes the ABA benefit.' },
@@ -573,8 +591,8 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'Not published as a payable-settings list. Two sourced facts bear on setting nonetheless: the treatment plan must carry dated baseline data per setting, so settings are declared and measured rather than assumed; and every session note must record the location. Whether a given setting is payable is a plan-benefit question.',
-        status: 'unverified',
+          'EN0499 (eff. 5/15/2026) expects ABA to be delivered "across all settings and environments where treatment will occur (e.g., home, clinic, school, community setting, etc.)": goals are written per setting, and when treatment runs in more than one setting, quantitative data must be "clearly identified separately by location/setting." The limit it sets is on what ABA replaces, not where it happens: the plan must show "that the ABA services are not utilized to replace or replicate activities that are the responsibility of the setting and environment where services occur (e.g., classroom aide, 1:1 teacher, tutor, vocational assistant/coach, respite services, etc.)." Every session note records the location. EN0499 lists no place-of-service codes, so whether a given setting is payable under a member\'s plan is a benefits question.',
+        status: 'plan-dependent',
         cites: [{ title: 'Cigna EN0499 \u2014 Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }],
         verifyVia: 'Benefits verification on the specific plan \u2014 ask which places of service are payable for ABA, and whether school-based delivery is excluded before you write school goals.',
         blocker: 'per-case',
@@ -645,6 +663,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Do we have to send a referral or prescription with Cigna\'s ABA PA form?', a: 'No. EN0499 requires no referral or physician order, and Evernorth\'s ABA Prior Authorization Form (07/26) asks only for supporting clinical documentation (the assessment, per-setting treatment time, goal data and mastery criteria), sent to ABA@Evernorth.com or fax 860.687.9230.' },
       { q: 'Is there a Cigna template for the ABA assessment or treatment plan?', a: 'Cigna uses Evernorth’s ABA Prior Authorization Form (07/26) for treatment requests; the assessment codes 97151, 97152 and 0362T need no prior authorization for an independently licensed provider or BCBA. EN0499 sets the content: a current-edition standardized, validated instrument (for example the Vineland-3) given within 60 days of the start of treatment, “Standardized scores and score tables, and/or scoring grids/figures … when applicable,” measurable goals with dated baselines, caregiver goals, a transition plan and discharge criteria. The form warns that the AFLS, Essential for Living and PEAK do not on their own show medical necessity.' },
       { q: 'Can a family pay privately for ABA while covered by Cigna?', a: 'Yes, if they choose not to use the plan. Evernorth lists “Services for which the patient elects not to use their benefit plan” among services a self-pay agreement can cover; it must be signed in advance and can never be retroactive. Under 45 CFR § 149.610 that family is also “self-pay” for federal purposes, so they are entitled to a written Good Faith Estimate.' },
       { q: 'Does Cigna give out-of-network ABA providers a single case agreement?', a: 'Evernorth’s term is a network exception. Its ABA billing page says authorization is required for 97151, 97152 or 0362T “when requesting a network exception.” Evernorth publishes no criteria for approving one; call the Autism Care Coordinator team at 877-279-7603.' },
@@ -730,6 +749,15 @@ export const nationalPayers: Record<string, PayerConfig> = {
         body: [
           'Optum authorizes in four clusters: assessment (97151, 97152), direct care (97153, 97154), multi-staff (0362T, 0373T), and QHP services (97155–97158). Units can flex within a cluster without a new authorization — a genuinely useful operational buffer. Concurrent billing is allowed for supervision (97153+97155), group oversight (97154+97155), and parent training alongside direct care (97153+97156). Not covered: team meetings without the member, 1:1 classroom aides, and services owed under IDEA — which is why intake should capture the school/IEP picture precisely.',
         ],
+      },
+      {
+        h2: 'UnitedHealthcare drops prior authorization for 0362T and 0373T for members under 18 (Dec. 1, 2026)',
+        body: [
+          'UnitedHealthcare\'s November 2026 Network News notice says that from Dec. 1, 2026 it will "remove nearly two-thirds of prior authorization requirements for select services provided to patients under age 18" on UnitedHealthcare commercial plans, Individual Exchange plans and Community Plans. UnitedHealthcare Medicare Advantage, Dual Eligible Special Needs Plans, Health Plan of Nevada Medicaid and "UMR plans not following the UMR prior authorization list" are excluded.',
+          'Of the ABA codes, only 0362T and 0373T are on the code lists, and only on the commercial one (one national list, revised Nov. 6, 2026): "Prior authorization is no longer required when provided to members younger than 18 years of age." 97151\u201397158 are not on the commercial, Individual Exchange or Community Plan lists, and the state-by-state Community Plan list names no ABA code, so this change does not remove the two-step authorization for them.',
+          'UnitedHealthcare says to "continue to verify requirements through the Prior Authorization and Advance Notification tool" for plan-specific exceptions, because removals vary by state and plan. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so as published the relief covers December 2026 dates of service; no notice says whether it carries to the new two-technician codes.',
+        ],
+        cites: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, { title: 'UnitedHealthcare — Reduced prior authorization requirements, Individual Exchange plans (eff. Dec. 1, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Exchange-QRG.pdf' }, { title: 'UnitedHealthcare — Reduced prior authorization requirements, Community Plans by state (eff. Dec. 1, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Community-QRG.pdf' }],
       },
       {
         h2: 'Continued-service reviews',
@@ -830,9 +858,16 @@ export const nationalPayers: Record<string, PayerConfig> = {
         h2: 'Has UnitedHealthcare / Optum announced the 2027 ABA CPT code changes?',
         body: [
           'The AMA CPT Editorial Panel accepted six new adaptive behavior codes, revised 97151–97158 and deleted 0362T and 0373T, effective January 2027. The AMA\'s CPT 2027 HCPAC vote document lists the new codes as 97148 and 97149 (supporting assessment of harmful behavior, two technicians), 97159 and 97160 (treatment of harmful behavior, two technicians), 97173 (treatment with analysis delivered by the physician or QHP) and 97180 (non-face-to-face services by the physician or QHP). The codes are national; what each payer decides is which ones it authorizes and pays, and how.',
-          'Optum\'s commercial ABA reimbursement policy (2022RP501A) still carries unit and MUE charts for 0362T and 0373T, and no Optum notice on the 2027 codes could be found as of November 1, 2026. Ask Optum which of the new codes it will authorize, and with which credential modifiers, for dates of service from January 1, 2027.',
+          'Optum\'s commercial ABA reimbursement policy (2022RP501A) still carries unit and MUE charts for 0362T and 0373T, and no Optum notice on the 2027 codes could be found as of November 1, 2026 (re-checked November 8, 2026: the September/October 2026 Optum Top of Mind news list carries no ABA code notice, and UnitedHealthcare\'s Dec. 1, 2026 under-18 prior authorization reduction lists 0362T and 0373T on its commercial plans but says nothing about their 2027 successors). Ask Optum which of the new codes it will authorize, and with which credential modifiers, for dates of service from January 1, 2027.',
         ],
-        cites: [{ title: 'AMA CPT Editorial Panel — Summary of Panel Actions, September 2025 (tab 56, Adaptive Behavior Services Revisions) (PDF)', url: 'https://www.ama-assn.org/system/files/sept-2025-summary-of-panel-actions.pdf' }, { title: 'AMA RUC HCPAC — Vote Totals, CPT 2027 (adaptive behavior code family) (PDF)', url: 'https://www.ama-assn.org/system/files/hcpac-voting-2027.pdf' }, { title: 'Optum — ABA reimbursement policy 2022RP501A (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }],
+        cites: [{ title: 'AMA CPT Editorial Panel — Summary of Panel Actions, September 2025 (tab 56, Adaptive Behavior Services Revisions) (PDF)', url: 'https://www.ama-assn.org/system/files/sept-2025-summary-of-panel-actions.pdf' }, { title: 'AMA RUC HCPAC — Vote Totals, CPT 2027 (adaptive behavior code family) (PDF)', url: 'https://www.ama-assn.org/system/files/hcpac-voting-2027.pdf' }, { title: 'Optum — ABA reimbursement policy 2022RP501A (PDF)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum Provider Express — Top of Mind All News', url: 'https://www.providerexpress.com/content/ope-provexpr/us/en/Top-of-Mind/top-of-mind-all-news-.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }],
+      },
+      {
+        h2: 'Does UnitedHealthcare / Optum need a service order sent with the ABA authorization request?',
+        body: [
+          'No physician referral or order is required by Optum\'s Supplemental Clinical Criteria, so there is nothing of that kind to attach. What Optum needs is the two-step authorization itself: the assessment authorization, then the treatment authorization built on what the assessment produced, both through Provider Express. Where state law specifies otherwise, the state-specific criteria in Optum\'s ABA State Mandates supplement govern instead of the standard criteria, so a state that requires an order for a fully insured plan can add one; check the state guide.',
+        ],
+        cites: [{ title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }],
       },
     ],
     collect: [
@@ -843,6 +878,10 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { title: 'Caregiver participation capacity', desc: 'Caregiver involvement and progress are review criteria — set expectations at intake.' },
     ],
     sources: [
+      { title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' },
+      { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' },
+      { title: 'UnitedHealthcare — Reduced prior authorization requirements, Individual Exchange plans (eff. Dec. 1, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Exchange-QRG.pdf' },
+      { title: 'UnitedHealthcare — Reduced prior authorization requirements, Community Plans by state (eff. Dec. 1, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Community-QRG.pdf' },
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum ABA FAQ (Provider Express)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaFAQ.pdf' },
       { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' },
@@ -985,6 +1024,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Do we have to send a physician order with an Optum ABA authorization request?', a: 'Not under Optum\'s standard criteria, which require no physician referral or order; the requirement is the two-step authorization through Provider Express. A state mandate can add an order for fully insured plans; check the state guide.' },
       { q: 'Does Optum require a specific ABA assessment or treatment-plan template?', a: 'No template is published. Optum’s portal review guide (BH00705) lists what the reviewer may ask: supervisor, agency name and Tax ID, hours requested per code (97151, 97152, 0362T, 97153–97158, 0373T), who gave the most recent diagnosis and when, school and IEP details, other services and the schedule, assessments used with scores (for example Vineland, VB-MAPP, ABLLS), severity and goals in the communication, social and behavior domains, and caregiver involvement and proficiency. Clinical updates “should include all areas from the initial plan.” Assessment and reassessment bill only as 97151 and 97152 under Optum’s reimbursement policy.' },
       { q: 'Which UnitedHealthcare phone line and NPI do we use to check ABA eligibility?', a: 'Optum’s National Network Manual (Sept. 2026) says to use the Provider Express secure portal or call “the phone number on the member’s ID card,” and to have the member’s name, address and ID number and the subscriber’s name and date of birth ready. It does not say which NPI a caller must give. 1-877-614-0484 is Optum Provider Services, which the manual uses for network, practice-information and contract questions.' },
       { q: 'Is there an exception to Optum’s three-code ABA telehealth limit?', a: 'None is published. Optum’s telehealth billing guide says “For ABA services, telehealth is only allowed for these 3 CPT codes: 97155, 97156 or 97157,” and gives no exception or exemption process. The provider must be an approved Optum virtual-visits provider and tell the ABA Care Advocate at authorization.' },
@@ -1004,6 +1044,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { q: 'Does Optum allow retro-authorization for ABA?', a: 'Only in emergent or unusual circumstances. A retrospective review must be requested within 180 calendar days of the service (unless state law says otherwise), must explain why prior authorization was not obtained, and is at Optum’s sole discretion. Optum decides within 30 calendar days.' },
       { q: 'What is UnitedHealthcare/Optum’s timely filing limit for ABA claims?', a: '90 calendar days from the date of service under Optum’s National Network Manual, unless state or federal law or the member’s plan allows longer. Corrections should be made within 90 days of the original claim.' },
       { q: 'How long do we have to appeal an Optum ABA claim decision?', a: 'Twelve months in total for both steps (reconsideration, then appeal) on commercial plans, unless state law or your participation agreement sets a different deadline.' },
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for children under 18 after December 1, 2026?', a: 'Yes for 97151\u201397158. UnitedHealthcare\'s Dec. 1, 2026 under-18 reduction removes prior authorization only for 0362T and 0373T, and only on commercial plans (code list revised Nov. 6, 2026); the Individual Exchange and Community Plan lists name no ABA code. Check plan-specific exceptions in the Prior Authorization and Advance Notification tool.' },
       { q: 'How long does Optum ABA credentialing take?', a: 'Optum’s ABA CPT FAQ says 45 to 120 days after all materials are submitted, for solo analysts and groups alike. New agencies also need a site audit, which can take up to 90 days to schedule.' },
     ],
   },
@@ -1115,7 +1156,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
     ],
     sources: [
       { title: 'Meritain Health — About us (self-funded employee benefit plans)', url: 'https://www.meritain.com/about-us/' },
-      { title: 'Meritain Health — For providers (provider portal)', url: 'https://www.meritain.com/resources-for-providers-meritain-health-provider-portal/' },
+      { title: 'Meritain Health — For providers (provider portal)', url: 'https://www.meritain.com/resources-for-providers/' },
       { title: 'Meritain Health — Provider services', url: 'https://www.meritain.com/about-us-self-funded-employee-benefit-plans/meritain-health-provider-services/' },
       { title: 'Meritain Health — What is precertification and why do I need it?', url: 'https://www.meritain.com/what-is-precertification-and-why-do-i-need-it/' },
       { title: 'Meritain Health — Network solutions', url: 'https://www.meritain.com/network-solutions/' },
@@ -1858,20 +1899,22 @@ export const nationalPayers: Record<string, PayerConfig> = {
     cardDesc: 'Humana finished leaving employer group medical in 2025 — route a bare "Humana" card to Medicaid, Medicare Advantage or TRICARE East first.',
     family: 'humana',
     assessmentPA: {
-      value: 'Depends on the Humana line — Healthy Horizons Medicaid plans set PA by state; ABA codes are not on Humana\'s Medicare Advantage/D-SNP PA list (eff. 7/1/2026); TRICARE East runs through Humana Military',
+      value: 'Depends on the Humana line — Healthy Horizons Medicaid plans set PA by state; ABA codes are not on Humana\'s Medicare Advantage/D-SNP PA list (eff. 7/1/2026, nor the list effective 1/1/2027); TRICARE East runs through Humana Military',
       status: 'plan-dependent',
       cites: [
         { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 11/2/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' },
+        { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 1/1/2027, rev. 11/2/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%201-1-2027pdf' },
         { title: 'Humana — Prior authorization lists (provider page)', url: 'https://provider.humana.com/coverage-claims/prior-authorizations/prior-authorization-lists' },
       ],
       verifyVia: 'Identify the line of business from the card, then use the matching guide: the state Healthy Horizons guide, the TRICARE East (Humana Military) guide, or, for Medicare Advantage, Humana provider services via Availity to confirm ABA is a covered benefit at all.',
       blocker: 'per-case',
     },
     treatmentPA: {
-      value: 'Depends on the Humana line — state-specific for Healthy Horizons Medicaid; not on the Medicare Advantage/D-SNP PA list; TRICARE East under Humana Military',
+      value: 'Depends on the Humana line — state-specific for Healthy Horizons Medicaid; not on the Medicare Advantage/D-SNP PA list (7/1/2026 or 1/1/2027 edition); TRICARE East under Humana Military',
       status: 'plan-dependent',
       cites: [
         { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 11/2/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' },
+        { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 1/1/2027, rev. 11/2/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%201-1-2027pdf' },
         { title: 'Humana — Prior authorization lists (provider page)', url: 'https://provider.humana.com/coverage-claims/prior-authorizations/prior-authorization-lists' },
       ],
       verifyVia: 'Route by line of business first; the state Healthy Horizons PA list or the TRICARE East guide carries the operative rule.',
@@ -1901,7 +1944,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { label: 'Employer group medical', value: 'Gone — exit announced Feb. 2023, finalized during 2025 (fully insured, self-funded and FEHB)' },
       { label: 'Remaining lines', value: 'Medicare Advantage, Medicare Supplement/PDP, Medicaid (state contracts), TRICARE East, specialty' },
       { label: 'Medicaid states (10-K)', value: 'FL, KY, IL, IN, LA, OH, OK, SC, VA, WI' },
-      { label: 'Medicare Advantage PA list', value: 'No ABA codes (eff. 7/1/2026, rev. 11/2/2026)' },
+      { label: 'Medicare Advantage PA list', value: 'No ABA codes (eff. 7/1/2026; also none on the 1/1/2027 list, rev. 11/2/2026)' },
       { label: 'ABA medical policy', value: 'Medicaid only (OK, SC, LA); no national or MA ABA policy' },
       { label: 'TRICARE East', value: 'Humana Military, T-5 contract since 1/1/2025 — use the TRICARE East guide' },
     ],
@@ -1911,6 +1954,7 @@ export const nationalPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Humana Inc. — Form 10-K for fiscal year 2025 (SEC EDGAR)', url: 'https://www.sec.gov/Archives/edgar/data/49071/000004907126000009/hum-20251231.htm' },
           { title: 'Humana — Humana to Exit Employer Group Commercial Medical Products Business (Feb. 23, 2023)', url: 'https://humana.gcs-web.com/news-releases/news-release-details/humana-exit-employer-group-commercial-medical-products-business' },
+          { title: 'Humana Inc. — Form 8-K, Feb. 23, 2023 (exit from Employer Group Commercial Medical Products business) (SEC EDGAR)', url: 'https://www.sec.gov/Archives/edgar/data/49071/000004907123000013/hum-20230223.htm' },
           { title: 'Humana — Commercial Summary of Medical Preauthorization and Notification List Changes (last updated Nov. 5, 2024) (PDF)', url: 'https://assets.humana.com/is/content/humana/Commercial%20SOCpdf' },
         ],
         body: [
@@ -1935,9 +1979,12 @@ export const nationalPayers: Record<string, PayerConfig> = {
         h2: 'Medicare Advantage and D-SNP: what the PA list says',
         cites: [
           { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 11/2/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' },
+          { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 1/1/2027, rev. 11/2/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%201-1-2027pdf' },
+          { title: 'Humana — Medicare Advantage PAL update notification, effective Jan. 1, 2027 (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL%20-%201-1-2027%20-%20Medicare%20Advantage%20PAL%20Update%20Notification%20Mailerpdf' },
         ],
         body: [
           'Humana\'s Medicare Advantage and D-SNP prior authorization list (effective July 1, 2026, revised Sept. 1, 2026) has a behavioral health category with two entries: partial hospitalization and transcranial magnetic stimulation. No ABA code (97151–97158, 0362T, 0373T) appears on it. That tells you ABA is not on the PA list. It does not tell you ABA is a covered Medicare Advantage benefit. The list itself says "certain services may not be covered under the member\'s plan" and points to an Advance Coverage Determination for services whose coverage is uncertain. It also notes that, from Jan. 1, 2026, CMS requires prior authorization decisions within 7 days for certain medical items and services.',
+          'The list effective Jan. 1, 2027 (revision date Nov. 2, 2026), announced in Humana Physician News for the fourth quarter of 2026, keeps the same two behavioral health entries, partial hospitalization and transcranial magnetic stimulation (90867\u201390869), and adds no ABA code. Humana\'s 2027 update notice moves review of those TMS codes for the Humana PathWays Dual Care Indiana plan, and of behavioral health revenue codes 900\u2013942 for Illinois D-SNP only, to Humana; it names no adaptive behavior code.',
         ],
       },
       {
@@ -1949,6 +1996,15 @@ export const nationalPayers: Record<string, PayerConfig> = {
           'Humana’s 2026 Provider Manual sets the general rule. Prior authorization requests “should be made as soon as possible but at least 14 days in advance of the service date.” “If prior authorization is required and not obtained, it may result in reduction or denial of payment. Services provided without prior authorization also may be subject to retrospective review,” with clinical information supplied for a medical-necessity review. But “Elective ambulatory or inpatient services on Humana’s Prior Authorization and Notification List for which precertification did not occur before providing the service are not eligible for retrospective review.” Whether that bites for ABA depends on the line of business: check the PA list for the member’s plan, and for a Healthy Horizons Medicaid member use the state guide.',
         ],
       },
+      {
+        h2: 'Humana timely filing, fee schedules and credentialing: what the 2026 manual says',
+        body: [
+          'Timely filing: Humana\'s 2026 Provider Manual sets no single national deadline. Among the provider obligations it lists, providers "Submit a claim on behalf of the member in accordance with timely filing laws, rules, regulations and policies," and it treats a claim as promptly adjudicated when it is paid, pended or denied "within the time established by the applicable state or federal prompt payment statutes and/or regulations." Use your Humana agreement, or the state Healthy Horizons guide for Medicaid and the TRICARE East guide for Humana Military.',
+          'Fee schedule: the manual publishes no ABA rates. Humana Customer Service (800-457-4708, or the number on the member\'s card) handles questions on "Allowed amounts and fee schedules" and on a "Copy of contract and effective dates."',
+          'Credentialing: the manual publishes no turnaround time. It says "If adding a provider, the new provider must first be credentialed before rendering treatment to any plan member," and asks that practice changes be submitted "at least 30 days prior to the effective date of the change." Humana is a CAQH member, and its credentialing and recredentialing policies are linked from the manual.',
+        ],
+        cites: [{ title: 'Humana — 2026 Provider Manual for physicians, hospitals and healthcare providers (773902ALL0725-A) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_773902ALL0725-A_2026_ProviderManual-Delegated_formattedpdf' }],
+      },
     ],
     collect: [
       { title: 'The product name on the card, verbatim', desc: '"Healthy Horizons" means a state Medicaid plan, a Medicare Advantage product name means Medicare, and a TRICARE marking means Humana Military. The bare word "Humana" is not enough to route.' },
@@ -1958,8 +2014,11 @@ export const nationalPayers: Record<string, PayerConfig> = {
       { title: 'Member ID and date of birth', desc: 'Needed for eligibility on whichever line the card turns out to be.' },
     ],
     sources: [
+      { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 1/1/2027, rev. 11/2/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%201-1-2027pdf' },
+      { title: 'Humana — Medicare Advantage PAL update notification, effective Jan. 1, 2027 (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL%20-%201-1-2027%20-%20Medicare%20Advantage%20PAL%20Update%20Notification%20Mailerpdf' },
       { title: 'Humana Inc. — Form 10-K for fiscal year 2025 (SEC EDGAR)', url: 'https://www.sec.gov/Archives/edgar/data/49071/000004907126000009/hum-20251231.htm' },
       { title: 'Humana — Humana to Exit Employer Group Commercial Medical Products Business (Feb. 23, 2023)', url: 'https://humana.gcs-web.com/news-releases/news-release-details/humana-exit-employer-group-commercial-medical-products-business' },
+      { title: 'Humana Inc. — Form 8-K, Feb. 23, 2023 (exit from Employer Group Commercial Medical Products business) (SEC EDGAR)', url: 'https://www.sec.gov/Archives/edgar/data/49071/000004907123000013/hum-20230223.htm' },
       { title: 'Humana — Medical Coverage Policies library, keyword search "behavior" (read 2026-10-07)', url: 'https://mcp.humana.com/tad/tad_new/Search.aspx?criteria=behavior&searchtype=freetext&policyType=medical' },
       { title: 'Humana — Prior authorization lists (provider page)', url: 'https://provider.humana.com/coverage-claims/prior-authorizations/prior-authorization-lists' },
       { title: 'Humana — Medicare Advantage and D-SNP Prior Authorization and Notification List (eff. 7/1/2026, rev. 11/2/2026) (PDF)', url: 'https://assets.humana.com/is/content/humana/FINAL_Medicare%20and%20DSNP%20Prior%20Authorization%20and%20Notification%20List%20-%207-1-2026pdf' },
@@ -2080,6 +2139,8 @@ export const nationalPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is Humana\'s timely filing limit for ABA claims?', a: 'The 2026 Provider Manual sets no single national number; it ties claim submission to the applicable timely-filing laws, rules and policies. Check your Humana agreement or ask Humana Customer Service (800-457-4708). For Medicaid or TRICARE East members, use the state Healthy Horizons guide or the TRICARE East guide.' },
+      { q: 'How long does Humana take to credential a new BCBA?', a: 'Humana\'s 2026 Provider Manual publishes no turnaround. A new provider must be credentialed before treating any Humana member, and changes should be submitted at least 30 days before they take effect.' },
       { q: 'Does Humana cover ABA therapy?', a: 'It depends on which Humana plan the child is on. Humana finished leaving employer group medical coverage in 2025. Its remaining lines are Medicaid (Healthy Horizons, state by state), Medicare Advantage, and TRICARE East via Humana Military, and each handles ABA under its own rules. Identify the line first.' },
       { q: 'Can my child still have Humana through a parent\'s employer?', a: 'Not as a medical plan. Humana announced in Feb. 2023 that it was leaving all employer group commercial medical products (fully insured, self-funded and FEHB) and finalized the exit during 2025. Humana still sells dental, vision, life and disability to employers, so an employer-issued Humana card today is most likely a specialty card with no ABA benefit. Ask for the family\'s current medical card.' },
       { q: 'Is Humana Healthy Horizons the same as Humana?', a: 'Healthy Horizons is Humana\'s Medicaid product, contracted state by state (FL, KY, IL, IN, LA, OH, OK, SC, VA and WI per Humana\'s 2025 10-K). Each state has its own ABA policy and PA list. Use the state Healthy Horizons guide, not this national one.' },

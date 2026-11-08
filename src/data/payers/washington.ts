@@ -69,11 +69,14 @@ const S: Record<string, PayerSource> = {
   optumNNM: { title: 'Optum National Network Manual (effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
   premPolicy: { title: 'Premera Blue Cross Medical Policy 3.01.510 — Applied Behavior Analysis (ABA) (effective May 1, 2026; last revised Apr. 27, 2026)', url: 'https://www.premera.com/medicalpolicies/3.01.510.pdf' },
   premABA: { title: 'Premera — Applied Behavior Analysis (ABA) Resources for providers', url: 'https://www.premera.com/wa/provider/applied-behavior-analysis-resources/' },
-  premCodeInd: { title: 'Premera — Code List, Individual Plans Only (050237, 10-01-2026)', url: 'https://www.premera.com/documents/050237.pdf' },
-  premCodeGrp: { title: 'Premera — Code List, Non-Individual Plans Only (027236, 10-01-2026)', url: 'https://www.premera.com/documents/027236.pdf' },
+  premCodeInd: { title: 'Premera — Code List, Individual Plans Only (050237, 11-06-2026)', url: 'https://www.premera.com/documents/050237.pdf' },
+  premCodeGrp: { title: 'Premera — Code List, Non-Individual Plans Only (027236, 11-06-2026)', url: 'https://www.premera.com/documents/027236.pdf' },
   premPAPage: { title: 'Premera — About prior authorization (submission sites by plan type)', url: 'https://www.premera.com/wa/provider/utilization-review/about-prior-authorization/' },
-  regBH18: { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (version effective 8/1/2025, carrying a notice that a revision takes effect 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
-  regBH33: { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (eff. 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
+  regBH18: { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (effective November 1, 2026, last review June 2026; now carries the initial-assessment criteria as section I)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
+  rcw43750: { title: 'RCW 48.43.750 — Health care provider credentialing applications: decision within 90 days of a complete application, 60-day average (2020 c 4)', url: 'https://app.leg.wa.gov/RCW/default.aspx?cite=48.43.750' },
+  rcw43757: { title: 'RCW 48.43.757 — Health care provider credentialing applications: reimbursement for services during credentialing (2020 c 4)', url: 'https://app.leg.wa.gov/RCW/default.aspx?cite=48.43.757' },
+  premClaimsWA: { title: 'Premera Washington Medical Reference Manual — Claims submission and payments (timely claims submission, prompt pay, provider appeals)', url: 'https://www.premera.com/wa/provider/reference/medical-manuals/claim-submission-payments/' },
+  premCredWA: { title: 'Premera Washington Medical Reference Manual — Credentialing and contracting', url: 'https://www.premera.com/wa/provider/reference/medical-manuals/credentialing-contracting/' },
   lcswScope: { title: 'RCW 18.225.010(7) — "Independent clinical social work" means "the diagnosis and treatment of emotional and mental disorders"', url: 'https://app.leg.wa.gov/RCW/default.aspx?cite=18.225.010' },
   ccPreAuth: { title: 'Coordinated Care of Washington — Medicaid Pre-Auth Check tool (97151 no authorization; 0362T, 97153, 97155, 97156 authorization required; 97152 not a covered benefit; checked 10/25/2026)', url: 'https://www.coordinatedcarehealth.com/providers/preauth-check/medicaid-pre-auth.html' },
   molUM: { title: 'Molina Healthcare of Washington — Utilization Management Guide for ABA Providers (MHW 11/14/2023)', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/WA/Prior-Auth/Guides/aba-provider-um-guide.pdf' },
@@ -142,6 +145,12 @@ const AH_REFERRAL =
 
 const AH_PLACE =
   'Home, center, community (a school, daycare, inpatient unit or playground, for example) or an HCA-approved day treatment program, or a mix. Services in community settings such as a school or restaurant "must be included in the ABA therapy treatment plan" (WAC 182-531A-0600). Not covered unless prior authorized: "School-based health care services or early intervention program-based services" (WAC 182-531A-1000). Inpatient ABA is limited to short-term, focused treatment of severe harmful behavior that is preventing discharge, ordered by a COE. The day treatment program (H2020) is typically authorized once in a lifetime for 48 service days.';
+
+/* Added 2026-11-08: Washington's credentialing clock for carriers (RCW 48.43.750/.757). */
+const WA_CRED_FAQ = {
+  q: 'How long can credentialing take in Washington, and are claims paid while it is pending?',
+  a: 'Washington law sets a clock for health carriers: since June 1, 2020 a carrier "shall make a determination approving or denying a credentialing application ... no later than ninety days after receiving a complete application," and its determinations "must average no more than sixty days" (RCW 48.43.750, which does not apply where credentialing is delegated, and which does not require the carrier to admit you to its network). Once approved, RCW 48.43.757 requires payment at the contracted rate back to the contract’s effective date for a new contract, or, for a clinician added to an existing contract, back to the date the completed application was submitted. Carriers must take applications only through the credentialing database the state selects under RCW 48.165.035.',
+};
 
 export const washingtonPayers: Record<string, PayerConfig> = {
   'washington-medicaid': {
@@ -1256,7 +1265,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'Clinician licenses', desc: 'Washington DOH license numbers for the LBA (and LABA/CBT credentials) delivering and billing services.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaCPB648, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, S.lcswScope, { title: 'Aetna — Behavioral Health Provider Manual (1158252-01-01, 8/22): nonparticipating referrals; dispute and appeal process', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' }],
+    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaCPB648, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, S.lcswScope, { title: 'Aetna — Behavioral Health Provider Manual (1158252-01-01, 8/22): nonparticipating referrals; dispute and appeal process', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' }, S.rcw43750, S.rcw43757],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s Network Participation Criteria: services "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board"; supervised staff may be a BCaBA or a paraprofessional, with "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," and the supervisor "onsite with the child at least one hour a month." "All BCBAs, BCaBAs and paraprofessionals must meet state requirements." In Washington that means DOH’s rule too: two face-to-face contacts a month with each CBT and direct supervision of at least 5 percent of the CBT’s monthly hours (WAC 246-805-330).',
@@ -1344,6 +1353,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      WA_CRED_FAQ,
       { q: 'Will Aetna approve an out-of-network ABA provider?', a: 'Possibly, through a "nonparticipating referral" that Aetna reviews — for example when the needed clinician "isn\'t available in network (and the member\'s plan provides coverage for out-of-network services)" or the child is continuing treatment with a nonparticipating clinician. Aetna\'s manuals do not describe a single case agreement program by name.' },
       { q: 'Does Aetna require graphs for ABA reassessments?', a: 'Aetna’s guide requires a progress evaluation every six months but does not prescribe graphs; send measurable progress against each goal and the standardized scores its termination criteria use.' },
       { q: 'What is Aetna’s timely filing limit for ABA claims, and when does it pay?', a: 'Aetna publishes no numeric filing limit; it comes from your Aetna agreement or state law. COB, corrected and voided claims go through Availity; no weekly payment cutoff is published.' },
@@ -1476,7 +1486,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'Clinician licenses', desc: 'Washington DOH license for the LBA billing the services.' },
     ],
-    sources: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, S.en0499, S.cignaARG, S.ebhAdmin, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, S.lcswScope],
+    sources: [{ title: 'Evernorth Coverage Policy EN0499 — Intensive Behavioral Interventions (eff. 5/15/2026): Criteria for Continued Treatment with ABA', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' }, S.en0499, S.cignaARG, S.ebhAdmin, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Cigna/Evernorth Autism Resource Guide (PCOMM-2025-225, March 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' }, { title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }, S.lcswScope, S.rcw43750, S.rcw43757],
     deliveryRules: {
       supervision: {
         value: 'Case supervision is by a BCBA, a licensed behavior analyst, or an independently licensed mental health professional with ABA training, at one to two hours of direct plus indirect supervision per ten hours of direct treatment; at 10 hours a week or less, at least one to two hours a week (EN0499). Washington’s DOH rule adds two face-to-face contacts a month with each CBT and direct supervision of at least 5 percent of the CBT’s monthly hours (WAC 246-805-330).',
@@ -1558,6 +1568,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      WA_CRED_FAQ,
       { q: 'Does Cigna pay an out-of-network ABA provider?', a: 'Only on plans with out-of-network benefits. Evernorth\'s September 2026 guidelines say HMO, Connect and OAP In-Network plans cover in-network care only, while POS and Open Access Plus plans cover out-of-network services at a reduced benefit level. Evernorth publishes no single case agreement process for ABA; its care managers help families find an in-network provider.' },
       { q: 'Does Cigna require graphs for ABA reassessments?', a: 'Not graphs as such. EN0499 requires dated quantitative baseline, interim and current data (current data no more than 60 days old), an updated plan and a standardized assessment no more than a year old; graphs are a common way to show the data, but the policy does not require them.' },
       { q: 'Does Cigna accept H0031 or H0032 for ABA?', a: 'CPT 97151–97158, 0362T and 0373T only; HCPCS H-codes such as H0031/H0032 are not billable for ABA (Evernorth autism resource guide).' },
@@ -1691,7 +1702,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Clinician licenses', desc: 'Washington DOH license for the LBA; technician credential (CBT; Optum’s HM line names the RBT).' },
     ],
-    sources: [{ title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, S.optumSCC, S.optumSM, S.optumWA, S.optumTele, S.optumReimb, S.optumNNM, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, S.lcswScope, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, S.optumSCC, S.optumSM, S.optumWA, S.optumTele, S.optumReimb, S.optumNNM, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, S.lcswScope, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, S.rcw43750, S.rcw43757],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, direct case supervision is required at 1–2 hours for every 10 hours of direct treatment. Technicians work under a BCBA or licensed behavioral health clinician and "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate" (Optum SCC). In Washington the state credential is the DOH CBT, supervised under WAC 246-805-330 (two face-to-face contacts a month; 5 percent direct supervision monthly).',
@@ -1777,6 +1788,8 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
+      WA_CRED_FAQ,
       { q: 'Does UnitedHealthcare / Optum give single case agreements for ABA?', a: 'Not automatically. Optum\'s ABA FAQ says an SCA may be approved "In exception cases, based on clinical need, new business implementations, or other gaps in the network" after review with the clinical team. Credentialing takes 45 to 120 days, and new agencies also need a site audit.' },
       { q: 'Does UnitedHealthcare require graphs for ABA reassessments?', a: 'Optum’s criteria require updated progress data in the same measures used at baseline (mastery rates, change scores, updated standardized adaptive measures) at every continued review; they do not require graphs as such.' },
       { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, each with a credential modifier; no H-code (H0031, H0032, H2014, H2019) is on the list.' },
@@ -1795,12 +1808,12 @@ export const washingtonPayers: Record<string, PayerConfig> = {
     family: 'bcbs',
     cardDesc: 'Washington’s largest Blue: policy 3.01.510 (May 2026), PA on ABA codes incl. 97151, in-person or video delivery, 2 hrs supervision per 10 hrs, LABAs billed under the LBA.',
     assessmentPA: {
-      value: 'Yes: Premera’s October 2026 code lists put ABA among behavioral health services requiring prior authorization, and the individual-plan list marks 97151, 0362T and H0031 "Prior Authorization Required"',
+      value: 'Yes: Premera’s November 6, 2026 code lists put ABA among behavioral health services requiring prior authorization, and the individual-plan list marks 97151, 0362T and H0031 "Prior Authorization Required"',
       status: 'verified',
       cites: [S.premCodeInd, S.premCodeGrp],
     },
     treatmentPA: {
-      value: 'Yes: 97153, 97154, 97155, 97156, 97158 and 0373T are "Prior Authorization Required" on the individual-plan code list (10/1/2026), and the non-individual list names ABA as requiring PA; submit through Availity',
+      value: 'Yes: 97153, 97154, 97155, 97156, 97158 and 0373T are "Prior Authorization Required" on the individual-plan code list (11/6/2026), and the non-individual list names ABA as requiring PA; submit through Availity',
       status: 'verified',
       cites: [S.premCodeInd, S.premCodeGrp, S.premPAPage],
     },
@@ -1890,7 +1903,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan', desc: 'Updated every six months; kept on file.' },
       { title: 'Other providers', desc: 'Speech, OT and school services, so sessions are not scheduled at the same time as ABA.' },
     ],
-    sources: [S.premPolicy, S.premABA, S.premCodeInd, S.premCodeGrp, S.premPAPage, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Premera — BlueCard Resources (prefix list, out-of-area medical policy and pre-service review)', url: 'https://www.premera.com/wa/provider/bluecard-resources/' }, { title: 'Premera — Medical Reference Manual: BlueCard and Shared Administration chapter', url: 'https://www.premera.com/wa/provider/reference/medical-manuals/bluecard/' }, { title: 'Premera — Provider News (WA provider news site)', url: 'https://providernews.premera.com/' }, S.lcswScope],
+    sources: [S.premPolicy, S.premABA, S.premCodeInd, S.premCodeGrp, S.premPAPage, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, { title: 'Premera — BlueCard Resources (prefix list, out-of-area medical policy and pre-service review)', url: 'https://www.premera.com/wa/provider/bluecard-resources/' }, { title: 'Premera — Medical Reference Manual: BlueCard and Shared Administration chapter', url: 'https://www.premera.com/wa/provider/reference/medical-manuals/bluecard/' }, { title: 'Premera — Provider News (WA provider news site)', url: 'https://providernews.premera.com/' }, S.lcswScope, S.rcw43750, S.rcw43757, S.premClaimsWA, S.premCredWA],
     deliveryRules: {
       supervision: {
         value: 'Premera’s ABA resources page: technicians "should receive weekly clinical supervision from the program manager/lead behavioral therapist as follows for each patient: Generally, 2 hours for every 10 hours of direct service provision, with a minimum of 2 hours weekly when direct service provision is 10 hours per week or less." Policy 3.01.510 adds that some supervisory time should be direct observation, and supervision may be in person or by real-time video. DOH’s CBT supervision rule (WAC 246-805-330) also applies in Washington.',
@@ -1976,8 +1989,10 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What is Premera’s timely filing limit for ABA claims in Washington?', a: 'Premera’s Washington reference manual asks for claims "within 60 calendar days of the covered services, but no later than 90 calendar days from the date of service," and says "For most plans, we\'ll deny claims received more than 90 days after the date of service with no member responsibility"; your contract can set other terms. A Level I provider appeal "must be submitted within 365-days following the action that prompted the dispute." Premera also says "The majority of our providers complete the credentialing process within 60 days or less."' },
+      WA_CRED_FAQ,
       { q: 'Does Premera Blue Cross cover ABA therapy?', a: 'Yes, for autism spectrum disorder under medical policy 3.01.510, subject to prior authorization. Fully insured Washington plans are also bound by the state’s mental health parity law.' },
-      { q: 'Does Premera require prior authorization for the ABA assessment?', a: 'Yes. Premera’s October 2026 code lists put ABA among services needing prior authorization, and the individual-plan list marks 97151 (and 0362T) as PA required.' },
+      { q: 'Does Premera require prior authorization for the ABA assessment?', a: 'Yes. Premera’s November 6, 2026 code lists put ABA among services needing prior authorization, and the individual-plan list marks 97151 (and 0362T) as PA required.' },
       { q: 'Do LABAs need to be credentialed with Premera?', a: 'No. LABA services are billed under the credentialed, supervising LBA’s name.' },
       { q: 'Can ABA be done at school with Premera?', a: 'Some direct treatment may take place at school when autism-related difficulties are evident there, but it must be entirely ABA treatment; acting as a classroom aide or providing IEP services is not covered, and some plans exclude school settings.' },
       { q: 'Can a BCBA licensed in another state treat a Premera member in Washington?', a: 'Only with Washington authorization: a DOH license, reciprocity, or a 180-day temporary license for nonresidents licensed elsewhere. Premera’s own policy requires state licensure where the state licenses behavior analysts.' },
@@ -1988,11 +2003,11 @@ export const washingtonPayers: Record<string, PayerConfig> = {
   'regence-blueshield-washington': {
     slug: 'regence-blueshield-washington',
     family: 'bcbs',
-    cardDesc: 'Regence BH18/BH33, which name Washington’s parity act as their legal basis: PA only where the contract requires it, one standardized assessment, continuation requests 5–30 days before the end date.',
+    cardDesc: 'Regence BH18 (revised 11/1/2026, now including the assessment criteria), which names Washington’s parity act as its legal basis: PA only where the contract requires it, one standardized assessment, one ABA provider at a time, continuation requests 5–30 days before the end date.',
     assessmentPA: {
-      value: 'Only where the member’s contract requires preauthorization of the initial assessment: BH33 "only applies to member contracts that are subject to preauthorization for the initial assessment"',
+      value: 'Only where the member’s contract requires preauthorization: since November 1, 2026 the initial-assessment criteria sit in BH18 section I, and BH18 "only applies to member contracts that are subject to preauthorization for Applied Behavior Analysis"',
       status: 'plan-dependent',
-      cites: [S.regBH33],
+      cites: [S.regBH18],
       verifyVia: 'Regence’s preauthorization list for the member contract (via Availity): check 97151 and 97152.',
       blocker: 'per-case',
     },
@@ -2004,9 +2019,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       blocker: 'per-case',
     },
     dxRequired: {
-      value: 'Yes: autism spectrum disorder diagnosed by a qualified treating health care professional "as defined by state law" (BH33 examples: pediatrician, pediatric neurologist, developmental pediatrician, psychologist)',
+      value: 'Yes: autism spectrum disorder diagnosed "by a qualified treating health care professional as defined by state law," with ASD symptoms that make the member a safety risk or unable to take part in age-appropriate home or community activities, and ABA "recommended or prescribed by a qualified treating health care professional (e.g. psychiatrist, pediatrician, pediatric neurologist, developmental pediatrician, psychologist) experienced in the diagnosis and treatment of autism" (BH18 effective 11/1/2026)',
       status: 'verified',
-      cites: [S.regBH18, S.regBH33],
+      cites: [S.regBH18],
     },
     payer: 'Regence BlueShield (Washington)',
     state: 'WA', kind: 'commercial',
@@ -2014,12 +2029,13 @@ export const washingtonPayers: Record<string, PayerConfig> = {
     h1: 'Regence BlueShield ABA coverage in Washington: the intake guide.',
     metaTitle: 'Regence BlueShield ABA Coverage in Washington: Prior Auth Guide | Carelu',
     metaDescription:
-      'How Regence BlueShield covers ABA in Washington: medical policies BH18 and BH33 (which cite Washington’s Mental Health Parity Act), contract-dependent preauthorization, the standardized-assessment and documentation rules, LBAT requirement, and what intake should collect.',
+      'How Regence BlueShield covers ABA in Washington: medical policy BH18 (revised November 1, 2026; it cites Washington’s Mental Health Parity Act), contract-dependent preauthorization, the standardized-assessment and documentation rules, LBAT requirement, and what intake should collect.',
     intro: [
-      'Regence BlueShield is Washington’s second Blue plan, alongside Premera. Its ABA rules are two medical policies shared across its states: BH18 for treatment and BH33 for the initial assessment. Both list "Washington’s Mental Health Parity Act (RCW 48.44)" as the Washington basis for the benefit, and both define the Washington treating provider as a qualified lead behavior analysis therapist (LBAT). The version we read is effective August 1, 2025 and carries a notice that a revised BH18 takes effect November 1, 2026.',
+      'Regence BlueShield is Washington’s second Blue plan, alongside Premera. Its ABA rules are in medical policy BH18, shared across its states. The revision effective November 1, 2026 (read November 8, 2026) folds the initial-assessment criteria, formerly policy BH33 (whose public links no longer load), into BH18 as section I. BH18 lists "Washington’s Mental Health Parity Act (RCW 48.44)" as the Washington basis for the benefit and defines the Washington treating provider as a qualified lead behavior analysis therapist (LBAT).',
     ],
     atGlance: [
-      { label: 'Covers ABA?', value: 'Yes, for ASD, under BH18 (treatment) and BH33 (initial assessment)' },
+      { label: 'Covers ABA?', value: 'Yes, for ASD, under BH18 (revised 11/1/2026; covers the initial assessment and treatment)' },
+      { label: 'One provider at a time', value: 'Members are limited to ABA by one authorized ABA provider at any given time' },
       { label: 'Prior auth', value: 'Only for contracts subject to ABA preauthorization; check the member’s contract' },
       { label: 'Treatment plan needs', value: 'Objective measures and at least one standardized assessment for each targeted behavior; hours and units with clinical justification' },
       { label: 'Continuation', value: 'Submit within 5 business days before the authorization ends, and no more than 30 days before' },
@@ -2032,12 +2048,12 @@ export const washingtonPayers: Record<string, PayerConfig> = {
     ],
     sections: [
       {
-        h2: 'BH18 and BH33, applied in Washington',
+        h2: 'BH18 (revised November 1, 2026), applied in Washington',
         body: [
-          'BH33 covers the initial ABA assessment when the member has an ASD diagnosis from a qualified treating professional, symptoms that make the member a safety risk or unable to take part in age-appropriate activities, and a recommendation or prescription for ABA from a qualified professional experienced with autism. BH18 covers starting treatment when an individualized treatment plan, prepared by a provider certified to provide ABA (in Washington, a qualified LBAT), describes each targeted behavior with "objective measurements and at least one standardized assessment," the evidence-based interventions, caregiver training, clinical justification for days per week, hours per day and supervision hours, the CPT codes and units requested for a date range, and measurable discharge goals. Initial requests also need the most recent date of service with any previous ABA provider and the reason for discharge.',
-          'Continuation requires functional, measurable progress: data from sessions and assessments, gains maintained outside the treatment setting, the same measurement tool used for baseline and current progress, objective measures at least every six months and standardized assessments annually, and a showing that the behaviors still need this intensity. Documentation "should be submitted within five business days prior to the end of a current authorization (and no more than 30 days prior to the end of the authorization period)." ABA for educational, vocational or custodial purposes is not medically necessary. Both policies apply "only … to member contracts that are subject to preauthorization," so check the member’s contract first.',
+          'BH18 section I covers the initial ABA assessment when the member "has been diagnosed with Autism Spectrum Disorder by a qualified treating health care professional as defined by state law," has symptoms that make the member a safety risk or unable to take part in age-appropriate home or community activities, and has ABA "recommended or prescribed by a qualified treating health care professional (e.g. psychiatrist, pediatrician, pediatric neurologist, developmental pediatrician, psychologist) experienced in the diagnosis and treatment of autism." For review Regence wants the prescribing professional\'s documentation of the diagnosis and the impairment and the "Written recommendation, clinical order, or prescription for ABA services." Section II covers starting treatment when an individualized treatment plan, prepared by a provider certified to provide ABA (in Washington, a qualified LBAT), describes each targeted behavior with "objective measurements and at least one standardized assessment," the evidence-based interventions, caregiver training, clinical justification for days per week, hours per day and supervision hours, the CPT codes and units requested for a date range, and measurable discharge goals. Initial requests also need the most recent date of service with any previous ABA provider and the reason for discharge.',
+          'Continuation requires functional, measurable progress: data from sessions and assessments, gains maintained outside the treatment setting, the same measurement tool used for baseline and current progress, objective measures at least every six months and standardized assessments annually, and a showing that the behaviors still need this intensity. Documentation "should be submitted within five business days prior to the end of a current authorization (and no more than 30 days prior to the end of the authorization period)." ABA for educational, vocational or custodial purposes is not medically necessary. The policy applies "only ... to member contracts that are subject to preauthorization for Applied Behavior Analysis," so check the member’s contract first. Two rules are new in the November 2026 revision: "Members are limited to ABA treatment by one authorized ABA provider at any given time," and 0373T "may not be billed concurrently with 97153 or 97155."',
         ],
-        cites: [S.regBH18, S.regBH33],
+        cites: [S.regBH18],
       },
       {
         h2: 'The Washington mandate: parity, not an autism statute',
@@ -2062,7 +2078,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       { title: 'Prior ABA history', desc: 'Most recent date of service with any previous ABA provider and the reason for discharge.' },
       { title: 'Plan funding type', desc: 'Fully insured Washington plan (state parity law applies) vs. self-funded ERISA.' },
     ],
-    sources: [S.regBH18, S.regBH33, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, S.lcswScope],
+    sources: [S.regBH18, S.rcw44341, S.rcw46291, S.rcw21241, S.wac5642, S.hb1432, S.rcw43766, S.rcw18380, S.wac246805, S.rcw18134, S.bacbLic, S.wac431, S.rcw43830, S.rcw43735, S.rcw43535, S.wac51205, S.erisa, S.abaFee, S.lcswScope, S.rcw43750, S.rcw43757],
     deliveryRules: {
       supervision: {
         value: 'BH18 sets no numeric ratio. BCaBAs work under a BCBA or BCBA-D; behavior technicians and RBTs "must be under the ongoing supervision of a BCBA, BCBA-D, or qualified supervisor," and "All supervision must be conducted in accordance with" the BACB’s ethics code and supervision standards; the plan must justify the hours per week of direct face-to-face supervision requested. In Washington, DOH’s CBT rule also applies: two face-to-face contacts a month and direct supervision of at least 5 percent of monthly hours (WAC 246-805-330).',
@@ -2070,10 +2086,10 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.regBH18, S.wac246805],
       },
       concurrentBilling: {
-        value: 'Not addressed in the BH18 version read (effective 8/1/2025).',
+        value: 'BH18 (effective 11/1/2026) addresses only the multi-technician code: "Code 0373T may not be billed concurrently with 97153 or 97155," because those activities "are considered part of the 0373T service." It says nothing about billing 97153 and 97155 for the same time.',
         status: 'unverified',
         cites: [S.regBH18],
-        verifyVia: 'Regence behavioral health UM via Availity, or the revised BH18 effective 11/1/2026: ask whether 97153 and 97155 may be billed for the same time.',
+        verifyVia: 'Regence behavioral health UM via Availity: ask whether 97153 and 97155 may be billed for the same time on this contract.',
         blocker: 'per-case',
       },
       dailyLimits: {
@@ -2103,7 +2119,7 @@ export const washingtonPayers: Record<string, PayerConfig> = {
     },
     intakeGates: {
       ageLimit: {
-        value: 'BH18 and BH33 set no age limit.' + MANDATE_AGE_TAIL,
+        value: 'BH18 sets no age limit.' + MANDATE_AGE_TAIL,
         status: 'plan-dependent',
         cites: [S.regBH18, S.rcw44341],
         verifyVia: 'Availity benefits check: establish fully insured vs. self-funded and the contract’s ABA terms.',
@@ -2115,9 +2131,9 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.regBH18],
       },
       diagnosingProviders: {
-        value: 'A qualified treating health care professional "as defined by state law"; BH33 gives as examples a pediatrician, pediatric neurologist, developmental pediatrician or psychologist. LCSW (LICSW): not among Regence\'s examples; "as defined by state law" — Washington defines independent clinical social work as "the diagnosis and treatment of emotional and mental disorders" (RCW 18.225.010(7)) — but Regence also requires experience diagnosing autism.',
+        value: 'A "qualified treating health care professional as defined by state law" (BH18 effective 11/1/2026). The policy\'s examples (psychiatrist, pediatrician, pediatric neurologist, developmental pediatrician, psychologist) are attached to the professional who recommends or prescribes ABA, who must be "experienced in the diagnosis and treatment of autism." LCSW (LICSW): not among Regence\'s examples; "as defined by state law" — Washington defines independent clinical social work as "the diagnosis and treatment of emotional and mental disorders" (RCW 18.225.010(7)) — but Regence also requires experience diagnosing autism.',
         status: 'verified',
-        cites: [S.regBH33, S.regBH18, S.lcswScope],
+        cites: [S.regBH18, S.lcswScope],
       },
       diagnosticTools: {
         value: 'No diagnostic instrument is named. For the treatment plan, each targeted behavior needs "at least one standardized assessment" (examples: SRS-2, Vineland-3, ABAS-3, SSIS, BRIEF-2, PDDBI); curriculum-based tools such as VB-MAPP, PEAK, ABLLS-R and AFLS guide planning but are not standardized.',
@@ -2125,12 +2141,12 @@ export const washingtonPayers: Record<string, PayerConfig> = {
         cites: [S.regBH18],
       },
       referral: {
-        value: 'Yes: "ABA therapy must be recommended or prescribed by a qualified treating health care professional experienced in the diagnosis and treatment of ASD," and the request needs the "Written recommendation, clinical order, or prescription for ABA services."',
+        value: 'Yes: "ABA therapy must be recommended or prescribed by a qualified treating health care professional (e.g. psychiatrist, pediatrician, pediatric neurologist, developmental pediatrician, psychologist) experienced in the diagnosis and treatment of autism, as defined by state law," and the "Written recommendation, clinical order, or prescription for ABA services" is among the documents "required for review of ABA services" at initiation, so it goes in with the request.',
         status: 'verified',
-        cites: [S.regBH18, S.regBH33],
+        cites: [S.regBH18],
       },
       telehealth: {
-        value: 'BH18 and BH33 do not address telehealth. For fully insured Washington plans, RCW 48.43.735 requires same-amount reimbursement for covered, medically necessary services delivered by telemedicine that can be safely provided that way, with the home as an originating site.',
+        value: 'BH18 does not address telehealth. For fully insured Washington plans, RCW 48.43.735 requires same-amount reimbursement for covered, medically necessary services delivered by telemedicine that can be safely provided that way, with the home as an originating site.',
         status: 'unverified',
         cites: [S.regBH18, S.rcw43735],
         verifyVia: 'Regence behavioral health UM via Availity: ask which ABA codes are payable by telehealth for this contract and with which POS and modifier.',
@@ -2152,8 +2168,11 @@ export const washingtonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
-      { q: 'Does Regence BlueShield cover ABA in Washington?', a: 'Yes, under medical policies BH18 and BH33, which name Washington’s Mental Health Parity Act as the Washington basis for the benefit.' },
-      { q: 'Does Regence require prior authorization for ABA in Washington?', a: 'It depends on the member’s contract. BH18 and BH33 apply only to contracts subject to ABA preauthorization; check the member’s preauthorization requirements in Availity.' },
+      WA_CRED_FAQ,
+      { q: 'Does Regence BlueShield cover ABA in Washington?', a: 'Yes, under medical policy BH18 (revised effective November 1, 2026, now including the initial-assessment criteria), which names Washington’s Mental Health Parity Act as the Washington basis for the benefit.' },
+      { q: 'What are Regence’s diagnosis criteria for ABA in Washington?', a: 'Under BH18 effective November 1, 2026: an autism spectrum disorder diagnosis "by a qualified treating health care professional as defined by state law"; ASD symptoms that make the member a safety risk to self or others or unable to take part in age-appropriate home or community activities; and ABA recommended or prescribed by a qualified professional experienced in diagnosing and treating autism (examples: psychiatrist, pediatrician, pediatric neurologist, developmental pediatrician, psychologist). The policy names no diagnostic instrument and sets no expiry on the diagnosis.' },
+      { q: 'Can a child see two ABA agencies at once under Regence?', a: 'No. BH18 effective November 1, 2026 says "Members are limited to ABA treatment by one authorized ABA provider at any given time."' },
+      { q: 'Does Regence require prior authorization for ABA in Washington?', a: 'It depends on the member’s contract. BH18 applies only to contracts subject to ABA preauthorization; check the member’s preauthorization requirements in Availity.' },
       { q: 'Who can deliver ABA for Regence in Washington?', a: 'BH18 names a qualified Lead Behavior Analysis Therapist (LBAT) as the Washington treating provider, with BCaBAs and technicians under supervision. Washington also requires DOH licensure or certification.' },
       { q: 'When should I send a Regence continuation request?', a: 'Within five business days before the current authorization ends, and no more than 30 days before, with the updated treatment plan and progress data.' },
     ],

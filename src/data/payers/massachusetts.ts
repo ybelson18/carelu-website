@@ -1,5 +1,31 @@
 import type { PayerConfig } from './types.js';
 
+/* ---- Massachusetts credentialing clock (M.G.L. c. 176O § 29; read on malegislature.gov 2026-11-08) ---- */
+const MA_CRED_SRC = { title: 'M.G.L. c. 176O § 29 — Health care provider credentialing (standard form; response within 20 business days of a completed request)', url: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXII/Chapter176O/Section29' };
+const MA_CRED_SECTION = {
+  h2: 'Credentialing a new BCBA: Massachusetts’ 20-business-day response rule',
+  body: [
+    'Massachusetts requires carriers to use one credentialing form and to answer quickly. Under M.G.L. c. 176O § 29, "A carrier, or any entity that manages or administers benefits for a carrier, shall accept the standard credentialing form for contracting providers as sufficient information necessary to conduct its credentialing process," and the Division\'s rules must require the carrier to "review a submitted credentialing form for a health care provider and respond to the health care provider not more than 20 business days after receiving a completed credentialing request." A carrier may run credentialing through a web portal instead of paper but must supply a paper form on request, and a carrier that delegates credentialing to a behavioral-health vendor stays responsible for the vendor\'s compliance. The statute sets a deadline to respond, not to finish: it starts from a completed request, so adding a new BCBA starts with a complete standard credentialing application for that clinician.',
+  ],
+  cites: [MA_CRED_SRC],
+};
+const MA_CRED_FAQ = { q: 'How long does a carrier have to respond to a BCBA\'s credentialing application in Massachusetts?', a: 'Under M.G.L. c. 176O § 29, a carrier (or the vendor that manages benefits for it) must review a submitted credentialing form and respond "not more than 20 business days after receiving a completed credentialing request," and must accept the state\'s standard credentialing form. That is a deadline to respond to a complete application, not a promise that the clinician is in network by then.' };
+
+/* ---- Health New England timely filing (PP045POL, read 2026-11-08) ---- */
+const HNE_TF_SRC = [
+  { title: 'Health New England Payment Policy PP045POL — Timely Filing Limit (eff. Nov. 1, 2023; next annual approval April 2027)', url: 'https://healthnewengland.org/Portals/_default/Shared%20Documents/payment_policies/PP045POL_Timely_Filing.pdf' },
+  { title: 'Health New England — Be Healthy Partnership Provider Manual, MassHealth addendum (behavioral health claims: contact MBHP)', url: 'https://healthnewengland.org/Portals/_default/Shared%20Documents/providers/HNE_Be_Healthy_ProviderManual-Medicaid_addendum.pdf' },
+];
+const HNE_TF_SECTION = {
+  h2: 'Claim filing deadline: HNE\'s 90 days, but behavioral health claims are MBHP\'s',
+  body: [
+    'HNE\'s Timely Filing Limit payment policy (PP045POL), which lists the BeHealthy Partnership among its plans, sets a 90-day limit for Medicaid: for BeHealthy Partnership providers "the filing limit for claim submission … is 90 days from the date of service," and when another insurer pays first, "the filing limit for claims submission to HNE is 90 days from the date that the primary insurer processed the claim," with that insurer\'s EOB attached. "Contracts may differ and supersede this information," and members cannot be billed for claims denied as late.',
+    'ABA is behavioral health, and for BeHealthy members HNE has handed that to MBHP. The MassHealth addendum to HNE\'s manual says "For information regarding Behavioral Health claims please contact MBHP at 1.800.495.0086." MBHP\'s provider manual and claims pages sit behind its provider login, so we could not confirm whether an ABA claim filed with MBHP for a BeHealthy member runs on HNE\'s 90 days or on MBHP\'s own limit. Confirm with MBHP before relying on 90 days.',
+  ],
+  cites: HNE_TF_SRC,
+};
+const HNE_TF_FAQ = { q: 'What is the timely filing limit for Health New England BeHealthy ABA claims?', a: 'HNE\'s own policy (PP045POL) gives 90 days from the date of service for Medicaid/BeHealthy claims, and 90 days from the primary insurer\'s processing date when HNE is secondary. Behavioral health claims for BeHealthy members are handled by MBHP (1-800-495-0086), whose filing rules are behind its provider login, so confirm the ABA window with MBHP.' };
+
 export const massachusettsPayers: Record<string, PayerConfig> = {
   'masshealth-massachusetts-medicaid': {
     slug: 'masshealth-massachusetts-medicaid',
@@ -1372,6 +1398,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: 'MassHealth ABA supervision audit & recoupment (Acuity News)', url: 'https://acuity.news/regulation/masshealth-aba-supervision-audit-recoupment-litigation-2026/' },
         ],
       },
+      HNE_TF_SECTION,
     ],
     collect: [
       { title: 'BeHealthy → MBHP routing', desc: 'The HNE card routes ABA to MBHP — use the ProviderConnect workflow, not an HNE portal.' },
@@ -1379,7 +1406,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'LABA of record', desc: 'The standard form is completed by the rendering or supervising LABA.' },
       { title: 'Supervision capacity', desc: 'Audited plan — hold ≥1:10 97155:97153 in the schedule.' },
     ],
-    sources: [
+    sources: [...HNE_TF_SRC, 
       { title: 'MassHealth Managed Care Options — plan/BH-vendor map (April 2023)', url: 'https://abh.memberclicks.net/assets/docs/KeepingCoverage/2023%20MassHealth%20Accountable%20and%20Managed%20Care%20Options%20031723.pdf' },
       { title: 'MBHP provider portal — ProviderConnect', url: 'https://providers.masspartnership.com/provider/GettingStarted.html' },
       { title: 'MassHealth ABA supervision audit & recoupment (Acuity News)', url: 'https://acuity.news/regulation/masshealth-aba-supervision-audit-recoupment-litigation-2026/' },
@@ -1396,6 +1423,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'TRICARE — Using Other Health Insurance', url: 'https://tricare.mil/Plans/OHI' },
     ],
     faq: [
+      HNE_TF_FAQ,
       { q: 'Does HNE\'s BeHealthy Partnership cover ABA?', a: 'Yes — the state-baseline MassHealth EPSDT benefit, with behavioral health administered by MBHP (Carelon): standard PA form, 6-month authorizations, no published caps.' },
       { q: 'Where do BeHealthy ABA authorizations go?', a: 'To MBHP, via providers.masspartnership.com — not to Health New England. It\'s the same flow as PCC Plan and Primary Care ACO members.' },
     ],
@@ -1853,6 +1881,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Aetna — Provider manual (8102800-01-01, 6/26) (PDF)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }],
       },
+      MA_CRED_SECTION,
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (ARICA applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -1860,7 +1889,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date — or, from 1/1/2026, Down syndrome genetic-testing confirmation on fully-insured plans.' },
       { title: 'LABA of record', desc: 'The MA standard form Aetna uses is completed by the rendering or supervising LABA.' },
     ],
-    sources: [
+    sources: [MA_CRED_SRC, 
       { title: 'Aetna — Participating provider behavioral health precertification list (ABA: 97151–97158, 0362T, 0373T)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh_precert_list.pdf' },
       { title: 'Aetna CPB 0554 — Applied Behavior Analysis', url: 'https://www.aetna.com/cpb/medical/data/500_599/0554.html' },
       { title: 'Aetna CPB 0648 — Autism Spectrum Disorders', url: 'https://www.aetna.com/cpb/medical/data/600_699/0648.html' },
@@ -1888,6 +1917,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'MA Standard ABA PA Form (MassHealth version, upd. 3/12/2026)', url: 'https://www.wellsense.org/hubfs/Forms/Provider_Forms/Applied_Behavioral_Analysis_Prior_Authorization_Form_MassHealth.pdf' },
     ],
     faq: [
+      MA_CRED_FAQ,
       { q: 'Can an out-of-network ABA provider keep treating an Aetna member?', a: 'Possibly, through Aetna\'s transition-of-care or continuity-of-care process. The member must be in an active course of covered treatment; the member requests a Transition Coverage Request Form, completes it with the provider and faxes it to Aetna, which issues a time-limited decision. Aetna\'s manual names individual practitioners and home care agencies as eligible, so confirm with Aetna behavioral health that an ABA agency qualifies.' },
       { q: 'Does Aetna cover ABA therapy in Massachusetts?', a: 'Yes — under the carrier\'s national policy for ASD, layered on ARICA for fully-insured plans, which bars age limits and benefit caps. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Massachusetts autism mandate require?', a: 'ARICA (Ch. 207, Acts of 2010) is one of the strongest mandates nationally: fully-insured plans must cover ASD diagnosis and treatment at any age with no dollar, visit, or unit caps, including ABA supervised by a board certified behavior analyst. From 1/1/2026, Chapter 388 adds sole-diagnosis Down syndrome.' },
@@ -2140,6 +2170,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'Evernorth Behavioral Health Administrative Guidelines (September 2026, PCOMM-2026-191)', url: 'https://static.evernorth.com/assets/evernorth/provider/pdf/resourceLibrary/behavioral/ebh-provider-admin-guide.pdf' }],
       },
+      MA_CRED_SECTION,
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (ARICA applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2147,7 +2178,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date — or, from 1/1/2026, Down syndrome genetic-testing confirmation on fully-insured plans.' },
       { title: 'Assessment fast path', desc: 'No PA on 97151/97152/0362T under EN0499 — with the diagnosis in hand, the assessment can book immediately.' },
     ],
-    sources: [
+    sources: [MA_CRED_SRC, 
       { title: 'Evernorth EN0499 — Intensive Behavioral Interventions', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/en_mm_0499_coveragepositioncriteria_intensive_behavioral_interventions.pdf' },
       { title: 'Cigna autism resource guide (Mar 2025)', url: 'https://static.cigna.com/assets/chcp/pdf/coveragePolicies/medical/autism-resource-guide.pdf' },
       { title: 'DisabilityInfo/AIRC — ARICA fact sheet', url: 'https://disabilityinfo.org/fact-sheet-library/laws-legislation/act-relative-to-insurance-coverage-for-autism-arica/' },
@@ -2168,6 +2199,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: '130 CMR 450.317 — MassHealth third-party liability: payment limitations (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-317' },
     ],
     faq: [
+      MA_CRED_FAQ,
       { q: 'Does Cigna pay out-of-network ABA providers?', a: 'Only if the member\'s plan has out-of-network benefits; on Open Access Plus, out-of-network services “are covered at a reduced benefit level.” Evernorth publishes no single case agreement process or rate. Appeals are due within 180 calendar days of the denial, and an out-of-network provider may need an Appointment of Representative form signed by the patient.' },
       { q: 'Does Cigna cover ABA therapy in Massachusetts?', a: 'Yes — under national policy EN0499 for ASD (no PA on assessment codes), layered on ARICA for fully-insured plans, which bars age limits and benefit caps. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Massachusetts autism mandate require?', a: 'ARICA (Ch. 207, Acts of 2010) is one of the strongest mandates nationally: fully-insured plans must cover ASD diagnosis and treatment at any age with no dollar, visit, or unit caps, including ABA supervised by a board certified behavior analyst. From 1/1/2026, Chapter 388 adds sole-diagnosis Down syndrome.' },
@@ -2422,6 +2454,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
         ],
         cites: [{ title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }],
       },
+      MA_CRED_SECTION,
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (ARICA applies) vs. self-funded ERISA (exempt) — it decides which rulebook governs. Ask for the employer and check the card.' },
@@ -2430,7 +2463,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5-TR ASD with a validated tool (ADI-R, ADOS-2) — or, from 1/1/2026, trisomy-21 genetic confirmation for the Down syndrome pathway.' },
       { title: 'Supervision staffing plan', desc: 'Optum\'s MA entries codify 1:10 BCBA-to-paraprofessional supervision — document it in the request.' },
     ],
-    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' },
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, MA_CRED_SRC,  { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' },
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum ABA State Mandates — BH 803ABA STM12026 (eff. Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'DisabilityInfo/AIRC — ARICA fact sheet', url: 'https://disabilityinfo.org/fact-sheet-library/laws-legislation/act-relative-to-insurance-coverage-for-autism-arica/' },
@@ -2458,6 +2491,8 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: '130 CMR 450.317 — MassHealth third-party liability: payment limitations (Cornell LII mirror)', url: 'https://www.law.cornell.edu/regulations/massachusetts/130-CMR-450-317' },
     ],
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
+      MA_CRED_FAQ,
       { q: 'Does UnitedHealthcare pay out-of-network ABA providers?', a: 'Only under the member\'s out-of-network benefits, priced by a method the plan sets (a percentage of CMS rates, FAIR Health, Viant or a negotiated rate). On commercial HMO plans an out-of-network provider can be approved when no network provider is available in time or nearby; the PCP requests an out-of-network prior authorization, and the member then pays only in-network cost-sharing.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Massachusetts?', a: 'Yes — under Optum\'s national two-step authorization for ASD, layered on ARICA for fully-insured plans, which bars age limits and benefit caps. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Massachusetts autism mandate require?', a: 'ARICA (Ch. 207, Acts of 2010) is one of the strongest mandates nationally: fully-insured plans must cover ASD diagnosis and treatment at any age with no dollar, visit, or unit caps, including ABA supervised by a board certified behavior analyst. From 1/1/2026, Chapter 388 adds sole-diagnosis Down syndrome — which Optum\'s state-mandate supplement implements by name.' },
@@ -2705,6 +2740,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
           { title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' },
         ],
       },
+      MA_CRED_SECTION,
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (ARICA and Ch. 388 apply) or self-funded employer plan administered by BCBSMA (plan document governs). Ask for the employer name.' },
@@ -2713,7 +2749,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'Other services', desc: 'Weekly OT, PT, speech, mental-health and IEP/school hours. Form 144 asks for them, and ABA cannot overlap with them.' },
       { title: 'LABA of record', desc: 'LABA name and license number, plus agency NPI. Background checks (CORI/SORI) for everyone who works with the family.' },
     ],
-    sources: [
+    sources: [MA_CRED_SRC, 
       { title: 'BCBSMA Medical Policy 091 — Applied Behavior Analysis (ABA) (last annual review 10/1/2025)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/091%20Applied%20Behavioral%20Analysis%20%28ABA%29.pdf' },
       { title: 'BCBSMA — Applied Behavior Analysis Service Request Form for Initial Assessment and Treatment (144, MPC-100915-1R rev. 8/23)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/144%20Applied%20Behavior%20Analysis%20Service%20Request%20Form%20prn.pdf' },
       { title: 'BCBSMA Medical Policy 072 — Outpatient Prior Authorization Code List for Commercial Plans (rev. 9/2026)', url: 'https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/072%20Outpatient%20Prior%20Authorization%20Code%20List%20prn.pdf' },
@@ -2737,6 +2773,7 @@ export const massachusettsPayers: Record<string, PayerConfig> = {
       { title: 'BCBSMA Provider Central — Claim Submission', url: 'https://provider.bluecrossma.com/ProviderHome/portal/home/office-resources/billing-and-reimbursement/Claim%20Submission' },
     ],
     faq: [
+      MA_CRED_FAQ,
       { q: 'Does Blue Cross Blue Shield of Massachusetts cover ABA therapy?', a: 'Yes. Medical Policy 091 covers medically necessary ABA for autism spectrum disorder and/or Down syndrome on HMO, POS, PPO and Indemnity plans, with prior authorization. Fully insured plans are also bound by ARICA, which bars visit limits and age caps. Self-funded employer plans follow their own plan document.' },
       { q: 'Does BCBSMA require prior authorization for the ABA assessment (97151)?', a: 'Yes. All ten ABA codes, 97151–97158, 0362T and 0373T, need prior authorization on commercial plans. Request the assessment alone using sections A and B of form 144: the 97151 hours and units, plus the autism diagnosis signed by a licensed physician or psychologist. A typical assessment course is 12 hours.' },
       { q: 'Does a child need a referral or doctor\'s order for ABA with BCBSMA?', a: 'No PCP referral. BCBSMA says behavioral health services do not require a referral, even on HMO Blue. You do need prior authorization and a signed diagnosis from a licensed physician or licensed psychologist. That signed diagnosis is what the request form asks for, and the state mandate defines covered autism treatment as care prescribed, provided or ordered by one of them.' },

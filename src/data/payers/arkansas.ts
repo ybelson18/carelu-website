@@ -33,7 +33,7 @@ const S: Record<string, PayerSource> = {
   csPY: { title: 'CareSource PASSE Reimbursement Policy AR PASSE-PY-1616 — Applied Behavior Analysis for Autism Spectrum Disorder (effective 05/01/2026)', url: 'https://www.caresource.com/documents/passe-ar-policy-reimburse-py-1616-20260501.pdf' },
   csPM: { title: 'CareSource PASSE — Provider Manual 2025–2026', url: 'https://www.caresource.com/documents/ar-pas-p-305805-arkansas-passe-provider-manual_final.pdf' },
   csAdd: { title: 'CareSource PASSE — Provider Manual Addendum 2026 (provider reconsiderations: 65 calendar days)', url: 'https://www.caresource.com/documents/ar-pas-p-5470348-provider-manual-addendum-2026.pdf' },
-  atcPolicy: { title: 'Arkansas Total Care Clinical Policy AR.CP.BH.104 — Applied Behavior Analysis (last revised 07/26)', url: 'https://www.arkansastotalcare.com/content/dam/centene/artotalcare/policies/clinical-policies/AR.CP.BH.104.pdf' },
+  atcPolicy: { title: 'Arkansas Total Care Clinical Policy AR.CP.BH.104 — Applied Behavior Analysis (last revised 10/26)', url: 'https://www.arkansastotalcare.com/content/dam/centene/artotalcare/policies/clinical-policies/AR.CP.BH.104.pdf' },
   atcDoc: { title: 'Arkansas Total Care Clinical Policy AR.CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (last revised 07/26)', url: 'https://www.arkansastotalcare.com/content/dam/centene/artotalcare/policies/clinical-policies/AR.CP.BH.105.pdf' },
   atcPM: { title: 'Arkansas Total Care — 2026 Provider and Billing Manual', url: 'https://www.arkansastotalcare.com/content/dam/centene/artotalcare/pdfs/508_ARTC25-H-287_2026-ARTC-Provider-Manual.pdf' },
   atcPolicies: { title: 'Arkansas Total Care — Clinical and payment policies (index; the Pre-Auth Check tool is linked from the provider pages)', url: 'https://www.arkansastotalcare.com/providers/resources/clinical-payment-policies.html' },
@@ -316,7 +316,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         cites: [S.abaII, S.acentraPPT],
       },
       referral: {
-        value: 'Yes, two forms. DMS-641 ER evaluation referral from the assigned Arkansas Medicaid PCP (initial evaluation only), and a DMS-641 TP treatment prescription signed by the assigned PCP for the first course (renewals may be signed by a substitute or same-group physician). A new DMS-641 TP is not needed when the child changes PCPs; a new ER and evaluation are needed if the child loses eligibility and restarts. Who signs and how long it lasts (ABA manual §§ 212.300–212.400, eff. 1-1-25): the DMS-641 ER may be signed by the assigned PCP, a substitute physician under § 171.600, or an affiliated physician or PCP in the same Medicaid group; the initial DMS-641 TP must be signed and dated by the assigned PCP. "Unless a shorter time is specified on the treatment prescription," a prescription is valid for up to six months for a child from 18 months to 8 years old and up to 12 months from 8 to 21, by age on the prescription date. Comprehensive reevaluations need no new ER, but must fall within 60 days of an expiring DMS-641 TP. Children on a DMS-693 prescription as of January 1, 2025 keep it until it expires. Get the ER from the PCP before the initial evaluation, then the TP with the evaluation results; both forms are posted by DHS.',
+        value: 'Yes, two forms. DMS-641 ER evaluation referral from the assigned Arkansas Medicaid PCP (initial evaluation only), and a DMS-641 TP treatment prescription signed by the assigned PCP for the first course (renewals may be signed by a substitute or same-group physician). A new DMS-641 TP is not needed when the child changes PCPs; a new ER and evaluation are needed if the child loses eligibility and restarts. Who signs and how long it lasts (ABA manual §§ 212.300–212.400, eff. 1-1-25): the DMS-641 ER may be signed by the assigned PCP, a substitute physician under § 171.600, or an affiliated physician or PCP in the same Medicaid group; the initial DMS-641 TP must be signed and dated by the assigned PCP. "Unless a shorter time is specified on the treatment prescription," a prescription is valid for up to six months for a child from 18 months to 8 years old and up to 12 months from 8 to 21, by age on the prescription date. Comprehensive reevaluations need no new ER, but must fall within 60 days of an expiring DMS-641 TP. Children on a DMS-693 prescription as of January 1, 2025 keep it until it expires. Get the ER from the PCP before the initial evaluation, then the TP with the evaluation results; both forms are posted by DHS. Both forms go in with the prior authorization request, not only into the chart: Acentra’s ABA training lists the "DMS 641-ER (only required for initial assessment requests)" with the two-prong ASD diagnostic documentation for an initial assessment request, and the DMS-641 TP with the comprehensive treatment plan for initial and continued treatment requests. "The initial assessment PA request and the treatment plan PA request … must be submitted separately, and in that order," each only after the previous one is approved.',
         status: 'verified',
         cites: [S.abaII, S.acentraPPT, S.dms641er, S.dms641tp],
       },
@@ -372,9 +372,9 @@ export const arkansasPayers: Record<string, PayerConfig> = {
     h1: 'Arkansas Total Care ABA coverage: the intake guide.',
     metaTitle: 'Arkansas Total Care ABA Coverage & Prior Auth Guide | Carelu',
     metaDescription:
-      'How Arkansas Total Care, a PASSE, covers ABA for Arkansas Medicaid members: its own policy AR.CP.BH.104 (revised 07/26), PCP prescription, diagnostic evaluation within 12 months, hour ceilings, documentation rules, two-business-day decisions and 365-day timely filing.',
+      'How Arkansas Total Care, a PASSE, covers ABA for Arkansas Medicaid members: its own policy AR.CP.BH.104 (revised 10/26), PCP prescription, most recent CDE accepted until 2028, hour ceilings, documentation rules, two-business-day decisions and 365-day timely filing.',
     intro: [
-      'Arkansas Total Care is one of the four PASSEs DHS lists. PASSE members get all non-excluded Medicaid services through their PASSE, ABA included, and Acentra sends PASSE families to their PASSE care coordinator. Unlike some PASSEs, Arkansas Total Care publishes its own Arkansas ABA criteria: clinical policy AR.CP.BH.104 (revised 07/26) and a documentation policy, AR.CP.BH.105.',
+      'Arkansas Total Care is one of the four PASSEs DHS lists. PASSE members get all non-excluded Medicaid services through their PASSE, ABA included, and Acentra sends PASSE families to their PASSE care coordinator. Unlike some PASSEs, Arkansas Total Care publishes its own Arkansas ABA criteria: clinical policy AR.CP.BH.104 (revised 10/26) and a documentation policy, AR.CP.BH.105.',
     ],
     atGlance: [
       { label: 'Covers ABA?', value: 'Yes, ages 18 months to 21, when medically necessary under AR.CP.BH.104' },
@@ -388,7 +388,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       {
         h2: 'Arkansas Total Care’s ABA criteria',
         body: [
-          'AR.CP.BH.104 covers ABA when the member is between 18 months and 21; the services, “including the initial evaluation,” are prescribed, signed and dated by the member’s PCP or an affiliated provider in the PCP’s group, for no more than 12 months; and ASD is confirmed under current DSM criteria. A comprehensive diagnostic evaluation or re-evaluation must be from the last 12 months and must use at least one primary clinician tool (ABLLS, AFLS, EFL, VB-MAPP or Vineland-3, with ADOS-2, ADI-R, CARS-2 and others as optional supplements). The behavioral assessment behind an initial treatment request must be completed by a BCBA no more than 60 days before the authorization starts.',
+          'AR.CP.BH.104 covers ABA when the member is between 18 months and 21; the services, “including the initial evaluation,” are prescribed, signed and dated by the member’s PCP or an affiliated provider in the PCP’s group, for no more than 12 months; and ASD is confirmed under current DSM criteria. Since the October 2026 revision, the most recent comprehensive diagnostic evaluation is accepted regardless of age until 12/31/2027; from 1/1/2028 it must be from the last 3 years to start treatment and the last 5 years to continue. The CDE’s instruments (ADOS-2, ADI-R, CARS-2, STAT and others, plus caregiver tools such as SCQ or SRS-2) are now optional, and skills-acquisition tests were removed from the CDE section. The behavioral assessment behind an initial treatment request must be completed by a BCBA no more than 60 days before the authorization starts.',
           'The treatment plan must meet the Arkansas Medicaid manual’s billing requirements and justify hours by impairment and response, considering school (“less than 20 hours per week if attending school full-time”). Hours above six a day or 30 a week need documented clinical justification. Protocol modification (97155) should run “at least two hours per week or 5% of the direct service hours provided, whichever is greater” (one to two hours is acceptable under 10 hours a week), and caregiver training should ideally total at least two hours a month. If attendance falls below 80% of authorized hours, continued authorization needs supporting documentation.',
         ],
         cites: [S.atcPolicy],
@@ -409,7 +409,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       {
         h2: 'Technician credentials (RBT, grace period) and out-of-state BCBAs',
         body: [
-          'Arkansas Total Care follows the Arkansas Medicaid rules. Its ABA policy AR.CP.BH.104 (revised 07/26) and 2026 provider manual add no technician credential or out-of-state rule of their own.',
+          'Arkansas Total Care follows the Arkansas Medicaid rules. Its ABA policy AR.CP.BH.104 (revised 10/26) and 2026 provider manual add no technician credential or out-of-state rule of their own.',
           G1_AR_MCD_TECH,
           G1_AR_MCD_OOS,
         ],
@@ -418,7 +418,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
     ],
     collect: [
       { title: 'PCP prescription', desc: 'Signed and dated by the member’s PCP or a provider in the PCP’s group, covering the initial evaluation too; no more than 12 months.' },
-      { title: 'Diagnostic evaluation', desc: 'From the last 12 months, with severity level and at least one primary clinician tool (VB-MAPP, Vineland-3, ABLLS, AFLS or EFL).' },
+      { title: 'Diagnostic evaluation', desc: 'The most recent CDE, with DSM diagnosis, severity level and dated scores (any age until 12/31/2027; within 3 years for new starts from 1/1/2028).' },
       { title: 'School schedule', desc: 'Full-time school usually means under 20 hours a week of ABA in the plan’s criteria.' },
       { title: 'Other insurance', desc: 'Bill the primary first; Arkansas Total Care must receive the secondary claim within 365 days of the primary EOP.' },
     ],
@@ -466,7 +466,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         cites: [S.atcPolicy],
       },
       dxRecency: {
-        value: 'The comprehensive initial diagnostic evaluation or re-evaluation must have been conducted “within the last 12 months,” for initiation and continuation alike, and the BCBA behavioral assessment no more than 60 days before the initial treatment authorization starts.',
+        value: 'Changed in the October 2026 revision. Until 12/31/2027 the plan accepts “the most recent CDE regardless of time from when this occurred,” for starting and for continuing treatment. From 1/1/2028 the CDE must be within the last 3 years to start treatment and within the last 5 years to continue, and a re-evaluation may be needed sooner (provisional diagnosis, no formal evaluation, transitions, more than three years since diagnosis without ongoing assessment). Before 2028 a diagnostic interview within 12 months is recommended, not required, when the CDE is more than three years old. Separately, the BCBA behavioral assessment must be completed no more than 60 days before the initial treatment authorization starts.',
         status: 'verified',
         cites: [S.atcPolicy],
       },
@@ -476,7 +476,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
         cites: [S.atcPolicy],
       },
       diagnosticTools: {
-        value: 'At least one primary clinician tool: ABLLS-R, AFLS, EFL, VB-MAPP or Vineland-3 (or later editions), with optional supplements such as STAT, ADI-R, CARS-2, ASRS, ADOS-2, EarliPoint, RITA-T and CSBS DP-ITC. A parent or caregiver tool (M-CHAT-R/F, SCQ, SRS-2 and others) is optional. Medical causes must be ruled out.',
+        value: 'The October 2026 revision “removed skills acquisition testing from CDE section and left only optional tools.” The CDE must document direct observation, a caregiver interview and a report with each instrument’s scores and date, and best practice is at least one clinician tool and one caregiver tool. Optional clinician tools: STAT, ADI-R, CARS-2, ASRS, ADOS-2, RITA-T, CSBS DP-ITC or other evidence-based assessments. Optional caregiver tools: SCQ, ASSQ, CAST, SRS-2 parent report, SWYC POSI, CSBS DP-ITC. Skills assessments such as ABLLS-R and Vineland-3 now sit in the BCBA behavioral assessment, not the CDE. Physical health causes must be ruled out.',
         status: 'verified',
         cites: [S.atcPolicy],
       },
@@ -502,7 +502,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
-      { q: 'Does Arkansas Total Care cover ABA?', a: 'Yes, for PASSE members aged 18 months to 21 who meet its ABA policy AR.CP.BH.104: a PCP prescription, a confirmed ASD diagnosis, an evaluation from the last 12 months and a BCBA assessment.' },
+      { q: 'Does Arkansas Total Care cover ABA?', a: 'Yes, for PASSE members aged 18 months to 21 who meet its ABA policy AR.CP.BH.104: a PCP prescription, a confirmed ASD diagnosis with a comprehensive diagnostic evaluation (any date until the end of 2027; within 3 years to start treatment from 2028), and a BCBA assessment from no more than 60 days before treatment starts.' },
       { q: 'How many ABA hours will Arkansas Total Care approve?', a: 'Up to six hours a day and 30 a week without extra justification, and usually under 20 a week for a child in full-time school. More needs documented clinical need.' },
       { q: 'How fast does Arkansas Total Care decide an ABA request?', a: 'Within two business days of having all necessary information, or 14 calendar days from receipt if sooner; urgent requests within one business day or three calendar days.' },
       { q: 'Can Arkansas Total Care ABA be delivered by telehealth?', a: 'The plan follows the state rule: only 97155 and 97156 by live telemedicine with parent consent; assessments and technician sessions are in person.' },
@@ -1648,7 +1648,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       { title: 'Member ID + card photo', desc: 'Enough to run a live benefits verification on Provider Express.' },
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
     ],
-    sources: [ OPTUM_NNM_G5,S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.act196, S.act1106, S.act575, S.act432, S.bacbLic, S.abcbs, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva, S.act656],
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' },  OPTUM_NNM_G5,S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.act196, S.act1106, S.act575, S.act432, S.bacbLic, S.abcbs, S.abaFee, S.erisa, S.secI, S.cfr433, S.tricare, S.champva, S.act656],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, “direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week.” Technicians should be RBTs or otherwise appropriately certified; Optum does not recommend parents serving as their own child’s RBT.' + ' Optum’s criteria publish no cap on the number of technicians per BCBA.',
@@ -1732,6 +1732,7 @@ export const arkansasPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
       { q: 'Does UnitedHealthcare accept H0031 or H2019 for ABA?', a: 'No. Optum’s commercial ABA policy uses CPT 97151–97158 with credential modifiers, plus 0362T and 0373T without modifiers.' },
       { q: 'Does Optum require graphs for an ABA reauthorization?', a: 'The criteria ask for progress measured the same way as baseline, mastery rates, change scores and updated standardized adaptive measures; graphs are not named.' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA claims?', a: 'Optum: 90 calendar days from the date of service unless state law or the plan allows longer, with corrections within 90 days of the first claim’s receipt.' },

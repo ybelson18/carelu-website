@@ -92,11 +92,18 @@ const S: Record<string, PayerSource> = {
   optumReimb: { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated June 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
   optumTele: { title: 'Optum — Telehealth Billing Quick Reference Guide (BH01511, updated September 2025)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/home/Telehealth_Billing_Guide_Updates.pdf' },
   optumNNM: { title: 'Optum Behavioral Health National Provider Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
-  regBH18: { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (version read: effective 8/1/2025, last review June 2025; it notes a revision effective 11/1/2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
-  regBH33: { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
+  regBH18: { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (effective November 1, 2026, last review June 2026; now carries the initial-assessment criteria as section I)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
   lcswScope: { title: 'ORS 675.510(2)(a) — Regulated social workers: "Clinical social work" includes the "assessment, diagnosis or treatment of mental, emotional or behavioral disorders"', url: 'https://www.oregonlegislature.gov/bills_laws/ors/ors675.html' },
   coABA2026: { title: 'CareOregon (Health Share, Jackson Care Connect, Columbia Pacific CCO) — Important update to ABA authorization requests (provider update, Oct 22, 2026)', url: 'https://jacksoncareconnect.org/providers/provider-updates/2026/10/22/important-update-to-aba-authorization-requests' },
   trilPAtool: { title: 'Trillium Community Health Plan — Medicaid Pre-Auth Check tool (97151, 97152, 97157 no PA; 0362T, 97153–97156, 97158, 0373T PA required; checked 10/25/2026)', url: 'https://www.trilliumohp.com/providers/preauth-check/medicaid-pre-auth.html' },
+  shpPA2026: { title: 'Samaritan Health Plans — New Tools & Process Improvements to Simplify Prior Authorization (Nov. 5, 2026; PA requirements change for certain outpatient in-network elective services from Nov. 23, 2026)', url: 'https://samhealthplans.org/news/process-improvements-prior-authorization/' },
+  pm1106: { title: 'OHA — Provider Matters, Nov. 6, 2026 (2027 CCO capitation rates final; about 95,000 Healthier Oregon members move from their CCO to OHP Open Card on Jan. 1, 2027; fee schedules updated 10/30/2026)', url: 'https://content.govdelivery.com/accounts/ORHA/bulletins/431db6b' },
+  fedChanges: { title: 'OHA — Federal changes to OHP (HR 1): Healthier Oregon members will move to OHP Open Card in January 2027', url: 'https://www.oregon.gov/oha/hsd/ohp/pages/federal-changes.aspx' },
+  ocTrans: { title: 'OHA member fact sheet — Healthier Oregon members moving to OHP Open Card (updated Aug. 7, 2026)', url: 'https://www.oregon.gov/oha/HSD/OHP/Documents/Open-Card-Transition-EN.pdf' },
+  provEnroll: { title: 'OHA — OHP Provider Enrollment (Open Card enrollment forms; Non-Payable Provider enrollment for rendering and referring providers; status by ATN)', url: 'https://www.oregon.gov/oha/hsd/ohp/pages/provider-enroll.aspx' },
+  peg: { title: 'OHA — MMIS Provider Portal Enrollment Guide (last updated 10/22/2026): Application processing time', url: 'https://www.oregon.gov/oha/HSD/OHP/Tools/Provider-Enrollment-Guide.pdf' },
+  oar3510: { title: 'OAR 410-141-3510 — Provider Contracting and Credentialing (CCOs; DMAP 94-2025, eff. 01/01/2026)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3510' },
+  ors743B454: { title: 'ORS 743B.454 — Claims submitted during credentialing period (approve or reject a complete application within 90 days)', url: 'https://www.oregonlegislature.gov/bills_laws/ors/ors743B.html' },
   uhaGrid: { title: 'Umpqua Health Alliance — Mental Health/Substance Use Disorder Prior Authorization Grid (December 2025)', url: 'https://www.umpquahealth.com/wp-content/uploads/2025/05/mh-sud-preauth-grid-2025-12-01-en.pdf' },
 };
 
@@ -146,6 +153,22 @@ const STATE_REFERRAL =
 
 const STATE_COB =
   'Medicaid pays last. OHA must be "the payer of last resort," and "Providers shall make reasonable efforts to obtain payment first from other resources" (OAR 410-120-1280; 42 CFR 433.139). Bill the commercial plan first and follow its authorization rules.';
+
+/* ---- Shared facts added 2026-11-08 (Healthier Oregon move, credentialing clocks) ---- */
+const HEALTHIER_OR_FAQ = {
+  q: 'What happens to this CCO’s Healthier Oregon members on January 1, 2027?',
+  a: 'OHA says about 95,000 OHP members in the Healthier Oregon program "will transition from their CCO to OHP Open Card (Fee-for-Service or FFS) on Jan. 1, 2027"; benefits continue, but providers may change. The move includes "adults and children who do not have an immigration status that qualifies for other OHP programs." From that date their ABA runs under the open-card rules (OHA prior authorization for 97153–97157, published FFS rates), so the agency needs OHA Open Card enrollment. OHA asks practices contracted only with a CCO to email Provider Enrollment (provider.enrollment@odhsoha.oregon.gov) with “Healthier Oregon” in the subject line for expedited Open Card enrollment instructions.',
+};
+
+const CCO_CRED_FAQ = {
+  q: 'How long does credentialing take with this CCO? Is there a state deadline?',
+  a: 'Oregon sets none for CCOs. The CCO credentialing rule, OAR 410-141-3510 (effective 1/1/2026), sets a three-year recredentialing cycle but no number of days for deciding an application, and it does not address paying claims during credentialing. Ask the CCO’s provider relations team for its current turnaround. Open Card (OHA fee-for-service) is a separate enrollment, which OHA says it processes "on average of 90 days from date received."',
+};
+
+const OR_CRED_FAQ = {
+  q: 'How long can credentialing take in Oregon, and are claims paid while it is pending?',
+  a: 'Oregon law sets a clock for insurers that sell managed health insurance or PPO coverage (HMOs are excluded): under ORS 743B.454 the insurer "shall approve or reject a complete application within 90 days of receiving the application." A complete application has the insurer’s required information, proof of licensure (the Behavior Analysis Regulatory Board counts) and proof of liability coverage. The insurer must pay covered claims for services provided during that credentialing period, at the nonparticipating rate, unless the clinician is joining an in-network group, in which case the in-network rate and payment schedule apply. Claims for that period submitted within six months after it ends cannot be denied for timely filing.',
+};
 
 export const oregonPayers: Record<string, PayerConfig> = {
   'oregon-medicaid': {
@@ -205,6 +228,14 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.oar0770, S.oar0760, S.oar0650, S.acentra, S.policyBHS],
       },
       {
+        h2: 'Healthier Oregon members move from their CCO to open card on January 1, 2027',
+        body: [
+          'About 95,000 OHP members in the Healthier Oregon program "will transition from their CCO to OHP Open Card (Fee-for-Service or FFS) on Jan. 1, 2027," OHA told providers in its November 6, 2026 Provider Matters: "While their benefits will continue, their providers may change." OHA’s federal-changes page says the move affects adults with statuses including nonimmigrant visas, refugee or asylum statuses and most adults with permanent resident status for less than five years, "and adults and children who do not have an immigration status that qualifies for other OHP programs." Some children now getting ABA through a CCO are therefore moving to open card.',
+          'For an ABA agency the effect is enrollment and authorization. From January 1, 2027 those members’ ABA runs under the open-card rules on this page: OHA prior authorization for 97153–97157 (not 97151/97152) and the published FFS rates. The agency must be enrolled with OHA for Open Card. OHA notes that "Most OHP providers can already accept Open Card and a CCO, however some might only be contracted with a CCO"; those practices should email Provider Enrollment (provider.enrollment@odhsoha.oregon.gov, 800-336-6016 option 6) "with “Healthier Oregon” in the subject line and request expedited Open Card enrollment instructions." OHA also runs a three-session Open Card training series in the second week of each month. The OHA notices read do not say whether a CCO’s existing ABA authorization carries over, so ask OHA before January 1, 2027 how to request authorization for dates of service after the move.',
+        ],
+        cites: [S.pm1106, S.fedChanges, S.ocTrans, S.provEnroll, S.fee, S.acentra],
+      },
+      {
         h2: 'Rates, staffing and licensure',
         body: [
           OR_FEE_LINE + ' The schedule lists rendering provider types per code: 97151 BCBA, physician, psychologist or a legislatively approved licensed health care professional; 97152–97154 add BCaBA and BAI (behavior analysis interventionist); 97155–97157 allow BCBA, BCaBA and the licensed professionals. Every ABA line allows modifier GT for telehealth. CCOs set their own contracted rates; at least one CCO (InterCommunity Health Network) publishes that it keeps ABA rates no lower than the OHA fee-for-service rate under OHA’s behavioral health directed payment.',
@@ -215,9 +246,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
       {
         h2: 'The 2027 CPT changes: nothing announced yet',
         body: [
-          'At its September 2025 meeting the CPT Editorial Panel deleted 0362T and 0373T, revised eight existing codes (97151–97158) and added six new adaptive behavior codes, which CMS\'s CY 2027 Physician Fee Schedule proposed rule lists under placeholder numbers (97X1X–97X6X). As of November 1, 2026 OHA had not announced how OHP will adopt them. The newest behavioral health fee schedule is still the one published July 1, 2026, and its Applied Behavior Analysis tab lists 97151–97157, 99366, 99368 and T1013 (no 97158, 0362T or 0373T). The newest item on OHA\'s behavioral health announcements list is dated October 26, 2026, and none concerns ABA codes. CCO members follow their CCO\'s claim edits.',
+          'At its September 2025 meeting the CPT Editorial Panel deleted 0362T and 0373T, revised eight existing codes (97151–97158) and added six new adaptive behavior codes, which CMS\'s CY 2027 Physician Fee Schedule proposed rule lists under placeholder numbers (97X1X–97X6X). As of November 8, 2026 OHA had not announced how OHP will adopt them. The newest behavioral health fee schedule is still the one published July 1, 2026 (no newer BH file is on OHA\'s fee schedule list; the October 30, 2026 medical-dental schedule carries no 97151–97158 lines), and its Applied Behavior Analysis tab lists 97151–97157, 99366, 99368 and T1013 (no 97158, 0362T or 0373T). The newest item on OHA\'s behavioral health announcements list is dated October 26, 2026, and none concerns ABA codes. CCO members follow their CCO\'s claim edits.',
         ],
-        cites: [S.fee, S.feePage, S.hsdAnn, { title: 'CMS — CY 2027 Physician Fee Schedule proposed rule, 91 FR 43891 (July 16, 2026), section (47) Adaptive Behavior Services', url: 'https://www.govinfo.gov/content/pkg/FR-2026-07-16/pdf/2026-14327.pdf' }],
+        cites: [S.fee, S.feePage, S.hsdAnn, S.pm1106, { title: 'CMS — CY 2027 Physician Fee Schedule proposed rule, 91 FR 43891 (July 16, 2026), section (47) Adaptive Behavior Services', url: 'https://www.govinfo.gov/content/pkg/FR-2026-07-16/pdf/2026-14327.pdf' }],
       },
       {
         h2: 'Claims operations: timely filing, payment and other insurance',
@@ -247,7 +278,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Physical exam + hearing test', desc: 'Well-child exam within 1 year (ages 1–6) or 2 years (6–18); hearing test within 1 year (2–5) or 2 years (6–18). Needed before ABA starts.' },
       { title: 'Other insurance', desc: 'Commercial coverage pays first; OHP is the payer of last resort.' },
     ],
-    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.oar0760, S.oar0770, S.oar0650, S.oar0620, S.oar0850, S.fee, S.feePage, S.gn, S.herc, S.epsdt, S.acentra, S.policyBHS, S.plans, S.lane, S.oar3835, S.oar3565, S.oar1300, S.oar1280, S.ors676, S.oar824lic, S.oar824sup, S.oar824def, S.hlo, S.bacbLic, S.cfr440, S.cfr438, S.cfr433, { title: 'OAR 410-120-1260 — Provider Enrollment (OHA; DMAP 34-2024, eff. 01/18/2024)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-120-1260' }, { title: 'OHA — Provider Matters (index of OHP provider ebulletin issues)', url: 'https://www.oregon.gov/oha/OHP/Providers/Pages/Provider-Matters.aspx' }, { title: 'OHA — Oregon Health Plan provider announcements (table of dated announcements, past two years)', url: 'https://www.oregon.gov/oha/OHP/Providers/Pages/Announcements.aspx' }, S.lcswScope, { title: 'OAR 410-141-3545 — CCO Behavioral Health Provider, Treatment and Facility Certification and Licensure (history: DMAP 43-2026 temporary suspension, eff. 10/14/2026)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3545' }, { title: 'OHA — Temporary Administrative Order DMAP 43-2026 (filed 10/14/2026): suspends temporary 410-141-3545 from DMAP 26-2026', url: 'https://www.oregon.gov/oha/HSD/OHP/Policies/141-3545-10142026.pdf' }],
+    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.oar0760, S.oar0770, S.oar0650, S.oar0620, S.oar0850, S.fee, S.feePage, S.gn, S.herc, S.epsdt, S.acentra, S.policyBHS, S.plans, S.lane, S.oar3835, S.oar3565, S.oar1300, S.oar1280, S.ors676, S.oar824lic, S.oar824sup, S.oar824def, S.hlo, S.bacbLic, S.cfr440, S.cfr438, S.cfr433, { title: 'OAR 410-120-1260 — Provider Enrollment (OHA; DMAP 34-2024, eff. 01/18/2024)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-120-1260' }, { title: 'OHA — Provider Matters (index of OHP provider ebulletin issues)', url: 'https://www.oregon.gov/oha/OHP/Providers/Pages/Provider-Matters.aspx' }, { title: 'OHA — Oregon Health Plan provider announcements (table of dated announcements, past two years)', url: 'https://www.oregon.gov/oha/OHP/Providers/Pages/Announcements.aspx' }, S.lcswScope, { title: 'OAR 410-141-3545 — CCO Behavioral Health Provider, Treatment and Facility Certification and Licensure (history: DMAP 43-2026 temporary suspension, eff. 10/14/2026)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3545' }, { title: 'OHA — Temporary Administrative Order DMAP 43-2026 (filed 10/14/2026): suspends temporary 410-141-3545 from DMAP 26-2026', url: 'https://www.oregon.gov/oha/HSD/OHP/Policies/141-3545-10142026.pdf' }, S.pm1106, S.fedChanges, S.ocTrans, S.provEnroll, S.peg],
     deliveryRules: {
       supervision: {
         value: STATE_SUPERVISION,
@@ -306,9 +337,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.oar0770, S.oar0760],
       },
       referral: {
-        value: STATE_REFERRAL + ' OHA’s contractor adds: "There must be a documented diagnosis and order from the physician."',
+        value: STATE_REFERRAL + ' OHA’s contractor adds: "There must be a documented diagnosis and order from the physician." For open card the referral goes in with the prior-authorization request: for ABA, "the Division requires submission of" the OAR 410-172-0770 evaluation, the referral from a qualified practitioner, and a treatment plan (OAR 410-172-0650(4)(h)).',
         status: 'verified',
-        cites: [S.oar0770, S.oar0760, S.acentra],
+        cites: [S.oar0770, S.oar0760, S.acentra, S.oar0650],
       },
       telehealth: {
         value: STATE_TELE,
@@ -327,6 +358,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Do I send the referral with the open-card ABA prior authorization request?', a: 'Yes. For ABA, OAR 410-172-0650(4)(h) says "the Division requires submission of" the OAR 410-172-0770 evaluation, a referral for treatment from a physician, psychologist or developmental-medicine NP or PA experienced with autism, and a treatment plan. OHA’s contractor adds that "There must be a documented diagnosis and order from the physician"; a report that only mentions who diagnosed the child is not enough. Fax the packet with the EDMS cover sheet to 503-378-5814 or load it into MMIS.' },
+      { q: 'How long does OHA Open Card enrollment take, and how do I add a BCBA?', a: 'OHA’s Provider Enrollment unit "processes applications on average of 90 days from date received," sooner in some cases and longer for some organization types that need program approval (MMIS Provider Portal Enrollment Guide, 10/22/2026). Check status with the Application Tracking Number (ATN). An individual whose services are billed by an organization enrolls as a "Non-Payable Provider," which "includes rendering, ordering, prescribing, and referring providers"; an individual who bills directly enrolls as a "Payable Individual."' },
+      { q: 'Healthier Oregon members are moving to open card in 2027. What does an ABA agency need to do?', a: 'About 95,000 Healthier Oregon members, including some children, move from their CCO to OHP Open Card on January 1, 2027. Their ABA then needs OHA open-card prior authorization and an agency enrolled with OHA for Open Card. A practice contracted only with a CCO can email provider.enrollment@odhsoha.oregon.gov with “Healthier Oregon” in the subject line for expedited Open Card enrollment instructions.' },
       { q: 'Can an out-of-state ABA agency serve Oregon CCO members?', a: 'Not on the strength of the summer 2026 temporary rule. Temporary order DMAP 26-2026 (June 29, 2026) let CCOs use outpatient behavioral health provider organizations located outside Oregon if licensed in their own state and no more than 75 miles from the border; OHA suspended that language with temporary order DMAP 43-2026, effective October 14, 2026, because it "was determined to not have the intended effect," reverting OAR 410-141-3545 to the permanent text. Outpatient behavioral health provider organizations serving CCO members must again be certified by OHA under OAR 309-008-0250 (some provider types are exempt under 309-008-0250(4)) and meet the CCO contract. OHA\'s October 23, 2026 Provider Matters described the change as allowing out-of-state contracting; the filed order suspends that allowance.' },
       { q: 'Does Oregon Health Plan cover ABA therapy?', a: 'Yes, for autism spectrum disorder (Prioritized List Line 192, Guideline Note 75) and for stereotyped movement disorder with self-injurious behavior (Guideline Note 126). Most members get it through their CCO; open-card members go through OHA.' },
       { q: 'Does OHP require prior authorization for the ABA assessment?', a: 'Not for open-card members: OHA’s fee schedule exempts 97151 and 97152 from prior authorization (retrospective review). 97153–97157 need PA. CCOs set their own rules, so check the member’s CCO.' },
@@ -407,7 +441,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'School and other services', desc: 'IEP / Early Intervention, speech and OT hours, and any prior ABA providers.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; Medicaid is the payer of last resort.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.coBHPM, S.hsBH, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn, S.coABA2026],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.coBHPM, S.hsBH, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn, S.coABA2026, S.pm1106, S.fedChanges, S.oar3510, S.peg],
     deliveryRules: {
       supervision: {
         value: 'CareOregon’s handbook and manual publish no ABA supervision ratio of their own, so the state rule applies. ' + STATE_SUPERVISION,
@@ -468,7 +502,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.coUM],
       },
       referral: {
-        value: 'CareOregon’s handbook adds no referral rule of its own, so the OHP rule applies. ' + STATE_REFERRAL,
+        value: 'CareOregon’s handbook adds no referral rule of its own, so the OHP rule applies. ' + STATE_REFERRAL + ' Whether to attach it: CareOregon’s handbook says an ABA treatment request must "include clinical documentation along with a documented diagnosis" and a comprehensive treatment plan, and does not list the referral among the attachments, so keep the referral on file to meet the OHP rule.',
         status: 'verified',
         cites: [S.coUM, S.oar0770, S.oar0760],
       },
@@ -489,6 +523,8 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      HEALTHIER_OR_FAQ,
+      CCO_CRED_FAQ,
       { q: 'Who authorizes ABA for Health Share of Oregon members?', a: 'CareOregon’s behavioral health utilization management team, through CareOregon Connect or fax (BH UM 503-416-3404).' },
       { q: 'Does Health Share require prior authorization for the ABA assessment?', a: 'Yes. Submit the diagnosis and the ADOS or CARS-2 results; for Health Share members the request may list "TBD Behavioral Health Provider" as the rendering provider.' },
       { q: 'When does a Health Share ABA request go to a Medical Director?', a: 'When the member is 13 or older, when more than 25 hours a week are requested, or when the diagnosis is something other than ASD or Stereotypic Movement Disorder.' },
@@ -564,7 +600,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Caregiver sign-off', desc: 'Parent signature showing participation in and understanding of the plan.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, { title: 'Trillium Community Health Plan — Provider Manual 2026 (Requests for Redetermination)', url: 'https://www.trilliumohp.com/content/dam/centene/trillium/ProviderResources/ProviderManuals/ProviderManual%202026_FINAL_R.pdf' }, S.trilAuth, S.trilTip, S.trilPM, S.trilRes, S.plans, S.lane, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Trillium Community Health Plan — Provider News & Updates (Provider Digest archive)', url: 'https://www.trilliumohp.com/providers/provider-news.html' }, S.trilPAtool],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, { title: 'Trillium Community Health Plan — Provider Manual 2026 (Requests for Redetermination)', url: 'https://www.trilliumohp.com/content/dam/centene/trillium/ProviderResources/ProviderManuals/ProviderManual%202026_FINAL_R.pdf' }, S.trilAuth, S.trilTip, S.trilPM, S.trilRes, S.plans, S.lane, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Trillium Community Health Plan — Provider News & Updates (Provider Digest archive)', url: 'https://www.trilliumohp.com/providers/provider-news.html' }, S.trilPAtool, S.pm1106, S.fedChanges, S.oar3510, S.peg],
     deliveryRules: {
       supervision: {
         value: 'Trillium’s ABA checklist and handbook publish no supervision ratio, so the state rule applies. ' + STATE_SUPERVISION,
@@ -623,7 +659,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.trilTip, S.oar0770],
       },
       referral: {
-        value: 'Trillium’s checklist asks for the ABA recommendation "from a qualified provider, if required." ' + STATE_REFERRAL,
+        value: 'Trillium’s ABA request checklist lists, for initial treatment requests, a "Comprehensive diagnostic evaluation ... indicating diagnosis eligible for ABA treatment and recommendation for ABA from a qualified provider, if required," so send the recommendation with the first treatment request. ' + STATE_REFERRAL,
         status: 'verified',
         cites: [S.trilTip, S.oar0770, S.oar0760],
       },
@@ -644,6 +680,8 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      HEALTHIER_OR_FAQ,
+      CCO_CRED_FAQ,
       { q: 'What is Trillium’s timely filing limit for ABA claims?', a: '120 days from the date of service under OAR 410-141-3565 (365 days for exceptions such as retroactive eligibility, Medicare or other insurance primary); your contract may set a shorter limit. Corrections and resubmissions get at least 180 days from the initial adjudication. Trillium’s manual allows corrected claims within 180 calendar days of the EOP.' },
       { q: 'Does Trillium cover ABA for OHP members in Lane County?', a: 'Yes. Trillium is the CCO for Lane County; most former PacificSource Lane members moved to Trillium on February 1, 2026.' },
       { q: 'What does Trillium need for an initial ABA request?', a: 'Its ABA checklist: diagnostic evaluation and recommendation, history, prior services, codes and dates, weekly schedule, assessment data, measurable goals, FBA/BIP for reduction targets, caregiver goals, crisis, generalization and transition plans, and parent and provider signatures.' },
@@ -713,7 +751,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan with functional assessment', desc: 'From an Oregon-licensed behavior analyst or other qualified licensee; requested in up to six-month increments.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.psABA, S.psNews, S.plans, S.lane, S.oar0760, S.oar0770, S.oar0650, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn, { title: 'PacificSource Community Solutions — Medicaid News and updates (provider notices archive)', url: 'https://pacificsource.com/medicaid/resources/articles' }],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.psABA, S.psNews, S.plans, S.lane, S.oar0760, S.oar0770, S.oar0650, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn, { title: 'PacificSource Community Solutions — Medicaid News and updates (provider notices archive)', url: 'https://pacificsource.com/medicaid/resources/articles' }, S.pm1106, S.fedChanges, S.oar3510, S.peg],
     deliveryRules: {
       supervision: {
         value: 'PacificSource’s commercial criteria require treatment "supervised and managed by a Board-Certified Behavior Analyst (BCBA)"; its Medicaid section adds no ratio, so the OHP rule applies. ' + STATE_SUPERVISION,
@@ -772,9 +810,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.psABA, S.oar0770],
       },
       referral: {
-        value: 'Yes: ABA services must be "recommended and referred by a licensed practitioner as outlined in OAR 410-172-0760."',
+        value: 'Yes: ABA services must be "recommended and referred by a licensed practitioner as outlined in OAR 410-172-0760." Whether to attach it: PacificSource’s published ABA documents (the ABA clinical guideline, which lists diagnosis documentation and intensity support as what a request over 32 units of 97151 must include) do not say whether the referral must go in with the authorization request; keep it on file to meet the OHP rule and ask PacificSource utilization management whether to include it.',
         status: 'verified',
-        cites: [S.psABA, S.oar0760],
+        cites: [S.psABA, S.oar0760, S.oar0770],
       },
       telehealth: {
         value: 'PacificSource’s ABA guideline publishes no telehealth rule. ' + STATE_TELE,
@@ -793,6 +831,8 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      HEALTHIER_OR_FAQ,
+      CCO_CRED_FAQ,
       { q: 'What is PacificSource Community Solutions’s timely filing limit for ABA claims?', a: '120 days from the date of service under OAR 410-141-3565 (365 days for exceptions such as retroactive eligibility, Medicare or other insurance primary); your contract may set a shorter limit. Corrections and resubmissions get at least 180 days from the initial adjudication.' },
       { q: 'Does PacificSource Community Solutions require prior authorization for the ABA assessment?', a: 'Not if 97151 is billed for 32 units (8 hours) or fewer. Above 32 units it needs PA and MD review.' },
       { q: 'How long are PacificSource ABA authorizations?', a: 'Requests can be made in increments of up to six months.' },
@@ -861,7 +901,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Age and hours', desc: 'Age 13+ or more than 25 hours a week triggers Medical Director review.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.jccForms, S.abaForm, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Jackson Care Connect — Provider updates (provider notices archive)', url: 'https://jacksoncareconnect.org/providers/provider-updates' }, S.coABA2026],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.jccForms, S.abaForm, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Jackson Care Connect — Provider updates (provider notices archive)', url: 'https://jacksoncareconnect.org/providers/provider-updates' }, S.coABA2026, S.pm1106, S.fedChanges, S.oar3510, S.peg],
     deliveryRules: {
       supervision: {
         value: 'CareOregon publishes no ABA supervision ratio, so the state rule applies. ' + STATE_SUPERVISION,
@@ -920,7 +960,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.coUM],
       },
       referral: {
-        value: 'CareOregon adds no referral rule of its own, so the OHP rule applies. ' + STATE_REFERRAL,
+        value: 'CareOregon adds no referral rule of its own, so the OHP rule applies. ' + STATE_REFERRAL + ' Whether to attach it: CareOregon’s handbook says an ABA treatment request must "include clinical documentation along with a documented diagnosis" and a comprehensive treatment plan, and does not list the referral among the attachments, so keep the referral on file to meet the OHP rule. ABA assessment requests for JCC and CPCCO members "are approved without the requirement of clinical documentation."',
         status: 'verified',
         cites: [S.coUM, S.oar0770, S.oar0760],
       },
@@ -941,6 +981,8 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      HEALTHIER_OR_FAQ,
+      CCO_CRED_FAQ,
       { q: 'What is Jackson Care Connect’s timely filing limit for ABA claims?', a: '120 days from the date of service under OAR 410-141-3565 (365 days for exceptions such as retroactive eligibility, Medicare or other insurance primary); your contract may set a shorter limit. Corrections and resubmissions get at least 180 days from the initial adjudication.' },
       { q: 'Does Jackson Care Connect require prior authorization for the ABA assessment?', a: 'Submit an authorization through CareOregon Connect, but CareOregon approves JCC assessment requests without requiring clinical documentation.' },
       { q: 'How fast does JCC decide an ABA request?', a: 'CareOregon’s July 2026 handbook sets 7 calendar days for standard requests and 72 hours for expedited ones. The older JCC ABA form’s 14-day figure is out of date.' },
@@ -1009,7 +1051,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Age and hours', desc: 'Age 13+ or more than 25 hours a week triggers Medical Director review.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.cpForms, S.abaForm, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Columbia Pacific CCO — Provider updates (provider notices archive)', url: 'https://colpachealth.org/providers/provider-updates' }, S.coABA2026],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.coUM, S.cpForms, S.abaForm, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Columbia Pacific CCO — Provider updates (provider notices archive)', url: 'https://colpachealth.org/providers/provider-updates' }, S.coABA2026, S.pm1106, S.fedChanges, S.oar3510, S.peg],
     deliveryRules: {
       supervision: {
         value: 'CareOregon publishes no ABA supervision ratio, so the state rule applies. ' + STATE_SUPERVISION,
@@ -1068,7 +1110,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.coUM],
       },
       referral: {
-        value: 'CareOregon adds no referral rule of its own, so the OHP rule applies. ' + STATE_REFERRAL,
+        value: 'CareOregon adds no referral rule of its own, so the OHP rule applies. ' + STATE_REFERRAL + ' Whether to attach it: CareOregon’s handbook says an ABA treatment request must "include clinical documentation along with a documented diagnosis" and a comprehensive treatment plan, and does not list the referral among the attachments, so keep the referral on file to meet the OHP rule. ABA assessment requests for JCC and CPCCO members "are approved without the requirement of clinical documentation."',
         status: 'verified',
         cites: [S.coUM, S.oar0770, S.oar0760],
       },
@@ -1089,6 +1131,8 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      HEALTHIER_OR_FAQ,
+      CCO_CRED_FAQ,
       { q: 'What is Columbia Pacific CCO’s timely filing limit for ABA claims?', a: '120 days from the date of service under OAR 410-141-3565 (365 days for exceptions such as retroactive eligibility, Medicare or other insurance primary); your contract may set a shorter limit. Corrections and resubmissions get at least 180 days from the initial adjudication.' },
       { q: 'Does Columbia Pacific CCO require prior authorization for the ABA assessment?', a: 'Submit an authorization through CareOregon Connect; CareOregon approves CPCCO assessment requests without requiring clinical documentation.' },
       { q: 'Who handles Columbia Pacific ABA authorizations?', a: 'CareOregon’s behavioral health utilization management team (503-416-3404).' },
@@ -1155,7 +1199,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Diagnostic evaluation and referral', desc: 'Meets OAR 410-172-0770; referral from a physician, psychologist, or developmental-medicine NP/PA.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.ihnPAL, S.ihnCodes, S.ihnUM, S.ihnBH, S.ihnAuth, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn, { title: 'IHN-CCO — News & Articles (dated news index)', url: 'https://ihntogether.org/how-we-serve/news/' }, { title: 'Samaritan Health Plans (IHN-CCO administrator) — News & Articles (incl. quarterly provider webinars)', url: 'https://samhealthplans.org/about-samaritan-health-plans/news/' }],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.ihnPAL, S.ihnCodes, S.ihnUM, S.ihnBH, S.ihnAuth, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn, { title: 'IHN-CCO — News & Articles (dated news index)', url: 'https://ihntogether.org/how-we-serve/news/' }, { title: 'Samaritan Health Plans (IHN-CCO administrator) — News & Articles (incl. quarterly provider webinars)', url: 'https://samhealthplans.org/about-samaritan-health-plans/news/' }, S.pm1106, S.fedChanges, S.oar3510, S.peg, S.shpPA2026],
     deliveryRules: {
       supervision: {
         value: 'IHN publishes no ABA supervision rule, so the state rule applies. ' + STATE_SUPERVISION,
@@ -1216,9 +1260,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.ihnUM, S.oar0770],
       },
       referral: {
-        value: 'IHN adds no referral rule of its own, so the OHP rule applies. ' + STATE_REFERRAL,
+        value: 'IHN adds no referral rule of its own, so the OHP rule applies. ' + STATE_REFERRAL + ' Whether to attach it: IHN’s published ABA documents (the 2025 UM handbook and 2026 prior approval list) do not say whether the referral must go in with the authorization request; keep it on file to meet the OHP rule and ask IHN utilization management whether to include it.',
         status: 'verified',
-        cites: [S.ihnUM, S.oar0770, S.oar0760],
+        cites: [S.ihnUM, S.oar0770, S.oar0760, S.ihnPAL],
       },
       telehealth: {
         value: 'IHN publishes no ABA telehealth rule of its own. ' + STATE_TELE,
@@ -1239,6 +1283,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Is IHN-CCO changing its ABA prior authorization rules in November 2026?', a: 'Possibly. Samaritan Health Plans announced on November 5, 2026 that it is "decreasing prior authorization (PA) requirements" for all its plans, IHN-CCO included: "Beginning Nov. 23, 2026, prior authorization requirements will change for certain outpatient in-network elective services." The notice does not list the services, and as of November 8, 2026 the authorizations page still carried the January 1, 2026 code list. Check the updated IHN-CCO list for 97151–97158 before serving members on or after November 23; out-of-network services still need review.' },
+      HEALTHIER_OR_FAQ,
+      CCO_CRED_FAQ,
       { q: 'What is IHN-CCO’s timely filing limit for ABA claims?', a: '120 days from the date of service under OAR 410-141-3565 (365 days for exceptions such as retroactive eligibility, Medicare or other insurance primary); your contract may set a shorter limit. Corrections and resubmissions get at least 180 days from the initial adjudication.' },
       { q: 'Does IHN-CCO require prior authorization for the ABA assessment?', a: 'Yes. IHN’s 2026 code list includes 97151 and 97152 under ABA services, so request approval before the assessment.' },
       { q: 'What does IHN-CCO pay for ABA?', a: 'Contracted rates, which IHN says it keeps no lower than the OHA fee-for-service behavioral health rate for ABA. The OHA open-card rate for 97153 is $14.70 per 15 minutes.' },
@@ -1305,7 +1352,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Rate expectation', desc: 'Requests without a stated rate are reviewed at the OHA (DMAP) rate; ask for an SFA/SCA if you need more.' },
       { title: 'Other insurance', desc: 'If commercial is primary and its auth rules are met, Umpqua does not require its own PA.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.uhaFAQ, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn, { title: 'Umpqua Health Alliance — Provider Newsletter (UHA Connection archive)', url: 'https://www.umpquahealth.com/providers/provider-resources/provider-newsletter/' }, S.uhaGrid],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.uhaFAQ, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn, { title: 'Umpqua Health Alliance — Provider Newsletter (UHA Connection archive)', url: 'https://www.umpquahealth.com/providers/provider-resources/provider-newsletter/' }, S.uhaGrid, S.pm1106, S.fedChanges, S.oar3510, S.peg],
     deliveryRules: {
       supervision: {
         value: 'Umpqua publishes no ABA supervision rule, so the state rule applies. ' + STATE_SUPERVISION,
@@ -1366,9 +1413,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.uhaFAQ, S.oar0770],
       },
       referral: {
-        value: 'Umpqua adds no referral rule of its own, so the OHP rule applies. ' + STATE_REFERRAL,
+        value: 'Umpqua adds no referral rule of its own, so the OHP rule applies. ' + STATE_REFERRAL + ' Whether to attach it: Umpqua’s published ABA documents (the behavioral health PA FAQ and the December 2025 PA grid) do not say whether the referral must go in with the authorization request; keep it on file to meet the OHP rule and ask Umpqua utilization management whether to include it.',
         status: 'verified',
-        cites: [S.uhaFAQ, S.oar0770, S.oar0760],
+        cites: [S.uhaFAQ, S.oar0770, S.oar0760, S.uhaGrid],
       },
       telehealth: {
         value: 'Umpqua publishes no ABA telehealth rule of its own. ' + STATE_TELE,
@@ -1387,6 +1434,8 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      HEALTHIER_OR_FAQ,
+      CCO_CRED_FAQ,
       { q: 'What is Umpqua Health Alliance’s timely filing limit for ABA claims?', a: '120 days from the date of service under OAR 410-141-3565 (365 days for exceptions such as retroactive eligibility, Medicare or other insurance primary); your contract may set a shorter limit. Corrections and resubmissions get at least 180 days from the initial adjudication.' },
       { q: 'Does Umpqua Health Alliance require prior authorization for ABA?', a: 'Yes. ABA is on its behavioral health PA list, in network and out, with six-month authorizations. Check the PA Grid for the assessment codes.' },
       { q: 'What if Umpqua is the secondary insurance?', a: 'Umpqua does not require its own PA when the primary insurer’s authorization guidelines are met.' },
@@ -1455,7 +1504,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Well-child, hearing and vision', desc: 'Well-child visit records plus audio and vision screening.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.eoPM, S.eoPA, S.eoBH, S.eoAuth, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'EOCCO — News, Providers category (monthly provider newsletters and notices)', url: 'https://www.eocco.com/news?category=Providers' }],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.eoPM, S.eoPA, S.eoBH, S.eoAuth, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'EOCCO — News, Providers category (monthly provider newsletters and notices)', url: 'https://www.eocco.com/news?category=Providers' }, S.pm1106, S.fedChanges, S.oar3510, S.peg],
     deliveryRules: {
       supervision: {
         value: 'EOCCO and GOBHI publish no ABA supervision ratio, so the state rule applies. ' + STATE_SUPERVISION,
@@ -1516,9 +1565,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.eoPM, S.oar0770],
       },
       referral: {
-        value: 'Yes: the "Primary Care Physician writes prescription for ABA therapy." Referrals to the program can come from any provider or individual through gobhi.org.',
+        value: 'Yes: the "Primary Care Physician writes prescription for ABA therapy." Referrals to the program can come from any provider or individual through gobhi.org, where the referrer completes a checklist "and upload[s] the outlined clinical documentation above" (the diagnosis, the PCP prescription, well-child visits and the audio and vision screening), so the prescription travels with the referral.',
         status: 'verified',
-        cites: [S.eoPM],
+        cites: [S.eoPM, S.eoBH],
       },
       telehealth: {
         value: 'EOCCO’s current documents publish no ABA telehealth rule of their own (its posted telemedicine overview dates from 2020). ' + STATE_TELE,
@@ -1537,6 +1586,8 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      HEALTHIER_OR_FAQ,
+      CCO_CRED_FAQ,
       { q: 'What is EOCCO’s timely filing limit for ABA claims?', a: '120 days from the date of service under OAR 410-141-3565 (365 days for exceptions such as retroactive eligibility, Medicare or other insurance primary); your contract may set a shorter limit. Corrections and resubmissions get at least 180 days from the initial adjudication.' },
       { q: 'Who provides ABA for Eastern Oregon CCO members?', a: 'GOBHI runs an ABA program for EOCCO children with autism; referrals go through gobhi.org/applied-behavior-analysis.' },
       { q: 'Does EOCCO require prior authorization for ABA?', a: 'Yes. Its September 2026 Prior Authorization List includes every ABA code from 97151 to 97158.' },
@@ -1605,7 +1656,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Program setting and hours', desc: 'Home, clinic, school or other, with hours per week by code.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.ycPA, S.ycABA, S.ycList, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Yamhill Community Care — Provider News & Alerts (monthly provider newsletter archive)', url: 'https://yamhillcco.org/for-providers/provider-news-alerts/' }],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.ycPA, S.ycABA, S.ycList, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, { title: 'Yamhill Community Care — Provider News & Alerts (monthly provider newsletter archive)', url: 'https://yamhillcco.org/for-providers/provider-news-alerts/' }, S.pm1106, S.fedChanges, S.oar3510, S.peg],
     deliveryRules: {
       supervision: {
         value: 'YCCO’s ABA form describes 97153 as technician treatment "receiving 1 hour of supervision for every 5 to 10 hours of direct treatment." The state floor also applies: interventionists supervised at least 5 percent of service hours, with direct supervision monthly (OAR 824-040-0010); assistant behavior analysts and interventionists are not directly payable (OAR 410-172-0760(4)).',
@@ -1662,7 +1713,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.ycABA, S.oar0770],
       },
       referral: {
-        value: 'YCCO adds no referral rule beyond its form’s PCP field and the OAR 410-172-0770 citation, so the OHP rule applies. ' + STATE_REFERRAL,
+        value: 'YCCO adds no referral rule beyond its form’s PCP field and the OAR 410-172-0770 citation, so the OHP rule applies. ' + STATE_REFERRAL + ' Whether to attach it: YCCO’s ABA PA form asks you to "attach diagnostic evaluation, treatment plan, and recent progress notes by qualified professional" and does not list the referral, so keep it on file to meet the OHP rule.',
         status: 'verified',
         cites: [S.ycABA, S.oar0770, S.oar0760],
       },
@@ -1683,6 +1734,8 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      HEALTHIER_OR_FAQ,
+      CCO_CRED_FAQ,
       { q: 'What is Yamhill Community Care’s timely filing limit for ABA claims?', a: '120 days from the date of service under OAR 410-141-3565 (365 days for exceptions such as retroactive eligibility, Medicare or other insurance primary); your contract may set a shorter limit. Corrections and resubmissions get at least 180 days from the initial adjudication.' },
       { q: 'Does Yamhill Community Care require prior authorization for the ABA assessment?', a: 'Yes. 97151 and 97152 are on YCCO’s PA list; the initial 97151 is limited to 32 units unless documented need supports more.' },
       { q: 'How do I submit an ABA request to YCCO?', a: 'Through the CIM portal or by faxing the YCCO ABA PA form with its addendum and a complete treatment plan to 503-850-9398. Providers must start every request themselves.' },
@@ -1742,7 +1795,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Six-month plan', desc: 'Authorizations run six months; plan reauthorization before they lapse.' },
       { title: 'Other insurance', desc: 'CHA pays last; attach the primary EOP.' },
     ],
-    sources: [S.chaGrid, S.chaPM, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt],
+    sources: [S.chaGrid, S.chaPM, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.pm1106, S.fedChanges, S.oar3510, S.peg],
     deliveryRules: {
       supervision: {
         value: 'CHA publishes no ABA supervision rule, so the state rule applies. ' + STATE_SUPERVISION,
@@ -1803,9 +1856,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.chaGrid, S.oar0770],
       },
       referral: {
-        value: 'CHA adds no referral rule of its own, so the OHP rule applies. ' + STATE_REFERRAL,
+        value: 'CHA adds no referral rule of its own, so the OHP rule applies. ' + STATE_REFERRAL + ' Whether to attach it: CHA’s published ABA documents (the BH auth grid of 10/20/2026 and the provider manual) do not say whether the referral must go in with the authorization request; keep it on file to meet the OHP rule and ask CHA utilization management whether to include it.',
         status: 'verified',
-        cites: [S.chaGrid, S.oar0770, S.oar0760],
+        cites: [S.chaGrid, S.oar0770, S.oar0760, S.chaPM],
       },
       telehealth: {
         value: 'CHA publishes no ABA telehealth rule of its own. ' + STATE_TELE,
@@ -1824,6 +1877,8 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      HEALTHIER_OR_FAQ,
+      CCO_CRED_FAQ,
       { q: 'Does Cascade Health Alliance require prior authorization for ABA?', a: 'Yes. Its BH auth grid requires PA every six months for 97151 through 97156, including the assessment.' },
       { q: 'What is CHA’s timely filing limit?', a: '120 days from the date of service, or 365 days when CHA is the secondary payer.' },
     ],
@@ -1887,7 +1942,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Diagnostic evaluation and referral', desc: 'Meets OAR 410-172-0770; referral from a physician, psychologist, or developmental-medicine NP/PA.' },
       { title: 'Other insurance', desc: 'Bill the primary first; Advanced Health may still require an authorization as secondary.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.ahBH, S.ahPM, S.ahRes, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn, { title: 'Advanced Health — Provider Updates (provider memos and Provider Pulse newsletter archive)', url: 'https://advancedhealth.com/providers/advanced-health-provider-newsletters/' }],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.ahBH, S.ahPM, S.ahRes, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn, { title: 'Advanced Health — Provider Updates (provider memos and Provider Pulse newsletter archive)', url: 'https://advancedhealth.com/providers/advanced-health-provider-newsletters/' }, S.pm1106, S.fedChanges, S.oar3510, S.peg],
     deliveryRules: {
       supervision: {
         value: 'Advanced Health publishes no ABA supervision rule, so the state rule applies. ' + STATE_SUPERVISION,
@@ -1948,9 +2003,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.ahPM, S.oar0770],
       },
       referral: {
-        value: 'Advanced Health adds no ABA referral rule of its own, so the OHP rule applies. ' + STATE_REFERRAL,
+        value: 'Advanced Health adds no ABA referral rule of its own, so the OHP rule applies. ' + STATE_REFERRAL + ' Whether to attach it: Advanced Health’s behavioral health authorization form lists the required documentation as the "Behavioral Health Treatment Plan," the "Behavioral Health Assessment" and "Any relevant assisting documentation," not the referral, so keep it on file to meet the OHP rule.',
         status: 'verified',
-        cites: [S.ahPM, S.oar0770, S.oar0760],
+        cites: [S.ahPM, S.oar0770, S.oar0760, S.ahBH],
       },
       telehealth: {
         value: 'Advanced Health publishes no ABA telehealth rule of its own. ' + STATE_TELE,
@@ -1969,6 +2024,8 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      HEALTHIER_OR_FAQ,
+      CCO_CRED_FAQ,
       { q: 'Does Advanced Health cover ABA?', a: 'Yes, under OHP rules. ABA requests go on its Behavioral Health Authorization Request, faxed to Medical Management at 541-269-7147.' },
       { q: 'What is Advanced Health’s timely filing limit?', a: '120 days from the date of service, or 365 days for exceptions such as secondary claims and retroactive eligibility.' },
     ],
@@ -2038,7 +2095,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Diagnostic evaluation and referral', desc: 'Meets OAR 410-172-0770; referral from a physician, psychologist, or developmental-medicine NP/PA.' },
       { title: 'Other insurance', desc: 'Bill commercial coverage first; OHP is the payer of last resort.' },
     ],
-    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.acDP, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn],
+    sources: [{ title: 'OAR 410-141-3565 — Managed Care Entity Billing (OHA, DMAP 143-2024, eff. 01/01/2025): §§ (1)(a)–(c), (6), (8)(b), (8)(d)', url: 'https://secure.sos.state.or.us/oard/view.action?ruleNumber=410-141-3565' }, S.acDP, S.plans, S.oar0760, S.oar0770, S.oar0620, S.oar0850, S.fee, S.oar3835, S.oar3565, S.oar824sup, S.oar1280, S.epsdt, S.gn, S.pm1106, S.fedChanges, S.oar3510, S.peg],
     deliveryRules: {
       supervision: {
         value: 'AllCare publishes no ABA supervision rule, so the state rule applies. ' + STATE_SUPERVISION,
@@ -2099,7 +2156,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.oar0770],
       },
       referral: {
-        value: 'AllCare publishes no referral rule of its own, so the OHP rule applies. ' + STATE_REFERRAL,
+        value: 'AllCare publishes no referral rule of its own, so the OHP rule applies. ' + STATE_REFERRAL + ' Whether to attach it: AllCare publishes no ABA request form or checklist we could find, so keep the referral on file to meet the OHP rule and ask AllCare utilization management whether to include it.',
         status: 'verified',
         cites: [S.oar0770, S.oar0760],
       },
@@ -2120,6 +2177,8 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      HEALTHIER_OR_FAQ,
+      CCO_CRED_FAQ,
       { q: 'Does AllCare CCO cover ABA?', a: 'Yes, as an OHP CCO it covers ABA under OHP rules, and it commits to paying ABA providers at least the OHA fee-for-service rate. It publishes no ABA-specific policy, so ask AllCare about authorization before starting.' },
       { q: 'What does AllCare pay for ABA?', a: 'At least the OHA fee-for-service State Plan rate under OHA’s directed payment; for example 97153 at $14.70 per 15 minutes on the July 2026 schedule.' },
     ],
@@ -2248,7 +2307,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'Aetna wants one from the past 12 months (e.g., Vineland-3, ABAS, VB-MAPP, ABLLS).' },
       { title: 'Oregon license numbers', desc: 'Behavior analyst license and interventionist registrations for the treating team.' },
     ],
-    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.aetnaCPB648, S.ors743A, S.ors743B, S.ors676, S.oar824lic, S.oar824sup, S.hlo, S.bacbLic, S.oar836, S.oar1280, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, S.lcswScope, { title: 'Aetna — Behavioral Health Provider Manual (1158252-01-01, 8/22): nonparticipating referrals; dispute and appeal process', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' }],
+    sources: [S.aetnaGuide, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.aetnaTele, S.aetnaCPB648, S.ors743A, S.ors743B, S.ors676, S.oar824lic, S.oar824sup, S.hlo, S.bacbLic, S.oar836, S.oar1280, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, { title: 'Aetna — Provider manual (8102800-01-01, 6/26): Referrals, Behavioral health access to care, Clean claims', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/health-care-professionals/office_manual_hcp.pdf' }, { title: 'Aetna — Outpatient BH ABA Treatment Request: Required Information for Precertification, form GR-69017-4 (7-26)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/pharmacy-insurance/healthcare-professional/documents/outpatient-behavioral-health-BH-ABA-assessment-precert.pdf' }, { title: 'Aetna — Applied behavior analysis medical necessity guide (©2026)', url: 'https://www.aetna.com/content/dam/aetna/pdfs/health-care-professionals/applied-behavioral-analysis-necessity-guide.pdf' }, S.lcswScope, { title: 'Aetna — Behavioral Health Provider Manual (1158252-01-01, 8/22): nonparticipating referrals; dispute and appeal process', url: 'https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/documents-forms/bh-provider-manual.pdf' }, S.ors743B454],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s Network Participation Criteria (5/26): ABA "must be provided directly or supervised by individuals licensed by the state or certified by the Behavior Analyst Certification Board," supervised staff may be a BCaBA "or a paraprofessional," and Aetna requires "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," with the supervisor "onsite with the child at least one hour a month." "All BCBAs, BCaBAs and paraprofessionals must meet state requirements," which in Oregon include licensure or interventionist registration and the 5 percent supervision floor in OAR 824-040-0010.',
@@ -2336,6 +2395,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      OR_CRED_FAQ,
       { q: 'Will Aetna approve an out-of-network ABA provider?', a: 'Possibly, through a "nonparticipating referral" that Aetna reviews — for example when the needed clinician "isn\'t available in network (and the member\'s plan provides coverage for out-of-network services)" or the child is continuing treatment with a nonparticipating clinician. Aetna\'s manuals do not describe a single case agreement program by name.' },
       { q: 'Does Aetna require graphs for ABA reassessments?', a: 'Aetna’s guide requires a progress evaluation every six months but does not prescribe graphs; send measurable progress against each goal and the standardized scores its termination criteria use.' },
       { q: 'What is Aetna’s timely filing limit for ABA claims, and when does it pay?', a: 'Aetna publishes no numeric filing limit; it comes from your Aetna agreement or state law. COB, corrected and voided claims go through Availity; no weekly payment cutoff is published.' },
@@ -2672,7 +2732,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Baseline measurement', desc: 'VB-MAPP, ABLLS-R, AFLS, Vineland or similar to justify intensity.' },
       { title: 'Credential per staff member', desc: 'Each claim line needs the right modifier (HM RBT, HN BCaBA, HO BCBA, HP BCBA-D) plus Oregon licensure/registration.' },
     ],
-    sources: [{ title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, S.optumSCC, S.optumSM, S.optumReimb, S.optumTele, S.optumNNM, S.ors743A, S.ors743B, S.ors676, S.oar824lic, S.oar824sup, S.hlo, S.bacbLic, S.oar836, S.oar1280, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, S.lcswScope, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, S.optumSCC, S.optumSM, S.optumReimb, S.optumTele, S.optumNNM, S.ors743A, S.ors743B, S.ors676, S.oar824lic, S.oar824sup, S.hlo, S.bacbLic, S.oar836, S.oar1280, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial) — services not requiring a referral', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' }, { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' }, S.lcswScope, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }, S.ors743B454],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week. Technicians work under a BCBA or licensed behavioral health clinician and should be RBTs or otherwise certified "as allowable by state mandate"; Optum does not recommend parents serving as their own child’s RBT. In Oregon, interventionists must also be registered and supervised for at least 5 percent of service hours (OAR 824-040-0010).',
@@ -2758,6 +2818,8 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
+      OR_CRED_FAQ,
       { q: 'Does UnitedHealthcare / Optum give single case agreements for ABA?', a: 'Not automatically. Optum\'s ABA FAQ says an SCA may be approved "In exception cases, based on clinical need, new business implementations, or other gaps in the network" after review with the clinical team. Credentialing takes 45 to 120 days, and new agencies also need a site audit.' },
       { q: 'Does UnitedHealthcare require graphs for ABA reassessments?', a: 'Optum’s criteria require updated progress data in the same measures used at baseline (mastery rates, change scores, updated standardized adaptive measures) at every continued review; they do not require graphs as such.' },
       { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, each with a credential modifier; no H-code (H0031, H0032, H2014, H2019) is on the list.' },
@@ -2775,11 +2837,11 @@ export const oregonPayers: Record<string, PayerConfig> = {
   'regence-bluecross-blueshield-of-oregon': {
     slug: 'regence-bluecross-blueshield-of-oregon',
     family: 'bcbs',
-    cardDesc: 'Oregon’s dominant Blue: Regence BH18/BH33 (prescription, ITP, standardized assessment) on contracts subject to preauthorization + Oregon’s mandate and parity law.',
+    cardDesc: 'Oregon’s dominant Blue: Regence BH18 (revised 11/1/2026: assessment criteria, prescription, ITP, standardized assessment, one ABA provider at a time) on contracts subject to preauthorization + Oregon’s mandate and parity law.',
     assessmentPA: {
-      value: 'Plan-dependent: BH33 sets medical-necessity criteria for the initial assessment, but Regence’s ABA policies apply only "to member contracts that are subject to preauthorization"; check the member’s preauthorization list',
+      value: 'Plan-dependent: BH18 (effective 11/1/2026) now sets the medical-necessity criteria for the initial assessment in its section I, but the policy applies only "to member contracts that are subject to preauthorization for Applied Behavior Analysis"; check the member’s preauthorization list',
       status: 'plan-dependent',
-      cites: [S.regBH33, S.regBH18],
+      cites: [S.regBH18],
       verifyVia: 'Regence’s preauthorization list for the member contract (Availity) or the number on the card: ask whether 97151/97152 need preauthorization.',
       blocker: 'per-case',
     },
@@ -2791,9 +2853,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
       blocker: 'per-case',
     },
     dxRequired: {
-      value: 'Yes: ASD diagnosed by a qualified treating health care professional "as defined by state law," with ABA recommended or prescribed by one experienced in ASD',
+      value: 'Yes: ASD diagnosed "by a qualified treating health care professional as defined by state law," with ASD symptoms that make the member a safety risk or unable to take part in age-appropriate home or community activities, and ABA recommended or prescribed by a qualified professional (e.g. psychiatrist, pediatrician, pediatric neurologist, developmental pediatrician, psychologist) experienced in autism (BH18 effective 11/1/2026)',
       status: 'verified',
-      cites: [S.regBH18, S.regBH33],
+      cites: [S.regBH18],
     },
     payer: 'Regence BlueCross BlueShield of Oregon',
     state: 'OR', kind: 'commercial',
@@ -2801,12 +2863,12 @@ export const oregonPayers: Record<string, PayerConfig> = {
     h1: 'Regence BlueCross BlueShield of Oregon ABA coverage: the intake guide.',
     metaTitle: 'Regence BlueCross BlueShield of Oregon ABA Coverage: Prior Auth Guide | Carelu',
     metaDescription:
-      'How Regence BlueCross BlueShield of Oregon covers ABA: medical policies BH18 and BH33, the prescription and individualized treatment plan requirements, standardized assessments, continuation timing, Oregon’s ABA mandate and parity law, and Oregon licensure.',
+      'How Regence BlueCross BlueShield of Oregon covers ABA: medical policy BH18 (revised November 1, 2026), the prescription and individualized treatment plan requirements, standardized assessments, continuation timing, Oregon’s ABA mandate and parity law, and Oregon licensure.',
     intro: [
-      'Regence BlueCross BlueShield of Oregon applies two medical policies to ABA: BH18 for treatment and BH33 for the initial assessment. Both name "Oregon’s Mental Health Parity Act (ORS 743.168) effective August 8, 2014" as their Oregon benefit basis (the parity law now numbered ORS 743A.168), and both apply only where the member contract is subject to preauthorization for ABA.',
+      'Regence BlueCross BlueShield of Oregon applies medical policy BH18 to ABA. The revision effective November 1, 2026 folds the initial-assessment criteria (formerly policy BH33, whose public links no longer load) into BH18 as section I. It names "Oregon’s Mental Health Parity Act (ORS 743.168) effective August 8, 2014" as its Oregon benefit basis (the parity law now numbered ORS 743A.168), and it applies only where the member contract is subject to preauthorization for ABA.',
     ],
     atGlance: [
-      { label: 'Covers ABA?', value: 'Yes, for ASD, under BH18/BH33 and Oregon parity' },
+      { label: 'Covers ABA?', value: 'Yes, for ASD, under BH18 (revised 11/1/2026) and Oregon parity' },
       { label: 'State mandate', value: OR_MANDATE_ROW },
       { label: 'Mandate age', value: OR_AGE_ROW },
       { label: 'Mandate caps', value: OR_CAPS_ROW },
@@ -2818,10 +2880,10 @@ export const oregonPayers: Record<string, PayerConfig> = {
       {
         h2: 'The Regence rulebook, applied in Oregon',
         body: [
-          'BH33 covers the initial assessment when ASD has been diagnosed by a qualified treating professional "(e.g. pediatrician, pediatric neurologist, developmental pediatrician, psychologist), as defined by state law," the symptoms impair functioning to the point of a safety risk or inability to join age-appropriate activities, and ABA is recommended or prescribed by such a professional. BH18 then requires an individualized treatment plan prepared by a provider certified to provide ABA, with targeted behaviors, current functioning measured by objective measurements "and at least one standardized assessment," evidence-based techniques, caregiver training, clinical justification for days, hours and supervision, and measurable discharge goals. Continuation requires measurable progress, objective measurements at least every six months and standardized assessments annually.',
-          'For review Regence wants the diagnosis, a "Written recommendation, clinical order, or prescription for ABA services," the ITP with requested units, CPT codes and date range, and, for a member switching agencies, the most recent date of service with the previous ABA provider and the reason for discharge. Continuation documents are due "within five business days prior to the end of a current authorization (and no more than 30 days prior to the end of the authorization period)." The version we read (effective August 1, 2025) notes a revised BH18 effective November 1, 2026, which we did not retrieve.',
+          'Under BH18 effective November 1, 2026, the initial assessment is medically necessary when the member "has been diagnosed with Autism Spectrum Disorder by a qualified treating health care professional as defined by state law," the symptoms impair functioning to the point of a safety risk or inability to join age-appropriate home or community activities, and ABA is "recommended or prescribed by a qualified treating health care professional (e.g. psychiatrist, pediatrician, pediatric neurologist, developmental pediatrician, psychologist) experienced in the diagnosis and treatment of autism." Starting treatment then requires an individualized treatment plan prepared by a provider certified to provide ABA, with targeted behaviors, current functioning measured by objective measurements "and at least one standardized assessment," evidence-based techniques, caregiver training, clinical justification for days, hours and supervision, and measurable discharge goals. Continuation requires measurable progress, objective measurements at least every six months and standardized assessments annually.',
+          'For review Regence wants the diagnosis, a "Written recommendation, clinical order, or prescription for ABA services," the ITP with requested units, CPT codes and date range, and, for a member switching agencies, the most recent date of service with the previous ABA provider and the reason for discharge. Continuation documents are due "within five business days prior to the end of a current authorization (and no more than 30 days prior to the end of the authorization period)." The revised policy adds that "Members are limited to ABA treatment by one authorized ABA provider at any given time," and a coding note that 0373T "may not be billed concurrently with 97153 or 97155."',
         ],
-        cites: [S.regBH33, S.regBH18],
+        cites: [S.regBH18],
       },
       {
         h2: 'The Oregon mandate: what it guarantees',
@@ -2846,7 +2908,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
       { title: 'Prior ABA provider', desc: 'Last date of service and reason for discharge, if switching agencies.' },
       { title: 'Oregon license numbers', desc: 'Behavior analyst license and interventionist registrations for the team.' },
     ],
-    sources: [S.regBH18, S.regBH33, S.ors743A, S.ors743B, S.ors676, S.oar824lic, S.oar824sup, S.hlo, S.bacbLic, S.oar836, S.oar1280, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, { title: 'Regence — The Connection provider newsletter (issue archive)', url: 'https://www.regence.com/provider/library/newsletters' }, S.lcswScope],
+    sources: [S.regBH18, S.ors743A, S.ors743B, S.ors676, S.oar824lic, S.oar824sup, S.hlo, S.bacbLic, S.oar836, S.oar1280, S.erisa, S.cfr433, S.tricare, S.champva, S.fee, { title: 'Regence — The Connection provider newsletter (issue archive)', url: 'https://www.regence.com/provider/library/newsletters' }, S.lcswScope, S.ors743B454],
     deliveryRules: {
       supervision: {
         value: 'BCBAs and BCBA-Ds are independently qualified; BCaBAs "must work under the supervision of a BCBA or BCBA-D"; behavior technicians and RBTs "must be under the ongoing supervision of a BCBA, BCBA-D, or qualified supervisor," all per the BACB code. The ITP must justify the hours per week of direct face-to-face supervision. In Oregon, interventionists must also be registered and supervised for at least 5 percent of service hours (OAR 824-040-0010).',
@@ -2854,11 +2916,11 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.regBH18, S.oar824sup],
       },
       concurrentBilling: {
-        value: 'Not addressed in the BH18 version we read (effective 8/1/2025). A revised BH18 takes effect November 1, 2026; we did not retrieve its text.',
+        value: 'BH18 (effective 11/1/2026) addresses only the multi-technician code: "Code 0373T may not be billed concurrently with 97153 or 97155," because those activities "are considered part of the 0373T service." It says nothing about billing 97153 and 97155 for the same time.',
         status: 'unverified',
         cites: [S.regBH18],
-        verifyVia: 'Regence medical policy BH18 effective 11/1/2026 (Regence provider medical policy library), or Regence provider services.',
-        blocker: 'document',
+        verifyVia: 'Regence provider services or behavioral health UM via Availity: ask whether 97155 may be billed for the same time as 97153 on this contract.',
+        blocker: 'per-case',
       },
       dailyLimits: {
         value: 'No numeric cap. Requested intensity needs clinical justification based on individual need, "must not be based solely on diagnosis, caregiver availability, or scheduling preferences," and "excessive hours" of supervision, assessment, social skills or parent training need justification.',
@@ -2866,7 +2928,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.regBH18],
       },
       noteSignature: {
-        value: 'Not addressed in BH18 or BH33.',
+        value: 'Not addressed in BH18 (effective 11/1/2026).',
         status: 'unverified',
         cites: [S.regBH18],
         verifyVia: 'Regence provider manual (documentation standards) or your Regence participation agreement.',
@@ -2889,7 +2951,7 @@ export const oregonPayers: Record<string, PayerConfig> = {
     },
     intakeGates: {
       ageLimit: {
-        value: 'BH18 and BH33 set no age limit.' + MANDATE_AGE_TAIL,
+        value: 'BH18 sets no age limit.' + MANDATE_AGE_TAIL,
         status: 'plan-dependent',
         cites: [S.regBH18, S.ors743A],
         verifyVia: 'Benefits verification on the member ID: establish fully insured vs. self-funded ERISA, then the contract’s terms.',
@@ -2901,9 +2963,9 @@ export const oregonPayers: Record<string, PayerConfig> = {
         cites: [S.regBH18],
       },
       diagnosingProviders: {
-        value: 'A qualified treating health care professional "(e.g. pediatrician, pediatric neurologist, developmental pediatrician, psychologist), as defined by state law." For fully insured Oregon plans the mandate lists a licensed neurologist, pediatric neurologist, developmental pediatrician, psychiatrist or psychologist experienced in ASD, and lets the insurer require re-diagnosis by one of them. LCSW: not among Regence\'s examples; "as defined by state law" — Oregon puts "diagnosis" inside clinical social work (ORS 675.510(2)(a)) — but Regence also requires a professional experienced in diagnosing autism. For fully insured Oregon plans the mandate\'s list (neurologist, pediatric neurologist, developmental pediatrician, psychiatrist, psychologist) has no LCSW, and the insurer may require re-diagnosis by one of them.',
+        value: 'A "qualified treating health care professional as defined by state law" (BH18 effective 11/1/2026); the policy\'s examples (psychiatrist, pediatrician, pediatric neurologist, developmental pediatrician, psychologist) are attached to the professional who recommends or prescribes ABA and must be "experienced in the diagnosis and treatment of autism." For fully insured Oregon plans the mandate lists a licensed neurologist, pediatric neurologist, developmental pediatrician, psychiatrist or psychologist experienced in ASD, and lets the insurer require re-diagnosis by one of them. LCSW: not among Regence\'s examples; "as defined by state law" — Oregon puts "diagnosis" inside clinical social work (ORS 675.510(2)(a)) — but Regence also requires a professional experienced in diagnosing autism. For fully insured Oregon plans the mandate\'s list (neurologist, pediatric neurologist, developmental pediatrician, psychiatrist, psychologist) has no LCSW, and the insurer may require re-diagnosis by one of them.',
         status: 'verified',
-        cites: [S.regBH33, S.ors743A, S.lcswScope],
+        cites: [S.regBH18, S.ors743A, S.lcswScope],
       },
       diagnosticTools: {
         value: 'No named diagnostic instrument. BH18 requires current functioning measured with objective measurements and at least one standardized assessment (examples: SRS-2, Vineland-3, ABAS-3, SSIS, BRIEF-2, PDDBI); curriculum-based tools such as VB-MAPP, ABLLS-R and AFLS guide planning.',
@@ -2913,10 +2975,10 @@ export const oregonPayers: Record<string, PayerConfig> = {
       referral: {
         value: 'Yes: a "Written recommendation, clinical order, or prescription for ABA services" from a qualified treating professional experienced in ASD.' + MANDATE_REFERRAL_TAIL,
         status: 'verified',
-        cites: [S.regBH18, S.regBH33, S.ors743A],
+        cites: [S.regBH18, S.ors743A],
       },
       telehealth: {
-        value: 'BH18 and BH33 publish no ABA telehealth rule.' + OR_TELE_TAIL,
+        value: 'BH18 publishes no ABA telehealth rule.' + OR_TELE_TAIL,
         status: 'plan-dependent',
         cites: [S.regBH18, S.ors743A],
         verifyVia: 'Regence provider services: ask which ABA codes, POS and modifiers it pays by telehealth on this contract.',
@@ -2938,7 +3000,10 @@ export const oregonPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
-      { q: 'Does Regence BlueCross BlueShield of Oregon cover ABA?', a: 'Yes, for ASD under medical policies BH18 and BH33, which cite Oregon’s mental health parity law; Oregon’s ABA mandate also applies to state-regulated plans.' },
+      OR_CRED_FAQ,
+      { q: 'Does Regence BlueCross BlueShield of Oregon cover ABA?', a: 'Yes, for ASD under medical policy BH18 (revised effective November 1, 2026, now including the initial-assessment criteria), which cites Oregon’s mental health parity law; Oregon’s ABA mandate also applies to state-regulated plans.' },
+      { q: 'Can a child see two ABA agencies at once under Regence?', a: 'No. BH18 effective November 1, 2026 says "Members are limited to ABA treatment by one authorized ABA provider at any given time." When a child switches agencies, send the most recent date of service with the previous provider and the reason for discharge.' },
+      { q: 'Does the ABA prescription go in with the Regence authorization request?', a: 'Yes. BH18 lists the "Written recommendation, clinical order, or prescription for ABA services" among the documents "required for review of ABA services" at initiation, along with the prescribing professional\'s documentation of the ASD diagnosis and of how ASD impairs the member\'s functioning.' },
       { q: 'Does Regence require a prescription for ABA?', a: 'Yes. It asks for a written recommendation, clinical order or prescription for ABA from a qualified treating professional experienced in ASD.' },
       { q: 'What does Regence need when a child switches ABA agencies?', a: 'BH18 asks for the most recent date of service with the previous ABA provider and the reason for discharge, along with the new treatment plan.' },
       { q: 'When should a Regence ABA reauthorization be submitted?', a: 'Within five business days before the current authorization ends, and no more than 30 days before.' },

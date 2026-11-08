@@ -132,7 +132,7 @@ const OPTUM_STATE_MANDATES_MD = src(
   "Optum BH803ABA — ABA State Mandates supplemental criteria, Maryland entry — reproduces COMAR 31.10.39.03 (comprehensive evaluation, physician prescription with annual review, no-denial hour floors of 25 hrs/week ages 18mo-5 and 10 hrs/week ages 6-18, no experimental/investigational denial) for fully-insured Maryland plans. Contains no per-code unit-cap/POS/modifier table beyond the mandate's own hour floors."
 );
 const MD_ABA_MANUAL = src(
-  'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA%20Provider%20Manual%202_1_26%20(2).pdf',
+  'https://health.maryland.gov/mmcp/epsdt/ABA/Documents/ABA-Provider-Manual-10_1_26v2.pdf',
   'MDH ABA Provider Manual, effective 2026-02-01, pp.15-16 (fee schedule) and pp.4/14 (billing/contact). Full-text search this pass confirmed: no "EDI," "companion guide," "270," "271," or "payer ID" appear anywhere in this 16-page manual — Carelon is the named EDI/billing contact (800-888-1965) but no clearinghouse payer ID is stated in it. Confirms CMS-1500 paper / CMS 837P electronic billing format.'
 );
 const MD_PT_60_26: SourceRef = {
@@ -212,7 +212,7 @@ const FANOUT_MD_EVS: SourceRef = {
 /* -------------------- Layer 4: Maryland Medicaid ABA rates -------------------- */
 
 const marylandMedicaidRates: RateTable = {
-  source: 'MDH ABA Provider Manual (eff. Feb 1, 2026), fee schedule pp.15–16',
+  source: 'MDH ABA Provider Manual (eff. Oct 1, 2026), fee schedule pp.15–16',
   effectiveDate: '2026-02-01',
   byCode: {
     '97151': { rate: '$38.34', unit: '15min', modifierTiers: { note: 'Psychologist/BCBA-D/BCBA tier only; daily max 32 units' } },

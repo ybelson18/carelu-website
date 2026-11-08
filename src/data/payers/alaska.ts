@@ -59,8 +59,8 @@ const S: Record<string, PayerSource> = {
   optumReimb: { title: 'Optum — ABA Reimbursement Policy, Commercial (2022RP501A, updated 06/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/reimbPolicies/abaReimburs2020s.pdf' },
   optumNNM: { title: 'Optum National Network Manual (BH02330, effective Sept. 1, 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' },
   premPolicy: { title: 'Premera Medical Policy 3.01.510 — Applied Behavior Analysis (ABA) (effective May 1, 2026)', url: 'https://www.premera.com/medicalpolicies/3.01.510.pdf' },
-  premCodesInd: { title: 'Premera Blue Cross Blue Shield of Alaska — Code List, Individual Plans (050238, 10-01-2026)', url: 'https://www.premera.com/documents/050238.pdf' },
-  premCodesGrp: { title: 'Premera Blue Cross Blue Shield of Alaska — Clinical Review by Code List, Non-Individual Plans (028861, 10-01-2026)', url: 'https://www.premera.com/documents/028861.pdf' },
+  premCodesInd: { title: 'Premera Blue Cross Blue Shield of Alaska — Code List, Individual Plans (050238, 11-06-2026)', url: 'https://www.premera.com/documents/050238.pdf' },
+  premCodesGrp: { title: 'Premera Blue Cross Blue Shield of Alaska — Clinical Review by Code List, Non-Individual Plans (028861, 11-06-2026)', url: 'https://www.premera.com/documents/028861.pdf' },
   premPA: { title: 'Premera Blue Cross Blue Shield of Alaska — Submitting prior authorization (Availity; no phone requests)', url: 'https://www.premera.com/ak/provider/utilization-review/about-prior-authorization/' },
   premCodeCheck: { title: 'Premera Alaska — Code Check Tool for commercial plan members', url: 'https://www.premera.com/ak/provider/code-check/' },
   premClaims: { title: 'Premera Alaska Medical Reference Manual — Claims submission and payments (timely filing, COB, provider appeals)', url: 'https://www.premera.com/ak/provider/reference/medical-manuals/claim-submission-payments/' },
@@ -798,7 +798,7 @@ export const alaskaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5 ASD and severity level, confirmed by the diagnosing clinician with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Prescription and treatment plan', desc: 'AS 21.42.397 ties coverage to treatment prescribed by a physician, psychologist or APRN, in a plan following a comprehensive evaluation.' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.optumExit, S.as21_42_397, S.as08_15, S.as08_02_130, S.as21_42_422, S.as21_36_495, S.as21_07, S.aac3_28, S.sb133, S.as21_42_205, S.aac3_26_110, S.bacbLic, S.erisa, S.fee27, S.hfin, S.lcswScope, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.optumExit, S.as21_42_397, S.as08_15, S.as08_02_130, S.as21_42_422, S.as21_36_495, S.as21_07, S.aac3_28, S.sb133, S.as21_42_205, S.aac3_26_110, S.bacbLic, S.erisa, S.fee27, S.hfin, S.lcswScope, { title: 'Optum — FAQ: Autism/ABA Using CPT Codes (BH00083-24-FAQ, 01/2024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaCPT-FAQs.pdf' }],
     deliveryRules: {
       supervision: {
         value: 'Consistent with CASP standards, direct case supervision runs at 1–2 hours for every 10 hours of direct treatment per week. Technicians work under a BCBA or licensed behavioral health clinician and "should be registered behavior technicians (RBT) or another appropriately certified behavior technician as allowable by state mandate"; Optum does not recommend parents serving as their own child’s RBT. In Alaska the supervising behavior analyst must hold an Alaska license (AS 08.15.010).',
@@ -889,6 +889,7 @@ export const alaskaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
       { q: 'Does UnitedHealthcare / Optum give single case agreements for ABA?', a: 'Not automatically. Optum\'s ABA FAQ says an SCA may be approved "In exception cases, based on clinical need, new business implementations, or other gaps in the network" after review with the clinical team. Credentialing takes 45 to 120 days, and new agencies also need a site audit.' },
       { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
       { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for Alaska ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
@@ -903,9 +904,9 @@ export const alaskaPayers: Record<string, PayerConfig> = {
   'premera-blue-cross-blue-shield-alaska': {
     slug: 'premera-blue-cross-blue-shield-alaska',
     family: 'bcbs',
-    cardDesc: 'Alaska’s largest insurer: Premera policy 3.01.510, ABA on the PA list (individual and group), 365-day filing, AS 21.42.397 mandate.',
+    cardDesc: 'Alaska’s largest insurer: Premera policy 3.01.510, ABA on the PA list (individual and group), 90-day filing, AS 21.42.397 mandate.',
     assessmentPA: {
-      value: 'Required on individual plans: 97151 and 0362T are "Prior Authorization Required" on Premera Alaska’s October 2026 individual code list. Group plans list ABA among services requiring prior authorization; check the code in Availity’s Code Check tool',
+      value: 'Required on individual plans: 97151 and 0362T are "Prior Authorization Required" on Premera Alaska’s November 6, 2026 individual code list. Group plans list ABA among services requiring prior authorization; check the code in Availity’s Code Check tool',
       status: 'verified',
       cites: [S.premCodesInd, S.premCodesGrp, S.premCodeCheck],
     },
@@ -925,7 +926,7 @@ export const alaskaPayers: Record<string, PayerConfig> = {
     h1: 'Premera Blue Cross Blue Shield of Alaska ABA coverage: the intake guide.',
     metaTitle: 'Premera Blue Cross Blue Shield of Alaska ABA Coverage & Prior Auth Guide | Carelu',
     metaDescription:
-      'How Premera Blue Cross Blue Shield of Alaska covers ABA: medical policy 3.01.510, prior authorization through Availity, Alaska’s AS 21.42.397 autism mandate (under 21, no visit limits), Alaska behavior-analyst licensure, 365-day claim filing, and what intake should verify.',
+      'How Premera Blue Cross Blue Shield of Alaska covers ABA: medical policy 3.01.510, prior authorization through Availity, Alaska’s AS 21.42.397 autism mandate (under 21, no visit limits), Alaska behavior-analyst licensure, 90-day claim filing, and what intake should verify.',
     intro: [
       'Premera Blue Cross Blue Shield of Alaska is the state’s Blue plan. For an intake team that means three layers: Premera’s ABA medical policy 3.01.510, Alaska’s autism mandate in AS 21.42.397, and the plan type on the card (individual, fully insured group, self-funded or shared-administration group, or the Federal Employee Program), which decides both the prior-authorization route and whether the mandate applies.',
     ],
@@ -943,7 +944,7 @@ export const alaskaPayers: Record<string, PayerConfig> = {
         h2: 'Premera’s ABA policy and prior authorization',
         body: [
           'Premera medical policy 3.01.510 (effective May 1, 2026) covers ABA when the diagnosis, service, setting and provider criteria are met. It recognizes the CPT ABA codes plus several HCPCS codes (H0031, H0032, H2014, H2019, S5108–S5111) used by some plans. Settings are "most often in the home setting or clinic setting" and may be community; services "may be provided in-person or via secure real-time video and audio telehealth/virtual modalities, or via a combination." Some direct treatment may take place at school when autism-related difficulties show up there, but it "must consist entirely of bona-fide ABA treatment activities," and acting as a classroom aide or 1:1 teacher is not covered; "Some plans may exclude coverage of ABA in school or educational settings."',
-          'Prior authorization depends on plan type. Premera Alaska’s October 2026 code list for individual plans marks 97151, 97153, 97154, 97155, 97156, 97158, 0362T and 0373T "Prior Authorization Required" (97152 and 97157 do not appear). The non-individual (group) list puts "Applied behavioral analysis (ABA)" among services requiring prior authorization and sends providers to the Code Check tool in Availity. Requests go through Availity for individual and non-individual members alike, and "Prior authorizations can’t be submitted by phone." Federal Employee Program members use a separate FEP-Alaska ABA prior-approval form, faxed to 866-948-8823, and FEP excludes ABA "performed as part of an educational program; or provided in or by a school/educational setting."',
+          'Prior authorization depends on plan type. Premera Alaska’s November 6, 2026 code list for individual plans marks 97151, 97153, 97154, 97155, 97156, 97158, 0362T and 0373T "Prior Authorization Required" (97152 and 97157 do not appear). The non-individual (group) list puts "Applied behavioral analysis (ABA)" among services requiring prior authorization and sends providers to the Code Check tool in Availity. Requests go through Availity for individual and non-individual members alike, and "Prior authorizations can’t be submitted by phone." Federal Employee Program members use a separate FEP-Alaska ABA prior-approval form, faxed to 866-948-8823, and FEP excludes ABA "performed as part of an educational program; or provided in or by a school/educational setting."',
         ],
         cites: [S.premPolicy, S.premCodesInd, S.premCodesGrp, S.premPA, S.premCodeCheck, S.premFEP],
       },
@@ -963,7 +964,7 @@ export const alaskaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims operations: filing, payment, appeals',
         body: [
-          'Premera asks for claims within 60 days of service "but no later than 365 calendar days from the date of service," and for most plans denies claims received more than 12 months after the date of service "with no member responsibility." A Level I provider appeal "must be submitted within the same 365-days following the action that prompted the dispute," a Level II within 30 calendar days of the Level I decision, and Premera says it is processing appeals within 30 days.' + AK_PROMPT_PAY,
+          'Premera asks for claims "within 60 calendar days of the covered services, but no later than 90 calendar days from the date of service," and "For most plans, we\'ll deny claims received more than 90 days after the date of service with no member responsibility" (Alaska claims page, read November 8, 2026). A Level I provider appeal "must be submitted within the same 365-days following the action that prompted the dispute," a Level II within 30 calendar days of the Level I decision, and Premera says it is processing appeals within 30 days.' + AK_PROMPT_PAY,
         ],
         cites: [S.premClaims, S.premPA, S.as21_36_495, S.as21_07],
       },
@@ -1085,7 +1086,7 @@ export const alaskaPayers: Record<string, PayerConfig> = {
     faq: [
       { q: 'Does Premera Blue Cross Blue Shield of Alaska cover ABA?', a: 'Yes, under medical policy 3.01.510 for autism spectrum disorder, with Alaska’s AS 21.42.397 mandate (under 21, no visit limits) on fully insured plans.' },
       { q: 'Does Premera require prior authorization for ABA in Alaska?', a: 'Yes. ABA is on Premera Alaska’s prior-authorization list for group plans, and the individual-plan code list requires it for 97151, 97153–97156, 97158, 0362T and 0373T. Submit in Availity; phone requests are not accepted. FEP uses its own fax form.' },
-      { q: 'What is Premera’s timely filing limit in Alaska?', a: 'No later than 365 calendar days from the date of service; for most plans claims received after 12 months deny with no member responsibility.' },
+      { q: 'What is Premera’s timely filing limit in Alaska?', a: 'No later than 90 calendar days from the date of service (Premera’s Alaska claims page, read November 8, 2026). For most plans, claims received more than 90 days after the date of service deny with no member responsibility; your contract can set other terms.' },
       { q: 'Can a BCBA licensed in another state treat a Premera member in Alaska?', a: 'Premera’s policy requires state licensure where a state licenses behavior analysts, and Alaska does: practicing in Alaska, including by telehealth to a child in Alaska, needs an Alaska license, apart from a temporary license of up to 30 days a year for someone licensed in a substantially equivalent state.' },
       { q: 'Can a Premera Alaska network provider treat a child covered by another state’s Blue plan?', a: 'Yes, through BlueCard. Run eligibility and submit claims in Availity under "Other Blue Plans Premera BlueExchange." Check the home plan’s ABA pre-authorization rules with Premera’s out-of-area medical policy and pre-service review tool, since Premera’s own code list does not apply.' },
     ],

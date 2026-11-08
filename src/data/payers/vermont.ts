@@ -14,6 +14,7 @@ const S: Record<string, PayerSource> = {
   hcar4106: { title: 'Vermont HCAR 4.106 — Early and Periodic Screening, Diagnostic and Treatment (EPSDT) Services (eff. 7/1/2020)', url: 'https://humanservices.vermont.gov/sites/ahsnew/files/documents/MedicaidPolicy/HCARAdopted/Adopted%20Clean%20EPSDT%20HCAR%204.106.pdf' },
   hcar4103: { title: 'Vermont HCAR 4.103 — Prior Authorization (eff. 1/1/2026, GCR 24-105)', url: 'https://humanservices.vermont.gov/sites/ahsnew/files/documents/4.103%20Prior%20Authorization%20Adopted%20Rule.pdf' },
   hcar3101: { title: 'Vermont HCAR 3.101 — Telehealth (eff. 5/1/2023, GCR 22-099)', url: 'https://humanservices.vermont.gov/sites/ahsnew/files/doc_library/3.101%20Telehealth%20Adopted%20Rule.pdf' },
+  faqOct26: { title: 'DVHA — ABA Provider Engagement Meeting FAQ, October 2026 (meeting of Oct. 23, 2026)', url: 'https://dvha.vermont.gov/sites/dvha/files/documents/ABA-FAQ-October-2026.docx' },
   abaSupp: { title: 'Vermont Medicaid Applied Behavior Analysis Supplement (08-04-2026)', url: 'https://vtmedicaid.com/assets/manuals/ABASupplement.pdf' },
   abaFaq: { title: 'DVHA — ABA Frequently Asked Questions (FAQ), August 2026', url: 'https://dvha.vermont.gov/sites/dvha/files/documents/ABA-FAQ-August-2026.pdf' },
   abaPage: { title: 'DVHA — Applied Behavior Analysis (ABA) Benefit (provider page)', url: 'https://dvha.vermont.gov/providers/applied-behavior-analysis-aba-benefit' },
@@ -84,6 +85,17 @@ const MANDATE_REFERRAL_TAIL =
 
 const VT_COB_VALUE = (carrier: string) =>
   `No Vermont rule fixing the order of benefits between two parents’ group plans was confirmed this run, so take the order from ${carrier} at benefits verification. A self-funded plan sets its own order. If the child also has Vermont Medicaid, ${carrier} pays first. A Vermont insurer may not consider Medicaid eligibility when paying claims (8 V.S.A. § 4024), and Medicaid is the payer of last resort (42 CFR 433.139). Vermont Medicaid will cover what the primary plan denies only after you have used every level of the primary plan’s appeals and, where the service costs more than $100, a Department of Financial Regulation review. TRICARE pays after this plan (10 U.S.C. 1079(i)(1)); CHAMPVA is the last payer (38 CFR 17.270).`;
+
+/* ---- DVHA ABA Provider Engagement Meeting FAQ (October 2026), read 2026-11-08 ---- */
+const VT_FAQ_OCT26_SECTION = {
+  h2: 'What DVHA said after the October 2026 provider meeting',
+  body: [
+    'DVHA’s October 2026 FAQ, written after its October 23, 2026 ABA provider engagement meeting, settles several practical points. Physician sign-off: "DVHA has also reduced the frequency of the signature needed by the medical professional from twice a year to once a year" on the Comprehensive Assessment form, and it is exploring a standard treatment-plan template that could replace or streamline the two forms. Prior authorization has two parts: a clinical medical-necessity review, then a PA in the MMIS "which is solely for billing purposes," so DVHA "will only PA (authorize in the MMIS) the units of service that can be billed under our rules"; if a child’s availability will change during the period, lay out the timeframes in the request, or submit a modification request "at any time." The Week in the Life Chart is a tentative schedule, not a fixed one.',
+    'On codes and rates: asked whether it must adopt the new AMA CPT codes for January 1, 2027, DVHA answered that "The existence of a code does not mean that Vermont Medicaid is required to cover those codes or reimburse for the associated services." The Act 14 rate study of ABA does not by itself change rates: "Any increases to Medicaid ABA rates require a budget appropriation from the Legislature." School Based Services claims go out under the Local Education Agency’s provider ID and NPI, separate from community Medicaid ABA. DVHA will not return to the GlobalScape portal for submissions and is trialing electronic PA submission through the MMIS.',
+  ],
+  cites: [{ title: 'DVHA — ABA Provider Engagement Meeting FAQ, October 2026 (meeting of Oct. 23, 2026)', url: 'https://dvha.vermont.gov/sites/dvha/files/documents/ABA-FAQ-October-2026.docx' }],
+};
+const VT_FAQ_OCT26_FAQ = { q: 'How often does a physician have to sign Vermont Medicaid’s Comprehensive ABA Assessment?', a: 'Once a year. DVHA’s October 2026 provider FAQ says it "reduced the frequency of the signature needed by the medical professional from twice a year to once a year." The assessment itself is still updated and resubmitted with each six-month prior authorization request.' };
 
 export const vermontPayers: Record<string, PayerConfig> = {
   'vermont-medicaid': {
@@ -166,15 +178,16 @@ export const vermontPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.gbfm, S.coding, S.pay9418, S.abaSupp],
       },
+      VT_FAQ_OCT26_SECTION,
     ],
     collect: [
       { title: 'Medicaid ID and any other insurance', desc: 'Other coverage is billed first and appealed fully (with a DFR review if over $100) before DVHA will consider it.' },
       { title: 'ABA prescription', desc: 'From a listed specialist (psychiatrist, pediatrician, neurologist, doctorate-level psychologist, or developmental-behavioral pediatrician), dated before services start.' },
       { title: 'Diagnostic assessment', desc: 'Completed before ABA starts by a clinician experienced in diagnosing autism; the diagnosis must be ASD, an early childhood developmental disorder, or a successor diagnosis.' },
       { title: 'Age and birthday', desc: 'Under 21. Children who started before 6 need a new prescription within six months after turning 6.' },
-      { title: 'Signer for the Comprehensive Assessment', desc: 'The prescriber or diagnosing clinician must sign DVHA’s Comprehensive ABA Assessment form at every authorization.' },
+      { title: 'Signer for the Comprehensive Assessment', desc: 'The prescriber or diagnosing clinician signs DVHA’s Comprehensive ABA Assessment form; DVHA’s October 2026 FAQ says it has reduced that signature from twice a year to once a year.' },
     ],
-    sources: [S.hcar4229, S.hcar4106, S.hcar4103, S.hcar3101, S.abaSupp, S.abaFaq, S.abaPage, S.coding, S.faq1208, S.gcr26058, S.groves, S.fee, S.gpm, S.gbfm, S.mandate, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.cfr433, { title: 'Vermont Medicaid Portal (Gainwell) — Provider banners archive (index of weekly banner messages)', url: 'https://www.vtmedicaid.com/#/bannerMain' }, { title: 'Vermont Medicaid Portal (Gainwell) — Provider advisories archive (monthly advisory newsletter)', url: 'https://www.vtmedicaid.com/#/advisory' }],
+    sources: [S.hcar4229, S.hcar4106, S.hcar4103, S.hcar3101, S.abaSupp, S.faqOct26, S.abaFaq, S.abaPage, S.coding, S.faq1208, S.gcr26058, S.groves, S.fee, S.gpm, S.gbfm, S.mandate, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.cfr433, { title: 'Vermont Medicaid Portal (Gainwell) — Provider banners archive (index of weekly banner messages)', url: 'https://www.vtmedicaid.com/#/bannerMain' }, { title: 'Vermont Medicaid Portal (Gainwell) — Provider advisories archive (monthly advisory newsletter)', url: 'https://www.vtmedicaid.com/#/advisory' }],
     deliveryRules: {
       supervision: {
         value: 'DVHA sets no billable supervision ratio. HCAR 4.229.1 defines a BCaBA as "directly supervised by a BCBA" and a behavior technician as practicing "under close, ongoing supervision of a BCBA or BCaBA supervisor." Vermont’s licensure law requires a licensed assistant behavior analyst to have at least five hours a month of off-site case supervision (26 V.S.A. § 4929). Asked how to document supervision now that concurrent billing is barred, DVHA said that "best clinical practice and the national standard are to have 2 hours for every 10 hours of service," but that "standards and best clinical practice are different than billing."',
@@ -229,7 +242,7 @@ export const vermontPayers: Record<string, PayerConfig> = {
         cites: [S.abaSupp, S.abaFaq],
       },
       referral: {
-        value: 'Yes: a written prescription for ABA from a listed specialist, dated before services begin (HCAR 4.229.3(d); ABA Supplement). Vermont’s licensure law also lets a licensed behavior analyst practice only on a referral from a licensed health professional or school official (26 V.S.A. § 4928).',
+        value: 'Yes: a written prescription for ABA from a listed specialist (board-certified or board-eligible psychiatrist or neurologist, doctorate-level licensed psychologist, or developmental-behavioral or neurodevelopmental disabilities pediatrician), dated before services begin (HCAR 4.229.3(d); ABA Supplement). The Supplement lists the prescription among the clinical documentation that "must be included in the member’s file"; what it says to resubmit "with each prior authorization request" is the updated Comprehensive ABA Assessment (and the PA form every six months), not the prescription. A new prescription is required after a change in diagnosis, and for a child who started before age 6, within six months after the 6th birthday. Vermont’s licensure law also lets a licensed behavior analyst practice only on a referral from a licensed health professional or school official (26 V.S.A. § 4928).',
         status: 'verified',
         cites: [S.hcar4229, S.abaSupp, S.ch95],
       },
@@ -250,6 +263,7 @@ export const vermontPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      VT_FAQ_OCT26_FAQ,
       { q: 'What does a Vermont Medicaid ABA reauthorization need, and are graphs required?', a: 'Every later request needs the ABA treatment plan, the State of Vermont ABA Prior Authorization Request form and the updated Comprehensive ABA Assessment. DVHA’s ABA Supplement and FAQ do not require graphs.' },
       { q: 'Does Vermont Medicaid pay H0031, H0032 or H2019 for ABA?', a: 'No. ABA is billed on CPT 97151–97158, 0362T and 0373T; the online fee schedule returns no H0031, H0032 or H2019 line.' },
       { q: 'Does Vermont Medicaid cover ABA therapy?', a: 'Yes, for members from birth to 21 with autism spectrum disorder, an early childhood developmental disorder, or a successor diagnosis, and a prescription from a listed specialist (HCAR 4.229). DVHA authorizes and pays it directly.' },
@@ -939,7 +953,7 @@ export const vermontPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool (ADI-R, ADOS-2 and others).' },
       { title: 'Referral', desc: 'Vermont-licensed behavior analysts practice only on a referral from a licensed health professional or school official.' },
     ],
-    sources: [ { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },S.optumSCC, S.optumSM, S.optumNNM, S.optumTele, S.optumReimb, S.mandate, S.defs4011, S.tele4098a, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.pa9418b, S.ext4063, S.cob4024, S.erisa, S.gmcb, S.fee,
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' },  { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (commercial)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' },S.optumSCC, S.optumSM, S.optumNNM, S.optumTele, S.optumReimb, S.mandate, S.defs4011, S.tele4098a, S.ch95, S.ch56, S.bacbLic, S.pay9418, S.pa9418b, S.ext4063, S.cob4024, S.erisa, S.gmcb, S.fee,
       { title: 'Vermont Office of Professional Regulation — Applied Behavior Analysis', url: 'https://sos.vermont.gov/applied-behavior-analysis/' },
       { title: '42 CFR 433.139 — Medicaid third-party liability, payment of claims (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-433/subpart-D/section-433.139' },
       { title: 'Vermont Medicaid Applied Behavior Analysis Supplement (08-04-2026)', url: 'https://vtmedicaid.com/assets/manuals/ABASupplement.pdf' },
@@ -1032,6 +1046,7 @@ export const vermontPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
       { q: 'Does UnitedHealthcare pay out-of-network ABA providers?', a: 'Only under the member\'s out-of-network benefits, priced by a method the plan sets (a percentage of CMS rates, FAIR Health, Viant or a negotiated rate). On commercial HMO plans an out-of-network provider can be approved when no network provider is available in time or nearby; the PCP requests an out-of-network prior authorization, and the member then pays only in-network cost-sharing.' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Vermont?', a: 'Optum, which administers UnitedHealthcare’s behavioral health claims, needs all claim information within 90 calendar days of the date of service unless state law, federal law or the benefit plan allows longer; corrections are due within 90 days of initial claim receipt.' },
       { q: 'Does UnitedHealthcare accept H0031 or other H-codes for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158 (with an HM, HN, HO or HP credential modifier), 0362T and 0373T. No H-codes are listed.' },

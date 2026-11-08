@@ -39,6 +39,8 @@ const S: Record<string, PayerSource> = {
   krs138: { title: 'KRS 304.17A-138 — Telehealth coverage and reimbursement (health benefit plans)', url: 'https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=52666' },
   krs607: { title: 'KRS 304.17A-607 — Utilization review duties and decision timeframes (eff. July 15, 2026)', url: 'https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=57342' },
   krs702: { title: 'KRS 304.17A-702 — Claims payment time frames (30 calendar days for a clean claim)', url: 'https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=29329' },
+  krs576: { title: 'KRS 304.17A-576 — Notice by managed care plan insurer of determination on a credentialing application (45 days; eff. Jan. 1, 2019)', url: 'https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=48418' },
+  krs205532: { title: 'KRS 205.532 — Medicaid managed care credentialing alliance, provider enrollment and credentialing timelines (eff. June 29, 2023)', url: 'https://apps.legislature.ky.gov/law/Statutes/statute.aspx?id=54016' },
   krs730: { title: 'KRS 304.17A-730 — Interest on late clean claims (12% / 18% / 21%)', url: 'https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=29344' },
   kar18030: { title: '806 KAR 18:030 — Coordination of benefits (group contracts; birthday rule; eff. 5-31-2022)', url: 'https://apps.legislature.ky.gov/law/kar/titles/806/018/030/' },
   cfr438: { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.210' },
@@ -122,6 +124,12 @@ const KY_COMM_AUTH =
 const KY_COMM_COB =
   'For a child on two group plans, Kentucky follows the birthday rule: when the parents are married, are not separated, or share joint custody without a decree assigning coverage, the plan of the parent "whose birthday is earlier in the year" is primary; same birthday, the plan that has covered a parent longer; a court decree naming the responsible parent controls (806 KAR 18:030). If the plans cannot agree within 30 calendar days of having everything needed, they pay in equal shares and settle afterwards. That rule binds state-regulated group plans; a self-funded plan sets its own order. If the child also has Kentucky Medicaid, the commercial plan pays first: Medicaid MCOs "cost avoid" claims when other coverage is known (42 CFR 433.139).';
 
+/* ---- Credentialing clocks (T7, weekly refresh 2026-11-08; statutes read on apps.legislature.ky.gov) ---- */
+const KY_MCD_CRED =
+  'Kentucky puts credentialing clocks in statute for Medicaid. Under KRS 205.532, DMS "shall enroll a provider within sixty (60) calendar days of receipt of a clean provider enrollment application," and the enrollment date is the date the clean application was first received (the clock pauses for federal screening and other outside delays). Credentialing for the managed care plans runs through one credentialing verification organization shared by all of them, which must "notify providers within five (5) business days" when an application is incomplete and reach a credentialing recommendation "within thirty (30) days of receipt of a clean application." Each MCO then has to "determine whether it will contract with the provider within thirty (30) calendar days" of receiving the verified credentialing information, and load the contract within 10 days of signing it (25 if it tells the provider it needs longer). For payment, the credentialing application date "shall be the date from which the provider\'s claims become eligible for payment," and an MCO may not make you appeal or resubmit clean claims filed between that date and the end of credentialing. To add a new BCBA, enroll them with DMS as a licensed behavior analyst (provider type 63, linked to your group) and submit the one credentialing application; then each plan decides on its contract.';
+const KY_COMM_CRED =
+  'Kentucky sets a credentialing clock for insured managed care plans. KRS 304.17A-576 says an insurer issuing a managed care plan "shall notify an applicant of its determination regarding a properly submitted application for credentialing within forty-five (45) days of receipt of an application containing all information required by the most recent version of the Council for Affordable Quality Healthcare (CAQH) credentialing form." The insurer may still ask for more information than the CAQH form holds, and the clock does not run during events outside its control. Once credentialed and contracted, the insurer must pay for services given during the credentialing period at participating rates. If credentialing is denied, it pays out-of-network rates where the member\'s plan has out-of-network benefits. Practically: keep the new BCBA\'s CAQH profile complete and attested before you apply, because the 45 days start only from a complete application.';
+
 export const kentuckyPayers: Record<string, PayerConfig> = {
   'kentucky-medicaid': {
     slug: 'kentucky-medicaid',
@@ -196,6 +204,13 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.lbaPage, S.mcoContract, S.kar15010, S.bhFee],
       },
+      {
+        h2: 'Credentialing and enrollment timeline (adding a new BCBA)',
+        body: [
+          KY_MCD_CRED,
+        ],
+        cites: [S.krs205532],
+      },
     ],
     collect: [
       { title: 'Which Medicaid card', desc: 'Aetna Better Health, Humana Healthy Horizons, Passport by Molina, UnitedHealthcare Community Plan, WellCare, or fee-for-service. An Anthem card is no longer Medicaid in Kentucky.' },
@@ -203,7 +218,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Plan of care', desc: 'Services and frequency, measurable goals with target dates, staff assigned, family involvement and termination criteria, reviewed at least every six months (907 KAR 15:010).' },
       { title: 'Other insurance', desc: 'Commercial coverage is billed first and its ABA authorization followed; the MCOs cost-avoid claims when other coverage is known.' },
     ],
-    sources: [S.kar15005, S.kar15010, S.kar15015, S.kar3170, S.bhFee, S.feesPage, S.lbaPage, S.pt63, S.mcoOptions, S.mcoContracts, S.mcoContract, S.mcoPaChart, S.dmsPaLetter, S.abaConcurrent, S.krs319c010, S.krs319c020, S.kar43100, S.bacbLic, S.cfr440, S.cfr438, S.cfr433, { title: 'Kentucky DMS — Provider Letters and Resources (index of DMS provider letters)', url: 'https://www.chfs.ky.gov/agencies/dms/Pages/provletters.aspx' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
+    sources: [S.kar15005, S.kar15010, S.kar15015, S.kar3170, S.bhFee, S.feesPage, S.lbaPage, S.pt63, S.mcoOptions, S.mcoContracts, S.mcoContract, S.mcoPaChart, S.dmsPaLetter, S.abaConcurrent, S.krs319c010, S.krs319c020, S.kar43100, S.bacbLic, S.cfr440, S.cfr438, S.cfr433, { title: 'Kentucky DMS — Provider Letters and Resources (index of DMS provider letters)', url: 'https://www.chfs.ky.gov/agencies/dms/Pages/provletters.aspx' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }, S.krs205532],
     deliveryRules: {
       supervision: { value: KY_MCD_SUPERVISION, status: 'verified', cites: [S.kar15010, S.kar15005] },
       concurrentBilling: {
@@ -277,6 +292,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { q: 'Can 97153 and 97155 be billed at the same time?', a: 'Yes, since December 2, 2025, when the patient is present and the qualified professional is directing the technician through a modified protocol (DMS letter of December 3, 2025).' },
       { q: 'Can a BCBA licensed in another state treat a Kentucky Medicaid child by telehealth?', a: 'Not without a Kentucky license. The Applied Behavior Analysis Licensing Board requires anyone delivering ABA by telehealth to a client located in Kentucky to be licensed by the board (201 KAR 43:100), and KRS 319C.090 provides the route for someone licensed elsewhere. Medicaid telehealth also requires an enrolled provider.' },
       { q: 'What is the timely filing limit for Kentucky Medicaid ABA claims?', a: 'FFS: 12 months from the date of service (or six months from the Medicare payment, if longer). The MCO contract treats claims within 365 days of service as timely, and each plan’s manual states the same 12-month/365-day limit.' },
+      { q: 'How long does it take to credential a new BCBA for Kentucky Medicaid?', a: 'By statute (KRS 205.532): DMS enrolls a provider within 60 calendar days of a clean enrollment application; the shared credentialing verification organization recommends within 30 days of a clean credentialing application (and flags an incomplete one within 5 business days); each MCO then decides on a contract within 30 calendar days. Claims become payable from the credentialing application date.' },
     ],
   },
 
@@ -339,6 +355,14 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.abhPM],
       },
+      {
+        h2: 'Credentialing and enrollment timeline (adding a new BCBA)',
+        body: [
+          KY_MCD_CRED,
+          'Aetna Better Health of Kentucky’s 2026 provider manual adds the plan’s own steps. Credentialing is done by the centralized CVO, Kentucky Health Alliance (KHA) with Verisys. New practitioners, "including those joining an existing participating practice, must complete a Practitioner Application or supply an ABHKY approved group roster," with a W-9, sent to KyProviderUpdates@aetna.com. The manual also says providers must give "written notice of any changes in information concerning their practice to both Aetna Better Health of Kentucky Provider Network Management Department and DMS": address, roster additions and terminations, billing address, phone, tax ID and name changes. Send demographic or payment changes "at least 60 days prior to the effective date of change" on the Provider Information Update/Change Form. Updating DMS alone is not enough, and "reimbursement may be affected if changes are not reported."',
+        ],
+        cites: [S.krs205532, S.abhPM],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Aetna Better Health of Kentucky (and whether the child is a SKY member, which uses separate fax lines).' },
@@ -346,7 +370,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Treatment plan + OTR form', desc: 'Units by code, weekly intensity and setting, for no more than 6 months, submitted at least 2 business days before the start date.' },
       { title: 'Other insurance', desc: 'Medicaid is the payer of last resort; bill the primary and send its EOB within 365 days of its remittance.' },
     ],
-    sources: [S.abhAba, S.abhPaBh, S.abhOtr, S.abhPM, S.mcoPaChart, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.bhFee, S.cfr438, S.cfr433, { title: 'Aetna Better Health of Kentucky — Provider Notices & Newsletters (archive 2013-2026)', url: 'https://www.aetnabetterhealth.com/kentucky/providers/newsletters.html' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
+    sources: [S.abhAba, S.abhPaBh, S.abhOtr, S.abhPM, S.mcoPaChart, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.bhFee, S.cfr438, S.cfr433, { title: 'Aetna Better Health of Kentucky — Provider Notices & Newsletters (archive 2013-2026)', url: 'https://www.aetnabetterhealth.com/kentucky/providers/newsletters.html' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }, S.krs205532],
     deliveryRules: {
       supervision: { value: 'Aetna Better Health’s manual and ABA notices publish no supervision rule of their own, so the state rule applies. ' + KY_MCD_SUPERVISION, status: 'verified', cites: [S.abhPM, S.kar15010, S.kar15005] },
       concurrentBilling: {
@@ -422,6 +446,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna Better Health of Kentucky cover ABA without an autism diagnosis?', a: 'No. It uses MCG criteria, which support ABA for ASD only, and since January 1, 2025 it denies ABA claims that lack the ASD diagnosis.' },
       { q: 'How far ahead must I submit an Aetna Better Health ABA request?', a: 'The OTR form says requests must be received within 2 business days of the requested start date, and a request can cover at most 6 months.' },
       { q: 'What is Aetna Better Health of Kentucky’s timely filing limit?', a: '365 calendar days from the date of service; corrected claims within 24 months of the first remittance.' },
+      { q: 'How long does it take to credential a new BCBA for Kentucky Medicaid?', a: 'By statute (KRS 205.532): DMS enrolls a provider within 60 calendar days of a clean enrollment application; the shared credentialing verification organization recommends within 30 days of a clean credentialing application (and flags an incomplete one within 5 business days); each MCO then decides on a contract within 30 calendar days. Claims become payable from the credentialing application date.' },
     ],
   },
 
@@ -478,6 +503,13 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.humPM],
       },
+      {
+        h2: 'Credentialing and enrollment timeline (adding a new BCBA)',
+        body: [
+          KY_MCD_CRED,
+        ],
+        cites: [S.krs205532],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Humana Healthy Horizons in Kentucky on the date of service.' },
@@ -485,7 +517,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Clinical packet for PA', desc: 'Assessment and treatment plan for all eight ABA codes, submitted before services start.' },
       { title: 'Other insurance', desc: 'Kentucky Medicaid is the payer of last resort; bill the primary first unless the code is on the commercial bypass list.' },
     ],
-    sources: [S.humPAL, S.humBhPa, S.humAba, S.humPM, S.mcoPaChart, S.dmsPaLetter, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'Humana Healthy Horizons in Kentucky — Communications and network notices (provider notices archive)', url: 'https://provider.humana.com/medicaid/kentucky-medicaid/communications-network-notices' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
+    sources: [S.humPAL, S.humBhPa, S.humAba, S.humPM, S.mcoPaChart, S.dmsPaLetter, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'Humana Healthy Horizons in Kentucky — Communications and network notices (provider notices archive)', url: 'https://provider.humana.com/medicaid/kentucky-medicaid/communications-network-notices' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }, S.krs205532],
     deliveryRules: {
       supervision: { value: 'Humana publishes no ABA supervision rule of its own; the state rule applies. ' + KY_MCD_SUPERVISION, status: 'verified', cites: [S.humPM, S.kar15010, S.kar15005] },
       concurrentBilling: {
@@ -562,6 +594,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { q: 'Does Humana Healthy Horizons in Kentucky require prior authorization for ABA?', a: 'Yes. Since July 1, 2025 all eight ABA codes (97151–97158) are on its prior authorization list.' },
       { q: 'Which diagnosis codes does Humana accept on Kentucky ABA claims?', a: 'F84.0, F84.2, F84.3, F84.5, F84.8, F84.9, F88 and F89. ABA claims without an autism-range code are denied.' },
       { q: 'How long do I have to appeal a Humana Kentucky claim denial?', a: '60 calendar days from the reduction or denial notice, then external independent review once internal appeals are exhausted.' },
+      { q: 'How long does it take to credential a new BCBA for Kentucky Medicaid?', a: 'By statute (KRS 205.532): DMS enrolls a provider within 60 calendar days of a clean enrollment application; the shared credentialing verification organization recommends within 30 days of a clean credentialing application (and flags an incomplete one within 5 business days); each MCO then decides on a contract within 30 calendar days. Claims become payable from the credentialing application date.' },
     ],
   },
 
@@ -620,6 +653,13 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.molPM],
       },
+      {
+        h2: 'Credentialing and enrollment timeline (adding a new BCBA)',
+        body: [
+          KY_MCD_CRED,
+        ],
+        cites: [S.krs205532],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm Passport by Molina Healthcare Medicaid (not the Marketplace product).' },
@@ -627,7 +667,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis and treatment plan', desc: 'Needed for the review once the threshold is crossed.' },
       { title: 'Other insurance', desc: 'Medicaid is always the payer of last resort; bill the primary and send its EOB.' },
     ],
-    sources: [S.molPM, S.molEnews, S.molDeck, S.mcoPaChart, S.dmsPaLetter, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'Passport by Molina Healthcare — Provider communications (eNews, announcements, quarterly newsletters archive)', url: 'https://www.molinahealthcare.com/providers/ky/communications' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
+    sources: [S.molPM, S.molEnews, S.molDeck, S.mcoPaChart, S.dmsPaLetter, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'Passport by Molina Healthcare — Provider communications (eNews, announcements, quarterly newsletters archive)', url: 'https://www.molinahealthcare.com/providers/ky/communications' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }, S.krs205532],
     deliveryRules: {
       supervision: { value: 'Passport publishes no ABA supervision rule of its own; the state rule applies. ' + KY_MCD_SUPERVISION, status: 'verified', cites: [S.molPM, S.kar15010, S.kar15005] },
       concurrentBilling: {
@@ -700,6 +740,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { q: 'Does Passport by Molina require prior authorization for the ABA assessment?', a: 'No. 97151 and 97152 are excluded from Passport’s ABA authorization rule.' },
       { q: 'When does Passport require prior authorization for ABA treatment?', a: 'After a member has used 48 units (12 hours) of 97153–97158 in the calendar year, counted from January 1, 2025.' },
       { q: 'What is Passport’s timely filing limit?', a: '365 calendar days from the date of service; appeals within 60 calendar days of the adverse determination.' },
+      { q: 'How long does it take to credential a new BCBA for Kentucky Medicaid?', a: 'By statute (KRS 205.532): DMS enrolls a provider within 60 calendar days of a clean enrollment application; the shared credentialing verification organization recommends within 30 days of a clean credentialing application (and flags an incomplete one within 5 business days); each MCO then decides on a contract within 30 calendar days. Claims become payable from the credentialing application date.' },
     ],
   },
 
@@ -757,6 +798,13 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.uhcKyPM],
       },
+      {
+        h2: 'Credentialing and enrollment timeline (adding a new BCBA)',
+        body: [
+          KY_MCD_CRED,
+        ],
+        cites: [S.krs205532],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm UnitedHealthcare Community Plan of Kentucky Medicaid on the date of service.' },
@@ -764,7 +812,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis and treatment plan', desc: 'Criteria are not published for Kentucky Medicaid ABA; send the full diagnostic report and plan.' },
       { title: 'Other insurance', desc: 'The plan is the payer of last resort; attach the primary’s EOB.' },
     ],
-    sources: [S.uhcKyPM, S.optKyPA, S.optKySCC, S.mcoPaChart, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'UnitedHealthcare Community Plan of Kentucky — State news, bulletins and alerts', url: 'https://www.uhcprovider.com/en/health-plans-by-state/kentucky-health-plans/ky-comm-plan-home.html' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
+    sources: [S.uhcKyPM, S.optKyPA, S.optKySCC, S.mcoPaChart, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'UnitedHealthcare Community Plan of Kentucky — State news, bulletins and alerts', url: 'https://www.uhcprovider.com/en/health-plans-by-state/kentucky-health-plans/ky-comm-plan-home.html' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }, S.krs205532],
     deliveryRules: {
       supervision: { value: 'The plan and Optum publish no Kentucky Medicaid ABA supervision rule; the state rule applies. ' + KY_MCD_SUPERVISION, status: 'verified', cites: [S.uhcKyPM, S.optKySCC, S.kar15010, S.kar15005] },
       concurrentBilling: {
@@ -843,6 +891,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { q: 'Does UnitedHealthcare Community Plan of Kentucky require prior authorization for ABA?', a: 'Yes, for all eight ABA codes, including the 97151 and 97152 assessment, through Optum’s Provider Express.' },
       { q: 'Who manages ABA for UnitedHealthcare Community Plan in Kentucky?', a: 'Optum (United Behavioral Health) handles behavioral health eligibility, authorization, claims and appeals, at 1-866-633-4449.' },
       { q: 'What is the timely filing limit for UnitedHealthcare Community Plan of Kentucky?', a: '12 months from the date of service.' },
+      { q: 'How long does it take to credential a new BCBA for Kentucky Medicaid?', a: 'By statute (KRS 205.532): DMS enrolls a provider within 60 calendar days of a clean enrollment application; the shared credentialing verification organization recommends within 30 days of a clean credentialing application (and flags an incomplete one within 5 business days); each MCO then decides on a contract within 30 calendar days. Claims become payable from the credentialing application date.' },
     ],
   },
 
@@ -901,6 +950,13 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.wcPM],
       },
+      {
+        h2: 'Credentialing and enrollment timeline (adding a new BCBA)',
+        body: [
+          KY_MCD_CRED,
+        ],
+        cites: [S.krs205532],
+      },
     ],
     collect: [
       { title: 'Member ID', desc: 'Confirm WellCare of Kentucky Medicaid on the date of service.' },
@@ -908,7 +964,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis and treatment plan', desc: 'InterQual criteria are licensed; send the full diagnostic report and plan.' },
       { title: 'Other insurance', desc: 'WellCare cost-avoids claims when other coverage is known; bill the primary first.' },
     ],
-    sources: [S.wcPAL, S.wcPM, S.mcoPaChart, S.dmsPaLetter, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'WellCare of Kentucky — Provider Bulletins (provider notices archive)', url: 'https://www.wellcareky.com/providers/news-and-education/bulletins.html' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
+    sources: [S.wcPAL, S.wcPM, S.mcoPaChart, S.dmsPaLetter, S.mcoContract, S.kar15010, S.kar3170, S.abaConcurrent, S.cfr438, S.cfr433, { title: 'WellCare of Kentucky — Provider Bulletins (provider notices archive)', url: 'https://www.wellcareky.com/providers/news-and-education/bulletins.html' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }, S.krs205532],
     deliveryRules: {
       supervision: { value: 'WellCare publishes no ABA supervision rule of its own; the state rule applies. ' + KY_MCD_SUPERVISION, status: 'verified', cites: [S.wcPM, S.kar15010, S.kar15005] },
       concurrentBilling: {
@@ -983,6 +1039,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { q: 'Which ABA codes need prior authorization at WellCare of Kentucky?', a: 'All of them on the Q4 2026 list: 97151–97158, 0362T and 0373T. 97157 was released on February 1, 2026 but needs authorization again from October 1, 2026.' },
       { q: 'What criteria does WellCare of Kentucky use for ABA?', a: 'Its manual says it uses InterQual for medical necessity. InterQual is licensed and not published.' },
       { q: 'What is WellCare of Kentucky’s timely filing limit?', a: '12 months from the date of service, or six months from the primary payment date if later; claim payment appeals within 24 months of the denial.' },
+      { q: 'How long does it take to credential a new BCBA for Kentucky Medicaid?', a: 'By statute (KRS 205.532): DMS enrolls a provider within 60 calendar days of a clean enrollment application; the shared credentialing verification organization recommends within 30 days of a clean credentialing application (and flags an incomplete one within 5 business days); each MCO then decides on a contract within 30 calendar days. Claims become payable from the credentialing application date.' },
     ],
   },
 
@@ -1051,6 +1108,13 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.aetnaGuide],
       },
+      {
+        h2: 'Credentialing timeline (adding a new BCBA)',
+        body: [
+          KY_COMM_CRED,
+        ],
+        cites: [S.krs576],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (KRS 304.17A-142 applies) vs. self-funded ERISA (plan document governs).' },
@@ -1059,7 +1123,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Standardized functional measure', desc: 'From the past 12 months (for example Vineland-3, ABAS, VB-MAPP or ABLLS).' },
       { title: 'ABA order', desc: 'The mandate covers ABA "prescribed or ordered by a licensed health or allied health professional."' },
     ],
-    sources: [S.aetnaGuide, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
+    sources: [S.aetnaGuide, S.aetnaCPB648, S.aetnaPrecert, S.aetnaNPC, S.aetnaOM, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }, S.krs576],
     deliveryRules: {
       supervision: {
         value: 'Aetna’s guide requires services to be provided directly or billed by licensed behavior analysts in states with licensure laws (Kentucky is one), BCBAs, or psychologists where in scope, with supervision of others "in line with practice standards." Its participation criteria (5/26) require "A minimum of one hour of face-to-face supervision" of an unlicensed or noncertified paraprofessional "for each 10 hours of applied behavior analysis," the supervisor "onsite with the child at least one hour a month," and all BCBAs, BCaBAs and paraprofessionals to "meet state requirements." Kentucky’s board rule (201 KAR 43:050) governs supervision of licensed assistants and temporary licensees. Supervision documentation: Aetna’s network participation criteria (May 2026) require that “policies and procedures for the supervision of paraprofessionals must be documented,” with a minimum of one hour of face-to-face supervision by a BCBA or licensed psychologist (or behavioral health professional) for each 10 hours of ABA by the supervised paraprofessional and the supervisor onsite with the child at least one hour a month; Aetna publishes no supervision log, form or sign-off schedule. The monthly BACB record (at least 5% of RBT service hours supervised each calendar month, two face-to-face contacts, records of dates, duration, format and observations kept 7 years) is a certification requirement, not a payer rule.',
@@ -1154,6 +1218,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { q: 'Does Kentucky’s autism mandate have an age or dollar cap?', a: 'No. Since January 1, 2019 KRS 304.17A-142 covers diagnosis and treatment of autism, including ABA, without any maximum annual benefit or visit limit, and with no age limit in the text.' },
       { q: 'Does a BCBA need a Kentucky license to bill Aetna?', a: 'Yes. Kentucky requires a KRS 319C license to practice ABA, and Aetna’s guide requires a licensed behavior analyst in states with licensure laws.' },
       { q: 'How fast must Aetna pay a clean claim in Kentucky?', a: 'For fully insured plans, within 30 calendar days of receipt (KRS 304.17A-702), with interest of 12–21 percent a year on late clean claims.' },
+      { q: 'How long does credentialing take for a Kentucky commercial plan?', a: 'For an insured managed care plan, KRS 304.17A-576 gives the insurer 45 days from a complete application (everything the current CAQH form asks for) to tell you its decision, and services given during credentialing are paid at participating rates once you are credentialed and contracted.' },
     ],
   },
 
@@ -1220,6 +1285,13 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.en0499],
       },
+      {
+        h2: 'Credentialing timeline (adding a new BCBA)',
+        body: [
+          KY_COMM_CRED,
+        ],
+        cites: [S.krs576],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (KRS 304.17A-142 applies) vs. self-funded ERISA (plan document governs).' },
@@ -1228,7 +1300,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Standardized assessment timing', desc: 'Instrument administered within 60 days before treatment starts.' },
       { title: 'ABA order', desc: 'The mandate covers ABA "prescribed or ordered by a licensed health or allied health professional."' },
     ],
-    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
+    sources: [S.en0499, S.cignaARG, S.ebhAdmin, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }, S.krs576],
     deliveryRules: {
       supervision: {
         value: 'Direct and indirect case supervision at "one to two hours per ten hours of direct treatment"; at 10 hours a week or less, at least one to two hours a week of direct case supervision (EN0499). Kentucky’s board rule (201 KAR 43:050) governs supervision of licensed assistants and temporary licensees. Supervision documentation: EN0499 (effective 5/15/2026) asks for the supervisor’s name and credentials in the treatment plan and a separate written record for each service by CPT code with start and end times, location, focus, a description of the intervention, the individuals present, the specific service delivered (e.g., direct service, supervision, stakeholder training) and the name, credential and signature of the provider who rendered it; it prescribes no separate supervision log or monthly sign-off. The monthly BACB record (at least 5% of RBT service hours supervised each calendar month, two face-to-face contacts, records of dates, duration, format and observations kept 7 years) is a certification requirement, not a payer rule.',
@@ -1317,6 +1389,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { q: 'Does the Cigna ABA assessment need prior authorization in Kentucky?', a: 'No, for 97151, 97152 and 0362T with an autism diagnosis when the provider is independently licensed or a BCBA. PA starts at treatment.' },
       { q: 'Can a BCBA in another state treat a Kentucky Cigna member by telehealth?', a: 'Only with a Kentucky license: the Kentucky ABA board requires a license for telehealth to a client located in Kentucky (201 KAR 43:100), and fully insured plans may require a Kentucky-licensed telehealth provider (KRS 304.17A-138).' },
       { q: 'What does Cigna pay for ABA in Kentucky?', a: 'Cigna publishes no ABA rates; your fee schedule is Exhibit A of your Evernorth Provider Agreement. The Kentucky Medicaid FFS rate for 97153 ($12.18 per 15 minutes) is the only public benchmark.' },
+      { q: 'How long does credentialing take for a Kentucky commercial plan?', a: 'For an insured managed care plan, KRS 304.17A-576 gives the insurer 45 days from a complete application (everything the current CAQH form asks for) to tell you its decision, and services given during credentialing are paid at participating rates once you are credentialed and contracted.' },
     ],
   },
 
@@ -1385,6 +1458,13 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.optumSCC],
       },
+      {
+        h2: 'Credentialing timeline (adding a new BCBA)',
+        body: [
+          KY_COMM_CRED,
+        ],
+        cites: [S.krs576],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (KRS 304.17A-142 applies) vs. self-funded ERISA (plan document governs).' },
@@ -1392,7 +1472,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis with a validated tool', desc: 'DSM-5-TR ASD and severity level, confirmed with a validated tool, by a state-licensed clinician.' },
       { title: 'ABA order', desc: 'Optum’s Kentucky section and the statute cover ABA "prescribed or ordered by a licensed health or allied health professional."' },
     ],
-    sources: [S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, S.optumSCC, S.optumSM, S.optumTele, S.optumReimb, S.optumNNM, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }, S.krs576],
     deliveryRules: {
       supervision: {
         value: '"Consistent with CASP standards of care, direct case supervision is required 1–2 hours for every 10 hours of direct treatment per week." Technicians should be RBTs or otherwise certified as allowed by state mandate, and Optum does not recommend parents serving as their own child’s RBT. Kentucky’s board rule (201 KAR 43:050) governs supervision of licensed assistants and temporary licensees. Supervision documentation: Optum’s ABA documentation protocol (June 2026), used for UnitedHealthcare record reviews, asks each 97155 note to record actual start and stop times, the participants including the technician and credentials, any protocol modification (or that none occurred) and the direction given to the technician, and each daily note to carry the rendering provider’s signature; it prescribes no separate supervision log or monthly sign-off. The monthly BACB record (at least 5% of RBT service hours supervised each calendar month, two face-to-face contacts, records of dates, duration, format and observations kept 7 years) is a certification requirement, not a payer rule.',
@@ -1479,12 +1559,14 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
       { q: 'Does UnitedHealthcare (Optum) require graphs for ABA continued-service reviews?', a: 'No. Optum’s criteria ask for progress on every target using the baseline measurement method, mastery rates and change scores, updated standardized adaptive measures, and an explanation of low hour use, but they do not require graphs.' },
       { q: 'What are UnitedHealthcare (Optum)’s claim filing deadlines for Kentucky ABA claims?', a: '90 calendar days from the date of service (or longer where state law or the plan allows), corrections within 90 days of the original claim’s receipt, and payment of complete claims within 45 days or the state’s shorter clock. No check-run schedule is published.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Kentucky?', a: 'Yes, under Optum’s ABA criteria for ASD, with Kentucky’s KRS 304.17A-142 mandate applied to fully insured plans through Optum’s Kentucky state-mandate section.' },
       { q: 'Does Optum have Kentucky-specific ABA criteria?', a: 'Yes. Since November 2025 Optum’s ABA State Mandates document has a Kentucky commercial section restating KRS 304.17A-142, including utilization review no more than once every 12 months.' },
       { q: 'Can ABA be delivered by telehealth with UnitedHealthcare in Kentucky?', a: 'Optum’s commercial telehealth list allows only 97155, 97156 and 97157. Fully insured Kentucky plans are also subject to KRS 304.17A-138’s telehealth parity rules, so ask Optum how it applies the list to your plan.' },
       { q: 'Is UnitedHealthcare commercial the same as UnitedHealthcare Community Plan in Kentucky?', a: 'No. UnitedHealthcare Community Plan of Kentucky is a Medicaid MCO with its own rules; this guide covers commercial plans.' },
+      { q: 'How long does credentialing take for a Kentucky commercial plan?', a: 'For an insured managed care plan, KRS 304.17A-576 gives the insurer 45 days from a complete application (everything the current CAQH form asks for) to tell you its decision, and services given during credentialing are paid at participating rates once you are credentialed and contracted.' },
     ],
   },
 
@@ -1555,6 +1637,13 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
         ],
         cites: [S.anthemPM, S.anthemBC],
       },
+      {
+        h2: 'Credentialing timeline (adding a new BCBA)',
+        body: [
+          KY_COMM_CRED,
+        ],
+        cites: [S.krs576],
+      },
     ],
     collect: [
       { title: 'Plan funding type', desc: 'Fully insured (KRS 304.17A-142 applies) vs. self-funded ERISA or a National Account (plan document governs).' },
@@ -1562,7 +1651,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'ASD diagnosis from a licensed clinician (behavior analysts cannot diagnose in Kentucky).' },
       { title: 'ABA order + treatment plan', desc: 'The mandate covers ABA "prescribed or ordered by a licensed health or allied health professional"; Anthem expects plans reviewed at least every six months.' },
     ],
-    sources: [S.anthemPA, S.anthemRG, S.mcoContracts, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433, S.anthemPM, S.anthemBC, { title: 'Anthem Kentucky — Provider News (provider news archive)', url: 'https://providernews.anthem.com/kentucky' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }],
+    sources: [S.anthemPA, S.anthemRG, S.mcoContracts, S.krs142, S.krs144, S.krs138, S.krs607, S.krs702, S.krs730, S.kar18030, S.krs319c010, S.krs319c020, S.krs319c080, S.krs319c090, S.kar43100, S.bacbLic, S.bhFee, S.erisa, S.cfr433, S.anthemPM, S.anthemBC, { title: 'Anthem Kentucky — Provider News (provider news archive)', url: 'https://providernews.anthem.com/kentucky' }, { title: 'KRS 335.020 — Definitions, “the practice of social work” (FindLaw)', url: 'https://codes.findlaw.com/ky/title-xxvi-occupations-and-professions/ky-rev-st-sect-335-020/' }, S.krs576],
     deliveryRules: {
       supervision: {
         value: 'Anthem’s resource guide approves BCBAs and "providers practicing under the direction and supervision of the BCBA," and requires the supervising BCBA or QHP in box 31 for technician work; it sets no numeric ratio. Kentucky’s board rule (201 KAR 43:050) governs supervision of licensed assistants and temporary licensees. Supervision documentation: Anthem’s ABA provider resource guide (June 2025) prescribes no supervision log or form; the only supervision record it asks for is the supervising BCBA or other QHP named in box 31 of the CMS-1500 for technician work. The monthly BACB record (at least 5% of RBT service hours supervised each calendar month, two face-to-face contacts, records of dates, duration, format and observations kept 7 years) is a certification requirement, not a payer rule.',
@@ -1660,6 +1749,7 @@ export const kentuckyPayers: Record<string, PayerConfig> = {
       { q: 'Can 97153 and 97155 be billed together with Anthem?', a: 'Only when the technician and the QHP are both face-to-face with the patient at the same time and the QHP is directing the technician.' },
       { q: 'Does Kentucky’s autism mandate apply to my Anthem plan?', a: 'If the plan is fully insured and issued or renewed on or after January 1, 2019, yes: ABA coverage with no age, annual-benefit or visit cap. Self-funded employer plans follow their own documents.' },
       { q: 'Can unused ABA units be billed in a later week with Anthem in Kentucky?', a: 'No. Since March 1, 2026 Anthem reimburses commercial ABA on weekly approved units, not the total authorization: bill the units delivered in each week up to that week’s approved limit, and units over the weekly limit are not reimbursable.' },
+      { q: 'How long does credentialing take for a Kentucky commercial plan?', a: 'For an insured managed care plan, KRS 304.17A-576 gives the insurer 45 days from a complete application (everything the current CAQH form asks for) to tell you its decision, and services given during credentialing are paid at participating rates once you are credentialed and contracted.' },
     ],
   },
 };
