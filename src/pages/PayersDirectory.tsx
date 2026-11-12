@@ -7,6 +7,7 @@ import { Nav } from './Landing';
 import { payers, PAYER_REVIEWED, STATE_META } from '../data/payers';
 import { paShort } from '../lib/payerPa';
 import SiteFooter from '../components/SiteFooter';
+import PayerUpdatesSignup from '../components/PayerUpdatesSignup';
 
 /* ================================================================
    CARELU — PAYER HUB (/payers)
@@ -281,7 +282,7 @@ export default function PayersDirectory() {
             linked to its primary source. Compiled from primary documents, last reviewed {PAYER_REVIEWED}.
           </p>
           <div className="rv d2" style={{ display: 'flex', gap: 8, flexWrap: 'wrap', justifyContent: 'center', marginTop: 18 }}>
-            {[{ href: '#guides', label: 'Guides by state' }, { href: '#prior-auth', label: 'Prior auth by payer' }, { href: '#policies', label: 'Policy database' }].map((l) => (
+            {[{ href: '#guides', label: 'Guides by state' }, { href: '#prior-auth', label: 'Prior auth by payer' }, { href: '#policies', label: 'Policy database' }, { href: '#payer-updates', label: 'Get updates for your states' }].map((l) => (
               <a key={l.href} href={l.href} style={{ fontSize: 12.5, fontWeight: 600, color: '#2e5a26', background: 'rgba(63,122,52,0.08)', padding: '6px 13px', borderRadius: 100, textDecoration: 'none' }}>{l.label}</a>
             ))}
           </div>
@@ -335,6 +336,13 @@ export default function PayersDirectory() {
               }}>{c}</button>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Every-two-weeks payer updates, by state */}
+      <section style={{ paddingBottom: 'clamp(28px, 4vw, 44px)' }}>
+        <div style={{ ...W, maxWidth: 860 }}>
+          <PayerUpdatesSignup defaultStates={stateF !== 'All' ? [stateF] : []} />
         </div>
       </section>
 

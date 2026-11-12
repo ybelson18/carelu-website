@@ -1232,3 +1232,6 @@ nav .nav-link:first-child { margin-left: 12px; }
 @media (max-width: 768px) {
   .hero-sky { background-image: url(/hero-sky-960.jpg), linear-gradient(160deg, #5F8593 0%, #8FB2BF 42%, #C9D3CC 72%, #E8E2D3 100%); }
 }
+
+/* Payer updates signup: email + state picker stack on phones */
+@media (max-width: 640px) { .pu-row { grid-template-columns: 1fr !important; } }
