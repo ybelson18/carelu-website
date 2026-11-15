@@ -1305,7 +1305,7 @@ export const newHampshirePayers: Record<string, PayerConfig> = {
         h2: 'How fast must Aetna pay a clean ABA claim in New Hampshire?',
         body: [
           'New Hampshire’s RSA 420-J:8-a makes health carriers pay clean claims for services rendered in New Hampshire "within 30 calendar days upon receipt of a clean non-electronic claim or 15 calendar days upon receipt of a clean electronic claim," with 1.5% interest per month on overdue claims. A carrier is not in violation for a claim submitted more than 90 days after the service.',
-          'Aetna disputes run in two steps: a reconsideration "within 180 calendar days of the initial claim decision," then an appeal "within 60 calendar days of the reconsideration decision," with a written decision within 60 business days. Aetna’s manual sets no fixed timely-filing number: a clean claim is one "received in a timely manner," and the deadline comes from the participation agreement or state law.',
+          'Aetna disputes run in two steps: a reconsideration "within 180 calendar days of the initial claim decision," then an appeal "within 60 calendar days of the reconsideration decision." Aetna says it will "send a decision by mail or fax within 60 calendar days of receiving your appeal or any additional information" it requested, and that a reconsideration usually gets an EOB or letter "within 30 business days." Aetna’s manual sets no fixed timely-filing number: a clean claim is one "received in a timely manner," and the deadline comes from the participation agreement or state law.',
         ],
         cites: [
           { title: 'RSA 420-J:8-a — Prompt Payment Required (New Hampshire)', url: 'https://www.gencourt.state.nh.us/rsa/html/XXXVII/420-J/420-J-8-a.htm' },
