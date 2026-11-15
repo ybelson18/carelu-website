@@ -3,6 +3,7 @@ import { useReveal } from '../hooks/useReveal';
 import { useSeo } from '../hooks/useSeo';
 import { Nav } from './Landing';
 import SiteFooter from '../components/SiteFooter';
+import { ROLES } from '../data/careers';
 
 /* ================================================================
    CARELU — CAREERS
@@ -30,14 +31,10 @@ const VALUES = [
   { h: 'Earn their confidence.', p: 'We sit with the people who run front offices until we know their business better than they expect. Trust is the product.' },
 ];
 
-const OPENINGS = [
-  {
-    team: 'Solutions',
-    roles: [
-      { title: 'Solutions Engineer', where: 'New York City · In office', href: '/careers/solutions-engineer' },
-    ],
-  },
-];
+const OPENINGS = [...new Set(ROLES.map(r => r.team))].map(team => ({
+  team,
+  roles: ROLES.filter(r => r.team === team).map(r => ({ title: r.title, where: r.where, href: `/careers/${r.slug}` })),
+}));
 
 // Lime highlighter behind a phrase, with the two corner dots.
 function Mark({ children }: { children: React.ReactNode }) {

@@ -3,9 +3,11 @@ import { useReveal } from '../hooks/useReveal';
 import { useSeo } from '../hooks/useSeo';
 import { Nav } from './Landing';
 import SiteFooter from '../components/SiteFooter';
+import { useParams } from 'react-router-dom';
+import { roleBySlug, ROLES } from '../data/careers';
 
 /* ================================================================
-   CARELU — CAREERS / SOLUTIONS ENGINEER (role detail; /careers lists it)
+   CARELU — CAREERS / ROLE DETAIL (/careers/:slug, content in data/careers.ts)
    Same template as the Solutions pages: bone surfaces, ink text,
    lime accent, white cards, shared Nav + SiteFooter.
    ================================================================ */
@@ -17,42 +19,21 @@ const LIME = '#D4F25C';
 const W: React.CSSProperties = { maxWidth: 1100, margin: '0 auto', padding: '0 clamp(20px, 4.5vw, 40px)' };
 const MEASURE: React.CSSProperties = { maxWidth: 760, margin: '0 auto', padding: '0 clamp(20px, 4.5vw, 40px)' };
 
-const APPLY_HREF = 'mailto:careers@carelu.com?subject=Solutions%20Engineer%20at%20Carelu';
-
 const CARD: React.CSSProperties = {
   background: '#fff', borderRadius: 22,
   padding: 'clamp(28px, 3.2vw, 40px)',
   boxShadow: '0 4px 24px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.03)',
 };
 
-const FACTS = [
-  { k: 'Location', v: 'New York City, in office' },
-  { k: 'Salary', v: '$120K – $160K' },
-  { k: 'Equity', v: '0.1% – 0.3%' },
-  { k: 'Team', v: 'Solutions' },
-];
-
-const DAY_TO_DAY = [
-  { title: 'Meet customers all day', desc: 'You run kickoffs and working sessions with the people who run ABA and behavioral health front offices: CEOs, intake directors, coordinators. You sit with them until you understand exactly how a family gets from first call to first session.' },
-  { title: 'Turn workflows into software', desc: 'You take a clinic’s intake packet, payer rules, state requirements and routing, and build them into Carelu: forms, flows, phone agents, follow-ups and handoffs that do the work their team does by hand today.' },
-  { title: 'Wire into their stack', desc: 'Salesforce, HubSpot, Zoho, monday.com, GoHighLevel, RingCentral, fax lines, EHRs. You connect Carelu to what they already run so every lead and document lands in the right place.' },
-  { title: 'Get them live, then make them faster', desc: 'You own the path from signed contract to go-live, test every flow with the customer, and keep tuning once it is running, so families get into care faster and the clinic grows without adding headcount.' },
-];
-
-const YOU = [
-  'You want to hit the ground running. You would rather ship something for a customer this week than plan it for next quarter.',
-  'You are comfortable in front of customers and you earn their confidence by understanding their business better than they expect.',
-  'You are technical enough to build. You can read an API doc, map data between systems, write a prompt that holds up on a live call, and debug what breaks.',
-  'You like autonomy. You will own accounts end to end, with a small, very talented team behind you.',
-  'Bonus: you have worked in go-to-market, solutions, implementation or forward-deployed roles, or around healthcare operations.',
-];
-
 export default function CareersRolePage() {
   useReveal();
+  const { slug } = useParams();
+  const role = roleBySlug(slug) ?? ROLES[0];
+  const APPLY_HREF = `mailto:careers@carelu.com?subject=${encodeURIComponent(`${role.title} at Carelu`)}`;
   useSeo({
-    title: 'Solutions Engineer — Careers at Carelu, New York',
-    description: 'Join Carelu in New York City. We are bringing AI to the behavioral healthcare front office. Hiring a Solutions Engineer: $120K–$160K, 0.1%–0.3% equity, in office.',
-    canonical: '/careers/solutions-engineer',
+    title: role.seoTitle,
+    description: role.seoDescription,
+    canonical: `/careers/${role.slug}`,
     image: '/og-careers.jpg',
     imageAlt: 'The Carelu team. We are hiring in New York.',
   });
@@ -73,20 +54,20 @@ export default function CareersRolePage() {
               padding: '10px 20px', borderRadius: 100,
               border: '1px solid rgba(0,0,0,0.06)',
               boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04)',
-            }}>Solutions · New York City</span>
+            }}>{role.team} · New York City</span>
           </div>
           <h1 className="rv-scale d1" style={{
             fontFamily: 'var(--font-display)', fontSize: 'clamp(38px, 5.6vw, 76px)',
             fontWeight: 400, color: INK, lineHeight: 1.06,
             letterSpacing: '-0.025em', margin: '26px auto 0', maxWidth: 860,
           }}>
-            Solutions Engineer
+            {role.title}
           </h1>
           <p className="rv d2" style={{
             fontSize: 'clamp(15px, 1.5vw, 18px)', color: 'rgba(43,42,38,0.68)',
             lineHeight: 1.65, maxWidth: 620, margin: '24px auto 0',
           }}>
-            Bring AI to the front office of behavioral healthcare. Forward-deployed, customer-facing and technical, with tons of autonomy.
+            {role.tagline}
           </p>
           <div className="rv d3" style={{ marginTop: 36 }}>
             <a href={APPLY_HREF} style={{
@@ -107,7 +88,7 @@ export default function CareersRolePage() {
       </section>
 
       {/* Role */}
-      <section id="solutions-engineer" style={{ paddingTop: 'clamp(24px, 3vw, 40px)', paddingBottom: 'clamp(48px, 6vw, 80px)', scrollMarginTop: 80 }}>
+      <section id={role.slug} style={{ paddingTop: 'clamp(24px, 3vw, 40px)', paddingBottom: 'clamp(48px, 6vw, 80px)', scrollMarginTop: 80 }}>
         <div style={W}>
           <div className="rv" style={{ ...CARD, padding: 'clamp(32px, 4vw, 56px)' }}>
             <a href="/careers#openings" style={{ fontSize: 13, fontWeight: 500, color: 'rgba(43,42,38,0.55)', textDecoration: 'none' }}>← All openings</a>
@@ -117,10 +98,10 @@ export default function CareersRolePage() {
               letterSpacing: '-0.02em', margin: '12px 0 0',
             }}>The role</h2>
             <p style={{ fontSize: 'clamp(15px, 1.4vw, 17px)', color: 'rgba(43,42,38,0.68)', lineHeight: 1.65, margin: '14px 0 0', maxWidth: 680 }}>
-              Forward-deployed. You will join our Solutions team, bringing world-class go-to-market workflows and expertise to providers so they can deliver care faster. High impact, tons of autonomy.
+              {role.intro}
             </p>
             <div className="careers-facts" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginTop: 28 }}>
-              {FACTS.map(f => (
+              {role.facts.map(f => (
                 <div key={f.k} style={{ background: BONE, borderRadius: 14, padding: '16px 18px' }}>
                   <span style={{ display: 'block', fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(43,42,38,0.5)' }}>{f.k}</span>
                   <span style={{ display: 'block', fontSize: 16, fontWeight: 500, color: INK, marginTop: 6 }}>{f.v}</span>
@@ -151,7 +132,7 @@ export default function CareersRolePage() {
             fontWeight: 400, color: INK, letterSpacing: '-0.02em', margin: '0 0 24px', textAlign: 'center',
           }}>What you’ll do</h2>
           <div className="sol-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 18 }}>
-            {DAY_TO_DAY.map((f, i) => (
+            {role.doing.map((f, i) => (
               <div key={f.title} className={`rv d${Math.min(i + 1, 5)}`} style={CARD}>
                 <span style={{
                   display: 'inline-flex', width: 10, height: 10, borderRadius: '50%',
@@ -175,9 +156,9 @@ export default function CareersRolePage() {
           <h2 className="rv" style={{
             fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 3.2vw, 40px)',
             fontWeight: 400, color: INK, letterSpacing: '-0.02em', margin: '0 0 24px', textAlign: 'center',
-          }}>Who you are</h2>
+          }}>What we’re looking for</h2>
           <ul className="rv d1" style={{ ...CARD, listStyle: 'none', margin: 0 }}>
-            {YOU.map((y, i) => (
+            {role.lookingFor.map((y, i) => (
               <li key={i} style={{
                 display: 'flex', gap: 14, alignItems: 'flex-start',
                 fontSize: 15, color: 'rgba(43,42,38,0.72)', lineHeight: 1.65,
@@ -188,6 +169,26 @@ export default function CareersRolePage() {
               </li>
             ))}
           </ul>
+          {role.niceToHave.length > 0 && (
+            <>
+              <h3 className="rv" style={{
+                fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 2.4vw, 30px)',
+                fontWeight: 400, color: INK, letterSpacing: '-0.02em', margin: '40px 0 18px', textAlign: 'center',
+              }}>Nice to have</h3>
+              <ul className="rv d1" style={{ ...CARD, listStyle: 'none', margin: 0 }}>
+                {role.niceToHave.map((y, i) => (
+                  <li key={i} style={{
+                    display: 'flex', gap: 14, alignItems: 'flex-start',
+                    fontSize: 15, color: 'rgba(43,42,38,0.72)', lineHeight: 1.65,
+                    padding: '12px 0', borderTop: i ? '1px solid rgba(43,42,38,0.06)' : 'none',
+                  }}>
+                    <span style={{ flexShrink: 0, marginTop: 8, width: 8, height: 8, borderRadius: '50%', background: LIME, border: `1.5px solid ${INK}` }} />
+                    {y}
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
       </section>
 
@@ -201,8 +202,8 @@ export default function CareersRolePage() {
           }}>
             Interested? Come say hi.
           </p>
-          <p className="rv d1" style={{ fontSize: 15, color: 'rgba(43,42,38,0.62)', margin: '0 0 28px' }}>
-            Send a note with your LinkedIn or resume and something you have built.
+          <p className="rv d1" style={{ fontSize: 15, color: 'rgba(43,42,38,0.62)', lineHeight: 1.6, maxWidth: 560, margin: '0 auto 28px' }}>
+            {role.applyNote}
           </p>
           <a href={APPLY_HREF} className="rv d2" style={{
             display: 'inline-flex', alignItems: 'center', gap: 10,

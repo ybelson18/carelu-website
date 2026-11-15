@@ -92,7 +92,7 @@ export default function App() {
         <Route path="/product" element={<ProductPage />} />
         <Route path="/solutions/:slug" element={<SolutionsPage />} />
         <Route path="/careers" element={<CareersPage />} />
-        <Route path="/careers/solutions-engineer" element={<CareersRolePage />} />
+        <Route path="/careers/:slug" element={<CareersRolePage />} />
         {/* Static resource pages must precede the :slug catch-all (static wins in v6 ranking anyway) */}
         <Route path="/resources/pediatrician-referral-contacts" element={<ReferralContactsPage />} />
         <Route path="/resources/pediatrician-referral-contacts/:state" element={<ReferralContactsStatePage />} />
