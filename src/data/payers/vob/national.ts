@@ -162,8 +162,8 @@ const EVN_ABA_PA_FORM: SourceRef = {
 };
 const UHC_PA_UNDER18_COMMERCIAL: SourceRef = {
   url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf',
-  accessDate: '2026-11-08',
-  note: 'UnitedHealthcare "Procedure codes with reduced prior authorization requirements for UnitedHealthcare commercial plans", effective Dec. 1, 2026, revised Nov. 6, 2026 (PCA-3-26-02229-Clinical-QRG_11052026): 0362T and 0373T listed under "Prior authorization is no longer required when provided to members younger than 18 years of age." No 97151-97158 on the list; the Individual Exchange and Community Plan lists name no ABA code. Plan-specific exceptions: Prior Authorization and Advance Notification tool. Notice: https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html',
+  accessDate: '2026-11-15',
+  note: 'UnitedHealthcare "Procedure codes with reduced prior authorization requirements for UnitedHealthcare commercial plans", effective Dec. 1, 2026, revised Nov. 13, 2026 (PCA-3-26-02229-Clinical-QRG_11132026): "Note: This list applies to medical services only. Continue to reference your usual channels for behavioral health services." No ABA code (97151-97158, 0362T, 0373T) is on the list; the Nov. 6, 2026 revision had listed 0362T and 0373T. The Individual Exchange and Community Plan lists (also revised Nov. 13, 2026) name no ABA code. Notice (last modified Nov. 13, 2026): https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html',
 };
 
 /* ==================== aetna (national commercial) ==================== */
@@ -377,7 +377,7 @@ function unitedhealthcareOptumEntry(code: string): CodeGridEntry {
     paRequired: is99366
       ? 'unverified'
       : isMultiStaff
-        ? "Required — step 1 of Optum's two-step authorization (assessment auth via Provider Express), then step 2 treatment auth; continued-service reviews every 4–6 months. From Dec. 1, 2026, UnitedHealthcare commercial plans no longer require prior authorization for this code for members younger than 18 (commercial code list rev. 11/6/2026; not on the Individual Exchange or Community Plan lists); check plan-specific exceptions in the Prior Authorization and Advance Notification tool. Code deleted from CPT 1/1/2027"
+        ? "Required — step 1 of Optum's two-step authorization (assessment auth via Provider Express), then step 2 treatment auth; continued-service reviews every 4–6 months. Not part of UnitedHealthcare's Dec. 1, 2026 under-18 prior authorization reduction: the commercial code list revised 11/13/2026 dropped this code (it was on the 11/6/2026 revision) and now says it applies to medical services only. Code deleted from CPT 1/1/2027"
         : "Required — step 1 of Optum's two-step authorization (assessment auth via Provider Express), then step 2 treatment auth; continued-service reviews every 4–6 months",
     unitCap: is99366
       ? 'unverified'
