@@ -111,15 +111,15 @@ export const floridaPayers: Record<string, PayerConfig> = {
       },
       placeOfService: {
         value:
-          'Setting is documented and gated rather than restricted by a code list: session notes must record the location, and the behavior plan must name the treatment setting(s). School is the gated one — “authorization requests for services to be delivered in a school must include the recipient’s Individualized Education Plan (IEP),” failing which the provider submits documentation justifying the services plus an estimated timeframe for the IEP; a 504 plan if the school does not conduct IEPs; and if it conducts neither, the school’s name with an explanation. Non-covered regardless of setting: recipient supervision, personal care assistance (acting as a 1:1 aide), companion, chaperone or shadow services “regardless of activity or setting,” caregiver or childcare services, and travel time. BA is also non-covered on the same day as behavioral health overlay services, therapeutic behavioral on-site services, or therapeutic group care.',
+          'Setting is documented and gated rather than restricted by a code list: session notes must record the location, and the behavior plan must name the treatment setting(s). School is the gated one — “authorization requests for services to be delivered in a school must include the recipient’s Individualized Education Plan (IEP),” failing which the provider submits documentation justifying the services plus an estimated timeframe for the IEP; a 504 plan if the school does not conduct IEPs; and if it conducts neither, the school’s name with an explanation. Non-covered regardless of setting: recipient supervision, personal care assistance (acting as a 1:1 aide), companion, chaperone or shadow services “regardless of activity or setting,” caregiver or childcare services, and travel time. BA is also non-covered on the same day as behavioral health overlay services, therapeutic behavioral on-site services, or therapeutic group care. The policy names no code that is barred in a school, so 97155 by a Lead Analyst or BCaBA follows the same IEP rule there as 97153. The policy does not list place-of-service codes, so ask an MMA plan which POS (03 school) its claim editor expects.',
         status: 'verified',
         cites: [{ title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }],
       },
       billAsProvider: {
         value:
-          'A professional claim (837P / CMS-1500) under the enrolled rendering practitioner — Florida is unusual in enrolling the technicians themselves. Every rendering practitioner individually enrolls with AHCA: Lead Analysts as provider type 392, BCaBAs as 391 and RBTs as 390, with 390s and 391s enrollable only as members of an enrolled BA group (type 393). Each application needs a colour copy of the BACB certification matching the applicant’s legal name and a completed Level 2 background screening; AHCA names missing screenings and missing tax-ID proof as the two most common causes of delay. Credential level is priced into the code rather than a universal modifier set — 97155 pays at the Lead Analyst tier and at a lower rate with the HN modifier for a BCaBA, while 97153 pays the same whether an RBT, a BCaBA or a Lead Analyst renders it.',
+          'A professional claim (837P / CMS-1500) under the enrolled rendering practitioner — Florida is unusual in enrolling the technicians themselves. Every rendering practitioner individually enrolls with AHCA: Lead Analysts as provider type 392, BCaBAs as 391 and RBTs as 390, with 390s and 391s enrollable only as members of an enrolled BA group (type 393). Each application needs a colour copy of the BACB certification matching the applicant’s legal name and a completed Level 2 background screening; AHCA names missing screenings and missing tax-ID proof as the two most common causes of delay. Credential level is priced into the code rather than a universal modifier set — 97155 pays at the Lead Analyst tier and at a lower rate with the HN modifier for a BCaBA, while 97153 pays the same whether an RBT, a BCaBA or a Lead Analyst renders it. An RBT cannot bill 97155: the coverage policy says protocol modification (individual or group) “may be provided by Lead Analyst or BCaBA,” and the 2026 fee schedule lists 97155 only for a Lead Analyst and as 97155-HN for a BCaBA. An RBT bills 97153 and 97154. Time an RBT spends with the client while a supervisor bills 97155 goes on 97153-XP, “not reimbursed.”',
         status: 'verified',
-        cites: [{ title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'AHCA — Enrolling as a Florida Medicaid Behavior Analysis Provider (webinar deck + FAQ)', url: 'https://ahca.myflorida.com/content/download/11448/file/Enrolling_as_a_Florida_Medicaid_Behavior_Analysis_Provider.pdf' }],
+        cites: [{ title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' }, { title: 'AHCA — Enrolling as a Florida Medicaid Behavior Analysis Provider (webinar deck + FAQ)', url: 'https://ahca.myflorida.com/content/download/11448/file/Enrolling_as_a_Florida_Medicaid_Behavior_Analysis_Provider.pdf' }, { title: 'AHCA — Behavior Analysis Fee Schedule 2026', url: 'https://ahca.myflorida.com/content/download/28096/file/2026%20BA%20Fee%20Schedule.pdf' }],
       },
     },
     pill: 'Payer Guide · Florida Medicaid',
@@ -277,6 +277,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Caregiver participation commitment', desc: 'Reauthorizations must report parent/guardian participation data — set expectations at intake.' },
     ],
     sources: [
+      { title: 'AHCA — Behavior Analysis Fee Schedule 2026', url: 'https://ahca.myflorida.com/content/download/28096/file/2026%20BA%20Fee%20Schedule.pdf' },
       { title: 'CMS — Medicaid NCCI Edit Files (practitioner MUE table effective 10/1/2026)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid/medicaid-ncci-edit-files' },
       { title: 'CMS — NCCI for Medicaid (methodologies required for Medicaid fee-for-service; optional for MCOs)', url: 'https://www.cms.gov/medicare/coding-billing/ncci-medicaid' },
       { title: 'Florida Medicaid Behavior Analysis Services Coverage Policy (Dec 2024, Rule 59G-4.125)', url: 'https://www.flrules.org/gateway/readRefFile.asp?refId=17525&filename=Florida%20Medicaid%20Behavior%20Analysis%20Services%20Coverage%20Policy.pdf' },
@@ -313,6 +314,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'What happens if a Florida Medicaid family changes BA providers?', a: 'AHCA\u2019s policy says “a full assessment may be requested if there is a change in provider,” so the new agency usually requests its own assessment and then a new treatment authorization. An RBT becoming a BCaBA is not grounds for a reassessment. Plan members follow the plan\u2019s process.' },
       { q: 'How fast must a Florida Medicaid plan pay an ABA claim?', a: 'Within 20 days of an electronic claim the plan must pay it or say it is denied or contested, and every claim must be paid or denied within 90 days (120 for paper); late payments carry 12% interest. Section 409.967(2)(j) makes the HMO prompt-pay statute, § 641.3155, binding on every MMA plan.' },
       { q: 'What documents does Florida Medicaid require at intake for ABA (behavior analysis)?', a: 'Start with a referral from an independent physician or qualifying practitioner: a PCP in family practice, internal medicine or pediatrics; a developmental or neurodevelopmental pediatrician, pediatric neurologist or psychiatrist; or a child psychologist. It must include a physician\'s order for BA services and a Comprehensive Diagnostic Evaluation. No autism diagnosis is required, and the CDE has no expiry. The first authorization adds the Lead Analyst\'s behavior assessment with full Vineland-3 and BASC-3 PRQ scoring reports, a behavior plan signed by the Lead Analyst and parent covering up to six months, units per code with their justification, and the supervision plan. Add the IEP or 504 plan if services are in school. Your MMA plan may add its own form on top.' },
+      { q: 'Can an RBT bill 97155 for Florida Medicaid, and can 97155 be delivered in a school?', a: 'No RBT billing of 97155. AHCA\'s coverage policy says protocol modification “may be provided by Lead Analyst or BCaBA,” and the 2026 fee schedule pays 97155 to a Lead Analyst ($19.17) or, with HN, a BCaBA ($15.37). An RBT bills 97153 or 97154. In a school, 97155 is not excluded, but every school-based authorization request must include the child\'s IEP. Without one, send documentation justifying the services and an expected IEP date, or a 504 plan, or the school\'s name and why neither plan exists. Shadow or 1:1 aide services are never covered.' },
       { q: 'How recent does the diagnostic evaluation need to be for Florida Medicaid ABA?', a: 'The state policy sets no expiry on the Comprehensive Diagnostic Evaluation and requires no autism diagnosis. What is clocked is the BA assessment: reassessment and an updated behavior plan at least every six months, with the Vineland-3 and BASC-3 PRQ repeated every 12 months. MMA plans can add their own freshness rules on their forms, so check the plan\'s guide.' },
     ],
   },
@@ -2992,7 +2994,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5-TR ASD with a validated tool for the standard path — or the Down syndrome diagnosis for the Florida mandate path.' },
       { title: 'Age + diagnosis-age history', desc: 'The mandate keys to under-18 (or in high school) with the developmental-disability dx made by age 8 — flag edge cases for parity analysis.' },
     ],
-    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, 
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 13, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, 
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA STM12026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'Fla. Stat. § 627.6686 (2024)', url: 'https://www.flsenate.gov/Laws/statutes/2024/627.6686' },
@@ -3012,7 +3014,7 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { title: 'UnitedHealthcare Community Plan of Florida — 2026 Care Provider Manual, Statewide Medicaid Managed Care', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/comm-plan/FL-Care-Provider-Manual-Statewide-Medicaid-Managed-Care.pdf' },
     ],
     faq: [
-      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'No ABA code changes. UnitedHealthcare\'s under-18 prior-authorization reduction starts Dec. 1, 2026, but the commercial code list as revised Nov. 13, 2026 names no ABA code (it no longer lists 0362T or 0373T) and says it "applies to medical services only. Continue to reference your usual channels for behavioral health services." The Individual Exchange and Community Plan lists (also revised Nov. 13) say the same and name no ABA code. Keep requesting Optum authorization for 97151–97158 and check plan-specific exceptions in the Prior Authorization and Advance Notification tool.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Florida?', a: 'Yes — under Optum\'s national two-step authorization for ASD, layered on Florida\'s Geller Act (§ 627.6686) for covered fully-insured group plans. Self-funded, individual, and small-group plans sit outside the mandate, so verify plan funding type first.' },
       { q: 'Does UnitedHealthcare cover ABA for Down syndrome in Florida?', a: 'For mid- and large-group fully-insured Florida plans, yes — Optum\'s ABA State Mandates supplement explicitly covers ABA for the treatment of Down syndrome, mirroring the Florida mandate\'s unusual Down syndrome extension. It does not apply to individual or small-group plans; confirm funding type and group size.' },
       { q: 'What does the Florida autism mandate require?', a: 'For covered group plans: screening, speech, OT, PT, and ABA for eligible individuals — under 18 (or 18+ in high school) diagnosed with a developmental disability by age 8 — with ABA capped at $36,000/year and $200,000 lifetime (CPI-adjusted). Federal parity limits how hard the dollar caps can be enforced against group plans.' },
@@ -3328,6 +3330,238 @@ export const floridaPayers: Record<string, PayerConfig> = {
       { q: 'What is Florida Blue\'s timely filing limit for ABA?', a: '180 days from the date of service, filed electronically to payer ID 00590 (Lucet\'s Florida Blue appendix). Clean claims are processed within 10 to 30 days.' },
       { q: 'What does the Florida autism mandate require?', a: 'For covered group plans: screening, speech, OT, PT and ABA for eligible individuals, meaning under 18 (or 18+ in high school) and diagnosed with a developmental disability by age 8. ABA is capped at $36,000 a year and $200,000 lifetime (CPI-adjusted). It covers Down syndrome as well as ASD. Individual, small-group and self-funded plans sit outside it.' },
       { q: 'How does BlueCard work with Florida Blue?', a: 'A Florida provider treating another state\'s Blue member files with Florida Blue as the host plan, and the member\'s home plan decides benefits and precertification. A Florida Blue member treated out of state is billed through that provider\'s local Blue, with Florida Blue (through Lucet) as the home plan for authorization.' },
+    ],
+  },
+  'ambetter-sunshine-health': {
+    slug: 'ambetter-sunshine-health',
+    family: 'centene',
+    cardDesc: 'Centene\'s Florida Marketplace plan (Ambetter, formerly branded Ambetter from Sunshine Health): ABA covered with no benefit limit, PA on every ABA code, outside the state autism mandate.',
+    assessmentPA: {
+      value: 'Required. Ambetter Florida\'s Pre-Auth Needed tool returns "Pre-authorization is required for all providers" for 97151, 97152 and 0362T. Submit on the secure provider portal or call Utilization Management at 1-877-687-1169',
+      status: 'verified',
+      cites: [
+        { title: 'Ambetter Health (Florida) — Pre-Auth Needed tool (code lookups 2026-11-15)', url: 'https://www.ambetterhealth.com/en/fl/provider-resources/manuals-and-forms/pre-auth/' },
+        { title: 'Ambetter Health (Florida) — 2026 Provider and Billing Manual', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/PDFs/2026-fl-provider-manual.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required for every treatment code, 97153–97158 and 0373T ("Pre-authorization is required for all providers"), and the 2026 Evidence of Coverage says ABA services "are subject to prior authorization to determine medical necessity." Authorization periods run six months: CP.BH.105 refers to "the entire six-month authorization period," and CP.BH.104 requires an updated behavior assessment and treatment plan "at least every six months"',
+      status: 'verified',
+      cites: [
+        { title: 'Ambetter Health (Florida) — Pre-Auth Needed tool (code lookups 2026-11-15)', url: 'https://www.ambetterhealth.com/en/fl/provider-resources/manuals-and-forms/pre-auth/' },
+        { title: 'Ambetter Health (Centene Venture Company Florida) — 2026 Evidence of Coverage (49004FL001-2026)', url: 'https://api.centene.com/EOC/2026/49004FL001.pdf' },
+        { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Florida copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.104.pdf' },
+        { title: 'Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (Ambetter Florida copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.105.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes, ASD. The Evidence of Coverage covers autism services "when prescribed by a physician or behavioral health practitioner," and CP.BH.104 requires "a confirmed autism spectrum disorder (ASD) diagnosis, according to the current version of the Diagnostic and Statistical Manual of Mental Disorders (DSM)," with the severity level documented',
+      status: 'verified',
+      cites: [
+        { title: 'Ambetter Health (Centene Venture Company Florida) — 2026 Evidence of Coverage (49004FL001-2026)', url: 'https://api.centene.com/EOC/2026/49004FL001.pdf' },
+        { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Florida copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.104.pdf' },
+      ],
+    },
+    payer: 'Ambetter from Sunshine Health (Ambetter Health Florida)',
+    state: 'FL', kind: 'commercial',
+    deliveryRules: {
+      supervision: {
+        value:
+          'A range, set in CP.BH.104: "Adaptive Behavior Treatment with Protocol Modification occurs for at least two hours per week or 10% of the direct service hours provided (whichever is greater), and no more than 20% of direct service hours provided (unless clinical documentation justifies)," and treatment "will be delivered or supervised by an ABA-credentialed professional." CP.BH.105 requires at least monthly one-on-one 97155 with the child "Rendered by ABA supervisor," says "Technician supervision only or team meetings do not constitute protocol modification," and lets Ambetter deny or recoup 97153/97154 units across "the entire six-month authorization period" that the 10% floor does not support.',
+        status: 'verified',
+        cites: [
+          { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Florida copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.104.pdf' },
+          { title: 'Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (Ambetter Florida copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.105.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Not stated as a billing rule. CP.BH.105 says "97155 may be used to demonstrate new or modified protocol to a technician with the member/enrollee present," but no Ambetter Florida document says whether the technician\'s 97153 for the same minutes also pays.',
+        status: 'unverified',
+        cites: [{ title: 'Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (Ambetter Florida copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.105.pdf' }],
+        verifyVia: 'Ambetter Florida Utilization Management / Provider Services 1-877-687-1169: ask whether 97153 and 97155 both pay for the same clock time.',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value:
+          'No benefit cap, but a medical-necessity ceiling. The 2026 Evidence of Coverage: "No limitation exists within the benefits for applied behavior analysis services." CP.BH.104: treatment hours "not exceed six hours per day up to a total of 30 hours per week" unless clinical documentation justifies more, and "less than 20 hours per week if attending school full-time." No per-code daily unit table is published.',
+        status: 'verified',
+        cites: [
+          { title: 'Ambetter Health (Centene Venture Company Florida) — 2026 Evidence of Coverage (49004FL001-2026)', url: 'https://api.centene.com/EOC/2026/49004FL001.pdf' },
+          { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Florida copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.104.pdf' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'The rendering provider or technician signs each note. CP.BH.105 requires notes "completed prior to claim submission" with exact start and end times, pauses, location, the code and the "Signature of qualified rendering provider/technician." Clinical documentation carries the signatures and printed names of the member, legal guardian, rendering clinician/technician and supervising practitioner "as applicable." A caregiver signature is "recommended" on caregiver-training notes. Treatment plans need the signature, credentials and role of the responsible BCBA and the parent or guardian (CP.BH.104).',
+        status: 'verified',
+        cites: [
+          { title: 'Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (Ambetter Florida copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.105.pdf' },
+          { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Florida copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.104.pdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Home, clinic, school and community are all contemplated. CP.BH.104: "Services may be provided in various settings (e.g., home, clinic, school, community) and modalities (e.g., in-person, telehealth)." The plan needs a "Treatment setting with rationale," and school-based ABA needs a detailed school plan with a titration plan for reducing school services. ABA is not medically necessary for "Services that are otherwise covered under the Individuals with Disabilities Education Act (IDEA)." Telemedicine claims are billed with POS 02 or 10 per the manual.',
+        status: 'verified',
+        cites: [
+          { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Florida copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.104.pdf' },
+          { title: 'Ambetter Health (Florida) — 2026 Provider and Billing Manual', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/PDFs/2026-fl-provider-manual.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Not settled by a published ABA rule. The manual lists BCBA among credentialed behavioral health provider types, with no technician or BCaBA type, and does not say whose NPI carries RBT time. The Evidence of Coverage adds: "If multiple services are provided on the same day by different providers, a separate copayment and/or coinsurance will apply to each provider."',
+        status: 'unverified',
+        cites: [
+          { title: 'Ambetter Health (Florida) — 2026 Provider and Billing Manual', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/PDFs/2026-fl-provider-manual.pdf' },
+          { title: 'Ambetter Health (Centene Venture Company Florida) — 2026 Evidence of Coverage (49004FL001-2026)', url: 'https://api.centene.com/EOC/2026/49004FL001.pdf' },
+        ],
+        verifyVia: 'Ambetter Florida Provider Services 1-877-687-1169 or your Provider Partnership Representative: ask whether technician 97153 goes out under the supervising BCBA\'s NPI.',
+        blocker: 'per-case',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'None stated. The Evidence of Coverage\'s autism benefit has no age limit and says "No limitation exists within the benefits for applied behavior analysis services," and CP.BH.104 sets none. Florida\'s Geller Act age and dollar terms (under 18, or in high school; $36,000 a year) do not reach this plan: § 627.6686 "does not include any health insurance plan offered in the individual market."',
+        status: 'verified',
+        cites: [
+          { title: 'Ambetter Health (Centene Venture Company Florida) — 2026 Evidence of Coverage (49004FL001-2026)', url: 'https://api.centene.com/EOC/2026/49004FL001.pdf' },
+          { title: 'Fla. Stat. § 627.6686 (2026) — Steven A. Geller Autism Coverage Act', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6686' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Three years, with a bridge to five. To start treatment, CP.BH.104 needs a comprehensive diagnostic evaluation "conducted in the past three years," or, if the CDE is three to five years old, "A diagnostic interview/evaluation has been conducted within 12 months of the authorization request." For continuation the CDE must be within the past five years, and a re-evaluation may be required sooner.',
+        status: 'verified',
+        cites: [{ title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Florida copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.104.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          '"The documented diagnosis of ASD is established by a licensed physician, psychologist, or other licensed professional with specialized training in diagnosis and treatment of ASD, or a provider otherwise authorized under state law/regulation." The same class of provider makes the ABA recommendation, which "may be included within the CDE."',
+        status: 'verified',
+        cites: [{ title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Florida copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.104.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Two instruments minimum: the CDE must include "at least one primary clinician tool and one parent/caregiver tool." Clinician tools: STAT, ADI-R, CARS/CARS-2, ASRS, ADOS/ADOS-2, EarliPoint, RITA-T or CSBS DP-ITC. Parent tools: M-CHAT/M-CHAT-R/F, SCQ, ASSQ, CAST, SRS-2 Parent Report, SWYC POSI or CSBS DP ITC. Other evidence-based tools are reviewed case by case.',
+        status: 'verified',
+        cites: [{ title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Florida copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.104.pdf' }],
+      },
+      referral: {
+        value:
+          'A prescription and a recommendation, but no PCP referral. The Evidence of Coverage covers autism services "when prescribed by a physician or behavioral health practitioner," and a member "do[es] not need a referral from your network primary care physician for mental or behavioral health services." CP.BH.104 requires a "Recommendation for ABA" from a licensed physician, psychologist or other qualified licensed professional, which "may be included within the CDE." No Ambetter order form is published.',
+        status: 'verified',
+        cites: [
+          { title: 'Ambetter Health (Centene Venture Company Florida) — 2026 Evidence of Coverage (49004FL001-2026)', url: 'https://api.centene.com/EOC/2026/49004FL001.pdf' },
+          { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Florida copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.104.pdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Covered, with no ABA code list published. The Evidence of Coverage covers "medically necessary telehealth services," and telehealth outside Virtual 24/7 Care or Virtual Primary Care carries "the same cost sharing as the same health care services when delivered to a member in person." CP.BH.104 names telehealth as an ABA modality, and CP.BH.105 keeps the monthly one-on-one protocol-modification 97155 in person "unless allowed by state guidelines." Claims use POS 02 or 10 with the appropriate modifier.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Ambetter Health (Centene Venture Company Florida) — 2026 Evidence of Coverage (49004FL001-2026)', url: 'https://api.centene.com/EOC/2026/49004FL001.pdf' },
+          { title: 'Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (Ambetter Florida copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.105.pdf' },
+        ],
+        verifyVia: 'Ambetter Florida Utilization Management 1-877-687-1169: confirm which ABA codes it will authorize by telehealth for this member.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'The 2026 manual\'s Utilization Determination Timeframes: pre-service non-urgent "within fifteen (15) calendar days of receipt of request"; pre-service urgent "within 3 calendar days"; concurrent urgent "within 72 hours"; retrospective 30 calendar days. The 2027 manual prints the same non-urgent clock. Extensions are possible, with notice.',
+        status: 'verified',
+        cites: [
+          { title: 'Ambetter Health (Florida) — 2026 Provider and Billing Manual, Utilization Determination Timeframes', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/PDFs/2026-fl-provider-manual.pdf' },
+          { title: 'Ambetter Health (Florida) — 2027 Provider and Billing Manual', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/PDFs/2027-fl-provider-manual.pdf' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'The Evidence of Coverage uses the birthday rule: for a child on both parents\' plans, "the plan of the parent whose birthday falls earlier in the year (excluding year of birth) shall be primary," and on the same birthday "the plan which covered the parent longer will be primary." Services where "other coverage is primary to Ambetter must be first paid by the primary payor," and "Other plan will not include Medicaid." The manual allows 90 days from the primary payer\'s EOP to file the secondary claim.',
+        status: 'verified',
+        cites: [
+          { title: 'Ambetter Health (Centene Venture Company Florida) — 2026 Evidence of Coverage (49004FL001-2026)', url: 'https://api.centene.com/EOC/2026/49004FL001.pdf' },
+          { title: 'Ambetter Health (Florida) — 2026 Provider and Billing Manual, Timely Filing', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/PDFs/2026-fl-provider-manual.pdf' },
+        ],
+      },
+    },
+    pill: 'Payer Guide · Ambetter · Florida',
+    h1: 'Ambetter from Sunshine Health (Ambetter Health Florida) ABA coverage: the intake guide.',
+    metaTitle: 'Ambetter from Sunshine Health (Florida Marketplace) ABA Coverage & Prior Auth | Carelu',
+    metaDescription:
+      'How Centene\'s Florida Marketplace plan, Ambetter (formerly Ambetter from Sunshine Health), covers ABA: no ABA benefit limit in the 2026 Evidence of Coverage, prior authorization on every ABA code, CP.BH.104 criteria, six-month authorizations, and why Florida\'s autism mandate does not apply.',
+    intro: [
+      'Ambetter is Centene\'s Florida Marketplace (ACA individual) product. Sunshine Health promoted it as "Ambetter from Sunshine Health"; the 2026 provider manual says it is underwritten by Centene Venture Company Florida and Sunshine State Health Plan, Inc., and the 2027 manual by Centene Venture Company Florida. It is not Sunshine Health\'s Medicaid plan: Florida\'s AHCA behavior-analysis policy does not govern it, and members pay deductibles and coinsurance. Services from non-network providers "are not covered" except emergencies.',
+      'For intake: the contract covers ABA with "No limitation" and no age limit. Every ABA code needs prior authorization under Centene\'s CP.BH.104. Authorizations run six months, and CP.BH.105 can recoup technician hours when protocol modification falls under 10%. Florida\'s autism mandate does not reach individual-market plans, so its age and dollar terms do not apply.',
+    ],
+    atGlance: [
+      { label: 'Product', value: 'ACA Marketplace (Centene Venture Company Florida; 2026 also Sunshine State Health Plan) — not Sunshine Health Medicaid' },
+      { label: 'Covers ABA?', value: 'Yes — 2026 Evidence of Coverage, Autism Spectrum Disorder Benefits; "No limitation" on ABA' },
+      { label: 'Prior auth', value: 'Required for every ABA code (97151–97158, 0362T, 0373T)' },
+      { label: 'Authorization period', value: 'Six months; updated assessment and treatment plan at least every six months' },
+      { label: 'PA decision clock', value: 'Non-urgent 15 calendar days; urgent 3 calendar days' },
+      { label: 'State mandate', value: 'Fla. Stat. § 627.6686 (Geller Act) — excludes individual-market plans, so it does not apply' },
+      { label: 'Claims', value: 'Payer ID 68069; 180 days from DOS; secondary 90 days from primary EOP' },
+    ],
+    sections: [
+      {
+        h2: 'Coverage under the 2026 Evidence of Coverage',
+        body: [
+          'The Autism Spectrum Disorder Benefits cover autism "when prescribed by a physician or behavioral health practitioner," including "Evaluation and assessment services," "Applied behavior analysis therapy," behavior training and management, speech, occupational and physical therapy, psychiatric care, habilitation and medications. "No limitation exists within the benefits for applied behavior analysis services. These services are subject to prior authorization to determine medical necessity." A separate copayment or coinsurance applies to each provider seen on the same day. Members may choose any provider in the mental health network without a PCP referral, and non-network services are not covered except emergencies and some care at network facilities.',
+          'Florida\'s Steven A. Geller Autism Coverage Act covers only group plans: its definition of "health insurance plan" "does not include any health insurance plan offered in the individual market." The Act\'s age terms and its $36,000 annual and $200,000 lifetime limits therefore do not apply to Ambetter. The contract itself sets no ABA limit.',
+        ],
+        cites: [
+          { title: 'Ambetter Health (Centene Venture Company Florida) — 2026 Evidence of Coverage (49004FL001-2026)', url: 'https://api.centene.com/EOC/2026/49004FL001.pdf' },
+          { title: 'Fla. Stat. § 627.6686 (2026) — Steven A. Geller Autism Coverage Act', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6686' },
+        ],
+      },
+      {
+        h2: 'Prior authorization, decision clocks and authorization length',
+        body: [
+          'The Pre-Auth Needed tool (looked up November 15, 2026) returns "Pre-authorization is required for all providers" for every ABA code: 97151–97158, 0362T and 0373T. Submit on the secure provider portal (preferred), by calling Utilization Management at 1-877-687-1169 (Relay Florida 1-800-955-8770), or on the posted fax forms. The manual\'s contact table lists 1-855-678-6981 in the fax column for behavioral health inpatient and outpatient prior authorization. Decision clocks: non-urgent pre-service within 15 calendar days of the request, urgent within 3 calendar days, concurrent urgent within 72 hours.',
+          'Authorizations run six months. CP.BH.105 refers to "the entire six-month authorization period," and CP.BH.104 requires an updated behavior assessment and treatment plan at least every six months. The behavior assessment behind the first request must be no more than two months old. Renewals need session attendance (under 80% of authorized hours needs an explanation), graphed progress, caregiver-training data and a titration plan.',
+        ],
+        cites: [
+          { title: 'Ambetter Health (Florida) — Pre-Auth Needed tool (code lookups 2026-11-15)', url: 'https://www.ambetterhealth.com/en/fl/provider-resources/manuals-and-forms/pre-auth/' },
+          { title: 'Ambetter Health (Florida) — 2026 Provider and Billing Manual', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/PDFs/2026-fl-provider-manual.pdf' },
+          { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Florida copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.104.pdf' },
+          { title: 'Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (Ambetter Florida copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.105.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims and credentialing',
+        body: [
+          'The Ambetter payer ID is 68069. Initial claims are due 180 calendar days from the date of service (participating and non-participating), disputes and appeals 90 days from Ambetter\'s explanation of payment, and secondary claims 90 days from the primary payer\'s EOP. BCBAs are a credentialed behavioral health provider type, and recredentialing is required every 36 months.',
+        ],
+        cites: [{ title: 'Ambetter Health (Florida) — 2026 Provider and Billing Manual, Timely Filing', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/PDFs/2026-fl-provider-manual.pdf' }],
+      },
+    ],
+    collect: [
+      { title: 'Ambetter card', desc: 'Marketplace Ambetter, not Sunshine Health Medicaid; note the plan (Ambetter, Ambetter Value) because networks differ and non-network care is not covered.' },
+      { title: 'Comprehensive diagnostic evaluation', desc: 'Within 3 years (or 3–5 years plus a diagnostic interview within 12 months), with one clinician and one parent tool.' },
+      { title: 'Recommendation for ABA', desc: 'From the diagnosing physician, psychologist or qualified licensed professional; it may sit inside the CDE.' },
+      { title: 'Other coverage', desc: 'Birthday rule between parents\' plans; Medicaid is never "other plan" here.' },
+    ],
+    sources: [
+      { title: 'Ambetter Health (Centene Venture Company Florida) — 2026 Evidence of Coverage (49004FL001-2026)', url: 'https://api.centene.com/EOC/2026/49004FL001.pdf' },
+      { title: 'Ambetter Health (Florida) — 2026 plan documents (Evidence of Coverage index)', url: 'https://www.ambetterhealth.com/en/fl/2026-brochures/' },
+      { title: 'Ambetter Health (Florida) — 2026 Provider and Billing Manual', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/PDFs/2026-fl-provider-manual.pdf' },
+      { title: 'Ambetter Health (Florida) — 2027 Provider and Billing Manual', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/PDFs/2027-fl-provider-manual.pdf' },
+      { title: 'Ambetter Health (Florida) — Pre-Auth Needed tool (code lookups 2026-11-15)', url: 'https://www.ambetterhealth.com/en/fl/provider-resources/manuals-and-forms/pre-auth/' },
+      { title: 'Ambetter Health (Florida) — Manuals and Forms', url: 'https://www.ambetterhealth.com/en/fl/provider-resources/manuals-and-forms/' },
+      { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Florida copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.104.pdf' },
+      { title: 'Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (Ambetter Florida copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Sunshine/Ambetter/policies/clinical-policies/CP.BH.105.pdf' },
+      { title: 'Fla. Stat. § 627.6686 (2026) — Steven A. Geller Autism Coverage Act', url: 'https://www.flsenate.gov/Laws/Statutes/2026/627.6686' },
+    ],
+    faq: [
+      { q: 'Does Ambetter from Sunshine Health cover ABA therapy?', a: 'Yes. The 2026 Evidence of Coverage covers applied behavior analysis for autism when prescribed by a physician or behavioral health practitioner, with "No limitation" on the ABA benefit. Prior authorization, network rules and cost sharing apply.' },
+      { q: 'Does Florida\'s autism mandate apply to Ambetter?', a: 'No. The Geller Act (§ 627.6686) covers group plans and "does not include any health insurance plan offered in the individual market." Ambetter\'s own contract sets no ABA limit and no age limit.' },
+      { q: 'Which ABA codes need prior authorization with Ambetter in Florida?', a: 'All of them: 97151–97158, 0362T and 0373T, per the Pre-Auth Needed tool. Call Utilization Management at 1-877-687-1169 or use the provider portal.' },
+      { q: 'How long does an Ambetter Florida ABA authorization last, and how long is the decision?', a: 'Six months per authorization, with an updated assessment and treatment plan each time. Non-urgent requests are decided within 15 calendar days, urgent within 3.' },
+      { q: 'What is the Ambetter Florida timely filing limit?', a: '180 calendar days from the date of service, and 90 days from the primary payer\'s EOP for secondary claims. The payer ID is 68069.' },
     ],
   },
 };

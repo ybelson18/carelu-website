@@ -47,6 +47,22 @@ const MO_CRED_SECTION_G8 = {
   cites: [MO_1578_G8, MO_1575_G8],
 };
 
+/* Ambetter from Home State Health (Missouri Marketplace) — weekly refresh 2026-11-15, read 2026-11-15. */
+const AMB_MO_PAT = { title: 'Ambetter from Home State Health — Pre-Auth Needed tool (code lookups 2026-11-15: 97151, 97152, 0362T, 97153, 97155, 97156)', url: 'https://www.ambetterhealth.com/en/mo/provider-resources/manuals-and-forms/pre-auth/' };
+const AMB_MO_PRM = { title: 'Ambetter from Home State Health — 2026 Provider and Billing Manual (Missouri): Utilization Determination Timeframes; Timely Filing; Credentialing; Telemedicine', url: 'https://www.ambetterhealth.com/content/dam/centene/home-state-health/ambetter/pdfs/2026-mo-provider-manual.pdf' };
+const AMB_MO_EOC = { title: 'Ambetter from Home State Health — 2026 Evidence of Coverage (99723MO009-2026, Individual EPO): Autism Spectrum Disorder and Development/Physical Disabilities Expense Benefit; Definitions', url: 'https://api.centene.com/EOC/2026/99723MO009.pdf' };
+const AMB_MO_BH104 = { title: 'Centene Clinical Policy CP.BH.104 — Applied Behavior Analysis (Home State Health Ambetter copy; last revision 02/26)', url: 'https://www.homestatehealth.com/content/dam/centene/home-state-health/ambetter/policies/clinical-policies/CP.BH.104.pdf' };
+const AMB_MO_BH105 = { title: 'Centene Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (Home State Health Ambetter copy; last revision 02/26)', url: 'https://www.homestatehealth.com/content/dam/centene/home-state-health/ambetter/policies/clinical-policies/CP.BH.105.pdf' };
+const AMB_MO_POL = { title: 'Home State Health — Clinical and Payment Policies (Ambetter policies listed separately)', url: 'https://www.homestatehealth.com/providers/tools-resources/clinical-payment-policies.html' };
+const AMB_MO_376 = { title: 'RSMo 376.1224 — Autism spectrum disorder coverage (applies to health benefit plans issued or renewed on or after 1/1/2020)', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' };
+const AMB_MO_1363 = { title: 'RSMo 376.1363 — Utilization review decisions, procedures', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1363' };
+
+/* MO HealthNet continued medical necessity and enrollment fee — weekly refresh 2026-11-15, read 2026-11-15. */
+const MO_CSR9830_N15 = { title: '13 CSR 70-98.030 — Applied Behavior Analysis Services, (5) Covered Services and Limitations, (6) Not Medically Necessary (Missouri Code of State Regulations)', url: 'https://www.sos.mo.gov/cmsimages/adrules/csr/current/13csr/13c70-98.pdf' };
+const MO_BHSM_N15 = { title: 'MO HealthNet Behavioral Health Services Manual (May 2026), § 1.16 Precertification of ABA Services', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' };
+const MO_2575_N15 = { title: 'MO HealthNet — Request for Applied Behavior Analysis, form 2575-045 (January 2026)', url: 'https://dss.mo.gov/sites/mydss/files/media/pdf/2026/07/Remediated_2575-045-Request-for-Applied-Behavior-Analysis-Jan-2026.pdf' };
+const MO_MMAC_FEE_N15 = { title: 'MMAC — Application Fee (new and revalidating providers)', url: 'https://mmac.mo.gov/providers/provider-enrollment/new-providers/application-fee/' };
+
 export const missouriPayers: Record<string, PayerConfig> = {
   'missouri-medicaid': {
     slug: 'missouri-medicaid',
@@ -250,6 +266,21 @@ export const missouriPayers: Record<string, PayerConfig> = {
         body: [MO_APPEAL_BODY_G5],
         cites: [MO_BHS_G5],
       },
+      {
+        h2: 'Continued medical necessity: what a MO HealthNet ABA renewal must show',
+        body: [
+          'The rule is 13 CSR 70-98.030(5)(B): "Medical necessity for continued ABA intervention beyond the initial precertification period shall be determined based upon requested documentation including but not limited to updated treatment plan and progress graphs. If progress is not evident, identification of barriers to progress and strategies to improve effectiveness of interventions are required." Each precertification runs "for a time period not to exceed one hundred eighty (180) days" (5)(C), and services must be based on the child\'s needs, "give consideration to the child\'s age, school attendance requirements, and other daily activities," and sit in "a clinically appropriate setting" (5)(D).',
+          'In practice (Behavioral Health Services Manual, precertification table): a Continued ABA Intervention request is the Request for Applied Behavior Analysis form (2575-045, January 2026) with the "Continued ABA Intervention" box and "Total Hours (Six Months)" filled in, faxed to the Behavioral Health help desk at (573) 635-6516 with the "Current Intervention Plan, Progress, Data/Graphs (If progress is not evident, include identification of barriers and strategies to improve effectiveness of interventions.)" A periodic re-assessment (97151) needs its own clinical rationale, such as "re-administration of tools, new behavior observed, new environment and participant is responding differently, or lack of adequate progress." MHD faxes back the hours allowed and the start and end dates. Services that are "solely educational," vocational or recreational, or where "measurable functional improvement is not expected" and are not needed to maintain function, are not covered (13 CSR 70-98.030(6)).',
+        ],
+        cites: [MO_CSR9830_N15, MO_BHSM_N15, MO_2575_N15],
+      },
+      {
+        h2: 'Is there an enrollment fee for ABA providers with MO HealthNet?',
+        body: [
+          'Only for institutional providers. Missouri Medicaid Audit & Compliance (MMAC): "The application fee is currently set at $750.00 for all new and revalidating \u201cinstitutional\u201d Medicaid providers. \u201cIndividual\u201d providers such as physicians, dentists and other individual non-physician practitioners are not required to pay the application fee" (13 CSR 65-2; 42 CFR 455.460). A fee paid to Medicare or another state\'s Medicaid agency within two years of the MO HealthNet application exempts the provider, and a CMS hardship waiver is refunded only after the fee is paid. An individually enrolled LBA is an individual practitioner; whether an Autism Clinic group enrollment (provider type 50, specialty AC) is treated as institutional is shown in MMAC\'s Provider Risk Category Table and the application, so confirm with MMAC Provider Enrollment (MMAC.ProviderEnrollment@dss.mo.gov) before you apply.',
+        ],
+        cites: [MO_MMAC_FEE_N15, { title: 'MMAC — Provider Assigned Risk Categories', url: 'https://mmac.mo.gov/providers/provider-enrollment/new-providers/provider-assigned-risk-categories/' }],
+      },
     ],
     collect: [
       { title: 'MO HealthNet eligibility — not the plan card', desc: 'Whichever MCO card the family shows, ABA is state FFS. Verify MO HealthNet eligibility; skip the MCO analysis entirely.' },
@@ -258,7 +289,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'School services / IEP status', desc: 'IEP-based school ABA is precert-exempt — and a coordination fact for the intervention plan.' },
       { title: 'Rendering-tier plan', desc: 'HO vs. HN vs. HM decides the rate on every hour — staffing mix is a first-order revenue variable.' },
     ],
-    sources: [ MO_BHS_G5,
+    sources: [MO_MMAC_FEE_N15, MO_CSR9830_N15, MO_2575_N15,  MO_BHS_G5,
       { title: 'MHD Applied Behavioral Analysis fee schedule (xlsx, file dated 10/2/2026)', url: 'https://apps.dss.mo.gov/fmsfeeschedules/dlfiles/Applied%20Behavioral%20Analysis.xlsx' },
       { title: 'MO HealthNet Behavioral Health Services Manual, §1.16 ABA Services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' },
       { title: 'MO HealthNet — Fee Schedules and Rate Lists (landing page; redesign announced 11/5/2026)', url: 'https://dss.mo.gov/mhd/fee-schedules-rate-lists' },
@@ -382,6 +413,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What must a MO HealthNet ABA continued-treatment request show?', a: 'Under 13 CSR 70-98.030(5)(B), an updated treatment plan and progress graphs, and, if progress is not evident, the barriers to progress and the strategies to improve the interventions. Send form 2575-045 marked Continued ABA Intervention with the six-month hours, the current intervention plan and progress data/graphs to the Behavioral Health help desk fax (573) 635-6516; each precertification covers up to 180 days.' },
+      { q: 'Is there an enrollment fee for ABA providers with MO HealthNet?', a: 'Individual providers pay none. MMAC charges $750 only to new and revalidating institutional providers, and a fee already paid to Medicare or another state Medicaid agency within two years exempts it. Confirm with MMAC whether a group Autism Clinic enrollment counts as institutional.' },
       { q: 'Does MO HealthNet cover ABA therapy?', a: 'Yes — for participants under 21, with precertification. The standard benefit requires an ASD diagnosis from a licensed physician or psychologist; under EPSDT/HCY, ABA is also covered for other diagnoses when medically necessary.' },
       { q: 'Do I need to contract with Missouri\'s Medicaid MCOs to provide ABA?', a: 'No. ABA is fully carved out of managed care — every member, including MCO and Show Me Healthy Kids enrollees, gets ABA through state fee-for-service. One payer, one precert form, no MCO credentialing for ABA.' },
       { q: 'How do I get an ABA authorization from MO HealthNet?', a: 'Fax form 2575-045 (the ABA Request for Precertification) with the required clinicals to the Behavioral Health Services help desk at (573) 635-6516. There\'s no portal or UM vendor — approval comes back by fax with hours and dates, for periods up to 6 months.' },
@@ -1244,7 +1277,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date.' },
       { title: 'Age vs. the cap', desc: 'The ABA dollar cap runs through age 18 and is CPI-indexed — verify the current adjusted value and year-to-date usage before projecting hours.' },
     ],
-    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' },  MO_1578_G8, OPTUM_NNM_G5,
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 13, 2026; medical services only, no ABA codes) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' },  MO_1578_G8, OPTUM_NNM_G5,
       MO_HMO_DCI,
       MO_HMO_1350,
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
@@ -1387,7 +1420,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
-      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'No ABA code is on the list any more. UnitedHealthcare’s commercial code list for members younger than 18 (effective Dec. 1, 2026) was revised on Nov. 13, 2026, and the revised list names no ABA code (97151–97158, 0362T, 0373T) and now says it "applies to medical services only. Continue to reference your usual channels for behavioral health services." So keep requesting ABA authorization as before, and check plan-specific rules in the Prior Authorization and Advance Notification tool.' },
       { q: 'Are there any HMOs in Missouri?', a: 'Yes. Missouri\'s Department of Commerce & Insurance lists 17 licensed HMOs with the counties each may serve; this carrier\'s is UnitedHealthcare of the Midwest Inc (70 counties). Missouri\'s autism mandate (RSMo § 376.1224) reaches HMO plans because § 376.1350 counts a health maintenance organization as a health carrier. See “HMOs in Missouri” above for the full list.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Missouri?', a: 'Yes — under Optum\'s national ABA criteria (Missouri has no entry in Optum\'s State Mandates supplement), layered on Missouri\'s mandate (RSMo § 376.1224) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Missouri autism mandate require?', a: 'Coverage of ASD diagnosis and treatment including ABA, with a $40,000-per-year ABA cap through age 18 — a CPI-indexed statutory base that can be exceeded with plan approval when medically necessary. Treatment-plan reviews are limited to once every 6 months, and ABA must be supervised by a Chapter 337-licensed behavior analyst.' },
@@ -1756,6 +1789,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How long does Anthem BCBS take to decide an ABA assessment prior authorization in Missouri?', a: 'Anthem publishes no ABA-specific clock; its Missouri manual says UM review timeframes "follow Federal, State, and accreditation requirements." For a fully insured Missouri plan, RSMo 376.1363 requires the determination within thirty-six hours, including one working day, of obtaining all necessary information, with the provider notified within 24 hours; concurrent (continued-treatment) reviews within one working day. Self-funded employer plans follow federal ERISA claim rules instead. Ask Anthem which applies when you request the 97151 authorization.' },
       { q: 'What does Anthem Blue Cross and Blue Shield pay for ABA in Missouri?', a: 'Anthem publishes no ABA rate table; rates are in your agreement. Its Missouri provider manual (effective January 1, 2026) points providers to Availity, whose "Fee Schedule" tool "Retrieves professional office-based contracted price information for patient services," and tells them to "Refer to the contractual fee schedule for payment determination." For a public benchmark, MO HealthNet pays 97151 at $25.26 per 15-minute unit (behavior analyst tier).' },
       { q: 'Are there any HMOs in Missouri?', a: 'Yes. Missouri\'s Department of Commerce & Insurance lists 17 licensed HMOs with the counties each may serve; this carrier\'s is HMO Missouri Inc (96 counties). Missouri\'s autism mandate (RSMo § 376.1224) reaches HMO plans because § 376.1350 counts a health maintenance organization as a health carrier. See “HMOs in Missouri” above for the full list.' },
       { q: 'Does Anthem BCBS Missouri cover ABA therapy?', a: 'Yes. RSMo § 376.1224 requires health benefit plans delivered, issued, continued or renewed in Missouri on or after January 1, 2020 to cover diagnosis and treatment of autism spectrum disorders including ABA, and Anthem precertifies ABA as a behavioral health service with itself as the reviewing party. Private self-funded ERISA plans are preempted from the mandate.' },
@@ -1771,6 +1805,187 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { q: 'How does BlueCard work for an out-of-state Blue member getting ABA in Missouri?', a: 'File the claim with Anthem, the local plan, which is "the sole contact for Claims payment, adjustments, and issue resolution." The member\'s home Blue plan sets the medical policy and prior-authorization rules, so look them up by alpha prefix on Anthem\'s "Medical Policy and Prior Authorization for Blue Plans" tool. Clinical appeals go to the home plan.' },
       { q: 'Does Anthem accept H0031 or H0032 for ABA in Missouri?', a: 'Anthem’s ABA resource guide lists only CPT 97151–97158, 0362T and 0373T for ABA, with HM/HN/HO credential modifiers. It names no H-codes, so check your contract before using one.' },
       { q: 'How long does it take to credential a new BCBA with Anthem in Missouri?', a: 'Missouri\'s 60-day credentialing law (RSMo § 376.1578) covers physicians, psychologists, licensed clinical social workers and a few other listed practitioners, but not licensed behavior analysts. Unless the BCBA is also a licensed psychologist, the plan\'s own timeline governs and there is no statutory pay for the credentialing period.' },
+    ],
+  },
+  /* Ambetter from Home State Health — Missouri Marketplace (QHP, Celtic Insurance Company). Added weekly refresh 2026-11-15; every fact read 2026-11-15
+     from Ambetter/Home State's own documents (Pre-Auth Needed JSON, CP.BH.104/105 Ambetter copies, 2026 Provider and Billing Manual, 2026 EOC 99723MO009) and RSMo 376.1224. */
+  'ambetter-home-state': {
+    slug: 'ambetter-home-state',
+    family: 'centene',
+    cardDesc: 'Home State Health\'s Missouri Marketplace (ACA) plan, not Medicaid: ABA covered with no benefit limit under the EOC, PA on every ABA code, CP.BH.104 criteria, six-month authorization periods.',
+    assessmentPA: {
+      value: 'Required — Ambetter Missouri\'s Pre-Auth Needed tool returns "Pre-authorization is required for all providers" for 97151, 97152 and 0362T. The 2026 manual asks for elective outpatient prior authorization "five (5) business days prior to the elective outpatient service date"',
+      status: 'verified',
+      cites: [AMB_MO_PAT, AMB_MO_PRM],
+    },
+    treatmentPA: {
+      value: 'Required — the Pre-Auth Needed tool flags 97153, 97155 and 97156 "Pre-authorization is required for all providers," and the 2026 Evidence of Coverage says ABA services "are subject to prior authorization to determine medical necessity." Reviewed under Centene CP.BH.104; CP.BH.105 counts billing over "the entire six-month authorization period"',
+      status: 'verified',
+      cites: [AMB_MO_PAT, AMB_MO_EOC, AMB_MO_BH104, AMB_MO_BH105],
+    },
+    dxRequired: {
+      value: 'Yes — ASD. CP.BH.104 requires "a confirmed autism spectrum disorder (ASD) diagnosis, according to the current version of the Diagnostic and Statistical Manual of Mental Disorders (DSM) criteria" with a comprehensive diagnostic evaluation; the EOC covers treatment "ordered by the insured\'s treating licensed physician or licensed psychologist" "in accordance with a treatment plan"',
+      status: 'verified',
+      cites: [AMB_MO_BH104, AMB_MO_EOC],
+    },
+    payer: 'Ambetter from Home State Health',
+    state: 'MO', kind: 'commercial',
+    pill: 'Payer Guide · Ambetter · Missouri',
+    h1: 'Ambetter from Home State Health ABA coverage in Missouri: the intake guide.',
+    metaTitle: 'Ambetter (Home State Health) Missouri ABA Coverage & Prior Auth Guide | Carelu',
+    metaDescription:
+      'How Ambetter from Home State Health, Missouri\'s Centene Marketplace plan, covers ABA: commercial rules not MO HealthNet, prior authorization on every ABA code, six-month authorization periods, the RSMo 376.1224 autism benefit, CP.BH.104 criteria, and what intake should collect.',
+    intro: [
+      'Ambetter from Home State Health is Missouri Health Insurance Marketplace (ACA individual) coverage: it "is underwritten by Celtic Insurance Company, which is a Qualified Health Plan issuer in the Missouri Health Insurance Marketplace." Home State Health also runs MO HealthNet managed care, but ABA for MO HealthNet members is carved out to state fee-for-service; an Ambetter card means commercial rules.',
+      'The 2026 Evidence of Coverage (an individual EPO plan) writes in Missouri\'s autism benefit and says "No limitation exists within the benefits for applied behavior analysis services," subject to prior authorization. Medical necessity follows Centene\'s ABA policies CP.BH.104 and CP.BH.105.',
+    ],
+    atGlance: [
+      { label: 'Covers ABA?', value: 'Yes — for ASD, with prior authorization; "No limitation exists within the benefits for applied behavior analysis services" (2026 EOC)' },
+      { label: 'Line of business', value: 'Marketplace / ACA individual EPO (Qualified Health Plan, Celtic Insurance Company) — not MO HealthNet' },
+      { label: 'State mandate', value: 'RSMo § 376.1224 — applies to all health benefit plans issued or renewed on or after 1/1/2020, individual plans included' },
+      { label: 'Mandate age', value: 'Statute\'s ABA maximum runs through age 18; the Ambetter EOC states no ABA limit' },
+      { label: 'Mandate caps', value: 'Statute allows a $40,000/yr ABA maximum through age 18 (exceedable with prior approval); EOC: no limitation' },
+      { label: 'Exempt from mandate', value: 'Individually underwritten plans issued before 1/1/2011 (§ 376.1224.12) — not Ambetter' },
+      { label: 'Authorization period', value: 'Six months — CP.BH.105; EOC/§ 376.1224 limit plan review of the treatment plan to once every six months' },
+      { label: 'Licensure', value: 'Missouri Licensed Behavior Analyst (RSMo ch. 337)' },
+    ],
+    sections: [
+      {
+        h2: 'Commercial, not MO HealthNet',
+        body: [
+          'The 2026 Provider and Billing Manual describes Ambetter from Home State Health as Qualified Health Plan coverage in the Missouri Health Insurance Marketplace, underwritten by Celtic Insurance Company. The EOC is an "Individual EPO Health Benefit Plan": care comes from network providers except emergencies or approved exceptions, and members carry deductibles and coinsurance. Home State Health\'s policy page lists separate Ambetter copies of CP.BH.104 and CP.BH.105.',
+        ],
+        cites: [AMB_MO_PRM, AMB_MO_EOC, AMB_MO_POL],
+      },
+      {
+        h2: 'How long is an Ambetter Missouri ABA authorization?',
+        body: [
+          'Six months. CP.BH.105 measures protocol-modification billing across "the entire six-month authorization period," and CP.BH.104 requires an "Updated behavior assessment" and an updated treatment plan "at least every six months." Missouri law and the EOC cap how often the plan may review the plan: the carrier "shall have the right to review the treatment plan not more than once every six months unless" the carrier and the treating physician or psychologist agree a more frequent review is necessary.',
+          'Hours, not the period, drive partial approvals: CP.BH.104 lets the plan authorize "a lower intensity, frequency, or duration than requested" when documentation supports it, and requests above "six hours per day up to a total of 30 hours per week," or 20 or more hours a week for a child in school full time, need the extra justification the policy lists.',
+        ],
+        cites: [AMB_MO_BH105, AMB_MO_BH104, AMB_MO_EOC, AMB_MO_376],
+      },
+      {
+        h2: 'The Missouri autism benefit in the EOC',
+        body: [
+          'The EOC adopts RSMo 376.1224\'s definitions: treatment is care "prescribed or ordered for an individual diagnosed with an autism spectrum disorder by a licensed physician or licensed psychologist," including "applied behavior analysis therapy"; an autism service provider includes a person "licensed under chapter 337 as a board-certified behavior analyst" or assistant behavior analyst; a "Line therapist" implements the behavior plan "under the direct supervision of a licensed behavior analyst." On request the provider must furnish records "that substantiate that initial or continued medical treatment is medically necessary and is resulting in improved clinical status," and a treatment plan with "diagnosis, proposed treatment by type, frequency, anticipated duration of treatment, the anticipated outcomes stated as goals, and the frequency by which the treatment plan will be updated."',
+          'The statute itself allows an ABA maximum of "forty thousand dollars per calendar year for individuals through eighteen years of age," which may be exceeded with prior approval; the Ambetter EOC instead says no limitation exists for ABA.',
+        ],
+        cites: [AMB_MO_EOC, AMB_MO_376],
+      },
+      {
+        h2: 'Claims, timely filing and credentialing',
+        body: [
+          'The 2026 manual sets initial claims at 180 days from the date of service for participating providers (365 non-participating), reconsiderations and disputes at 180 days from Ambetter\'s EOP, and coordination-of-benefits claims at 180 days (365 non-participating) from the primary payer\'s EOP. Telehealth bills with POS 02 or 10 and the appropriate modifier, "reimbursed at the facility rate unless otherwise required per state guidelines." BCBAs are listed among eligible behavioral health providers; recredentialing "is required every 36 months."',
+        ],
+        cites: [AMB_MO_PRM],
+      },
+    ],
+    collect: [
+      { title: 'Confirm Marketplace, not MO HealthNet', desc: 'Home State Health also runs MO HealthNet managed care; an Ambetter card means commercial rules and cost sharing.' },
+      { title: 'Member ID + card photo', desc: 'For eligibility, deductible and coinsurance on Availity Essentials.' },
+      { title: 'Comprehensive diagnostic evaluation', desc: 'DSM diagnosis with severity, one clinician tool and one parent tool with scores and dates; under three years old for a new start (CP.BH.104).' },
+      { title: 'Physician or psychologist order and treatment plan', desc: 'The EOC covers treatment ordered by the treating licensed physician or psychologist in accordance with a treatment plan.' },
+      { title: 'Other coverage', desc: 'An employer plan pays first; the EOC excludes Medicaid from the "other plans" it coordinates with.' },
+    ],
+    sources: [
+      { title: 'Ambetter from Home State Health — Pre-Auth Needed tool (code lookups 2026-11-15)', url: 'https://www.ambetterhealth.com/en/mo/provider-resources/manuals-and-forms/pre-auth/' },
+      { title: 'Ambetter from Home State Health — 2026 Provider and Billing Manual (Missouri)', url: 'https://www.ambetterhealth.com/content/dam/centene/home-state-health/ambetter/pdfs/2026-mo-provider-manual.pdf' },
+      { title: 'Ambetter from Home State Health — 2026 Evidence of Coverage (99723MO009-2026, Individual EPO)', url: 'https://api.centene.com/EOC/2026/99723MO009.pdf' },
+      { title: 'Centene Clinical Policy CP.BH.104 — Applied Behavior Analysis (Home State Health Ambetter copy; last revision 02/26)', url: 'https://www.homestatehealth.com/content/dam/centene/home-state-health/ambetter/policies/clinical-policies/CP.BH.104.pdf' },
+      { title: 'Centene Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (Home State Health Ambetter copy; last revision 02/26)', url: 'https://www.homestatehealth.com/content/dam/centene/home-state-health/ambetter/policies/clinical-policies/CP.BH.105.pdf' },
+      { title: 'Home State Health — Clinical and Payment Policies (Ambetter policies listed separately)', url: 'https://www.homestatehealth.com/providers/tools-resources/clinical-payment-policies.html' },
+      { title: 'RSMo 376.1224 — Autism spectrum disorder coverage', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1224' },
+      { title: 'RSMo 376.1363 — Utilization review decisions, procedures', url: 'https://revisor.mo.gov/main/OneSection.aspx?section=376.1363' },
+    ],
+    deliveryRules: {
+      supervision: {
+        value: 'CP.BH.104: "Adaptive Behavior Treatment with Protocol Modification occurs for at least two hours per week or 10% of the direct service hours provided (whichever is greater), and no more than 20% of direct service hours provided (unless clinical documentation justifies)." CP.BH.105 enforces it: 97153/97154 hours over the authorization period unsupported by that floor are "subject to denial of payment or recoupment." The EOC defines the line therapist as working "under the direct supervision of a licensed behavior analyst."',
+        status: 'verified',
+        cites: [AMB_MO_BH104, AMB_MO_BH105, AMB_MO_EOC],
+      },
+      concurrentBilling: {
+        value: 'Not published. CP.BH.104/105 reproduce the 97155 CPT descriptor ("which may include simultaneous direction of technician") but state no rule on paying 97153 and 97155 for the same time.',
+        status: 'unverified',
+        cites: [AMB_MO_BH104, AMB_MO_BH105],
+        verifyVia: 'Ambetter from Home State Health Provider Services (number on the member ID card) — ask whether 97155 pays alongside 97153 for the same minutes.',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value: 'No benefit cap in the EOC ("No limitation exists within the benefits for applied behavior analysis services"), but CP.BH.104 sizes requests: "Do not exceed six hours per day up to a total of 30 hours per week" unless documentation justifies more, and "less than 20 hours per week if attending school full-time."',
+        status: 'verified',
+        cites: [AMB_MO_EOC, AMB_MO_BH104],
+      },
+      noteSignature: {
+        value: 'CP.BH.105: notes "completed prior to claim submission" with the "Signature of qualified rendering provider/technician"; documentation carries "the signature and printed names of the member/enrollee, legal guardian, rendering clinician/technician and supervising practitioner." Treatment plans carry the BCBA\'s and parent\'s signatures (CP.BH.104).',
+        status: 'verified',
+        cites: [AMB_MO_BH105, AMB_MO_BH104],
+      },
+      placeOfService: {
+        value: 'CP.BH.104: services "may be provided in various settings (e.g., home, clinic, school, community)"; school hours need a detailed school-based plan, IDEA-covered services are not medically necessary, and services "in lieu of school, respite care" are grounds for discontinuation.',
+        status: 'verified',
+        cites: [AMB_MO_BH104],
+      },
+      billAsProvider: {
+        value: 'Not published. Neither the manual, the EOC nor CP.BH.104 says whose NPI carries technician 97153 time; the EOC charges "a separate copayment and/or coinsurance" per provider when several providers serve the member the same day.',
+        status: 'unverified',
+        cites: [AMB_MO_PRM, AMB_MO_EOC],
+        verifyVia: 'Ambetter from Home State Health Provider Services or your participation agreement (rendering-provider field on technician lines).',
+        blocker: 'per-case',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value: 'None in the EOC: "No limitation exists within the benefits for applied behavior analysis services." RSMo 376.1224 permits a $40,000 calendar-year ABA maximum "for individuals through eighteen years of age," exceedable with prior approval, but the Ambetter contract does not impose it.',
+        status: 'verified',
+        cites: [AMB_MO_EOC, AMB_MO_376],
+      },
+      dxRecency: {
+        value: 'CP.BH.104: for a new start the CDE must have been "conducted in the past three years" (or three to five years old plus a diagnostic interview "within 12 months of the authorization request"); for continuing treatment, "within the past five years." The behavioral assessment must be no more than two months before the initial treatment authorization.',
+        status: 'verified',
+        cites: [AMB_MO_BH104],
+      },
+      diagnosingProviders: {
+        value: 'CP.BH.104: "a licensed physician, psychologist, or other licensed professional with specialized training in diagnosis and treatment of ASD, or a provider otherwise authorized under state law/regulation." The EOC\'s treatment definition requires the order from "a licensed physician or licensed psychologist."',
+        status: 'verified',
+        cites: [AMB_MO_BH104, AMB_MO_EOC],
+      },
+      diagnosticTools: {
+        value: 'CP.BH.104: "at least one primary clinician tool and one parent/caregiver tool" (e.g., STAT, ADI-R, CARS-2, ASRS, ADOS-2 plus M-CHAT-R/F, SCQ, SRS-2 Parent Report), with each "Test administered with scores and date completed."',
+        status: 'verified',
+        cites: [AMB_MO_BH104],
+      },
+      referral: {
+        value: 'An order, not a PCP referral: the EOC limits autism coverage to "medically necessary treatment that is ordered by the insured\'s treating licensed physician or licensed psychologist ... in accordance with a treatment plan," and CP.BH.104 requires a recommendation for ABA from a licensed physician, psychologist or qualified licensed professional (it may sit in the CDE). No Ambetter order form is published.',
+        status: 'verified',
+        cites: [AMB_MO_EOC, AMB_MO_BH104],
+      },
+      telehealth: {
+        value: 'Allowed with limits: CP.BH.104 contemplates telehealth as a supplement; CP.BH.105 requires a HIPAA-compliant platform with the provider\'s camera on, and the monthly one-on-one 97155 protocol work is "Not delivered via telemedicine/telehealth unless allowed by state guidelines." The manual bills telehealth with POS 02/10 and the appropriate modifier. No document lists which ABA codes may be remote.',
+        status: 'plan-dependent',
+        cites: [AMB_MO_BH104, AMB_MO_BH105, AMB_MO_PRM],
+        verifyVia: 'Ambetter from Home State Health Utilization Management — ask code by code (97151, 97153, 97156) before scheduling remote hours.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value: 'The 2026 manual: prospective non-urgent "Within 36 hours, to include (1) business day, receipt of all information needed to complete the review, not to exceed 14 calendar days from receipt of the request"; prospective urgent within 1 calendar day of all information; concurrent urgent within one calendar day (one extension up to 3 calendar days); retrospective within 30 calendar days. This matches RSMo 376.1363\'s 36-hour rule.',
+        status: 'verified',
+        cites: [AMB_MO_PRM, AMB_MO_1363],
+      },
+      coordinationOfBenefits: {
+        value: 'The EOC\'s "Other plan" definition covers group and individual insurance, HMOs, self-insured group plans and Medicare, and says "Other plan will not include Medicaid," so MO HealthNet pays after Ambetter. COB claims are due 180 days (365 non-participating) from the primary payer\'s EOP. The EOC text read this run does not state the order-of-benefit (birthday) rule between two parents\' plans.',
+        status: 'plan-dependent',
+        cites: [AMB_MO_EOC, AMB_MO_PRM],
+        verifyVia: 'Ambetter from Home State Health Member or Provider Services — confirm primacy when the child also has a parent\'s employer plan.',
+        blocker: 'per-case',
+      },
+    },
+    faq: [
+      { q: 'Is Ambetter in Missouri commercial or Medicaid?', a: 'Commercial. Ambetter from Home State Health is Missouri Marketplace coverage underwritten by Celtic Insurance Company; MO HealthNet members get ABA through state fee-for-service instead.' },
+      { q: 'How long is an Ambetter Missouri ABA authorization?', a: 'Six months (CP.BH.105 "six-month authorization period"; reassessment and treatment plan update at least every six months). Missouri law lets the plan review the treatment plan no more than once every six months unless agreed otherwise.' },
+      { q: 'Does Ambetter Missouri require prior authorization for the ABA assessment?', a: 'Yes — 97151, 97152 and 0362T return "Pre-authorization is required for all providers," as do the treatment codes. Request at least five business days before the service date.' },
+      { q: 'Is there a dollar cap on ABA with Ambetter in Missouri?', a: 'Not in the 2026 EOC, which says no limitation exists for ABA. RSMo 376.1224 would allow a $40,000/yr maximum through age 18, exceedable with prior approval.' },
+      { q: 'What is Ambetter Missouri\'s timely filing limit?', a: '180 days from the date of service for participating providers (365 non-participating); 180 days from the EOP for disputes and for secondary claims after a primary payer.' },
     ],
   },
 };

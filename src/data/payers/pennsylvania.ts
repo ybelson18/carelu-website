@@ -335,6 +335,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What modifier goes on 97153 when a BCBA delivers the direct therapy in Pennsylvania Medical Assistance?', a: 'None is published, because the state code table has no BCBA line for 97153. OMHSAS-21-03 Attachment A (IBHS procedure codes, provider type 11, specialty 592) prices 97153 two ways: with no pricing modifier for the Behavior Health Technician-ABA ($12.73 per 15 minutes) and with U8 for Assistant Behavior Consultation-ABA ($15.76). U7 (Behavior Analytic or Behavior Consultation by a BCBA) appears only on 97151, 97155 and 97156. Time a BCBA spends directing the technician or modifying the protocol goes on 97155 with U7. For direct 97153 time by a BCBA, ask the child\'s BH-MCO, whose fee schedule sets the billable code and modifier for HealthChoices members.' },
       { q: 'Can 97153 be billed as telehealth in Pennsylvania Medicaid, and with what modifier?', a: 'In fee-for-service, yes: the MA Fee Schedule lists 97153 (and 97151, 97155, 97156) with POS 02 and POS 10, paid at the in-person rate. No video modifier is needed; FQ marks audio-only. HealthChoices members follow their BH-MCO’s billing instructions.' },
       { q: 'Does Pennsylvania Medicaid accept H0031 or H0032 for ABA?', a: 'ABA agencies bill CPT 97151–97158 (97157 excepted). H0031 with U9 or UB is allowed for the mental health assessment of need; H0032 is an individual-services code, not an ABA code.' },
       { q: 'Does Pennsylvania Medicaid cover ABA therapy?', a: 'Yes — as ABA services within Intensive Behavioral Health Services (55 Pa. Code Chapter 1155), for children, youth and young adults under 21 with a behavioral health diagnosis, delivered by a licensed IBHS agency on a written order from a licensed prescriber.' },
@@ -1019,7 +1020,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           'Magellan wants ABA recommendations written as service lines and hours, not CPT codes: its 2025 training says recommendations must be made as BC-ABA and BHT-ABA and "Should not be listed as CPT codes". The authorization codes are buckets — BC-ABA is authorized as 97151 HO and billed as 97151/97155/97156 with HO (plus HA when a behavior analyst renders); BHT-ABA is authorized as 97152 HO and billed as 97152/97153 HO (HO HA for assistant behavior consultation-ABA).',
         ],
         cites: [
-          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
           { title: 'Magellan of PA — IBHS/ABA New Provider Training (Somerset-Bedford, Nov. 2025)', url: 'https://www.magellanofpa.com/documents/2025/11/s-b-new-provider-training-ibhsaba-11052025.pdf' },
           { title: '55 Pa. Code Chapter 1155 — Intensive Behavioral Health Services (payment)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1155/chap1155toc.html' },
         ],
@@ -1037,7 +1038,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           { title: 'Magellan of PA — IBHS Authorization Request Checklist (rev. 02/12/2026)', url: 'https://www.magellanofpa.com/documents/2026/02/021626_ibhsauthrequestchecklist.pdf' },
           { title: 'Magellan of PA — IBHS TAR Registration Cover Sheet (rev. 11/01/2025)', url: 'https://www.magellanofpa.com/documents/2021/07/p-forms-ibhs-tar-registration-cover-sheet.pdf' },
           { title: 'Magellan of PA — IBHS TAR Facesheet for Individual & ABA IBHS (rev. 11/01/2025)', url: 'https://www.magellanofpa.com/documents/2025/09/ibhs-tar-facesheet-for-individual-aba-ibhs.pdf' },
-          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
         ],
       },
       {
@@ -1047,7 +1048,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           'Magellan’s July 2026 workgroup deck states "Magellan auths are all a maximum of 6 months", with a footnote that Somerset-Bedford ABA authorizations can run up to one year.',
         ],
         cites: [
-          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
           { title: 'Magellan of PA — IBHS Provider Workgroup, July 30, 2026', url: 'https://www.magellanofpa.com/documents/2026/07/073126_ibhsproviderworkgrouponjuly302026.pdf' },
           { title: 'DHS HealthChoices BH Program Standards and Requirements, Appendix AA — Prior Authorization Requirements (Jan. 1, 2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Appendix-AA-Prior-Authorization-Requirements.pdf' },
         ],
@@ -1059,7 +1060,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           'For Act 62 (autism) children the supplement tells providers to bill the private insurer first "even if a denial was previously received" and send evidence of exhaustion or denial. When the primary denies, Magellan accepts retrospective review requests within 180 days of the primary’s final decision, with the EOB or denial letter attached.',
         ],
         cites: [
-          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
           { title: 'Magellan of PA — IBHS/ABA New Provider Training (Somerset-Bedford, Nov. 2025)', url: 'https://www.magellanofpa.com/documents/2025/11/s-b-new-provider-training-ibhsaba-11052025.pdf' },
           { title: 'Magellan of PA — IBHS Provider Workgroup, July 30, 2026', url: 'https://www.magellanofpa.com/documents/2026/07/073126_ibhsproviderworkgrouponjuly302026.pdf' },
           { title: '55 Pa. Code § 1101.64 — Third-party medical resources (TPR)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.64.html' },
@@ -1081,7 +1082,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           'Magellan publishes an IBHS transfer process, and the authorization does not simply move \u2014 the receiving provider asks for its own. Once a receiving provider is identified, the currently authorized provider sends it \u201ca copy of the approved packet\u201d and \u201ca statement on letterhead acknowledging the transfer of the member and noting the mutually agreed upon date of transfer\u201d; \u201cno Magellan discharge form needs to be submitted.\u201d The receiving provider then submits through the provider portal the current provider\u2019s letter, its own letter on letterhead with the same agreed transfer date, and a \u201cTAR to ensure accuracy of new authorization.\u201d Members who ask to transfer are encouraged to discuss it with their current provider first, and for managed levels of care the care manager tells the treating provider by phone before the transfer.',
         ],
         cites: [
-          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
         ],
       },
       {
@@ -1090,26 +1091,26 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
           'Every provider \u2014 organization, individual practitioner or group \u2014 must sign a Magellan Provider Participation Agreement to accept referrals and be paid, must be actively enrolled in PA Medical Assistance for the contracted services, and is credentialed under 28 Pa. Code \u00a7\u00a7 9.761\u20139.762. Magellan\u2019s supplement describes network inclusion as an application that can be declined (\u201cIf you apply for network inclusion and are declined, Magellan will provide written notice of the reason\u201d), existing providers \u201cmay not be eligible to expand services while they are under a corrective action plan,\u201d and new in-lieu-of or in-addition-to services need letters of support from both Magellan and the county. It does not state whether IBHS-ABA is currently open in a given county, and it posts no ABA rate table \u2014 ask Magellan network management for both.',
         ],
         cites: [
-          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
         ],
       },
       {
         h2: 'What are Magellan’s claim filing, payment and appeal rules?',
         body: [
-          'Magellan’s Pennsylvania HealthChoices supplement (rev. 11/25): claims must be received “within 60 days of the date of service for most levels of care,” and third-party (secondary) claims within 60 days of the other carrier’s EOB, which must be attached. Resubmissions of claims with billing errors are due “within 60 days of the date on Magellan’s explanation of benefits.” Magellan “will pay clean claims within 45 days of the date of receipt,” with 10 percent annual interest on late clean claims. A written claim appeal with supporting documentation goes to Claim Appeals (ClaimAppealsPAHC@MagellanHealth.com) and is decided within 30 days; “No claim appeal will be considered past 365 days from the date of service.” After that comes the two-level provider complaint process.',
+          'Magellan’s Pennsylvania HealthChoices supplement (rev. 11/26): claims must be received “within 60 days of the date of service for most levels of care,” and third-party (secondary) claims within 60 days of the other carrier’s EOB, which must be attached. Resubmissions of claims with billing errors are due “within 60 days of the date on Magellan’s explanation of benefits.” Magellan “will pay clean claims within 45 days of the date of receipt,” with 10 percent annual interest on late clean claims. A written claim appeal with supporting documentation goes to Claim Appeals (ClaimAppealsPAHC@MagellanHealth.com) and is decided within 30 days; “No claim appeal will be considered past 365 days from the date of service.” After that comes the two-level provider complaint process.',
           'On the claim, services that require ordering, referring or prescribing (ORP) data under OMHSAS rules must carry it on every submission, and every ORP practitioner reported must be actively enrolled in Pennsylvania Medicaid; the IBHS written-order writer must be ORP-enrolled. Procedure codes and modifiers come from your Magellan agreement and reimbursement schedules, not a public list. The supplement states no taxonomy rule for claims and does not mention EVV; DHS applies EVV only to personal care and home health services delivered in the home.',
         ],
         cites: [
-          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
           { title: 'PA DHS — Electronic Visit Verification (EVV) and EVV FAQ', url: 'https://www.pa.gov/agencies/dhs/resources/for-providers/evv/faq-evv' },
         ],
       },
       {
         h2: 'Can a Magellan HealthChoices member use an out-of-network IBHS/ABA provider?',
         body: [
-          'Only if Magellan approves it. Magellan\'s HealthChoices supplement (rev. 11/25) lists among member responsibilities: “Use only network providers unless Magellan approves an out-of-network provider.” The supplement sets no ABA single-case-agreement process or rate; ask Magellan network management.',
+          'Only if Magellan approves it. Magellan\'s HealthChoices supplement (rev. 11/26) lists among member responsibilities: “Use only network providers unless Magellan approves an out-of-network provider.” The supplement sets no ABA single-case-agreement process or rate; ask Magellan network management.',
         ],
-        cites: [{ title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' }],
+        cites: [{ title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' }],
       },
     ],
     collect: [
@@ -1120,7 +1121,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { title: 'Caregiver availability for the assessment', desc: 'Magellan’s referral form asks for caregiver days/times; the assessment must cover every setting where services will be delivered.' },
       { title: 'Consent to release information', desc: 'Magellan’s referral form requires written consent before it can send clinical information to providers.' },
     ],
-    sources: [ { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },{ title: 'Magellan of PA — Provider Rate Updates (October 21, 2026)', url: 'https://www.magellanofpa.com/documents/2026/10/102126_providerratesannouncement.pdf/' }, 
+    sources: [ { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },{ title: 'Magellan of PA — Provider Rate Updates (October 21, 2026)', url: 'https://www.magellanofpa.com/documents/2026/10/102126_providerratesannouncement.pdf/' }, 
       { title: 'Magellan of PA — Intensive Behavioral Health Services (IBHS) provider page', url: 'https://www.magellanofpa.com/for-providers/services-programs/intensive-behavioral-health-services-ibhs/' },
       { title: 'Magellan of PA — IBHS Authorization Request Checklist (rev. 02/12/2026)', url: 'https://www.magellanofpa.com/documents/2026/02/021626_ibhsauthrequestchecklist.pdf' },
       { title: 'Magellan of PA — IBHS/ABA New Provider Training (Somerset-Bedford, Nov. 2025)', url: 'https://www.magellanofpa.com/documents/2025/11/s-b-new-provider-training-ibhsaba-11052025.pdf' },
@@ -1161,7 +1162,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       value: 'Registration only — the initial ABA assessment (authorization code 97151 HA) is opened with the IBHS Registration TAR plus the written order through Availity, and Magellan authorizes 24 hours (96 units) over 45 calendar days; there is no medical-necessity review at this step. Ongoing reassessments are done within the approved BC-ABA units before the reauthorization request.',
       status: 'verified',
       cites: [
-        { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+        { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
         { title: 'Magellan of PA — IBHS Authorization Request Checklist (rev. 02/12/2026)', url: 'https://www.magellanofpa.com/documents/2026/02/021626_ibhsauthrequestchecklist.pdf' },
         { title: 'Magellan of PA — IBHS TAR Registration Cover Sheet (rev. 11/01/2025)', url: 'https://www.magellanofpa.com/documents/2021/07/p-forms-ibhs-tar-registration-cover-sheet.pdf' },
       ],
@@ -1171,7 +1172,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       status: 'verified',
       cites: [
         { title: 'Magellan of PA — IBHS Authorization Request Checklist (rev. 02/12/2026)', url: 'https://www.magellanofpa.com/documents/2026/02/021626_ibhsauthrequestchecklist.pdf' },
-        { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+        { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
         { title: 'Magellan of PA — IBHS Provider Workgroup, July 30, 2026', url: 'https://www.magellanofpa.com/documents/2026/07/073126_ibhsproviderworkgrouponjuly302026.pdf' },
       ],
     },
@@ -1179,7 +1180,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       value: 'No autism diagnosis required — IBHS ABA serves children, youth and young adults with a behavioral health diagnosis. Magellan’s written order must include a behavioral health diagnosis (its TAR asks for the DSM-5 diagnosis with ICD-10 code); Magellan publishes nothing narrower than the state rule.',
       status: 'verified',
       cites: [
-        { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+        { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
         { title: 'Magellan of PA — IBHS TAR Facesheet for Individual & ABA IBHS (rev. 11/01/2025)', url: 'https://www.magellanofpa.com/documents/2025/09/ibhs-tar-facesheet-for-individual-aba-ibhs.pdf' },
         { title: 'OMHSAS IBHS Frequently Asked Questions (updated February 2022)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/healthchoices/hc-providers/documents/intensive-behavioral-health-services-(ibhs)/ibhs-faq-updated-02-22-22.pdf' },
       ],
@@ -1190,7 +1191,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
-          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
         ],
       },
       concurrentBilling: {
@@ -1216,7 +1217,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         value: 'State rule plus Magellan’s documentation standards. 55 Pa. Code § 5240.41 requires each service note to carry the signature of the staff person providing the service. Magellan’s supplement requires entries "signed and dated by the responsible licensed provider" (ancillary staff countersigned), clock start/end times, and a member (or agent) signature on the encounter form per MA Bulletin 99-89-05 — for telehealth, hand-written or audited electronic signatures, obtained "no later than 90 days after the service". Magellan’s 2026 audit list flags an electronic signature that precedes the session end time. For corrections, the general Medical Assistance record standard applies to enrolled providers: "Entries shall be signed and dated by the responsible licensed provider. Care rendered by ancillary personnel shall be countersigned by the responsible licensed provider. Alterations of the record shall be signed and dated" (55 Pa. Code § 1101.51(e)(1)(iii)).',
         status: 'verified',
         cites: [ { title: '55 Pa. Code § 1101.51 — Ongoing responsibilities of providers (record keeping standards)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.51.html' },
-          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
           { title: 'Magellan of PA — Audit Trends (June 2026)', url: 'https://www.magellanofpa.com/documents/2026/06/061226_audittrendsasofjune2026.pdf' },
           { title: '55 Pa. Code Chapter 5240 — Intensive Behavioral Health Services (licensing)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter5240/chap5240toc.html' },
         ],
@@ -1227,14 +1228,14 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         cites: [
           { title: 'Magellan of PA — IBHS/ABA New Provider Training (Somerset-Bedford, Nov. 2025)', url: 'https://www.magellanofpa.com/documents/2025/11/s-b-new-provider-training-ibhsaba-11052025.pdf' },
           { title: 'Magellan of PA — IBHS Provider Workgroup, July 30, 2026', url: 'https://www.magellanofpa.com/documents/2026/07/073126_ibhsproviderworkgrouponjuly302026.pdf' },
-          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
         ],
       },
       billAsProvider: {
         value: 'The IBHS agency bills. Magellan wants one Type 2 NPI per rendering service location; group providers also report the rendering practitioner’s Type 1 NPI (CMS-1500 box 24J / loop 2310B). The credential of whoever rendered is carried in the contracted modifiers — e.g., 97155 HO for BC-ABA vs 97155 HO HA for a behavior analyst; 97153 HO for BHT-ABA vs 97153 HO HA for assistant BC-ABA — listed "in the order that they show on the fee schedule". ORP-required claims must carry the enrolled order writer.',
         status: 'verified',
         cites: [
-          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
           { title: 'Magellan of PA — IBHS/ABA New Provider Training (Somerset-Bedford, Nov. 2025)', url: 'https://www.magellanofpa.com/documents/2025/11/s-b-new-provider-training-ibhsaba-11052025.pdf' },
           { title: 'Magellan of PA — IBHS Provider Workgroup, July 30, 2026', url: 'https://www.magellanofpa.com/documents/2026/07/073126_ibhsproviderworkgrouponjuly302026.pdf' },
         ],
@@ -1246,7 +1247,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: '55 Pa. Code Chapter 1155 — Intensive Behavioral Health Services (payment)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1155/chap1155toc.html' },
-          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
         ],
       },
       dxRecency: {
@@ -1254,14 +1255,14 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'Magellan of PA — IBHS/ABA New Provider Training (Somerset-Bedford, Nov. 2025)', url: 'https://www.magellanofpa.com/documents/2025/11/s-b-new-provider-training-ibhsaba-11052025.pdf' },
-          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
         ],
       },
       diagnosingProviders: {
         value: 'The written order (which carries the diagnosis) can come from a licensed physician, licensed psychologist, certified registered nurse practitioner, or other licensed practitioner whose scope includes diagnosing and treating behavioral health disorders and prescribing IBHS; Magellan requires the writer to be ORP-enrolled. A psychiatric/psychological evaluation or best-practice evaluation containing all written-order elements can substitute. LCSW: not named. The written order may come from one only if the LCSW\'s scope includes diagnosing behavioral health disorders and prescribing behavioral health services, which the rule does not settle; confirm with Magellan.',
         status: 'verified',
         cites: [
-          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
           { title: 'Magellan of PA — IBHS/ABA New Provider Training (Somerset-Bedford, Nov. 2025)', url: 'https://www.magellanofpa.com/documents/2025/11/s-b-new-provider-training-ibhsaba-11052025.pdf' },
         ],
       },
@@ -1270,7 +1271,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'Magellan of PA — IBHS/ABA New Provider Training (Somerset-Bedford, Nov. 2025)', url: 'https://www.magellanofpa.com/documents/2025/11/s-b-new-provider-training-ibhsaba-11052025.pdf' },
-          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
         ],
       },
       referral: {
@@ -1286,7 +1287,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         status: 'verified',
         cites: [
           { title: 'Magellan of PA — Telehealth FAQ for Providers (as of June 1, 2023)', url: 'https://www.magellanofpa.com/documents/2023/06/060123_updatedtelehealthfaq.pdf' },
-          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
           { title: 'OMHSAS-22-02 — Revised Guidelines for Delivery of BH Services Through Telehealth (eff. 7/1/2022)', url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/docs/documents/omhsas/Bulletin%20OMHSAS-22-02%20-%20Revised%20Guidelines%20for%20Delivery%20of%20BH%20Services%20Through%20Telehealth%207.1.22.pdf' },
         ],
       },
@@ -1294,7 +1295,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         value: 'Pre-service standard 2 business days; concurrent 1 business day; pre-service urgent up to 3 hours; retro review 30 calendar days. Missing information is requested within 48 hours, the provider gets up to 14 calendar days, then a decision within 2 business days (initial) or 1 business day (concurrent). DHS Appendix AA adds that a service is automatically approved if no written decision reaches the member within 21 days. Federal 42 CFR 438.210(d) caps standard decisions at 7 calendar days (expedited 72 hours) for rating periods from 1/1/2026 — Magellan’s published clock is faster. Reauth packets: no more than 30 days before the last covered day; start date no more than 2 business days before submission.',
         status: 'verified',
         cites: [
-          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
           { title: 'DHS HealthChoices BH Program Standards and Requirements, Appendix AA — Prior Authorization Requirements (Jan. 1, 2026)', url: 'https://s18637.pcdn.co/wp-content/uploads/sites/79/Appendix-AA-Prior-Authorization-Requirements.pdf' },
           { title: '42 CFR 438.210(d) — Medicaid managed care authorization timeframes', url: 'https://www.ecfr.gov/current/title-42/section-438.210' },
         ],
@@ -1303,7 +1304,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         value: 'Magellan is always the last payer: bill the primary first for an EOB, and use a provider in both networks when the primary covers the service. Magellan will not pay as primary because the agency is out of network with the primary, but can when the primary benefit is exhausted or the service is not covered. Its own authorization is still needed when commercial is primary — "If there is TPL involved, packet still needs to be submitted to MBH". For Act 62 children, bill the private insurer "even if a denial was previously received"; retro review is available within 180 days of the primary’s final decision with the EOB. If the primary does not cover telehealth, seek pre-authorization through Magellan as secondary. When TRICARE is also present it pays ahead of Medicaid: 10 U.S.C. 1079(i)(1) makes TRICARE secondary to other coverage "except in the case of a plan administered under title XIX".',
         status: 'verified',
         cites: [
-          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/25)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
+          { title: 'Magellan Behavioral Health of PA — Provider Handbook Supplement for HealthChoices (rev. 11/26)', url: 'https://www.magellanprovider.com/media/1661/pa_healthchoices_supp.pdf' },
           { title: 'Magellan of PA — IBHS/ABA New Provider Training (Somerset-Bedford, Nov. 2025)', url: 'https://www.magellanofpa.com/documents/2025/11/s-b-new-provider-training-ibhsaba-11052025.pdf' },
           { title: 'Magellan of PA — Telehealth FAQ for Providers (as of June 1, 2023)', url: 'https://www.magellanofpa.com/documents/2023/06/060123_updatedtelehealthfaq.pdf' },
           { title: '55 Pa. Code § 1101.64 — Third-party medical resources (TPR)', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/055/chapter1101/s1101.64.html' },
@@ -3703,7 +3704,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         h2: 'How fast must Aetna pay a clean ABA claim in Pennsylvania?',
         body: [
           'Pennsylvania’s prompt-pay rule, 31 Pa. Code § 154.18, requires licensed insurers and managed care plans to pay clean claims "within 45 days of the licensed insurer’s or managed care plan’s receipt of the claim," with interest on late clean claims paid within 30 days of the claim payment. It applies to claims under health insurance policies.',
-          'Aetna disputes run in two steps: a reconsideration "within 180 calendar days of the initial claim decision," then an appeal "within 60 calendar days of the reconsideration decision," with a written decision within 60 business days. Aetna’s manual sets no fixed timely-filing number: a clean claim is one "received in a timely manner," and the deadline comes from the participation agreement or state law.',
+          'Aetna disputes run in two steps: a reconsideration "within 180 calendar days of the initial claim decision," then an appeal "within 60 calendar days of the reconsideration decision." Aetna says it will "send a decision by mail or fax within 60 calendar days of receiving your appeal or any additional information" it requested, and that a reconsideration usually gets an EOB or letter "within 30 business days." Aetna’s manual sets no fixed timely-filing number: a clean claim is one "received in a timely manner," and the deadline comes from the participation agreement or state law.',
         ],
         cites: [
           { title: '31 Pa. Code § 154.18 — Prompt payment', url: 'https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/031/chapter154/s154.18.html' },
@@ -4310,6 +4311,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       { q: 'What is Cigna’s clean-claim payment turnaround in Pennsylvania?', a: 'Within 45 days of receipt of a clean claim (31 Pa. Code § 154.18), for insured plans.' },
       { q: 'What is Cigna’s timely filing limit in Pennsylvania?', a: 'Ninety days from the date of service under Evernorth’s administrative guidelines, unless your provider agreement or a longer state-law limit says otherwise.' },
       { q: 'How long do I have to file a secondary or corrected Cigna claim?', a: 'A secondary claim is due 90 days from the primary payer’s processing date on its EOB or EOP. A claim returned for more information gets 90 days from the date of the request. Mark a corrected claim with frequency code 7 or 8 in field 22.' },
+      { q: 'What modifier goes on 97153 when a BCBA delivers the direct therapy for Cigna in Pennsylvania?', a: 'Evernorth publishes no credential modifier for ABA. Its autism resource guide (March 2025) says all ABA services “must be billed with CPT codes 97151–97158, 0362T, and 0373T ONLY,” and its code table lists 97153 as provided by a “BCaBA, technician” and billed by a “BCBA-D, BCBA, or licensed mental health provider.” Unlicensed or uncertified staff are not credentialed, so their services bill under the supervising provider. The guide does not cover a BCBA delivering 97153 personally. Confirm the coding with Evernorth Provider Services (800.926.2273) before billing it.' },
       { q: 'Does Cigna accept H0031 or other H-codes for ABA?', a: 'No H-codes are listed. Evernorth bills ABA on CPT 97151–97158, 0362T and 0373T, and claims without a covered code are denied as not covered.' },
       { q: 'Does Cigna require graphs with an ABA reauthorization?', a: 'EN0499 does not say “graphs”. It requires dated baseline, interim and current quantitative data, with current data no more than 60 days old, plus a standardized instrument from within the past year.' },
     ],
@@ -4516,7 +4518,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
         desc: 'Medical Assistance/PH-95, a second parent’s plan, TRICARE or CHAMPVA. UnitedHealthcare goes first ahead of MA.'
       }
     ],
-    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' },  { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' },
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 13, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' },  { title: 'UnitedHealthcare — Information on payment of out-of-network benefits', url: 'https://www.uhc.com/legal/information-on-payment-of-out-of-network-benefits' },
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC; annual review 8/2025, interim review 4/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA, eff. July 2026; Pennsylvania Commercial entry)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'Optum Provider Express — Applied Behavior Analysis Information (portal authorizations)', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2.html' },
@@ -4681,7 +4683,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       }
     },
     faq: [
-      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'No. UnitedHealthcare\'s commercial list of codes that no longer need prior authorization for members younger than 18 from Dec. 1, 2026 (revised Nov. 13, 2026) names no ABA code: 97151–97158, 0362T and 0373T are all absent. The Nov. 6 revision had listed 0362T and 0373T; the current one does not, and it says “This list applies to medical services only. Continue to reference your usual channels for behavioral health services.” So ABA still needs authorization through Optum as before. The Individual Exchange and Community Plan lists name no ABA code either. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool.' },
       { q: 'Does UnitedHealthcare pay out-of-network ABA providers?', a: 'Only under the member\'s out-of-network benefits, priced by a method the plan sets (a percentage of CMS rates, FAIR Health, Viant or a negotiated rate). On commercial HMO plans an out-of-network provider can be approved when no network provider is available in time or nearby; the PCP requests an out-of-network prior authorization, and the member then pays only in-network cost-sharing.' },
       {
         q: 'Does UnitedHealthcare cover ABA therapy in Pennsylvania?',
@@ -4701,6 +4703,7 @@ export const pennsylvaniaPayers: Record<string, PayerConfig> = {
       },
       { q: 'How often does UnitedHealthcare (Optum) reauthorize ABA?', a: 'Optum, which manages UnitedHealthcare’s behavioral health benefits, says “At a minimum, most treatment reviews are required every 4-6 months depending on the account/state law.” Call in the continued-care request “no more than 30 days prior to the current approvals on file expiring,” with updated progress data measured the same way as baseline and updated standardized measures. There is no fixed reassessment frequency (“There is no required frequency at which an assessment must take place”) — ask for reassessment hours inside the treatment request. If more hours are needed mid-authorization, call the ABA team with a clinical rationale. On Act 62 plans the insurer may review the treatment plan once every six months unless a different interval is agreed.' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Pennsylvania?', a: 'Optum, which administers UnitedHealthcare’s behavioral health claims, needs all claim information within 90 calendar days of the date of service unless state law, federal law or the benefit plan allows longer; corrections are due within 90 days of initial claim receipt. Check your agreement too.' },
+      { q: 'What modifier goes on 97153 when a BCBA delivers the direct therapy for UnitedHealthcare in Pennsylvania?', a: 'HO, or HP for a BCBA-D. Optum\'s commercial ABA reimbursement policy (2022RP501A, updated June 2026) lists HN, HM, HO or HP as the allowed modifiers on 97153, and says the modifier “must accurately reflect the provider level and licensure of the individual who rendered the service.” HO is for “a master’s level clinician – Board Certified Behavior Analyst (BCBA) or a licensed mental health provider,” HP for a BCBA-D, HN for a BCaBA and HM for an RBT. Bill only one provider-level modifier per line.' },
       { q: 'Does UnitedHealthcare accept H0031 or other H-codes for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158 (with an HM, HN, HO or HP credential modifier), 0362T and 0373T. No H-codes are listed.' },
       { q: 'What is UnitedHealthcare’s clean-claim payment turnaround in Pennsylvania?', a: 'Within 45 days of receipt of a clean claim (31 Pa. Code § 154.18), for insured plans.' },
       { q: 'Does UnitedHealthcare require a taxonomy code on the claim in Pennsylvania?', a: 'Yes. The 2026 administrative guide requires a valid billing NPI, rendering NPI and relevant taxonomy code on all claims and encounters.' },

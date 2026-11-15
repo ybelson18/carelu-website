@@ -41,7 +41,7 @@ const G1_BCBSNM_ERISA = { title: '29 CFR 2560.503-1(f)(2) — ERISA group health
 export const newMexicoPayers: Record<string, PayerConfig> = {
   'new-mexico-medicaid': {
     slug: 'new-mexico-medicaid',
-    cardDesc: 'ASD or at-risk, adults included; no PA on assessment; LOD #53 rate floor for MCOs.',
+    cardDesc: 'ASD or at-risk, adults included; no PA on assessment; FFS rates are the MCO floor (LOD #36-3).',
     assessmentPA: {
       value: 'Not required — 97151, 97152, and 0362T are marked "Prior Auth: NO" on the state fee schedule; adults can access the assessment without PA too',
       status: 'verified',
@@ -71,7 +71,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
     h1: 'New Mexico Medicaid (Turquoise Care) ABA coverage: the intake guide.',
     metaTitle: 'New Mexico Medicaid (Turquoise Care) ABA Coverage, Rates & Prior Auth | Carelu',
     metaDescription:
-      'How New Mexico Medicaid covers ABA under Turquoise Care — the at-risk-for-ASD pathway, the adult ABA benefit with no age cap, no prior auth on the 97151 assessment, the inverted under-20-hours PA quirk, LOD #53 fee-schedule rates as an MCO floor, and the four-MCO landscape.',
+      'How New Mexico Medicaid covers ABA under Turquoise Care — the at-risk-for-ASD pathway, the adult ABA benefit with no age cap, no prior auth on the 97151 assessment, the inverted under-20-hours PA quirk, FFS fee-schedule rates as an MCO floor (LOD #36-3), and the four-MCO landscape.',
     intro: [
       'New Mexico Medicaid runs one of the most expansive ABA benefits in the country. Under NMAC 8.321.2.13 and MAD Supplement 24-13, coverage isn\'t limited to a strict autism diagnosis — recipients with a well-documented RISK for developing ASD qualify through a dedicated at-risk pathway — and there is no upper age limit: New Mexico operates an explicit adult ABA benefit beyond EPSDT. The front door is fast, too: the 97151 assessment needs no prior authorization. Since July 1, 2024 the benefit is administered by four Turquoise Care MCOs (BCBS of New Mexico, Molina, Presbyterian, UnitedHealthcare Community Plan), with fee-for-service and a Third-Party Assessor for non-MCO recipients — and Letter of Direction #53 makes the published FFS fee schedule a rate floor every MCO must meet.',
     ],
@@ -82,7 +82,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { label: 'The inverted quirk', value: 'Comprehensive treatment averaging UNDER 20 hrs/week requires PA (3.17.1(A))' },
       { label: 'Diagnosis recency', value: 'Dx (or adult ASD confirmation) within 3 years of the service referral' },
       { label: 'Rates (per 15 min)', value: '97153: $32.31 BCBA · $23.35 BCaBA · $19.85 BT; 97151: $112.65 BCBA (eff. 1/1/2025)' },
-      { label: 'Rate floor', value: 'LOD #53 — MCOs (and their sub-vendors) must pay at least the FFS fee schedule' },
+      { label: 'Rate floor', value: 'MCOs (and their sub-vendors) may not pay less than the MAD FFS rate — LOD #36-3 (June 2025); LOD #53 (March 2025) set the 1/1/2025 ABA rates and has sunset' },
       { label: 'Staff screening', value: 'NM criminal background registry check for every practitioner class — BCBA down to non-certified BT — attested on MAD-877/878 before rendering' },
     ],
     sections: [
@@ -202,7 +202,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Stage 1 evaluation status', desc: 'Has an Autism Evaluation Provider done the CDE/targeted/risk evaluation and ISP? If yes, Stage 2 assessment can book immediately — no PA.' },
       { title: 'Planned weekly intensity', desc: 'Comprehensive programs under 20 hrs/week trigger the PA quirk — plan hours (and the family\'s real availability) before the treatment request.' },
     ],
-    sources: [{ title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, 
+    sources: [{ title: 'New Mexico HCA — Managed Care Letters of Direction (index)', url: 'https://www.hca.nm.gov/lookingforinformation/managed-care-letters-of-direction/' }, { title: 'Letter of Direction #36-3 — State Fiscal Year 2025 Payment Rate Increases (June 10, 2025; MCOs may not pay less than the MAD FFS rate)', url: 'https://www.hca.nm.gov/wp-content/uploads/LOD-36-3-State-Fiscal-Year-2025-Payment-Rate-Increase-RR-LOD-36-2.pdf' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, 
       { title: 'NMAC 8.321.2.13 Applied Behavior Analysis (Cornell LII)', url: 'https://www.law.cornell.edu/regulations/new-mexico/N-M-Admin-Code-SS-8.321.2.13' },
       { title: 'MAD Supplement 24-13 — Applied Behavior Analysis (ABA) Guidance (9/17/2024)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
       { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (eff. 1/1/2025)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
@@ -391,7 +391,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { label: 'Treatment request', value: 'ABA Clinical Service Request Form, ≥2 weeks (up to 60 days) before start' },
       { label: 'Submission', value: 'Availity (BCBSNM standard); the ABA form also goes by fax' },
       { label: 'Exclusions', value: 'ABA for educational, vocational, respite, or custodial purposes' },
-      { label: 'Rates', value: 'Must pay at least the state FFS ABA fee schedule (LOD #53)' },
+      { label: 'Rates', value: 'Must pay at least the state FFS ABA fee schedule (LOD #36-3; LOD #53 set the 1/1/2025 ABA rates)' },
     ],
     sections: [
       {
@@ -473,7 +473,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Adult vs. child case', desc: 'Adult authorizations should cite Supplement 24-13, since the LOC guidelines only describe ages 12 months–21.' },
       { title: 'Tech roster compliance', desc: '18+, HS/GED, background check, 40 hrs training, ≥5% BCBA oversight — verify before naming line staff on the request.' },
     ],
-    sources: [
+    sources: [{ title: 'Letter of Direction #36-3 — State Fiscal Year 2025 Payment Rate Increases (June 10, 2025; MCOs may not pay less than the MAD FFS rate)', url: 'https://www.hca.nm.gov/wp-content/uploads/LOD-36-3-State-Fiscal-Year-2025-Payment-Rate-Increase-RR-LOD-36-2.pdf' }, 
       { title: 'Turquoise Care BH Level of Care Guidelines (BCBSNM-hosted)', url: 'https://www.bcbsnm.com/turquoise-care/pdf/tc-bh-level-care-guidelines-nm.pdf' },
       { title: 'BCBSNM ABA Clinical Service Request Form', url: 'https://www.bcbsnm.com/docs/provider/nm/education/forms/aba-clinical-service-request.pdf' },
       { title: 'BCBSNM CPCP011 Applied Behavioral Analysis coding policy (2026)', url: 'https://www.bcbsnm.com/docs/provider/nm/standards/cpcp/2026/cpcp011-3-20-2026.pdf' },
@@ -681,7 +681,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { label: 'Treatment request', value: 'Presbyterian\'s own Stage 3 ABA Clinical Review Form' },
       { label: 'Submission', value: 'Fax (505) 843-3019 or the Turquoise Care online submission; myPRES portal' },
       { label: 'Routing trap', value: 'Magellan = Presbyterian Medicare/commercial BH only — NOT Medicaid' },
-      { label: 'Rates', value: 'Must pay at least the state FFS ABA fee schedule (LOD #53)' },
+      { label: 'Rates', value: 'Must pay at least the state FFS ABA fee schedule (LOD #36-3; LOD #53 set the 1/1/2025 ABA rates)' },
     ],
     sections: [
       {
@@ -760,7 +760,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Stage 3 form package', desc: 'Presbyterian\'s own ABA Clinical Review Form (Stage 3) — pull the current version from myPRES/phs.org before each request.' },
       { title: 'Planned weekly intensity', desc: 'The state\'s under-20-hrs/week comprehensive-treatment PA quirk applies here too — plan hours deliberately.' },
     ],
-    sources: [
+    sources: [{ title: 'Letter of Direction #36-3 — State Fiscal Year 2025 Payment Rate Increases (June 10, 2025; MCOs may not pay less than the MAD FFS rate)', url: 'https://www.hca.nm.gov/wp-content/uploads/LOD-36-3-State-Fiscal-Year-2025-Payment-Rate-Increase-RR-LOD-36-2.pdf' }, 
       { title: 'Presbyterian Health Plan — Authorizations for Providers', url: 'https://www.phs.org/providers/authorizations' },
       { title: 'Presbyterian Provider Prior Authorization Guide (09.01.2026)', url: 'https://onbaseext.phs.org/PEL/DisplayDocument?ContentID=PEL_00179220' },
       { title: 'MAD Supplement 24-13 — ABA Guidance (state criteria)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
@@ -940,22 +940,22 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
     h1: 'Molina Healthcare of New Mexico ABA coverage (Turquoise Care MCO).',
     metaTitle: 'Molina Healthcare of New Mexico (Turquoise Care) ABA Coverage & Prior Auth | Carelu',
     metaDescription:
-      'How Molina Healthcare administers New Mexico Medicaid ABA under Turquoise Care — the July 2024 market entry, mandatory electronic PA submission through Availity Essentials, the state-criteria baseline and LOD #53 rate floor, and the ABA policy gaps to verify in the portal.',
+      'How Molina Healthcare administers New Mexico Medicaid ABA under Turquoise Care — the July 2024 market entry, mandatory electronic PA submission through Availity Essentials, the state-criteria baseline and FFS rate floor (LOD #36-3), and the ABA policy gaps to verify in the portal.',
     intro: [
-      'Molina Healthcare is new to New Mexico: it entered with the Turquoise Care launch on July 1, 2024 (alongside UnitedHealthcare, as Western Sky/Centene exited). As a Turquoise Care MCO it is bound by the shared Behavioral Health Level of Care Guidelines and the LOD #53 rate floor — but unlike the other three plans, Molina has published no New Mexico-specific ABA clinical policy or code-level PA list we could verify. The honest operating posture: assume the state baseline clinically, submit PAs electronically through Availity Essentials as Molina requires, and confirm ABA code-level requirements in the portal before the first request.',
+      'Molina Healthcare is new to New Mexico: it entered with the Turquoise Care launch on July 1, 2024 (alongside UnitedHealthcare, as Western Sky/Centene exited). As a Turquoise Care MCO it is bound by the shared Behavioral Health Level of Care Guidelines and the FFS rate floor (LOD #36-3, carrying forward LOD #53) — but unlike the other three plans, Molina has published no New Mexico-specific ABA clinical policy or code-level PA list we could verify. The honest operating posture: assume the state baseline clinically, submit PAs electronically through Availity Essentials as Molina requires, and confirm ABA code-level requirements in the portal before the first request.',
     ],
     atGlance: [
       { label: 'Plan type', value: 'Turquoise Care MCO — entered New Mexico 7/1/2024' },
       { label: 'Clinical rules', value: 'State baseline (shared Turquoise Care LOC guidelines); no distinct ABA policy published' },
       { label: 'PA submission', value: 'Electronic, via Availity Essentials — Molina\'s mandated primary channel' },
       { label: 'ABA code-level PA list', value: 'PA Code Matrix (eff. 10/1/2026): no PA on 97151/97152/0362T; PA after 48 units/calendar year across 97153–97158 + 0373T (par providers)' },
-      { label: 'Rates', value: 'Must pay at least the state FFS ABA fee schedule (LOD #53)' },
+      { label: 'Rates', value: 'Must pay at least the state FFS ABA fee schedule (LOD #36-3; LOD #53 set the 1/1/2025 ABA rates)' },
     ],
     sections: [
       {
         h2: 'What\'s verified — and what to check in the portal',
         body: [
-          'Verified: Molina is a Turquoise Care MCO bound by the state\'s ABA criteria and the LOD #53 rate floor, its provider manual requires electronic PA submission, and Availity Essentials is the mandated primary channel (a contract-compliance item, not a preference). Molina\'s code-level PA list is now public: its New Mexico Medicaid PA Code Matrix (effective October 1, 2026) requires authorization for every code it lists, leaves 97151, 97152 and 0362T off the list, and notes on 97153\u201397158 and 0373T: "PA required after 48 units per calendar year for ABA therapy (cumulative of 0373T, 97153, 97154, 97155, 97156, 97157, 97158)." Non-participating providers need authorization for everything. Not verified: any Molina-specific ABA clinical policy or PA form for New Mexico \u2014 we found none published, so the state criteria (NMAC 8.321.2) govern the review. As the newest plan alongside UHC, expect member churn from the Western Sky exit — verify plan identity on any card that predates July 2024.',
+          'Verified: Molina is a Turquoise Care MCO bound by the state\'s ABA criteria and the FFS rate floor (LOD #36-3, carrying forward LOD #53), its provider manual requires electronic PA submission, and Availity Essentials is the mandated primary channel (a contract-compliance item, not a preference). Molina\'s code-level PA list is now public: its New Mexico Medicaid PA Code Matrix (effective October 1, 2026) requires authorization for every code it lists, leaves 97151, 97152 and 0362T off the list, and notes on 97153\u201397158 and 0373T: "PA required after 48 units per calendar year for ABA therapy (cumulative of 0373T, 97153, 97154, 97155, 97156, 97157, 97158)." Non-participating providers need authorization for everything. Not verified: any Molina-specific ABA clinical policy or PA form for New Mexico \u2014 we found none published, so the state criteria (NMAC 8.321.2) govern the review. As the newest plan alongside UHC, expect member churn from the Western Sky exit — verify plan identity on any card that predates July 2024.',
         ],
         cites: [
           { title: 'Molina Healthcare of New Mexico Provider Manual (Medicaid 2025)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/communications/MCAIDNM-Provider-Manual-2025-EN-508.pdf' },
@@ -966,7 +966,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       {
         h2: 'The state floor still holds',
         body: [
-          'Whatever Molina\'s internal mechanics turn out to be, two things are anchored at the state level and enforceable: the clinical criteria (NMAC 8.321.2.13 and Supplement 24-13 — the ASD-or-at-risk eligibility, adult benefit, stage model, and authorization cadence) and the rates. Letter of Direction #53 directs every Turquoise Care MCO to pay providers no less than the Medicaid FFS ABA fee schedule, retroactive to 1/1/2025, and it binds sub-vendors too. If a Molina contract or remittance comes in under the published schedule, LOD #53 is the citation to raise.',
+          'Whatever Molina\'s internal mechanics turn out to be, two things are anchored at the state level and enforceable: the clinical criteria (NMAC 8.321.2.13 and Supplement 24-13 — the ASD-or-at-risk eligibility, adult benefit, stage model, and authorization cadence) and the rates. Letter of Direction #53 directs every Turquoise Care MCO to pay providers no less than the Medicaid FFS ABA fee schedule, retroactive to 1/1/2025, and it binds sub-vendors too. If a Molina contract or remittance comes in under the published schedule, LOD #36-3 (MCOs may not pay less than the MAD FFS rate) and the LOD #53 fee schedule are the citations to raise.',
         ],
         cites: [
           { title: 'Letter of Direction #53 — ABA Fee Schedule Rates (MCO rate floor)', url: 'https://www.hca.nm.gov/wp-content/uploads/FInal-LOD-53-Applied-Behavioral-Analysis-ABA-Fee-Schedule-Rates.pdf' },
@@ -1032,7 +1032,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis or at-risk documentation', desc: 'State rule: ASD dx within 3 years of referral, or the at-risk pathway documentation.' },
       { title: 'Plan identity', desc: 'Molina is new as of 7/2024 — cards or records referencing Western Sky/Centene are stale; verify current enrollment.' },
     ],
-    sources: [
+    sources: [{ title: 'Letter of Direction #36-3 — State Fiscal Year 2025 Payment Rate Increases (June 10, 2025; MCOs may not pay less than the MAD FFS rate)', url: 'https://www.hca.nm.gov/wp-content/uploads/LOD-36-3-State-Fiscal-Year-2025-Payment-Rate-Increase-RR-LOD-36-2.pdf' }, 
       { title: 'Molina Healthcare of New Mexico Provider Manual (Medicaid 2025)', url: 'https://www.molinahealthcare.com/-/media/Molina/PublicWebsite/PDF/Providers/NM_2024/Medicaid/communications/MCAIDNM-Provider-Manual-2025-EN-508.pdf' },
       { title: 'Molina Healthcare of New Mexico — Prior Authorization for Providers (links the quarterly PA Code Matrix)', url: 'https://www.molinahealthcare.com/providers/nm/prior-auth' },
       { title: 'MAD Supplement 24-13 — ABA Guidance (state criteria)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
@@ -1218,7 +1218,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { label: 'Prior auth', value: 'ONLY 97153 and 0373T — everything else, assessment included, is PA-free' },
       { label: 'Submission', value: 'Provider Express Auth tab (One Healthcare ID) or fax 1-888-541-6691; NM Uniform PA Form' },
       { label: 'Claims', value: 'uhcprovider.com, Payer ID 87726 (ERA 86047); filed within 6 months of DOS, CMS-1500' },
-      { label: 'Rates', value: 'Must pay at least the state FFS ABA fee schedule (LOD #53)' },
+      { label: 'Rates', value: 'Must pay at least the state FFS ABA fee schedule (LOD #36-3; LOD #53 set the 1/1/2025 ABA rates)' },
     ],
     sections: [
       {
@@ -1302,7 +1302,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Planned weekly intensity', desc: 'The state\'s under-20-hrs/week comprehensive-treatment PA quirk applies within the state criteria — plan hours deliberately.' },
       { title: 'Clean-claims cadence', desc: 'The 6-months-from-DOS filing deadline makes billing hygiene an intake-to-revenue concern, not just a back-office one.' },
     ],
-    sources: [{ title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, 
+    sources: [{ title: 'Letter of Direction #36-3 — State Fiscal Year 2025 Payment Rate Increases (June 10, 2025; MCOs may not pay less than the MAD FFS rate)', url: 'https://www.hca.nm.gov/wp-content/uploads/LOD-36-3-State-Fiscal-Year-2025-Payment-Rate-Increase-RR-LOD-36-2.pdf' }, { title: '42 CFR 447.46 — Timely claims payment by MCOs (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.46' }, { title: '42 CFR 447.45 — Timely claims payment (clean-claim definition; 90% in 30 days, 99% in 90 days) (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-447/subpart-A/section-447.45' }, 
       { title: 'Optum Provider Express — New Mexico ABA Program', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2/abaNM.html' },
       { title: 'NM Turquoise Care ABA Network Quick Reference Guide (BH0000747_12162024)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/NMTurquoiseCareABAQRG.pdf' },
       { title: 'MAD Supplement 24-13 — ABA Guidance (state criteria)', url: 'https://www.hca.nm.gov/wp-content/uploads/24-13-Supplement-ABA-Guidance.pdf' },
@@ -1572,7 +1572,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
         h2: 'How fast must Aetna pay a clean ABA claim in New Mexico?',
         body: [
           'New Mexico’s rule 13.10.28.9 NMAC requires a health carrier to reimburse a clean claim "within 30 days of the date of receipt if the clean claim has been submitted electronically or within 45 days of the date of receipt if the clean claim has been submitted manually," with interest on overdue clean claims, and to notify the provider within the same 30/45 days if it disputes liability.',
-          'Aetna disputes run in two steps: a reconsideration "within 180 calendar days of the initial claim decision," then an appeal "within 60 calendar days of the reconsideration decision," with a written decision within 60 business days. Aetna’s manual sets no fixed timely-filing number: a clean claim is one "received in a timely manner," and the deadline comes from the participation agreement or state law.',
+          'Aetna disputes run in two steps: a reconsideration "within 180 calendar days of the initial claim decision," then an appeal "within 60 calendar days of the reconsideration decision." Aetna says it will "send a decision by mail or fax within 60 calendar days of receiving your appeal or any additional information" it requested, and that a reconsideration usually gets an EOB or letter "within 30 business days." Aetna’s manual sets no fixed timely-filing number: a clean claim is one "received in a timely manner," and the deadline comes from the participation agreement or state law.',
           'On the claim mechanics the same manual says a clean claim "Doesn’t involve coordination of benefits," and that COB, corrected and voided claims can all be submitted through Availity at no charge; it sets no separate deadline for corrected or secondary claims and publishes no weekly payment cycle or submission cutoff.',
         ],
         cites: [
@@ -2285,7 +2285,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5-TR ASD diagnosis with a validated tool (ADI-R, ADOS-2, etc.) — Optum asks for the instrument, not just the label.' },
       { title: 'Age', desc: 'No mandate age limit in New Mexico — adult inquiries on fully-insured plans are viable, not edge cases.' },
     ],
-    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, 
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 13, 2026; medical services only, no ABA codes) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, { title: 'Optum Behavioral Health National Network Manual (BH02330, published July 1, 2026, effective Sept. 1, 2026): Coordination of Benefits; Timely Filing; Payment Timelines', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/adminResourcesMain/netwmanual/NNManual.pdf' }, { title: '2026 UnitedHealthcare Care Provider Administrative Guide (Commercial): Timely filing of corrected claims; Subrogation and COB', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf' }, 
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — ABA State Mandates supplemental criteria (BH 803ABA, Jan 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'Optum Provider Express — New Mexico ABA Program', url: 'https://public.providerexpress.com/content/ope-provexpr/us/en/clinical-resources/autismABA2/abaNM.html' },
@@ -2415,7 +2415,7 @@ export const newMexicoPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
-      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'No ABA code is on the list any more. UnitedHealthcare’s commercial code list for members younger than 18 (effective Dec. 1, 2026) was revised on Nov. 13, 2026, and the revised list names no ABA code (97151–97158, 0362T, 0373T) and now says it "applies to medical services only. Continue to reference your usual channels for behavioral health services." So keep requesting ABA authorization as before, and check plan-specific rules in the Prior Authorization and Advance Notification tool.' },
       { q: 'Does UnitedHealthcare require graphs for ABA reassessments?', a: 'Optum’s criteria require updated progress data in the same measures used at baseline (mastery rates, change scores, updated standardized adaptive measures) at every continued review; they do not require graphs as such.' },
       { q: 'Does UnitedHealthcare accept H0031 or H0032 for ABA?', a: 'Optum’s commercial ABA reimbursement policy lists only CPT 97151–97158, 0362T and 0373T as reimbursable ABA codes, each with a credential modifier; no H-code (H0031, H0032, H2014, H2019) is on the list.' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA claims, and when does it pay?', a: 'Optum requires everything needed to process the claim within 90 calendar days of the date of service and corrections within 90 days of first receipt; clean, authorized claims are paid within 45 calendar days or as state law requires. No weekly payment cutoff is published.' },

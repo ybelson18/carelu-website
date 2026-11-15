@@ -157,9 +157,11 @@ export const indianaPayers: Record<string, PayerConfig> = {
         h2: 'When will Indiana Medicaid authorize ABA retroactively?',
         body: [
           'Only in the IHCP’s listed situations. The Prior Authorization module says PA is given after services have begun only for: pending or retroactive member eligibility (request within 12 months of the date the caseworker entered the eligibility); services outside Indiana by a provider not yet IHCP-enrolled; mechanical or administrative delays or errors by the contractor or the county DFR office; certain out-of-state transportation; a provider unaware the member was eligible (only with documented refusal or inability to give the Member ID, continued pursuit of payment from the member, and a PA request within 60 calendar days of discovering eligibility); and cases where the exact procedure cannot be known until afterward. An approved retroactive PA extends timely filing to 180 days from approval, and the claim must carry a copy of the PA marked “retroactive prior authorization.” Retroactive changes to an existing PA’s start date are not allowed. These are fee-for-service rules; for managed care members the module sends providers to the MCE’s own manual.',
+          'Retroactive Healthy Indiana Plan (HIP) months move to fee-for-service from 2027 (this matters for HIP members aged 19 and 20, the only HIP ages inside the under-21 ABA benefit). IHCP bulletin BT2026168 (Oct. 13, 2026): for applications filed on or after Jan. 1, 2027, qualifying HIP members “may be eligible for one month of retroactive coverage,” and those retroactive months are assigned to a new FFS aid category, RH (HIP Retro Fee-for-Service). For RH dates of service “Providers must submit claims directly to the IHCP fiscal agent (Gainwell Technologies)” and “Claims for retroactive DOS should not be submitted to the member\'s managed care organization (MCO)”; managed care starts the first day of the month DFR approves the application. The exception: no retroactive FFS months are added when the member’s HIP eligibility ended within the preceding 90 days, and those months stay with the member’s MCO.',
         ],
         cites: [
           { title: 'IHCP — Prior Authorization module (v7.4, published Oct. 29, 2026): Retroactive Prior Authorization', url: 'https://www.in.gov/medicaid/providers/files/modules/prior-authorization.pdf' },
+          { title: 'IHCP Bulletin BT2026168 — IHCP updates billing requirements for retroactive Healthy Indiana Plan eligibility (10/13/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026168.pdf' },
         ],
       },
       {
@@ -270,6 +272,7 @@ export const indianaPayers: Record<string, PayerConfig> = {
       { title: 'IHCP — Financial Transactions and Remittance Advice module (v7.0, publ. March 13, 2025)', url: 'https://www.in.gov/medicaid/providers/files/modules/financial-transactions-and-remittance-advice.pdf' },
       { title: 'IHCP — Provider bulletins archive (index of all IHCP bulletins)', url: 'https://www.in.gov/medicaid/providers/provider-references/bulletins-banner-pages-and-reference-modules/ihcp-bulletins' },
       { title: '42 CFR 438.206 — Availability of services (eCFR)', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' },
+      { title: 'IHCP Bulletin BT2026168 — IHCP updates billing requirements for retroactive Healthy Indiana Plan eligibility (10/13/2026)', url: 'https://www.in.gov/medicaid/providers/files/bulletins/BT2026168.pdf' },
     ],
     deliveryRules: {
       supervision: {
@@ -2437,7 +2440,7 @@ dxRequired: {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date.' },
       { title: 'Age', desc: 'Where the mandate carries age terms, flag edge cases for the parity analysis rather than turning families away.' },
     ],
-    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, { title: 'Ind. Code 27-1-37.5-23 — prior authorization response deadlines', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-23/' }, { title: 'Indiana SEA 480 (P.L.144-2025) — enrolled act adding IC 27-1-37.5-23 and -28, eff. July 1, 2025', url: 'https://iga.in.gov/pdf-documents/124/2025/senate/bills/SB0480/SB0480.06.ENRH.pdf' }, { title: '29 CFR 2560.503-1(f)(2) — ERISA group health plan claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' }, { title: '760 IAC 1-38.1-12 — order of benefits, nondependent before dependent', url: 'https://www.law.cornell.edu/regulations/indiana/760-IAC-1-38.1-12' }, { title: '760 IAC 1-38.1-13 — dependent child, birthday rule', url: 'https://www.law.cornell.edu/regulations/indiana/760-IAC-1-38.1-13' }, { title: '760 IAC 1-38.1-14 — dependent child, separated or divorced parents', url: 'https://www.law.cornell.edu/regulations/indiana/760-IAC-1-38.1-14' }, { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' }, { title: 'IHCP — Prior Authorization module (PROMOD00012, v7.2, publ. Nov. 20, 2025)', url: 'https://www.in.gov/medicaid/providers/files/modules/prior-authorization.pdf' }, { title: 'IHCP — Third-Party Liability module (PROMOD00017, v7.2, publ. Oct. 9, 2025)', url: 'https://www.in.gov/medicaid/providers/files/modules/third-party-liability.pdf' }, 
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 13, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, { title: 'Ind. Code 27-1-37.5-23 — prior authorization response deadlines', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-23/' }, { title: 'Indiana SEA 480 (P.L.144-2025) — enrolled act adding IC 27-1-37.5-23 and -28, eff. July 1, 2025', url: 'https://iga.in.gov/pdf-documents/124/2025/senate/bills/SB0480/SB0480.06.ENRH.pdf' }, { title: '29 CFR 2560.503-1(f)(2) — ERISA group health plan claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' }, { title: '760 IAC 1-38.1-12 — order of benefits, nondependent before dependent', url: 'https://www.law.cornell.edu/regulations/indiana/760-IAC-1-38.1-12' }, { title: '760 IAC 1-38.1-13 — dependent child, birthday rule', url: 'https://www.law.cornell.edu/regulations/indiana/760-IAC-1-38.1-13' }, { title: '760 IAC 1-38.1-14 — dependent child, separated or divorced parents', url: 'https://www.law.cornell.edu/regulations/indiana/760-IAC-1-38.1-14' }, { title: '32 CFR 199.8 — TRICARE double coverage (eCFR)', url: 'https://www.ecfr.gov/current/title-32/section-199.8' }, { title: 'IHCP — Prior Authorization module (PROMOD00012, v7.2, publ. Nov. 20, 2025)', url: 'https://www.in.gov/medicaid/providers/files/modules/prior-authorization.pdf' }, { title: 'IHCP — Third-Party Liability module (PROMOD00017, v7.2, publ. Oct. 9, 2025)', url: 'https://www.in.gov/medicaid/providers/files/modules/third-party-liability.pdf' }, 
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Ind. Code § 27-8-14.2-4 (group mandate)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-4/' },
       { title: 'Ind. Code § 27-8-14.2-5 (individual offer)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-5/' },
@@ -2574,7 +2577,7 @@ dxRequired: {
       },
     },
     faq: [
-      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'No ABA code is on UnitedHealthcare’s Dec. 1, 2026 under-18 list. The commercial, Individual Exchange and Community Plan code lists, all “Revised Nov. 13, 2026,” name no ABA code (the Nov. 13 commercial list no longer carries 0362T or 0373T), and each now says: “This list applies to medical services only. Continue to reference your usual channels for behavioral health services.” So 97151–97158, 0362T and 0373T keep their existing authorization rules for members under 18; check plan-specific exceptions in the Prior Authorization and Advance Notification tool.' },
       { q: 'How long can UnitedHealthcare / Optum take to credential a new BCBA in Indiana?', a: 'Indiana law (IC 27-8-11-7) gives an insurer five business days to flag a deficiency in a completed application, and if it has not decided within 15 business days of a completed clean application it must provisionally credential the provider, with payment later retroactive to that date once the provider is credentialed and contracted.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Indiana?', a: 'Yes — under the carrier\'s national policy for ASD, layered on Indiana\'s mandate (Ind. Code 27-8-14.2) for fully-insured plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Indiana autism mandate require?', a: 'Indiana’s mandate (2001) was the first autism insurance mandate in the country, and it remains one of the strongest: group accident and sickness policies must cover ASD treatment prescribed by the treating physician under a treatment plan, with no age limits and no dollar, visit, or hour caps — and cost-sharing no less favorable than for physical illness generally. See the mandate section above for ages, caps, and exemptions — and remember federal parity limits how hard the numeric caps can be enforced against group plans.' },
@@ -3525,6 +3528,279 @@ dxRequired: {
       { q: 'Will the family owe cost sharing?', a: 'Yes, usually. The EOC applies the deductible, copayment and coinsurance from the Schedule of Benefits, no less favorable than for physical illness. Check deductible status before quoting.' },
       { q: 'Can an out-of-state BCBA treat CareSource Marketplace members in Indiana, including by telehealth?', a: 'Indiana requires an Indiana license (IC 25-8.5-3-6), and its telehealth law counts only Indiana-licensed behavior analysts as practitioners. We have not verified this plan’s own credentialing rule for out-of-state BCBAs; ask provider relations.' },
       { q: 'How fast must CareSource Marketplace pay a clean ABA claim in Indiana?', a: 'Indiana law (IC 27-8-5.7-6) requires an insurer to pay or deny a clean claim within 30 days of receipt if filed electronically and 45 days on paper; a deficiency not flagged within that window makes the claim clean. Self-funded employer plans are not bound by the statute.' },
+    ],
+  },
+  'ambetter-indiana': {
+    slug: 'ambetter-indiana',
+    payer: 'Ambetter of Indiana',
+    state: 'IN', kind: 'commercial',
+    family: 'centene',
+    cardDesc: 'Centene\'s Indiana Marketplace plan: no ABA benefit limit in the 2026 EOC, every ABA code on the PA list, CP.BH.104 criteria and six-month reviews.',
+    assessmentPA: {
+      value: 'Yes — Ambetter\'s Indiana prior authorization list puts every ABA code (97151–97158, 0362T, 0373T) under "Applied Behavior Analysis (ABA)", and the 2026 EOC says ABA services "are subject to prior authorization to determine medical necessity." The ABA request form asks, for the initial assessment, for "Comprehensive diagnostic information including standardized measures and referral from diagnosing provider."',
+      status: 'verified',
+      cites: [
+        { title: 'Ambetter Health (Indiana) — CMS Final Rule 0057-F Prior Authorization Requirements (list effective 12/31/2025; internal approval 03/05/2026)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/PDFs/IN_Ambetter_Mktp_35065_PriorAuthReq_R.pdf' },
+        { title: 'Ambetter Health (Indiana) — 2026 Evidence of Coverage (35065IN004-2026), Autism Spectrum Disorder Benefits', url: 'https://api.centene.com/EOC/2026/35065IN004.pdf' },
+        { title: 'Ambetter from MHS (Indiana) — Applied Behavioral Analysis Prior Authorization Request Form (form 0821.CT.P.FO 8/21)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/PDFs/508-Ambetter-Indiana-ABA-Request.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Yes — treatment codes 97153–97158 are on the PA list. Ambetter\'s Indiana ABA policy CP.BH.104 (rev. 02/26) requires an updated behavior assessment and an updated treatment plan "at least every six months (or as clinically appropriate, or as state mandated)", and its documentation policy CP.BH.105 refers to "the entire six-month authorization period." Indiana\'s prior-authorization statute says an authorization "shall be valid for at least one (1) year" after the provider receives it (IC 27-1-37.5-26(b)); the Ambetter documents we read do not reconcile the two, so confirm the span on each approval letter.',
+      status: 'verified',
+      cites: [
+        { title: 'Ambetter Health (Indiana) — CMS Final Rule 0057-F Prior Authorization Requirements (list effective 12/31/2025; internal approval 03/05/2026)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/PDFs/IN_Ambetter_Mktp_35065_PriorAuthReq_R.pdf' },
+        { title: 'Ambetter of Indiana — Clinical Policy CP.BH.104, Applied Behavior Analysis (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.104.pdf' },
+        { title: 'Ambetter of Indiana — Clinical Policy CP.BH.105, Applied Behavioral Analysis Documentation Requirements (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.105.pdf' },
+        { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year (FindLaw unofficial mirror, current as of Jan. 1, 2026)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes — a confirmed DSM autism diagnosis with severity level, established "by a licensed physician, psychologist, or other licensed professional with specialized training in diagnosis and treatment of ASD, or a provider otherwise authorized under state law/regulation," backed by a comprehensive diagnostic evaluation (CP.BH.104 I.A–B)',
+      status: 'verified',
+      cites: [{ title: 'Ambetter of Indiana — Clinical Policy CP.BH.104, Applied Behavior Analysis (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.104.pdf' }],
+    },
+    pill: 'Payer Guide · Ambetter · Indiana Marketplace',
+    h1: 'Ambetter of Indiana ABA coverage: the intake guide.',
+    metaTitle: 'Ambetter of Indiana (Marketplace) ABA Coverage & Prior Auth | Carelu',
+    metaDescription:
+      'How Ambetter\'s Indiana Marketplace plan covers ABA: no benefit limit in the 2026 EOC, prior authorization for every ABA code, Centene policy CP.BH.104 diagnosis and assessment rules, six-month reviews, documentation rules in CP.BH.105, and how it differs from MHS Indiana Medicaid.',
+    intro: [
+      'Ambetter is Centene\'s ACA Marketplace (exchange) brand. In Indiana it shares a parent with MHS, the Centene Medicaid plan in its own guide (mhs-indiana), and the provider materials still carry the "Ambetter from MHS" name, but it is a separate product with its own Evidence of Coverage, prior authorization list, network and cost sharing. MHS Medicaid follows IHCP rules; Ambetter follows its EOC and Centene\'s ABA clinical policy CP.BH.104 as posted for Ambetter in Indiana.',
+      'The 2026 Indiana EOC covers applied behavior analysis therapy under Autism Spectrum Disorder Benefits "when prescribed by a physician or behavioral health practitioner" and says "No limitation exists within the benefits for applied behavior analysis services." Every ABA code needs prior authorization, the family pays the plan\'s deductible and coinsurance, and the clinical bar (diagnostic tools, a behavior assessment no more than two months old, six-month updates) is set by CP.BH.104.',
+    ],
+    atGlance: [
+      { label: 'Product', value: 'ACA Marketplace (exchange), Indiana — not MHS Indiana Medicaid (mhs-indiana)' },
+      { label: 'ABA benefit limit', value: 'None — "No limitation exists within the benefits for applied behavior analysis services" (2026 EOC)' },
+      { label: 'Prior auth', value: 'Required for 97151–97158, 0362T and 0373T (Indiana PA list); EOC: subject to prior authorization' },
+      { label: 'Criteria', value: 'Centene CP.BH.104 (rev. 02/26) and documentation policy CP.BH.105 (rev. 02/26)' },
+      { label: 'Diagnosis', value: 'Licensed physician, psychologist or other licensed professional trained in ASD; at least one clinician tool and one caregiver tool' },
+      { label: 'Review cycle', value: 'Updated assessment and treatment plan at least every six months (CP.BH.104)' },
+      { label: 'State mandate', value: 'IC 27-8-14.2 — an individual policy must offer ASD coverage, with dollar limits, deductibles and coinsurance no less favorable than for physical illness' },
+      { label: 'Decision clock', value: 'Manual: non-urgent 5 business days, urgent 48 hours; Indiana statute: 48 hours non-urgent, 24 hours urgent, excluding weekends and holidays (IC 27-1-37.5-23)' },
+      { label: 'Timely filing', value: '180 days participating, 90 days non-participating (2026 provider manual)' },
+    ],
+    sections: [
+      {
+        h2: 'Same parent company, different product',
+        cites: [
+          { title: 'Ambetter Health (Indiana) — 2026 Provider and Billing Manual (6559054_IN6PMKTMANE)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/PDFs/2026-in-provider-manual.pdf' },
+          { title: 'Ambetter Health (Indiana) — 2026 Evidence of Coverage (35065IN004-2026), Autism Spectrum Disorder Benefits', url: 'https://api.centene.com/EOC/2026/35065IN004.pdf' },
+          { title: 'Ambetter Health Solutions (Indiana ICHRA product) — 2026 Evidence of Coverage (76179IN014-2026)', url: 'https://api.centene.com/EOC/2026/76179IN014.pdf' },
+        ],
+        body: [
+          'An Ambetter card in Indiana is a Marketplace policy, not Medicaid. The 2026 provider manual describes Ambetter Health as "a Qualified Health Plan issuer in the Indiana Health Insurance Marketplace," and its own prior authorization list, network and timely-filing rules apply. Being in network for MHS Medicaid does not by itself put a practice in the Ambetter network, and the IHCP ABA rules (the Medicaid six-month PA request limit, IHCP provider specialties) do not carry across.',
+          'Ambetter also sells "Ambetter Health Solutions," an individual-coverage HRA product with its own EOC (76179IN014-2026). Its Autism Spectrum Disorder Benefits text reads the same as the Marketplace EOC we cite here, but check which EOC the member\'s plan ID points to before quoting benefits.',
+        ],
+      },
+      {
+        h2: 'What the 2026 EOC promises',
+        cites: [
+          { title: 'Ambetter Health (Indiana) — 2026 Evidence of Coverage (35065IN004-2026), Autism Spectrum Disorder Benefits', url: 'https://api.centene.com/EOC/2026/35065IN004.pdf' },
+          { title: 'Ind. Code § 27-8-14.2-5 — individual offer', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-5/' },
+        ],
+        body: [
+          '"Coverage is provided for autism spectrum disorders when prescribed by a physician or behavioral health practitioner," including evaluation and assessment services, "applied behavior analysis therapy," behavior training and behavior management, habilitation, speech, occupational and physical therapy, psychiatric care and medications. Then: "No limitation exists within the benefits for applied behavior analysis services. These services are subject to prior authorization to determine medical necessity." When several providers bill on the same day, "a separate copayment amount and/or coinsurance amount will apply to each provider." The EOC defines ABA as services designed and evaluated "by a board-certified behavior analyst."',
+          'For an individual policy, Indiana\'s mandate (IC 27-8-14.2-5) requires the insurer to offer autism coverage for treatment prescribed by the treating physician under a treatment plan, without dollar limits, deductibles or coinsurance less favorable than for physical illness. The EOC is the document that puts ABA in this plan; quote the family\'s deductible status and coinsurance along with the benefit.',
+        ],
+      },
+      {
+        h2: 'Prior authorization: what to send and how fast Ambetter must answer',
+        cites: [
+          { title: 'Ambetter Health (Indiana) — CMS Final Rule 0057-F Prior Authorization Requirements (list effective 12/31/2025; internal approval 03/05/2026)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/PDFs/IN_Ambetter_Mktp_35065_PriorAuthReq_R.pdf' },
+          { title: 'Ambetter from MHS (Indiana) — Applied Behavioral Analysis Prior Authorization Request Form (form 0821.CT.P.FO 8/21)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/PDFs/508-Ambetter-Indiana-ABA-Request.pdf' },
+          { title: 'Ambetter Health (Indiana) — 2026 Provider and Billing Manual (6559054_IN6PMKTMANE)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/PDFs/2026-in-provider-manual.pdf' },
+          { title: 'Ind. Code 27-1-37.5-23 — prior authorization response deadlines', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-23/' },
+          { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year (FindLaw unofficial mirror, current as of Jan. 1, 2026)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' },
+        ],
+        body: [
+          'Ambetter\'s Indiana prior authorization list (published under CMS-0057-F; list effective 12/31/2025) names "Applied Behavior Analysis (ABA)" with codes 0362T, 0373T and 97151–97158. The manual prefers the secure provider portal; requests also go by phone to Utilization Management at 1-877-687-1182 or by fax on the posted forms, and must carry the member\'s name, date of birth and ID, and the provider\'s Tax ID, NPI, taxonomy code, name and phone.',
+          'Ambetter\'s ABA Prior Authorization Request Form (UM fax 1-866-279-1358) asks for the billing and supervising provider, the codes and units per week or month, school, IEP/504 and early-intervention status, and other therapies. For the initial assessment it wants "Comprehensive diagnostic information including standardized measures and referral from diagnosing provider for ABA services to include estimated duration of care." For the initial treatment plan: objective testing showing a significant behavioral deficit, coordination with school and other therapists, the proposed schedule "including the provider type who will render services," measurable goals with timeframes, a parent-training plan, relevant medical conditions and a copy of any IEP or IFSP. Subsequent requests need objective measures of current status and progress on each goal, the updated plan, and "Developmental testing which should have occurred within the first two months of treatment." The form is dated 8/21, so confirm Ambetter still uses it.',
+          'Decision clock. The 2026 manual lists "Prospective/Urgent — Within 48 hours of receipt of the request" and "Prospective/Non-Urgent — Within 5 business days of receipt of the request," and retrospective decisions in 30 calendar days. Indiana law is tighter for a utilization review entity: 24 hours for an urgent request and 48 hours for any other, with weekends and state and federal holidays excluded (IC 27-1-37.5-23). Indiana also says an authorization "shall be valid for at least one (1) year" after the provider receives it (IC 27-1-37.5-26(b)), while Ambetter\'s policies run six-month review cycles; check the dates on each approval.',
+        ],
+      },
+      {
+        h2: 'The diagnosis and assessment rules in CP.BH.104',
+        cites: [
+          { title: 'Ambetter of Indiana — Clinical Policy CP.BH.104, Applied Behavior Analysis (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.104.pdf' },
+        ],
+        body: [
+          'Diagnosis. A confirmed DSM autism diagnosis with severity level, intellectual and language impairment noted, from "a licensed physician, psychologist, or other licensed professional with specialized training in diagnosis and treatment of ASD, or a provider otherwise authorized under state law/regulation." The comprehensive diagnostic evaluation (CDE) must document direct observation, a caregiver interview and a report with each instrument\'s scores and date, and the diagnosis must rest on "at least one primary clinician tool and one parent/caregiver tool": clinician tools include STAT, ADI-R, CARS-2, ASRS, ADOS-2, EarliPoint, RITA-T and CSBS DP-ITC; caregiver tools include M-CHAT-R/F, SCQ, ASSQ, CAST, SRS-2 Parent Report, SWYC POSI and CSBS DP ITC. Physical causes (hearing, speech, medical) must be ruled out.',
+          'How recent. To start treatment, the CDE must be within the past three years, or three to five years old with a diagnostic interview/evaluation within 12 months of the request. For continuation, the CDE must be within the past five years, with re-evaluation sooner for a provisional diagnosis, no formal psychological evaluation, a discrepancy between the tools and the diagnosis, or transitions.',
+          'Behavior assessment. Completed by a BCBA/BCBA-D (or a state-recognized equivalent) "no more than two months prior to the start of the initial treatment authorization," with record review, interviews, rating scales, direct measurement of behavior, and an FBA (descriptive, functional analysis or IISCA) for problem behavior and/or a skills assessment (VB-MAPP, ABLLS-R, AFLS, PEAK, EFL, SSIS, Socially Savvy). The Vineland alone does not count as the skills assessment.',
+        ],
+      },
+      {
+        h2: 'Treatment plan, hours and continued authorization',
+        cites: [
+          { title: 'Ambetter of Indiana — Clinical Policy CP.BH.104, Applied Behavior Analysis (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.104.pdf' },
+          { title: 'Ambetter of Indiana — Clinical Policy CP.BH.105, Applied Behavioral Analysis Documentation Requirements (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.105.pdf' },
+        ],
+        body: [
+          'The plan must carry the signature, credentials and role of the responsible BCBA and the parent or guardian, individualized goals with baseline data and mastery criteria, a crisis plan, a school-based plan where services occur at school, and a transition and titration plan. Hours must consider school attendance ("less than 20 hours per week if attending school full-time") and "Do not exceed six hours per day up to a total of 30 hours per week" unless documentation justifies more; Ambetter "may authorize services at a lower intensity, frequency, or duration than requested." Protocol modification (97155) must occur "for at least two hours per week or 10% of the direct service hours provided, whichever is greater," and caregiver training ideally at least two hours a month.',
+          'Continuation needs an updated behavior assessment and treatment plan "at least every six months," progress data with graphs, attendance as a percentage of scheduled sessions (below 80% of authorized hours needs justification), caregiver participation and coordination of care. CP.BH.105 enforces the protocol-modification floor at payment: 97153/97154 units for "the entire six-month authorization period" that are not supported by the 10% protocol-modification level "are subject to denial of payment or recoupment," and protocol modification above 20% of direct hours needs justification.',
+          'Discontinuation criteria include no clinically significant progress "for a period of at least six months," services in lieu of school or respite, and services covered under IDEA, which CP.BH.104 lists as not medically necessary.',
+        ],
+      },
+      {
+        h2: 'Retroactive authorization and timely filing',
+        cites: [
+          { title: 'Ambetter Health (Indiana) — 2026 Provider and Billing Manual (6559054_IN6PMKTMANE)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/PDFs/2026-in-provider-manual.pdf' },
+        ],
+        body: [
+          'Retrospective review is only for "extenuating circumstances (i.e., member was unconscious at presentation, member did not have their Ambetter ID card or otherwise indicated other coverage, services authorized by another payer who subsequently determined member was not eligible at the time of service)," and "If a claim is denied for lack of authorization for a service that requires authorization, Ambetter will not retrospectively review the request for authorization." When a review is warranted the decision comes within 30 calendar days of receiving all information.',
+          'Timely filing (2026 manual): initial claims 180 days from the date of service for participating providers and 90 days for non-participating providers; reconsiderations and disputes 180/90 days from Ambetter\'s explanation of payment; coordination-of-benefits claims 180/90 days from the primary payer\'s EOP.',
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Marketplace or Medicaid', desc: 'An Ambetter card is the Marketplace plan; a Hoosier Healthwise, HIP or Hoosier Care Connect card with MHS belongs in the mhs-indiana guide.' },
+      { title: 'Which EOC', desc: 'Marketplace (35065IN) or Ambetter Health Solutions (76179IN); quote benefits from the member\'s own EOC.' },
+      { title: 'Deductible status and coinsurance', desc: 'ABA has no benefit limit, but cost sharing applies, separately per provider on the same day.' },
+      { title: 'Diagnostic report with tools', desc: 'At least one clinician tool (e.g., ADOS-2, CARS-2, ADI-R) and one caregiver tool (e.g., M-CHAT-R/F, SCQ, SRS-2) with scores and dates; CDE within three years to start.' },
+      { title: 'Prescription and referral', desc: 'The EOC covers ABA "when prescribed by a physician or behavioral health practitioner"; the request form asks for the diagnosing provider\'s referral.' },
+      { title: 'School and IEP details', desc: 'School hours, IEP/504 or IFSP copy, and other therapies — the form and CP.BH.104 both ask.' },
+    ],
+    sources: [
+      { title: 'Ambetter Health (Indiana) — 2026 Evidence of Coverage (35065IN004-2026), Autism Spectrum Disorder Benefits', url: 'https://api.centene.com/EOC/2026/35065IN004.pdf' },
+      { title: 'Ambetter Health Solutions (Indiana ICHRA product) — 2026 Evidence of Coverage (76179IN014-2026)', url: 'https://api.centene.com/EOC/2026/76179IN014.pdf' },
+      { title: 'Ambetter Health (Indiana) — CMS Final Rule 0057-F Prior Authorization Requirements (list effective 12/31/2025; internal approval 03/05/2026)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/PDFs/IN_Ambetter_Mktp_35065_PriorAuthReq_R.pdf' },
+      { title: 'Ambetter from MHS (Indiana) — Applied Behavioral Analysis Prior Authorization Request Form (form 0821.CT.P.FO 8/21)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/PDFs/508-Ambetter-Indiana-ABA-Request.pdf' },
+      { title: 'Ambetter Health (Indiana) — 2026 Provider and Billing Manual (6559054_IN6PMKTMANE)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/PDFs/2026-in-provider-manual.pdf' },
+      { title: 'Ambetter of Indiana — Clinical Policy CP.BH.104, Applied Behavior Analysis (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.104.pdf' },
+      { title: 'Ambetter of Indiana — Clinical Policy CP.BH.105, Applied Behavioral Analysis Documentation Requirements (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.105.pdf' },
+      { title: 'Ambetter of Indiana — Clinical and payment policies index', url: 'https://www.ambetterhealth.com/en/in/provider-resources/clinical-payment-policies/' },
+      { title: 'Ambetter of Indiana — Provider manuals and forms', url: 'https://www.ambetterhealth.com/en/in/provider-resources/manuals-and-forms/' },
+      { title: 'Ind. Code § 27-8-14.2-5 — individual offer', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-5/' },
+      { title: 'Ind. Code 27-1-37.5-23 — prior authorization response deadlines', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-23/' },
+      { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year (FindLaw unofficial mirror, current as of Jan. 1, 2026)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' },
+      { title: 'Ambetter of Indiana — Provider News (provider notice archive; list is JS-rendered)', url: 'https://www.ambetterhealth.com/en/in/provider-resources/provider-news/' },
+    ],
+    deliveryRules: {
+      supervision: {
+        value: 'Ambetter sets a protocol-modification floor rather than a supervision ratio: 97155 "for at least two hours per week or 10% of the direct service hours provided, whichever is greater", and no more than 20% of direct service hours unless clinical documentation justifies more (CP.BH.104; CP.BH.105). Monthly one-on-one protocol work (97155) must be "Rendered by ABA supervisor" and not by telehealth unless state guidelines allow. Treatment must be "delivered or supervised by an ABA-credentialed professional," and unsupported 97153/97154 units are subject to denial or recoupment.',
+        status: 'verified',
+        cites: [
+          { title: 'Ambetter of Indiana — Clinical Policy CP.BH.104, Applied Behavior Analysis (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.104.pdf' },
+          { title: 'Ambetter of Indiana — Clinical Policy CP.BH.105, Applied Behavioral Analysis Documentation Requirements (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.105.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value: 'Not stated in the Ambetter Indiana documents we read. CP.BH.105 describes 97155 as possibly used "to demonstrate new or modified protocol to a technician with the member/enrollee present" and says "Technician supervision only or team meetings do not constitute protocol modification," but neither CP.BH.104, CP.BH.105 nor the 2026 provider manual says whether 97155 and 97153 may be billed for the same minutes.',
+        status: 'unverified',
+        cites: [
+          { title: 'Ambetter of Indiana — Clinical Policy CP.BH.105, Applied Behavioral Analysis Documentation Requirements (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.105.pdf' },
+        ],
+        verifyVia: 'Ambetter of Indiana provider services or the payment policies on its clinical and payment policies page: ask whether 97153 and 97155 may be reported for the same clock time by two providers.',
+        blocker: 'document',
+      },
+      dailyLimits: {
+        value: 'CP.BH.104 caps treatment hours unless justified: they "Do not exceed six hours per day up to a total of 30 hours per week," or clinical documentation justifies more (high-intensity behaviors or significant skill deficits), and hours should be "less than 20 hours per week if attending school full-time." The PA form asks for units per week or month for each code. No Ambetter document we read publishes per-code daily unit (MUE) ceilings.',
+        status: 'verified',
+        cites: [
+          { title: 'Ambetter of Indiana — Clinical Policy CP.BH.104, Applied Behavior Analysis (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.104.pdf' },
+          { title: 'Ambetter from MHS (Indiana) — Applied Behavioral Analysis Prior Authorization Request Form (form 0821.CT.P.FO 8/21)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/PDFs/508-Ambetter-Indiana-ABA-Request.pdf' },
+        ],
+      },
+      noteSignature: {
+        value: 'CP.BH.105: session notes "are completed prior to claim submission" and carry the rendering provider or technician\'s name at the top, the exact start and end time, pauses, location, the service code and the "Signature of qualified rendering provider/technician"; a note written on a later day must give its creation date and why. Clinical documentation is reviewed and updated at regular intervals with the signatures and printed names of the member, legal guardian, rendering clinician/technician and supervising practitioner (as applicable). Caregiver signature on 97156/97157 notes is recommended. Addenda need the reference, date and the clinician\'s signature and credentials; a discharge summary needs the rendering provider\'s and caregiver\'s signatures.',
+        status: 'verified',
+        cites: [
+          { title: 'Ambetter of Indiana — Clinical Policy CP.BH.105, Applied Behavioral Analysis Documentation Requirements (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.105.pdf' },
+        ],
+      },
+      placeOfService: {
+        value: 'CP.BH.104 says services may be provided "in various settings (e.g., home, clinic, school, community) and modalities (e.g., in-person, telehealth)," requires a stated treatment setting with rationale, and requires a "Detailed school-based plan" (hours, operationally defined target behaviors, a titration plan for reducing school services, school-specific graphs) when ABA is delivered at school. Services "otherwise covered under the Individuals with Disabilities Education Act (IDEA)" and services "in lieu of school, respite care, or other community-based settings" are not medically necessary. Telehealth is billed with POS 02 or 10 (2026 manual).',
+        status: 'verified',
+        cites: [
+          { title: 'Ambetter of Indiana — Clinical Policy CP.BH.104, Applied Behavior Analysis (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.104.pdf' },
+          { title: 'Ambetter Health (Indiana) — 2026 Provider and Billing Manual (6559054_IN6PMKTMANE)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/PDFs/2026-in-provider-manual.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value: 'The ABA PA form names a billing provider (Tax ID and NPI) and a separate supervising provider, and the HSPP or physician and the rendering provider each sign it; PA requests must include the provider\'s taxonomy code. No Ambetter Indiana document we read says whether a technician\'s 97153 goes out under the technician\'s or the supervising BCBA\'s rendering NPI, or whether a BCaBA may bill under its own NPI.',
+        status: 'unverified',
+        cites: [
+          { title: 'Ambetter from MHS (Indiana) — Applied Behavioral Analysis Prior Authorization Request Form (form 0821.CT.P.FO 8/21)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/PDFs/508-Ambetter-Indiana-ABA-Request.pdf' },
+          { title: 'Ambetter Health (Indiana) — 2026 Provider and Billing Manual (6559054_IN6PMKTMANE)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/PDFs/2026-in-provider-manual.pdf' },
+        ],
+        verifyVia: 'Ambetter of Indiana provider services (1-877-687-1182) or the provider contract: which NPI goes in the rendering field for technician-delivered 97153, and whether BCaBAs are credentialed to bill.',
+        blocker: 'per-case',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value: 'None stated. The 2026 EOC\'s Autism Spectrum Disorder Benefits section and CP.BH.104 set no age limit, and the EOC says "No limitation exists within the benefits for applied behavior analysis services."',
+        status: 'verified',
+        cites: [
+          { title: 'Ambetter Health (Indiana) — 2026 Evidence of Coverage (35065IN004-2026), Autism Spectrum Disorder Benefits', url: 'https://api.centene.com/EOC/2026/35065IN004.pdf' },
+          { title: 'Ambetter of Indiana — Clinical Policy CP.BH.104, Applied Behavior Analysis (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.104.pdf' },
+        ],
+      },
+      dxRecency: {
+        value: 'To start: a comprehensive diagnostic evaluation within the past three years, or one three to five years old plus a diagnostic interview/evaluation within 12 months of the request. To continue: a CDE within the past five years, sooner for a provisional diagnosis, no formal psychological evaluation, a tools-versus-diagnosis discrepancy, or transitions. The behavior assessment must be no more than two months old at the start of the initial treatment authorization.',
+        status: 'verified',
+        cites: [{ title: 'Ambetter of Indiana — Clinical Policy CP.BH.104, Applied Behavior Analysis (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.104.pdf' }],
+      },
+      diagnosingProviders: {
+        value: '"A licensed physician, psychologist, or other licensed professional with specialized training in diagnosis and treatment of ASD, or a provider otherwise authorized under state law/regulation"; the same group makes the ABA recommendation (which may sit inside the CDE). The EOC covers autism services "when prescribed by a physician or behavioral health practitioner."',
+        status: 'verified',
+        cites: [
+          { title: 'Ambetter of Indiana — Clinical Policy CP.BH.104, Applied Behavior Analysis (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.104.pdf' },
+          { title: 'Ambetter Health (Indiana) — 2026 Evidence of Coverage (35065IN004-2026), Autism Spectrum Disorder Benefits', url: 'https://api.centene.com/EOC/2026/35065IN004.pdf' },
+        ],
+      },
+      diagnosticTools: {
+        value: 'At least one primary clinician tool (STAT, ADI-R, CARS/CARS-2, ASRS, ADOS/ADOS-2, EarliPoint, RITA-T, CSBS DP-ITC, or another evidence-based tool reviewed case by case) and at least one parent/caregiver tool (M-CHAT/M-CHAT-R/F, SCQ, ASSQ, CAST, SRS-2 Parent Report, SWYC POSI, CSBS DP ITC, or another), with scores and dates in the report.',
+        status: 'verified',
+        cites: [{ title: 'Ambetter of Indiana — Clinical Policy CP.BH.104, Applied Behavior Analysis (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.104.pdf' }],
+      },
+      referral: {
+        value: 'Yes, in two places. The EOC covers autism services "when prescribed by a physician or behavioral health practitioner," and the ABA PA form asks, for the initial assessment, for "referral from diagnosing provider for ABA services to include estimated duration of care." CP.BH.104 requires an ABA recommendation from the diagnosing-level clinician (it may be in the CDE) whenever an initial or updated CDE is required. No Ambetter document we read sets an expiry for the referral or a required form; the PA form itself is dated 8/21.',
+        status: 'verified',
+        cites: [
+          { title: 'Ambetter Health (Indiana) — 2026 Evidence of Coverage (35065IN004-2026), Autism Spectrum Disorder Benefits', url: 'https://api.centene.com/EOC/2026/35065IN004.pdf' },
+          { title: 'Ambetter from MHS (Indiana) — Applied Behavioral Analysis Prior Authorization Request Form (form 0821.CT.P.FO 8/21)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/PDFs/508-Ambetter-Indiana-ABA-Request.pdf' },
+          { title: 'Ambetter of Indiana — Clinical Policy CP.BH.104, Applied Behavior Analysis (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.104.pdf' },
+        ],
+      },
+      telehealth: {
+        value: 'Allowed in principle but not code by code. CP.BH.104 lists telehealth among ABA modalities and tells providers to "refer to respective state allowances for telehealth services"; CP.BH.105 requires a HIPAA-compliant platform with the rendering provider\'s camera on, and the monthly one-on-one 97155 protocol work may not be by telehealth "unless allowed by state guidelines." The 2026 manual bills telehealth with POS 02 or 10, and the EOC applies in-person cost sharing to telehealth outside Virtual 24/7 care. Which ABA codes Ambetter pays remotely is not listed.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Ambetter of Indiana — Clinical Policy CP.BH.104, Applied Behavior Analysis (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.104.pdf' },
+          { title: 'Ambetter of Indiana — Clinical Policy CP.BH.105, Applied Behavioral Analysis Documentation Requirements (date of last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/Clinical_Policies/CP.BH.105.pdf' },
+          { title: 'Ambetter Health (Indiana) — 2026 Provider and Billing Manual (6559054_IN6PMKTMANE)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/PDFs/2026-in-provider-manual.pdf' },
+        ],
+        verifyVia: 'Ask Ambetter UM to note telehealth delivery on the authorization and confirm which ABA codes (97151, 97155, 97156) it will pay with POS 02/10.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value: 'The 2026 manual: urgent prospective requests "Within 48 hours of receipt," non-urgent prospective "Within 5 business days of receipt," urgent concurrent 1 calendar day (one extension up to 3 days), retrospective 30 calendar days. Indiana law for utilization review entities is shorter: 24 hours urgent and 48 hours for other services, not counting weekends and state and federal holidays (IC 27-1-37.5-23).',
+        status: 'verified',
+        cites: [
+          { title: 'Ambetter Health (Indiana) — 2026 Provider and Billing Manual (6559054_IN6PMKTMANE)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/PDFs/2026-in-provider-manual.pdf' },
+          { title: 'Ind. Code 27-1-37.5-23 — prior authorization response deadlines', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-23/' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value: 'The EOC follows the birthday rule for a child covered under both parents\' plans when the parents are married or living together: the plan of "the parent whose birthday falls earlier in the calendar year" is primary (same birthday: the plan that covered the parent longer); a court decree controls for separated or divorced parents. A Medicaid state plan is one that "by law, provides benefits that are in excess of those of any" private plan, so Ambetter pays before Indiana Medicaid. COB claims are due 180 days (participating) or 90 days (non-participating) from the primary payer\'s EOP.',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Ambetter Health (Indiana) — 2026 Evidence of Coverage (35065IN004-2026), Autism Spectrum Disorder Benefits', url: 'https://api.centene.com/EOC/2026/35065IN004.pdf' },
+          { title: 'Ambetter Health (Indiana) — 2026 Provider and Billing Manual (6559054_IN6PMKTMANE)', url: 'https://www.ambetterhealth.com/content/dam/centene/mhsindiana/Ambetter/PDFs/2026-in-provider-manual.pdf' },
+        ],
+        verifyVia: 'Collect every coverage the child has, both parents\' birthdays and any custody decree at intake; confirm primacy with Ambetter and the other carrier.',
+        blocker: 'per-case',
+      },
+    },
+    faq: [
+      { q: 'Does Ambetter of Indiana cover ABA?', a: 'Yes. The 2026 Indiana EOC covers applied behavior analysis therapy for autism "when prescribed by a physician or behavioral health practitioner," says "No limitation exists within the benefits for applied behavior analysis services," and makes it subject to prior authorization. The family\'s deductible and coinsurance apply.' },
+      { q: 'Is Ambetter treated like a commercial plan or a Medicaid plan?', a: 'Commercial. Ambetter is a Marketplace (ACA exchange) policy with its own EOC, PA list and Centene clinical policy CP.BH.104. MHS, Centene\'s Indiana Medicaid plan, follows IHCP rules and has its own guide.' },
+      { q: 'How long is an Ambetter ABA authorization period in Indiana?', a: 'Ambetter\'s policies work in six-month cycles: CP.BH.104 requires an updated behavior assessment and treatment plan "at least every six months," and CP.BH.105 refers to "the entire six-month authorization period." Indiana law says an authorization "shall be valid for at least one (1) year" after the provider receives it (IC 27-1-37.5-26(b)). Read the start and end dates on each approval letter and ask UM if a span is shorter than you requested.' },
+      { q: 'Does the ABA assessment need prior authorization?', a: 'Yes. 97151 and 97152 are on Ambetter\'s Indiana PA list with the other ABA codes. Send diagnostic information with standardized measures and the diagnosing provider\'s referral, per the ABA request form.' },
+      { q: 'Will Ambetter authorize ABA retroactively?', a: 'Rarely. The 2026 manual limits retrospective review to extenuating circumstances (an unconscious member, no ID card or other coverage shown, another payer that later found the member ineligible) and says Ambetter will not retrospectively review a claim denied for lack of a required authorization.' },
+      { q: 'What is Ambetter\'s timely filing limit in Indiana?', a: '180 days from the date of service for participating providers, 90 days for non-participating providers (2026 provider manual); secondary (COB) claims 180/90 days from the primary payer\'s EOP.' },
     ],
   },
 };
