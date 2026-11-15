@@ -2743,6 +2743,7 @@ export const arizonaPayers: Record<string, PayerConfig> = {
       { title: 'Caregiver availability', desc: 'At least 2 hours a month of caregiver training is expected unless documented otherwise.' },
     ],
     sources: [
+      { title: 'AZ Blue — Provider Newsletter Archive (monthly provider e-newsletter issues)', url: 'https://www.azblue.com/provider/newsletter' },
       { title: 'AZ Blue Evidence-Based Criteria O1203 — Applied Behavior Analysis (ABA) (effective 10/01/26; last review 07/29/26)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/medical-policies/clinical/medicine/applied-behavior-analysis.pdf' },
       { title: 'AZ Blue — Prior Authorization Requirements Code Lists (xlsx; Standard list updated 10/01/2026)', url: 'https://edge.sitecorecloud.io/bluecross-6f8ea2ea/media/project/bcbs-az/azblue/data/media/files/providers/resources/code-lists/az-blue-prior-auth-code-lists.xlsx' },
       { title: 'AZ Blue — Prior Authorization & Medical Policies (providers)', url: 'https://www.azblue.com/provider/resources/prior-authorization-and-medical-policies' },

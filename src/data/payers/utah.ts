@@ -959,6 +959,8 @@ export const utahPayers: Record<string, PayerConfig> = {
       { title: 'Prior ABA history', desc: 'Dates and reason for discharge from any previous ABA provider.' },
     ],
     sources: [
+      { title: 'Regence — The Bulletin (monthly medical and reimbursement policy changes; supplement to The Connection newsletter)', url: 'https://www.regence.com/provider/library/bulletins' },
+      { title: 'Regence — The Connection provider newsletter (issue archive)', url: 'https://www.regence.com/provider/library/newsletters' },
       { title: 'Regence Medical Policy BH33 — ABA Initial Assessment for the Treatment of Autism Spectrum Disorder (effective 8/1/2025)', url: 'https://beonbrand.getbynder.com/m/8360cc45444cab46/' },
       { title: 'Regence Medical Policy BH18 — Applied Behavior Analysis for the Treatment of Autism Spectrum Disorder (effective 11/1/2026, last review June 2026)', url: 'https://beonbrand.getbynder.com/m/e4646f415eb7f4eb/' },
       { title: 'Utah Code § 31A-22-642 (current version, effective 5/6/2026)', url: 'https://le.utah.gov/xcode/Title31A/Chapter22/C31A-22-S642_2026050620260506.html' },

@@ -2426,6 +2426,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Ambetter from Peach State Health Plan — Pre-Auth Needed tool (code lookups 2026-11-15)', url: 'https://www.ambetterhealth.com/en/ga/provider-resources/manuals-and-forms/pre-auth/' },
       { title: 'Ambetter from Peach State Health Plan — Manuals and Forms', url: 'https://www.ambetterhealth.com/en/ga/provider-resources/manuals-and-forms/' },
       { title: 'Ambetter from Peach State Health Plan — Clinical and Payment Policies', url: 'https://www.ambetterhealth.com/en/ga/provider-resources/clinical-payment-policies/' },
+      { title: 'Ambetter from Peach State Health Plan — Georgia Newsroom (provider and plan notices index)', url: 'https://www.ambetterhealth.com/en/ga/newsroom/' },
       { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.104.pdf' },
       { title: 'Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.105.pdf' },
       { title: 'Ambetter from Peach State Health Plan — Provider Quick Reference Guide', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/PDFs/GA-Ambetter-Provider-QRG.pdf' },
