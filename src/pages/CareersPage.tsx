@@ -93,7 +93,7 @@ export default function CareersPage() {
   useReveal();
   useSeo({
     title: 'Careers at Carelu — Build the front office of healthcare',
-    description: 'Join Carelu in New York City. We are bringing AI to the front office of behavioral healthcare. See open roles, including Solutions Engineer and Implementation Engineer.',
+    description: 'Join Carelu in New York City. We are bringing AI to the front office of behavioral healthcare. See open roles, including Solutions Engineer.',
     canonical: '/careers',
     image: '/og-careers.jpg',
     imageAlt: 'The Carelu team. We are hiring in New York.',
