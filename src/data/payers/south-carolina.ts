@@ -516,7 +516,7 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       { label: 'Prior auth', value: 'All covered ASD services except diagnostic services' },
       { label: 'Criteria', value: 'SCDHHS Autism Provider Manual (named in the manual’s criteria table)' },
       { label: 'Decision clock', value: 'Manual: up to 14 calendar days standard, 72 hours urgent' },
-      { label: 'Timely filing', value: '365 days from the date of service; disputes 90 days from the remittance' },
+      { label: 'Timely filing', value: '365 days from the date of service; disputes 90 days from the remittance (60 days from Jan. 1, 2027)' },
       { label: 'Provider services', value: '866-757-8286' },
     ],
     sections: [
@@ -530,10 +530,10 @@ export const southCarolinaPayers: Record<string, PayerConfig> = {
       {
         h2: 'Claims, disputes and decision times',
         body: [
-          'Healthy Blue "accepts claims from all providers up to 365 days after the date of service," and corrected claims are due within 365 days of the date of service. Claims disputes filed more than 90 calendar days after the remittance are not accepted; the plan answers disputes within 30 calendar days. Its manual still describes routine prior-authorization review "not to exceed 14 calendar days from receipt of the request," and urgent review within 72 hours; federal managed-care rules cut the standard limit to 7 calendar days for rating periods starting on or after January 1, 2026.',
+          'Healthy Blue "accepts claims from all providers up to 365 days after the date of service," and corrected claims are due within 365 days of the date of service. Claims disputes filed more than 90 calendar days after the remittance are not accepted. That window shortens on January 1, 2027: Healthy Blue\'s November 12, 2026 news bulletin says claims-related disputes "must be submitted within 60 days of the remittance date," and late requests "will be denied unless good cause is established." The dispute process remains the only route for claim denials, reduced or zero-paid claims, post-service authorization issues, other-insurance denials and timely-filing issues; the plan answers disputes within 30 calendar days. Its manual still describes routine prior-authorization review "not to exceed 14 calendar days from receipt of the request," and urgent review within 72 hours; federal managed-care rules cut the standard limit to 7 calendar days for rating periods starting on or after January 1, 2026.',
           'Healthy Blue considers only "clean claims received and entered into the claims processing system within one year from the date of service," and "We do not extend claim submittal time limits based on third-party liability requirements," so a secondary claim must still arrive within that year. Claims first rejected for missing or invalid data must be resubmitted within 365 calendar days, and corrected claims must be "clearly marked as a ‘corrected claim’" with the original claim number. The manual states no clean-claim payment deadline and no check-run schedule; ask Provider Services.',
         ],
-        cites: [S.hbPOM, S.cfr438],
+        cites: [S.hbPOM, S.cfr438, { title: 'Healthy Blue SC — Important Update: Provider Dispute Timeframe Changing Jan. 1, 2027 (news bulletin, Nov. 12, 2026)', url: 'https://www.healthybluesc.com/providers/news-and-events' }],
       },
     ],
     collect: [

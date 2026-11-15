@@ -369,7 +369,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { title: 'Hours already used this year', desc: 'For children under 18, ask how many behavioral health units or hours are used, and who pays after 30.' },
       { title: 'Other insurance', desc: 'The plan pays last; bill the primary and send its EOB within 60 days.' },
     ],
-    sources: [{ title: 'CMS — Delaware Diamond State Health Plan section 1115 extension approval letter and STCs (approved May 17, 2024)', url: 'https://dhss.delaware.gov/wp-content/uploads/sites/11/2026/07/Final-Delaware-DSHP-Extension-Approval-Letter-and-STCs.pdf' }, S.acdePM, S.acdeBHprov, S.acdeBHmem, S.acdeBHPA, S.acdePAG, S.spa, S.pract, S.dshp, S.cfr438, S.cfr433, S.bacbLic, { title: 'AmeriHealth Caritas Delaware — Newsletters and Updates (Connections provider newsletter archive)', url: 'https://www.amerihealthcaritasde.com/provider/newsletters-and-updates' }, { title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }, { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' }],
+    sources: [{ title: 'AmeriHealth Caritas Delaware — Provider alert: Applied Behavior Analysis Policy Update (RPC.0144.7100), June 24, 2026', url: 'https://www.amerihealthcaritasde.com/content/dam/amerihealth-caritas/acde/pdf/provider/updates/2026/062926-provider-alert-applied-behavior-analysis-policy.pdf.coredownload.inline.pdf' }, { title: 'AmeriHealth Caritas Delaware — Provider alert: Reminder: Balance Billing and Missed Appointment Policies (Nov. 12, 2026)', url: 'https://www.amerihealthcaritasde.com/content/dam/amerihealth-caritas/acde/pdf/provider/updates/2026/111326-provider-alert-balance-billing-and-missed-appointment-policies.pdf.coredownload.inline.pdf' }, { title: 'CMS — Delaware Diamond State Health Plan section 1115 extension approval letter and STCs (approved May 17, 2024)', url: 'https://dhss.delaware.gov/wp-content/uploads/sites/11/2026/07/Final-Delaware-DSHP-Extension-Approval-Letter-and-STCs.pdf' }, S.acdePM, S.acdeBHprov, S.acdeBHmem, S.acdeBHPA, S.acdePAG, S.spa, S.pract, S.dshp, S.cfr438, S.cfr433, S.bacbLic, { title: 'AmeriHealth Caritas Delaware — Newsletters and Updates (Connections provider newsletter archive)', url: 'https://www.amerihealthcaritasde.com/provider/newsletters-and-updates' }, { title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }, { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' }],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule of its own. The state plan applies: a BCBA may work independently, a BCaBA only under a BCBA, and an RBT only under a BCaBA or BCBA, with supervision requirements set by the BACB and no numeric ratio.',
@@ -403,11 +403,14 @@ export const delawarePayers: Record<string, PayerConfig> = {
         cites: [S.acdePM, S.spa],
       },
       billAsProvider: {
-        value: 'The manual publishes no ABA-specific rendering or supervising-provider rule.',
+        value: 'Credential modifiers are required from July 24, 2026. The manual has no ABA-specific rendering or supervising-provider rule, but AmeriHealth Caritas Delaware’s provider alert of June 24, 2026 announced an updated Applied Behavior Analysis (ABA) Services Reimbursement Policy (RPC.0144.7100). Under it, "claims for ABA services must accurately reflect the qualifications of the rendering provider through the use of applicable modifiers." The policy covers when to use HN, HO and HP by credential, when a qualified technician’s supervised service may be reported without a modifier, and the reimbursement tied to each modifier level. Claims "with missing, incorrect or inconsistent modifiers may be denied or reimbursed at a reduced rate." The alert does not reproduce the credential-to-modifier table or say whose NPI renders technician services. Those details are in RPC.0144.7100, which we could not open.',
         status: 'unverified',
-        cites: [S.acdePM],
-        verifyVia: 'Your AmeriHealth Caritas Delaware Provider Account Executive: ask whether RBT services are billed under the supervising BCBA’s NPI and which HN/HO/HP modifier applies.',
-        blocker: 'per-case',
+        cites: [
+          S.acdePM,
+          { title: 'AmeriHealth Caritas Delaware — Provider alert: Applied Behavior Analysis Policy Update (RPC.0144.7100), June 24, 2026', url: 'https://www.amerihealthcaritasde.com/content/dam/amerihealth-caritas/acde/pdf/provider/updates/2026/062926-provider-alert-applied-behavior-analysis-policy.pdf.coredownload.inline.pdf' },
+        ],
+        verifyVia: 'AmeriHealth Caritas Delaware Reimbursement Policies webpage (RPC.0144.7100, Applied Behavior Analysis Services), or Provider Services 1-855-707-5818 / your Provider Account Executive.',
+        blocker: 'document',
       },
     },
     intakeGates: {
@@ -461,6 +464,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can an ABA agency charge an AmeriHealth Caritas Delaware family a cancellation or no-show fee?', a: 'No. AmeriHealth Caritas Delaware\'s provider alert of November 12, 2026 reminds providers that members "may not be balanced billed for covered services or charged fees for missed, canceled or late appointments," and that providers "are prohibited from billing members for missed appointments, including no show fees." Providers also may not deny or delay future services because of outstanding missed-appointment charges. So an ABA agency\'s cancellation policy cannot carry a fee for these members. Questions: Provider Services 1-855-707-5818.' },
       { q: 'Does AmeriHealth Caritas Delaware cover ABA?', a: 'Yes. Its member benefits page lists applied behavior analysis among autism services. The state plan covers ASD services for members under 21.' },
       { q: 'What happens after 30 units for a child under 18?', a: 'The plan’s pages disagree. The provider page says to get prior authorization and payment for further ABA from DDDS after 30 units. The member page says the plan covers the first 30 outpatient hours and DSCYF covers the rest. Ask the plan in writing before planning hours.' },
       { q: 'How do I request ABA authorization from AmeriHealth Caritas Delaware?', a: 'Use the Behavioral Health Prior Authorization Request Form through NaviNet or fax 877-234-4273, with the treatment plan and progress notes.' },
