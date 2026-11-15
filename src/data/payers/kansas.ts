@@ -2596,7 +2596,7 @@ export const kansasPayers: Record<string, PayerConfig> = {
       { title: 'Prescriber recommendation', desc: 'On insured Kansas plans, ABA must be required by a licensed physician, psychologist or LSCSW — keep it in the file.' },
       { title: 'Staff records', desc: 'LBA/LaBA license or BACB certification, KDADS letter for Autism Specialist/IIS, and a national background check for each line therapist.' },
     ],
-    sources: [
+    sources: [{ title: 'Blue Cross and Blue Shield of Kansas — Professional Provider Publications (Blue Shield Report archive)', url: 'https://www.bcbsks.com/providers/professional/publications' }, 
       { title: 'BCBSKS Professional Provider Autism Manual (revision January 2026)', url: 'https://www.bcbsks.com/documents/professional-provider-autism-manual-2026' },
       { title: 'BCBSKS — Prior authorization (medical services requiring prior authorization)', url: 'https://www.bcbsks.com/providers/precertification-prior-authorization' },
       { title: 'BCBSKS Policy Memo No. 1 — Policies and Procedures (January 2026)', url: 'https://www.bcbsks.com/documents/2026-cap-policy-memo-1' },

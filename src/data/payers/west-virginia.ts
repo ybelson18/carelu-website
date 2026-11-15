@@ -363,7 +363,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       { title: 'Caseworker contact (MHP)', desc: 'For foster children, who can consent and sign releases.' },
       { title: 'Other insurance', desc: 'The plan is payer of last resort; bill the primary and send its RA within 365 days.' },
     ],
-    sources: [S.abhPM, S.abhForm, S.mht, S.mhp, S.mhpContract, S.aba519, S.tele519, S.teleA, S.abaFee, S.ch527, S.c9532, S.cfr438, S.cfr433, S.bacbLic, { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' }],
+    sources: [{ title: 'Aetna Better Health of West Virginia — Provider News & Notices (notices, provider bulletins and PA update archive)', url: 'https://www.aetnabetterhealth.com/westvirginia/providers/notices-newsletters.html' }, S.abhPM, S.abhForm, S.mht, S.mhp, S.mhpContract, S.aba519, S.tele519, S.teleA, S.abaFee, S.ch527, S.c9532, S.cfr438, S.cfr433, S.bacbLic, { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' }],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule of its own, so the state rule applies. ' + WV_MCD_SUPERVISION,
@@ -508,7 +508,7 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
       { title: 'THP’s written PA answer', desc: 'Its PA list names no ABA code; keep THP’s confirmation in the chart.' },
       { title: 'Other insurance', desc: 'COB claims are due within 180 days of service or 90 days from the primary EOB.' },
     ],
-    sources: [S.thpMHT, S.thpPAL, S.thpClinical, S.thpClaims, S.aba519, S.tele519, S.teleA, S.abaFee, S.ch527, S.mht, S.c9532, S.cfr438, S.cfr433, S.bacbLic, { title: 'The Health Plan — Provider Communications (Core Communications email archive)', url: 'https://www.healthplan.org/providers/training-education/provider-email-communications' }, { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' }],
+    sources: [{ title: 'The Health Plan — Provider Email Communications (Core Communications archive)', url: 'https://www.healthplan.org/providers/training-education/provider-email-communications' }, S.thpMHT, S.thpPAL, S.thpClinical, S.thpClaims, S.aba519, S.tele519, S.teleA, S.abaFee, S.ch527, S.mht, S.c9532, S.cfr438, S.cfr433, S.bacbLic, { title: 'The Health Plan — Provider Communications (Core Communications email archive)', url: 'https://www.healthplan.org/providers/training-education/provider-email-communications' }, { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' }],
     deliveryRules: {
       supervision: { value: 'THP publishes no ABA supervision rule of its own, so the state rule applies. ' + WV_MCD_SUPERVISION, status: 'verified', cites: [S.thpMHT, S.aba519] },
       concurrentBilling: {

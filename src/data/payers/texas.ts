@@ -5812,7 +5812,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Skills assessment within 30 days', desc: 'VB-MAPP, ABLLS, AFLS, ABAS or Vineland, dated within the last 30 days of the request.' },
       { title: 'Line staff roster', desc: '18+, high school diploma or GED, background check, 40 hours of training, BCBA oversight of at least 5% of hours worked.' },
     ],
-    sources: [
+    sources: [{ title: 'BCBSTX — Provider News and Updates (archive index)', url: 'https://www.bcbstx.com/provider/education/education/news' }, 
       { title: 'BCBSTX — Fee Schedules via Availity (Professional Providers)', url: 'https://www.bcbstx.com/provider/education/education/tools/fee-sched-via-availity-prof-pvdrs' }, TX_1452_G8,G1_BCBSTX_FORM, G1_BCBSTX_ASSESS, G1_BCBSTX_TELEATT, G1_BCBSTX_CHANGE, G1_BCBSTX_BHPAGE, G1_BCBSTX_CALL, G1_BCBSTX_CLAIMNEWS, G1_BCBSTX_CPCP, G1_BCBSTX_RP033, G1_BCBSTX_ADM, G1_BCBSTX_PRM, G1_BCBSTX_BLUECARD, G1_BCBSTX_M015, G1_BCBSTX_M002, G1_BCBSTX_M003, G1_BCBSTX_I1301, G1_BCBSTX_I843, G1_BCBSTX_TDLR],
     intakeGates: {
       ageLimit: {

@@ -3674,6 +3674,7 @@ dxRequired: {
       { title: 'Ind. Code § 27-8-14.2-5 — individual offer', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-8-14-2-5/' },
       { title: 'Ind. Code 27-1-37.5-23 — prior authorization response deadlines', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-23/' },
       { title: 'Ind. Code 27-1-37.5-26 — authorization valid for at least one year (FindLaw unofficial mirror, current as of Jan. 1, 2026)', url: 'https://codes.findlaw.com/in/title-27-insurance/in-code-sect-27-1-37-5-26/' },
+      { title: 'Ambetter of Indiana — Provider News (provider notice archive; list is JS-rendered)', url: 'https://www.ambetterhealth.com/en/in/provider-resources/provider-news/' },
     ],
     deliveryRules: {
       supervision: {
