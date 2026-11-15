@@ -1067,6 +1067,7 @@ export const iowaPayers: Record<string, PayerConfig> = {
       { title: 'Molina Healthcare — Provider policies page (links the Molina Clinical Policy library)', url: 'https://www.molinahealthcare.com/providers/resources/policies' },
       { title: 'Iowa HHS — Provider Quick Reference Guide, Molina Healthcare of Iowa (June 2023)', url: 'https://hhs.iowa.gov/media/7599/download' },
       { title: 'Iowa Admin. Code r. 441—77.31 — Behavioral health services providers', url: 'https://www.legis.iowa.gov/docs/iac/chapter/441.77.pdf' },
+      { title: 'Molina Healthcare of Iowa — Provider communications (quarterly provider newsletters, bulletins and notices)', url: 'https://www.molinahealthcare.com/providers/ia/communications' },
     ],
     deliveryRules: {
       supervision: {

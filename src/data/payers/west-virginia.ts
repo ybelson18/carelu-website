@@ -231,9 +231,13 @@ export const westVirginiaPayers: Record<string, PayerConfig> = {
     deliveryRules: {
       supervision: { value: WV_MCD_SUPERVISION, status: 'verified', cites: [S.aba519] },
       concurrentBilling: {
-        value: 'Not allowed for the same activity. Policy 519.23.5.1 requires documentation to "demonstrate only one staff person’s time is billed for any specific activity provided to the member." 97155 may include coaching a technician "at the same time," but the policy gives no exception that lets 97153 and 97155 both be billed for that time.',
+        value: 'Not allowed for the same activity. Policy 519.23.5.1 requires documentation to "demonstrate only one staff person’s time is billed for any specific activity provided to the member." 97155 may include coaching a technician "at the same time," but the policy gives no exception that lets 97153 and 97155 both be billed for that time. Federal edits add nothing to this. The CMS Medicaid NCCI procedure-to-procedure file for practitioner services (dates of service 10/1–12/31/2026) has no edit pairing 97153 with 97155 or 97153 with 97156. Its only pair of two ABA codes is 0362T with 97152 (modifier indicator 1). CMS\'s State Medicaid & CHIP Applied Behavior Analysis Toolkit (August 2026) is guidance to states and sets no code-pair rule. It tells states to build their own edits where NCCI has none, so the state rule above is the one that applies.',
         status: 'verified',
-        cites: [S.aba519],
+        cites: [
+          S.aba519,
+          { title: 'CMS — Medicaid NCCI procedure-to-procedure (PTP) edits, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-ptp-edits-practitioner-services.zip' },
+          { title: 'CMS — State Medicaid & CHIP Applied Behavior Analysis Toolkit (August 2026)', url: 'https://www.medicaid.gov/medicaid/downloads/autism-services-aba-toolkit.pdf' },
+        ],
       },
       dailyLimits: { value: WV_MCD_LIMITS, status: 'verified', cites: [S.aba519] },
       noteSignature: {

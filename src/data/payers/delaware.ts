@@ -214,9 +214,13 @@ export const delawarePayers: Record<string, PayerConfig> = {
         cites: [S.spa],
       },
       concurrentBilling: {
-        value: 'Not addressed in any Delaware Medicaid source read. The ABA fee schedule lists 97153 and 97155 as separate lines but says nothing about billing them for the same clock time.',
+        value: 'Not addressed in any Delaware Medicaid source read. The ABA fee schedule lists 97153 and 97155 as separate lines but says nothing about billing them for the same clock time. Federal edits do not fill the gap. The CMS Medicaid NCCI procedure-to-procedure file for practitioner services (dates of service 10/1–12/31/2026) has no edit pairing 97153 with 97155 or 97153 with 97156; its only pair of two ABA codes is 0362T with 97152. CMS\'s State Medicaid & CHIP Applied Behavior Analysis Toolkit (August 2026) is guidance that tells states to build their own edits where NCCI has none. Whatever limit applies is the state\'s own, which we could not read.',
         status: 'unverified',
-        cites: [S.abaFS],
+        cites: [
+          S.abaFS,
+          { title: 'CMS — Medicaid NCCI procedure-to-procedure (PTP) edits, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-ptp-edits-practitioner-services.zip' },
+          { title: 'CMS — State Medicaid & CHIP Applied Behavior Analysis Toolkit (August 2026)', url: 'https://www.medicaid.gov/medicaid/downloads/autism-services-aba-toolkit.pdf' },
+        ],
         verifyVia: 'DMAP Provider Services (Delaware Medical Assistance Portal) or the member’s MCO.',
         blocker: 'document',
       },
@@ -346,9 +350,9 @@ export const delawarePayers: Record<string, PayerConfig> = {
       {
         h2: 'Coverage and the 30-unit question',
         body: [
-          'The member page lists ABA under "Autism services" and says AmeriHealth Caritas Delaware "covers the first 30 outpatient hours per year. Hours above 30 are provided through DSCYF." The provider behavioral health page says instead that the benefit for members under 18 "is limited to thirty (30) units per calendar year," after which "providers should obtain a prior authorization and payment for future applied behavioral analysis (ABA) services from the Delaware Division of Developmental Disabilities Services (DDDS)." The 2026 provider manual’s benefit table gives children "30 outpatient visits per year; visits above 30 are provided through" DSCYF and does not mention ABA. The pages differ on the unit (units, hours or visits) and on which agency picks up. The other two MCOs say ABA is outside the cap. Before planning a child’s hours, get the plan’s answer in writing.',
+          'The member page lists ABA under "Autism services" and says AmeriHealth Caritas Delaware "covers the first 30 outpatient hours per year. Hours above 30 are provided through DSCYF." The provider behavioral health page says instead that the benefit for members under 18 "is limited to thirty (30) units per calendar year," after which "providers should obtain a prior authorization and payment for future applied behavioral analysis (ABA) services from the Delaware Division of Developmental Disabilities Services (DDDS)." The 2026 provider manual’s benefit table gives children "30 outpatient visits per year; visits above 30 are provided through" DSCYF and does not mention ABA. The pages differ on the unit (units, hours or visits) and on which agency picks up. The other two MCOs say ABA is outside the cap. The state\'s CMS-approved Diamond State Health Plan terms (extension approved May 17, 2024, running through 2028) do not settle it either. They carve out of the MCO package, to fee-for-service, "medically necessary behavioral health services for children in excess of MCO plan benefit coverage, which is 30 visits for children", but never say whether ABA counts toward those 30 visits. Before planning a child’s hours, get the plan’s answer in writing.',
         ],
-        cites: [S.acdeBHmem, S.acdeBHprov, S.acdePM],
+        cites: [S.acdeBHmem, S.acdeBHprov, S.acdePM, { title: 'CMS — Delaware Diamond State Health Plan section 1115 extension approval letter and STCs (approved May 17, 2024; STC 23(b) children\'s behavioral health carve-out)', url: 'https://dhss.delaware.gov/wp-content/uploads/sites/11/2026/07/Final-Delaware-DSHP-Extension-Approval-Letter-and-STCs.pdf' }],
       },
       {
         h2: 'Authorization, claims and appeals',
@@ -365,7 +369,7 @@ export const delawarePayers: Record<string, PayerConfig> = {
       { title: 'Hours already used this year', desc: 'For children under 18, ask how many behavioral health units or hours are used, and who pays after 30.' },
       { title: 'Other insurance', desc: 'The plan pays last; bill the primary and send its EOB within 60 days.' },
     ],
-    sources: [S.acdePM, S.acdeBHprov, S.acdeBHmem, S.acdeBHPA, S.acdePAG, S.spa, S.pract, S.dshp, S.cfr438, S.cfr433, S.bacbLic, { title: 'AmeriHealth Caritas Delaware — Newsletters and Updates (Connections provider newsletter archive)', url: 'https://www.amerihealthcaritasde.com/provider/newsletters-and-updates' }, { title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }, { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' }],
+    sources: [{ title: 'CMS — Delaware Diamond State Health Plan section 1115 extension approval letter and STCs (approved May 17, 2024)', url: 'https://dhss.delaware.gov/wp-content/uploads/sites/11/2026/07/Final-Delaware-DSHP-Extension-Approval-Letter-and-STCs.pdf' }, S.acdePM, S.acdeBHprov, S.acdeBHmem, S.acdeBHPA, S.acdePAG, S.spa, S.pract, S.dshp, S.cfr438, S.cfr433, S.bacbLic, { title: 'AmeriHealth Caritas Delaware — Newsletters and Updates (Connections provider newsletter archive)', url: 'https://www.amerihealthcaritasde.com/provider/newsletters-and-updates' }, { title: '24 Del. C. § 3902 — Social work definitions ("licensed clinical social work" includes assessment and diagnosis of mental and emotional disorders and developmental disabilities)', url: 'https://delcode.delaware.gov/title24/c039/index.html' }, { title: '42 CFR 438.206(b)(4)-(5) — Medicaid managed care availability of services: out-of-network coverage when the network cannot provide a service', url: 'https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-C/part-438/subpart-D/section-438.206' }],
     deliveryRules: {
       supervision: {
         value: 'The plan publishes no ABA supervision rule of its own. The state plan applies: a BCBA may work independently, a BCaBA only under a BCBA, and an RBT only under a BCaBA or BCBA, with supervision requirements set by the BACB and no numeric ratio.',

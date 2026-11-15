@@ -195,9 +195,13 @@ export const districtOfColumbiaPayers: Record<string, PayerConfig> = {
         cites: [S.spa],
       },
       concurrentBilling: {
-        value: 'Not addressed in the SPA. Billing rules for ABA codes would sit in 29 DCMR Chapter 110 or DHCF billing guidance, neither of which we could read.',
+        value: 'Not addressed in the SPA. Billing rules for ABA codes would sit in 29 DCMR Chapter 110 or DHCF billing guidance, neither of which we could read. Federal edits do not fill the gap. The CMS Medicaid NCCI procedure-to-procedure file for practitioner services (dates of service 10/1–12/31/2026) has no edit pairing 97153 with 97155 or 97153 with 97156; its only pair of two ABA codes is 0362T with 97152. CMS\'s State Medicaid & CHIP Applied Behavior Analysis Toolkit (August 2026) is guidance that tells states to build their own edits where NCCI has none. Whatever limit applies is the state\'s own, which we could not read.',
         status: 'unverified',
-        cites: [S.spa, S.dcmr110],
+        cites: [
+          S.spa, S.dcmr110,
+          { title: 'CMS — Medicaid NCCI procedure-to-procedure (PTP) edits, practitioner services (effective 10/1/2026–12/31/2026)', url: 'https://www.cms.gov/files/zip/medicaid-ncci-2026-q4-ptp-edits-practitioner-services.zip' },
+          { title: 'CMS — State Medicaid & CHIP Applied Behavior Analysis Toolkit (August 2026)', url: 'https://www.medicaid.gov/medicaid/downloads/autism-services-aba-toolkit.pdf' },
+        ],
         verifyVia: 'DHCF Health Care Delivery Management Administration, (202) 442-5988, or the DC Medicaid provider billing manual on dc-medicaid.com: ask whether 97153 and 97155 may be billed for the same time.',
         blocker: 'document',
       },

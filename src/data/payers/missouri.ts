@@ -47,6 +47,12 @@ const MO_CRED_SECTION_G8 = {
   cites: [MO_1578_G8, MO_1575_G8],
 };
 
+/* MO HealthNet continued medical necessity and enrollment fee — weekly refresh 2026-11-15, read 2026-11-15. */
+const MO_CSR9830_N15 = { title: '13 CSR 70-98.030 — Applied Behavior Analysis Services, (5) Covered Services and Limitations, (6) Not Medically Necessary (Missouri Code of State Regulations)', url: 'https://www.sos.mo.gov/cmsimages/adrules/csr/current/13csr/13c70-98.pdf' };
+const MO_BHSM_N15 = { title: 'MO HealthNet Behavioral Health Services Manual (May 2026), § 1.16 Precertification of ABA Services', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' };
+const MO_2575_N15 = { title: 'MO HealthNet — Request for Applied Behavior Analysis, form 2575-045 (January 2026)', url: 'https://dss.mo.gov/sites/mydss/files/media/pdf/2026/07/Remediated_2575-045-Request-for-Applied-Behavior-Analysis-Jan-2026.pdf' };
+const MO_MMAC_FEE_N15 = { title: 'MMAC — Application Fee (new and revalidating providers)', url: 'https://mmac.mo.gov/providers/provider-enrollment/new-providers/application-fee/' };
+
 export const missouriPayers: Record<string, PayerConfig> = {
   'missouri-medicaid': {
     slug: 'missouri-medicaid',
@@ -250,6 +256,21 @@ export const missouriPayers: Record<string, PayerConfig> = {
         body: [MO_APPEAL_BODY_G5],
         cites: [MO_BHS_G5],
       },
+      {
+        h2: 'Continued medical necessity: what a MO HealthNet ABA renewal must show',
+        body: [
+          'The rule is 13 CSR 70-98.030(5)(B): "Medical necessity for continued ABA intervention beyond the initial precertification period shall be determined based upon requested documentation including but not limited to updated treatment plan and progress graphs. If progress is not evident, identification of barriers to progress and strategies to improve effectiveness of interventions are required." Each precertification runs "for a time period not to exceed one hundred eighty (180) days" (5)(C), and services must be based on the child\'s needs, "give consideration to the child\'s age, school attendance requirements, and other daily activities," and sit in "a clinically appropriate setting" (5)(D).',
+          'In practice (Behavioral Health Services Manual, precertification table): a Continued ABA Intervention request is the Request for Applied Behavior Analysis form (2575-045, January 2026) with the "Continued ABA Intervention" box and "Total Hours (Six Months)" filled in, faxed to the Behavioral Health help desk at (573) 635-6516 with the "Current Intervention Plan, Progress, Data/Graphs (If progress is not evident, include identification of barriers and strategies to improve effectiveness of interventions.)" A periodic re-assessment (97151) needs its own clinical rationale, such as "re-administration of tools, new behavior observed, new environment and participant is responding differently, or lack of adequate progress." MHD faxes back the hours allowed and the start and end dates. Services that are "solely educational," vocational or recreational, or where "measurable functional improvement is not expected" and are not needed to maintain function, are not covered (13 CSR 70-98.030(6)).',
+        ],
+        cites: [MO_CSR9830_N15, MO_BHSM_N15, MO_2575_N15],
+      },
+      {
+        h2: 'Is there an enrollment fee for ABA providers with MO HealthNet?',
+        body: [
+          'Only for institutional providers. Missouri Medicaid Audit & Compliance (MMAC): "The application fee is currently set at $750.00 for all new and revalidating \u201cinstitutional\u201d Medicaid providers. \u201cIndividual\u201d providers such as physicians, dentists and other individual non-physician practitioners are not required to pay the application fee" (13 CSR 65-2; 42 CFR 455.460). A fee paid to Medicare or another state\'s Medicaid agency within two years of the MO HealthNet application exempts the provider, and a CMS hardship waiver is refunded only after the fee is paid. An individually enrolled LBA is an individual practitioner; whether an Autism Clinic group enrollment (provider type 50, specialty AC) is treated as institutional is shown in MMAC\'s Provider Risk Category Table and the application, so confirm with MMAC Provider Enrollment (MMAC.ProviderEnrollment@dss.mo.gov) before you apply.',
+        ],
+        cites: [MO_MMAC_FEE_N15, { title: 'MMAC — Provider Assigned Risk Categories', url: 'https://mmac.mo.gov/providers/provider-enrollment/new-providers/provider-assigned-risk-categories/' }],
+      },
     ],
     collect: [
       { title: 'MO HealthNet eligibility — not the plan card', desc: 'Whichever MCO card the family shows, ABA is state FFS. Verify MO HealthNet eligibility; skip the MCO analysis entirely.' },
@@ -258,7 +279,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       { title: 'School services / IEP status', desc: 'IEP-based school ABA is precert-exempt — and a coordination fact for the intervention plan.' },
       { title: 'Rendering-tier plan', desc: 'HO vs. HN vs. HM decides the rate on every hour — staffing mix is a first-order revenue variable.' },
     ],
-    sources: [ MO_BHS_G5,
+    sources: [MO_MMAC_FEE_N15, MO_CSR9830_N15, MO_2575_N15,  MO_BHS_G5,
       { title: 'MHD Applied Behavioral Analysis fee schedule (xlsx, file dated 10/2/2026)', url: 'https://apps.dss.mo.gov/fmsfeeschedules/dlfiles/Applied%20Behavioral%20Analysis.xlsx' },
       { title: 'MO HealthNet Behavioral Health Services Manual, §1.16 ABA Services (May 2026)', url: 'https://mydss.mo.gov/sites/mydss/files/media/file/2026/05/Behavioral%20Health%20Services%20Manual.docx' },
       { title: 'MO HealthNet — Fee Schedules and Rate Lists (landing page; redesign announced 11/5/2026)', url: 'https://dss.mo.gov/mhd/fee-schedules-rate-lists' },
@@ -382,6 +403,8 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'What must a MO HealthNet ABA continued-treatment request show?', a: 'Under 13 CSR 70-98.030(5)(B), an updated treatment plan and progress graphs, and, if progress is not evident, the barriers to progress and the strategies to improve the interventions. Send form 2575-045 marked Continued ABA Intervention with the six-month hours, the current intervention plan and progress data/graphs to the Behavioral Health help desk fax (573) 635-6516; each precertification covers up to 180 days.' },
+      { q: 'Is there an enrollment fee for ABA providers with MO HealthNet?', a: 'Individual providers pay none. MMAC charges $750 only to new and revalidating institutional providers, and a fee already paid to Medicare or another state Medicaid agency within two years exempts it. Confirm with MMAC whether a group Autism Clinic enrollment counts as institutional.' },
       { q: 'Does MO HealthNet cover ABA therapy?', a: 'Yes — for participants under 21, with precertification. The standard benefit requires an ASD diagnosis from a licensed physician or psychologist; under EPSDT/HCY, ABA is also covered for other diagnoses when medically necessary.' },
       { q: 'Do I need to contract with Missouri\'s Medicaid MCOs to provide ABA?', a: 'No. ABA is fully carved out of managed care — every member, including MCO and Show Me Healthy Kids enrollees, gets ABA through state fee-for-service. One payer, one precert form, no MCO credentialing for ABA.' },
       { q: 'How do I get an ABA authorization from MO HealthNet?', a: 'Fax form 2575-045 (the ABA Request for Precertification) with the required clinicals to the Behavioral Health Services help desk at (573) 635-6516. There\'s no portal or UM vendor — approval comes back by fax with hours and dates, for periods up to 6 months.' },
@@ -1756,6 +1779,7 @@ export const missouriPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'How long does Anthem BCBS take to decide an ABA assessment prior authorization in Missouri?', a: 'Anthem publishes no ABA-specific clock; its Missouri manual says UM review timeframes "follow Federal, State, and accreditation requirements." For a fully insured Missouri plan, RSMo 376.1363 requires the determination within thirty-six hours, including one working day, of obtaining all necessary information, with the provider notified within 24 hours; concurrent (continued-treatment) reviews within one working day. Self-funded employer plans follow federal ERISA claim rules instead. Ask Anthem which applies when you request the 97151 authorization.' },
       { q: 'What does Anthem Blue Cross and Blue Shield pay for ABA in Missouri?', a: 'Anthem publishes no ABA rate table; rates are in your agreement. Its Missouri provider manual (effective January 1, 2026) points providers to Availity, whose "Fee Schedule" tool "Retrieves professional office-based contracted price information for patient services," and tells them to "Refer to the contractual fee schedule for payment determination." For a public benchmark, MO HealthNet pays 97151 at $25.26 per 15-minute unit (behavior analyst tier).' },
       { q: 'Are there any HMOs in Missouri?', a: 'Yes. Missouri\'s Department of Commerce & Insurance lists 17 licensed HMOs with the counties each may serve; this carrier\'s is HMO Missouri Inc (96 counties). Missouri\'s autism mandate (RSMo § 376.1224) reaches HMO plans because § 376.1350 counts a health maintenance organization as a health carrier. See “HMOs in Missouri” above for the full list.' },
       { q: 'Does Anthem BCBS Missouri cover ABA therapy?', a: 'Yes. RSMo § 376.1224 requires health benefit plans delivered, issued, continued or renewed in Missouri on or after January 1, 2020 to cover diagnosis and treatment of autism spectrum disorders including ABA, and Anthem precertifies ABA as a behavioral health service with itself as the reviewing party. Private self-funded ERISA plans are preempted from the mandate.' },
