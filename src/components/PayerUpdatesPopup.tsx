@@ -69,7 +69,7 @@ export default function PayerUpdatesPopup({ defaultState = '' }: { defaultState?
     if (!EMAIL_RE.test(email.trim())) return setError('Enter a valid email.');
     if (!state) return setError('Pick your state.');
     setStatus('busy');
-    const r = await joinPayerUpdates({ email, states: [state], website: hp.current?.value ?? '' });
+    const r = await joinPayerUpdates({ email, states: [state], website: hp.current?.value ?? '', mode: 'add' });
     if (!r.ok) {
       setStatus('idle');
       return setError(r.error === 'invalid email' ? 'Enter a valid email.' : 'Something went wrong. Try again.');

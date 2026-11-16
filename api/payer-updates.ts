@@ -5,7 +5,7 @@ import { STATE_META } from '../src/data/payers/types.js';
 /* ================================================================
    /api/payer-updates  (public, no auth)
 
-   POST { email, states: string[], topics?: string[], optIn: true, page?, website? }
+   POST { email, states: string[], topics?: string[], optIn: true, mode?: 'add', page?, website? }
      The "Get payer updates for your states" list on /payers. A visitor
      gives an email, picks their states and topics (Intake / Clinical
      care / Billing & ops), and ticks yes to joining. Every two weeks
@@ -135,6 +135,7 @@ export async function POST(request: Request): Promise<Response> {
   const topics = ALL_TOPICS.filter((t) => picked.has(t));
   if (topics.length === 0) return json({ error: 'pick at least one topic' }, 400);
   const page = str(body.page, 200);
+  const add = body.mode === 'add';
 
   const cfg = requireConfig();
   if (isResponse(cfg)) {
@@ -147,9 +148,14 @@ export async function POST(request: Request): Promise<Response> {
   const stored = await mutate(cfg.token, (rows) => {
     const existing = rows.find((r) => r.email === email);
     if (existing) {
-      if (existing.states.join() === states.join() && (existing.topics ?? ALL_TOPICS).join() === topics.join()) return null;
-      existing.states = states;
-      existing.topics = topics;
+      // The inline box is the full picker, so it replaces the person's
+      // states and topics. The popup and the Ask box offer one state, so
+      // they ADD it to whatever the person already picked.
+      const nextStates = add ? Array.from(new Set([...existing.states, ...states])).sort() : states;
+      const nextTopics = add ? ALL_TOPICS.filter((t) => (existing.topics ?? ALL_TOPICS).includes(t) || topics.includes(t)) : topics;
+      if (existing.states.join() === nextStates.join() && (existing.topics ?? ALL_TOPICS).join() === nextTopics.join()) return null;
+      existing.states = nextStates;
+      existing.topics = nextTopics;
       existing.updated = now;
       existing.optInText = OPT_IN_TEXT;
     } else {
