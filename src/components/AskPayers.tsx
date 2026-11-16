@@ -1,5 +1,25 @@
-import { useRef, useState } from 'react';
-import { PAYER_UPDATE_STATES, joinPayerUpdates } from './payerUpdates';
+import { useEffect, useRef, useState } from 'react';
+import { PAYER_UPDATE_STATES, hasJoined, joinPayerUpdates } from './payerUpdates';
+
+/* After an answer, the assistant offers the payer updates list in the chat
+   itself (never to someone who already joined, and not again for 30 days
+   after "No thanks"). */
+const OFFER_DISMISS_KEY = 'carelu_pu_chat_offer_dismissed';
+function offerDismissed(): boolean {
+  try {
+    const t = localStorage.getItem(OFFER_DISMISS_KEY);
+    return !!t && Date.now() - Date.parse(t) < 30 * 86_400_000;
+  } catch { return false; }
+}
+/* States named in the conversation, to pre-pick in the offer. */
+function statesIn(text: string): string[] {
+  const found = new Set<string>();
+  for (const st of PAYER_UPDATE_STATES) {
+    if (new RegExp(`\\b${st.name}\\b`, 'i').test(text) || new RegExp(`\\b${st.code}\\b`).test(text)) found.add(st.code);
+  }
+  return [...found];
+}
+type Offer = 'none' | 'typing' | 'ask' | 'pick' | 'saving' | 'done' | 'declined';
 
 /* ================================================================
    Ask-the-directory chat (/payers hero). Streams grounded answers
@@ -76,17 +96,48 @@ export default function AskPayers() {
   const [gatedQuestion, setGatedQuestion] = useState<string | null>(null);
   const [gateEmail, setGateEmail] = useState('');
   const [gateError, setGateError] = useState('');
-  // Optional: join the payer updates list in the same step.
-  const [puJoin, setPuJoin] = useState(false);
-  const [puState, setPuState] = useState('');
+  // The in-chat payer updates offer.
+  const [answers, setAnswers] = useState(0);
+  const [offer, setOffer] = useState<Offer>('none');
+  const [offerStates, setOfferStates] = useState<string[]>([]);
+  const [offerError, setOfferError] = useState('');
+  const offeredRef = useRef(false);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (answers === 0 || offeredRef.current || hasJoined() || offerDismissed() || !savedEmail()) return;
+    offeredRef.current = true;
+    const t1 = window.setTimeout(() => setOffer('typing'), 600);
+    const t2 = window.setTimeout(() => setOffer('ask'), 1500);
+    return () => { window.clearTimeout(t1); window.clearTimeout(t2); };
+  }, [answers]);
+
+  useEffect(() => {
+    const el = listRef.current;
+    if (el && offer !== 'none') el.scrollTop = el.scrollHeight;
+  }, [offer]);
+
+  function acceptOffer() {
+    setOfferStates(statesIn(messages.filter((m) => m.role === 'user').map((m) => m.content).join(' ')));
+    setOffer('pick');
+  }
+  function declineOffer() {
+    try { localStorage.setItem(OFFER_DISMISS_KEY, new Date().toISOString()); } catch { /* private mode */ }
+    setOffer('declined');
+  }
+  async function saveOffer() {
+    if (offerStates.length === 0) { setOfferError('Pick at least one state.'); return; }
+    setOffer('saving');
+    const r = await joinPayerUpdates({ email: savedEmail(), states: offerStates, mode: 'add' });
+    if (r.ok) setOffer('done');
+    else { setOffer('pick'); setOfferError('That didn’t go through. Try again?'); }
+  }
   const hpRef = useRef<HTMLInputElement>(null);
 
   function submitGate(e: React.FormEvent) {
     e.preventDefault();
     const clean = gateEmail.trim();
     if (!EMAIL_RE.test(clean)) { setGateError('That doesn’t look like an email.'); return; }
-    if (puJoin && !puState) { setGateError('Pick your state for the updates, or untick the box.'); return; }
-    if (puJoin) void joinPayerUpdates({ email: clean, states: [puState], website: hpRef.current?.value ?? '', mode: 'add' });
     try { localStorage.setItem(GIVEN_KEY, clean); } catch { /* private mode */ }
     fetch('/api/leads', {
       method: 'POST',
@@ -170,6 +221,7 @@ export default function AskPayers() {
         await new Promise((r) => setTimeout(r, 1200));
         await attempt();
       }
+      if (gotText) setAnswers((n) => n + 1);
     } catch (e) {
       if (e instanceof Refused && e.reason === 'email') {
         setGatedQuestion(q);
@@ -218,7 +270,7 @@ export default function AskPayers() {
       )}
 
       {messages.length > 0 && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 14, maxHeight: 420, overflowY: 'auto', paddingRight: 4 }}>
+        <div ref={listRef} style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 14, maxHeight: 420, overflowY: 'auto', paddingRight: 4 }}>
           {messages.map((m, i) => (
             m.role === 'user' ? (
               <div key={i} style={{ alignSelf: 'flex-end', maxWidth: '85%', background: 'rgba(63,122,52,0.09)', color: INK, borderRadius: '14px 14px 4px 14px', padding: '10px 15px', fontSize: 14, lineHeight: 1.55 }}>
@@ -232,6 +284,11 @@ export default function AskPayers() {
               </div>
             )
           ))}
+          {offer !== 'none' && !busy && <UpdatesOffer
+            offer={offer} states={offerStates} error={offerError} email={savedEmail()}
+            onYes={acceptOffer} onNo={declineOffer} onSave={saveOffer}
+            onStates={(v) => { setOfferStates(v); setOfferError(''); }}
+          />}
         </div>
       )}
 
@@ -259,22 +316,6 @@ export default function AskPayers() {
           }}>
             Continue
           </button>
-          <div style={{ flexBasis: '100%', display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', margin: '4px 0 0 12px' }}>
-            <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13.5, color: 'rgba(43,42,38,0.8)', cursor: 'pointer' }}>
-              <input type="checkbox" checked={puJoin} onChange={(e) => { setPuJoin(e.target.checked); setGateError(''); }} style={{ accentColor: GREEN }} />
-              Also send me payer updates for my state
-            </label>
-            {puJoin && (
-              <select value={puState} onChange={(e) => { setPuState(e.target.value); setGateError(''); }} aria-label="Your state" style={{
-                fontFamily: 'var(--font-body)', fontSize: 13.5, color: puState ? INK : 'rgba(43,42,38,0.5)', background: '#FAF8F3',
-                border: '1px solid rgba(43,42,38,0.14)', borderRadius: 100, padding: '7px 12px', cursor: 'pointer',
-              }}>
-                <option value="">Which state?</option>
-                {PAYER_UPDATE_STATES.map((st) => <option key={st.code} value={st.code}>{st.name}</option>)}
-              </select>
-            )}
-            {puJoin && <span style={{ flexBasis: '100%', fontSize: 12, color: 'rgba(43,42,38,0.55)' }}>One email every two weeks with what changed for payers in your state. Unsubscribe any time.</span>}
-          </div>
           {gateError && <p style={{ flexBasis: '100%', fontSize: 12.5, color: '#c0392b', margin: '2px 0 0 12px' }}>{gateError}</p>}
         </form>
       ) : (
@@ -323,5 +364,79 @@ export default function AskPayers() {
         AI-generated from Carelu's payer guides — verify against the payer's live policy for any specific member. Not billing, legal, or clinical advice.
       </p>
     </div>
+  );
+}
+
+/* The assistant's follow-up offer, styled as chat turns. */
+function UpdatesOffer({ offer, states, error, email, onYes, onNo, onSave, onStates }: {
+  offer: Offer; states: string[]; error: string; email: string;
+  onYes: () => void; onNo: () => void; onSave: () => void; onStates: (v: string[]) => void;
+}) {
+  const bot: React.CSSProperties = { alignSelf: 'flex-start', maxWidth: '95%', fontSize: 14, lineHeight: 1.68, color: 'rgba(43,42,38,0.82)' };
+  const me: React.CSSProperties = { alignSelf: 'flex-end', maxWidth: '85%', background: 'rgba(63,122,52,0.09)', color: INK, borderRadius: '14px 14px 4px 14px', padding: '10px 15px', fontSize: 14, lineHeight: 1.55 };
+  const pill = (primary: boolean): React.CSSProperties => ({
+    fontFamily: 'var(--font-body)', fontSize: 13.5, fontWeight: 600, cursor: 'pointer', borderRadius: 100, padding: '9px 16px',
+    border: primary ? 'none' : '1px solid rgba(43,42,38,0.16)', background: primary ? GREEN : '#fff', color: primary ? '#fff' : INK,
+  });
+  const names = (codes: string[]) => {
+    const n = PAYER_UPDATE_STATES.filter((s) => codes.includes(s.code)).map((s) => s.name);
+    return n.length > 1 ? `${n.slice(0, -1).join(', ')} and ${n[n.length - 1]}` : n[0] ?? '';
+  };
+
+  if (offer === 'typing') return <div style={{ ...bot, color: 'rgba(43,42,38,0.45)' }}>…</div>;
+  return (
+    <>
+      <div style={bot}>
+        Want me to keep you posted? When payer rules change in your state, I'll send you one email every two weeks with what changed, and nothing when nothing does. Unsubscribe any time.
+        {offer === 'ask' && (
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 10 }}>
+            <button type="button" onClick={onYes} style={pill(true)}>Yes, send me updates</button>
+            <button type="button" onClick={onNo} style={pill(false)}>No thanks</button>
+          </div>
+        )}
+      </div>
+
+      {offer === 'declined' && <>
+        <div style={me}>No thanks</div>
+        <div style={bot}>No problem. Ask me anything else about a payer.</div>
+      </>}
+
+      {(offer === 'pick' || offer === 'saving' || offer === 'done') && <>
+        <div style={me}>Yes, send me updates</div>
+        <div style={bot}>
+          Which states should I watch for you?{states.length > 0 && offer !== 'done' ? ' I picked the one from your question; add any others.' : ''}
+          {offer !== 'done' && (
+            <div style={{ marginTop: 10 }}>
+              <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 8 }}>
+                {states.map((c) => (
+                  <button key={c} type="button" onClick={() => onStates(states.filter((x) => x !== c))} aria-label={`Remove ${names([c])}`} style={{
+                    fontFamily: 'var(--font-body)', fontSize: 13, fontWeight: 600, color: GREEN_DKC, background: 'rgba(63,122,52,0.1)',
+                    border: 'none', borderRadius: 100, padding: '6px 12px', cursor: 'pointer',
+                  }}>{names([c])} ×</button>
+                ))}
+              </div>
+              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
+                <select value="" onChange={(e) => { if (e.target.value && !states.includes(e.target.value)) onStates([...states, e.target.value]); }} aria-label="Add a state" style={{
+                  fontFamily: 'var(--font-body)', fontSize: 13.5, color: INK, background: '#FAF8F3', border: '1px solid rgba(43,42,38,0.14)',
+                  borderRadius: 100, padding: '8px 12px', cursor: 'pointer',
+                }}>
+                  <option value="">{states.length ? 'Add another state' : 'Choose a state'}</option>
+                  {PAYER_UPDATE_STATES.filter((s) => !states.includes(s.code)).map((s) => <option key={s.code} value={s.code}>{s.name}</option>)}
+                </select>
+                <button type="button" onClick={onSave} disabled={offer === 'saving'} style={{ ...pill(true), opacity: offer === 'saving' ? 0.6 : 1 }}>
+                  {offer === 'saving' ? 'Saving…' : 'Start my updates'}
+                </button>
+              </div>
+              {error && <p style={{ fontSize: 12.5, color: '#c0392b', margin: '6px 0 0' }}>{error}</p>}
+            </div>
+          )}
+        </div>
+      </>}
+
+      {offer === 'done' && <>
+        <div style={me}>{names(states)}</div>
+        <div style={bot}>Done. I'll email you at <strong style={{ color: INK }}>{email}</strong> when payer rules change in {names(states)}. Anything else I can look up?</div>
+      </>}
+    </>
   );
 }
