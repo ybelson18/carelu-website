@@ -8,6 +8,7 @@ import { payers, PAYER_REVIEWED, STATE_META } from '../data/payers';
 import type { PayerConfig, PayerSource } from '../data/payers';
 import SiteFooter from '../components/SiteFooter';
 import PayerUpdatesSignup from '../components/PayerUpdatesSignup';
+import PayerUpdatesPopup from '../components/PayerUpdatesPopup';
 
 /* ================================================================
    CARELU — PAYER GUIDES (/payers/:slug)
@@ -485,6 +486,7 @@ function PayerGuide({ config }: { config: PayerConfig }) {
       <section style={{ paddingTop: 'clamp(36px, 5vw, 56px)' }}>
         <div style={{ ...W, maxWidth: 860 }}>
           <PayerUpdatesSignup defaultStates={config.state && config.state !== 'US' ? [config.state] : []} />
+          <PayerUpdatesPopup defaultState={config.state ?? ''} />
         </div>
       </section>
 

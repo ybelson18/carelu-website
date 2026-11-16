@@ -48,12 +48,13 @@ const SLACK = process.env.SLACK_MARKETING_WEBHOOK_URL ?? '';
 
 interface DigestState { lastSent: string; runs: { date: string; since: string; sent: number; failed: number }[] }
 export type Topic = 'intake' | 'clinical' | 'billing';
-export const TOPICS: { key: Topic; label: string }[] = [
-  { key: 'intake', label: 'Intake' },
-  { key: 'clinical', label: 'Clinical care' },
-  { key: 'billing', label: 'Billing & ops' },
+/* Email order: the family's path through the practice, intake first. */
+export const TOPICS: { key: Topic; label: string; blurb: string }[] = [
+  { key: 'intake', label: 'Intake', blurb: 'Eligibility, diagnosis and referrals, documents, and the prior auth to start services.' },
+  { key: 'clinical', label: 'Clinical care', blurb: 'Hours, supervision, staffing, treatment plans, reauthorization and telehealth.' },
+  { key: 'billing', label: 'Billing & ops', blurb: 'Codes, rates, claims, credentialing and portals.' },
 ];
-export interface Item { slug: string; category: Topic; headline: string; detail: string }
+export interface Item { slug: string; category: Topic; headline: string; detail: string; suggestion: string }
 export interface Change { slug: string; payer: string; state: string; field: string; change: string; sourceUrl?: string; date: string }
 
 const STATE_NAME: Record<string, string> = Object.fromEntries([...STATE_META.map((s) => [s.code, s.name]), ['US', 'National plans']]);
@@ -88,12 +89,13 @@ const SECTION_SCHEMA = {
       items: {
         type: 'object',
         additionalProperties: false,
-        required: ['slug', 'category', 'headline', 'detail'],
+        required: ['slug', 'category', 'headline', 'detail', 'suggestion'],
         properties: {
           slug: { type: 'string' },
           category: { type: 'string', enum: ['intake', 'clinical', 'billing'] },
           headline: { type: 'string' },
           detail: { type: 'string' },
+          suggestion: { type: 'string' },
         },
       },
     },
@@ -106,10 +108,11 @@ Rules:
 - Only include a NEW or CHANGED rule: something a provider did one way two weeks ago and should now do differently (a new requirement, a removed requirement, a new effective date, new rates, a new form or process). Records that merely document or confirm how a payer already works (for example "no separate supervision log is required", a turnaround that has not changed) are NOT news: skip them. Fewer, real items beat many weak ones.
 - One item per meaningful change. Merge records about the same payer and topic. Drop pure housekeeping (a link moved, a citation title reworded, a source document renamed, internal tooling, our own wording fixes) unless it changes what a provider does.
 - category: 'intake' (eligibility, diagnosis and referral rules, documents to collect, prior auth to start services, who can diagnose), 'clinical' (treatment rules: hours, supervision, staffing and credentials of RBTs/BCBAs, treatment plans, reauthorization, telehealth, place of service), or 'billing' (CPT codes, rates, claims, timely filing, credentialing and enrollment, portals). Pick the one team that has to act.
-- headline: the payer name and what changed, under 90 characters. detail: one or two plain sentences: the new rule, the effective date if given, and what to do differently.
+- headline: the payer name and what changed, under 90 characters. detail: one or two plain sentences: the new rule and the effective date if given. Facts only.
+- suggestion: "What this may mean for you". Write it the way an experienced ABA clinical director would brief their own intake, clinical or billing team: one or two sentences of practical steps a practice might consider because of this change (for example: update the intake checklist, check which active authorizations renew before the effective date, tell BCBAs before their next treatment plan, update the fee schedule or claim templates, re-train staff on a new form). Phrase steps as suggestions ("Consider...", "You may want to...", "Worth checking..."), never as orders, and never as legal, billing or clinical advice. Base it only on the change itself; never invent numbers, dates or rules. Skip the obvious ("read the policy").
 - Only state facts present in the records. Never invent dates, numbers or rules.
 - Never mention Carelu's own corrections or that the directory was wrong before; just state the current rule.
-- No em dashes or en dashes. Plain words, no jargon beyond standard ABA/insurance terms (CPT codes, prior auth, MCO are fine).
+- No em dashes or en dashes anywhere, including the suggestion. Plain words, no jargon beyond standard ABA/insurance terms (CPT codes, prior auth, MCO are fine).
 - slug must be one of the slugs given in the records.
 - If nothing is worth telling a provider, return an empty items list.`;
 
@@ -147,49 +150,151 @@ export function renderEmail(
   states: string[], topics: Topic[], sections: Record<string, Item[]>, since: string, unsubscribeUrl: string
 ): { subject: string; html: string; text: string } {
   const fmt = (d: string) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', timeZone: 'UTC' });
-  const names = states.map((s) => STATE_NAME[s] ?? s);
-  const per = states.map((st) => ({
-    st,
-    cats: TOPICS.filter((t) => topics.includes(t.key))
-      .map((t) => ({ t, items: (sections[st] ?? []).filter((i) => i.category === t.key) }))
-      .filter((c) => c.items.length),
-  }));
-  const count = per.reduce((n, p) => n + p.cats.reduce((m, c) => m + c.items.length, 0), 0);
-  const subject = `Payer updates: ${count} ${count === 1 ? 'change' : 'changes'} in ${names.join(', ')}`;
+  // Name the subscriber's own states; national plans ride along, tagged per item.
+  const own = states.filter((s) => s !== 'US');
+  const names = (own.length ? own : states).map((s) => STATE_NAME[s] ?? s);
+  const stateList = names.length > 1 ? `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}` : names[0];
+  // Topic first (intake, then clinical, then billing). Inside a topic: the
+  // subscriber's own states in order, national plans last.
+  const order = [...states.filter((s) => s !== 'US'), 'US'];
+  const cats = TOPICS.filter((t) => topics.includes(t.key))
+    .map((t) => ({
+      t,
+      items: order.flatMap((st) => (sections[st] ?? []).filter((i) => i.category === t.key).map((i) => ({ ...i, st }))),
+    }))
+    .filter((c) => c.items.length);
+  const count = cats.reduce((n, c) => n + c.items.length, 0);
+  const subject = `${stateList} payer updates: ${count} ${count === 1 ? 'change' : 'changes'}`;
   const guideUrl = (slug: string) => `${SITE}/payers/${slug}?utm_source=payer-updates&utm_medium=email`;
+  const contents = cats.map((c) => `${c.t.label} (${c.items.length})`).join(' · ');
+  // Carelu email brand: logo on cream, sky hero, Instrument Serif for the
+  // big headings only, DM Sans for everything else, deep green #1A2E1F,
+  // white cards. One type scale (13 / 15 / 18 / 28 / 50) so it reads clean.
+  // Signed by the brand, never a person. Tables + inline styles so Gmail
+  // and Outlook keep the layout.
+  const SERIF = `'Instrument Serif','Times New Roman',Georgia,serif`;
+  const SANS = `'DM Sans',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif`;
+  const DEEP = '#1A2E1F';
+  const BODY = '#3A3833';
+  const MUTED = '#6B675E';
+  const LINK = '#3F6E35';
+  const CREAM = '#FAF8F3';
+  const SAGE = '#F0F5EE';
+  const LIME = '#D4F25C';
+  const LINE = '#E7E4DC';
+  const utm = 'utm_source=payer-updates&utm_medium=email';
+  const LOGO = 'https://carelu.com/carelu-logo.png';
+  const pill = (t: string, bg: string, fg: string) => `<span style="display:inline-block;padding:4px 10px;border-radius:100px;background-color:${bg};font-family:${SANS};font-size:12px;font-weight:600;line-height:1.2;color:${fg};">${t}</span>`;
+  const table = (inner: string, style = 'border-collapse:collapse;') => `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="${style}">${inner}</table>`;
 
-  const blocks = per.map(({ st, cats }) => `
-    <h2 style="font-family:Georgia,serif;font-weight:400;font-size:24px;margin:32px 0 6px;border-bottom:1px solid #e5e1d8;padding-bottom:6px;color:#1A1A1A">${esc(STATE_NAME[st] ?? st)}</h2>
-    ${cats.map((c) => `
-      <p style="margin:18px 0 8px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#3f7a34">${esc(c.t.label)}</p>
-      ${c.items.map((i) => `
-      <div style="margin:0 0 18px">
-        <p style="margin:0 0 4px;font-weight:700;color:#1A1A1A">${esc(i.headline)}</p>
-        <p style="margin:0 0 6px;line-height:1.55;color:#2B2A26">${esc(i.detail)}</p>
-        <a href="${guideUrl(i.slug)}" style="color:#2e5a26;font-weight:600;font-size:14px">Read the full guide</a>
-      </div>`).join('')}`).join('')}`).join('');
+  const hasIntake = cats.some((c) => c.t.key === 'intake');
+  const careluNote = table(`<tr><td style="background-color:${DEEP};border-radius:18px;padding:22px 26px;">
+          ${table(`<tr>
+            <td width="34" valign="top" style="padding-top:2px;"><div style="width:22px;height:22px;border-radius:50%;background-color:${LIME};text-align:center;font-family:${SANS};font-size:13px;font-weight:700;line-height:22px;color:${DEEP};">&#10003;</div></td>
+            <td valign="top">
+              <div style="font-family:${SANS};font-size:16px;font-weight:600;line-height:1.4;color:#FFFFFF;">Using Carelu? Your intake is covered.</div>
+              <div style="padding-top:6px;font-family:${SANS};font-size:15px;line-height:1.6;color:rgba(255,255,255,0.82);">We make the intake changes below in your Carelu intake for you, automatically, and let you know once each one is live. Nothing to do on your end.</div>
+            </td></tr>`)}
+        </td></tr>`, 'border-collapse:separate;border-spacing:0;margin-top:24px;');
 
-  const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(subject)}</title></head>
-<body style="margin:0;padding:0;background:#FAF8F3">
-  <div style="max-width:600px;margin:0 auto;padding:28px 20px;font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;color:#1A1A1A;font-size:15px">
-    <p style="font-family:Georgia,serif;font-size:22px;margin:0 0 4px">Carelu</p>
-    <p style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#8a877f;margin:0 0 22px">Payer updates</p>
-    <p style="line-height:1.55;margin:0">Here is what changed for payers in ${esc(names.join(', '))} since ${fmt(since)}. Every item links to the full guide and its source.</p>
-    ${blocks}
-    <div style="margin-top:34px;padding-top:16px;border-top:1px solid #e5e1d8;font-size:12.5px;line-height:1.6;color:#8a877f">
-      You get this because you joined the payer updates list on carelu.com. Want different states or topics? Sign up again on the <a href="${SITE}/payers#payer-updates" style="color:#2e5a26">payer directory</a> with the same email.<br>
-      <a href="${unsubscribeUrl}" style="color:#5f5c55">Unsubscribe</a>${POSTAL ? `<br>${esc(POSTAL)}` : ''}
-    </div>
-  </div>
+  const contentsRow = cats.map((c) => `<td align="center" style="padding:0 4px;">
+            <div style="font-family:${SERIF};font-size:34px;line-height:1;color:${DEEP};">${c.items.length}</div>
+            <div style="padding-top:6px;font-family:${SANS};font-size:13px;font-weight:500;color:${MUTED};">${esc(c.t.label)}</div>
+          </td>`).join('');
+
+  const itemRow = (i: Item & { st: string }, k: number) => `
+            <tr><td style="padding:26px 0;${k ? `border-top:1px solid ${LINE};` : ''}">
+              ${pill(esc(STATE_NAME[i.st] ?? i.st), SAGE, LINK)}
+              <div style="padding-top:12px;font-family:${SANS};font-size:18px;font-weight:600;line-height:1.4;color:${DEEP};">${esc(i.headline)}</div>
+              <div style="padding-top:8px;font-family:${SANS};font-size:15px;line-height:1.65;color:${BODY};">${esc(i.detail)}</div>
+              ${i.suggestion ? `<div style="margin-top:16px;padding:2px 0 2px 16px;border-left:3px solid ${LIME};">
+                <div style="font-family:${SANS};font-size:13px;font-weight:600;color:${DEEP};">What this may mean for you</div>
+                <div style="padding-top:4px;font-family:${SANS};font-size:15px;line-height:1.65;color:${BODY};">${esc(i.suggestion)}</div>
+              </div>` : ''}
+              <div style="padding-top:16px;"><a href="${guideUrl(i.slug)}" style="font-family:${SANS};font-size:14px;font-weight:600;color:${LINK};text-decoration:none;">Read the full guide &rarr;</a></div>
+            </td></tr>`;
+
+  const blocks = cats.map((c) => `
+      ${table(`<tr><td style="padding:44px 4px 14px 4px;">
+          <div style="font-family:${SERIF};font-size:30px;line-height:1.15;letter-spacing:-0.01em;color:${DEEP};">${esc(c.t.label)}</div>
+          <div style="padding-top:6px;font-family:${SANS};font-size:14px;line-height:1.55;color:${MUTED};">${esc(c.t.blurb)}</div>
+        </td></tr>`)}
+      ${table(`<tr><td style="background-color:#FFFFFF;border:1px solid ${LINE};border-radius:18px;padding:2px 28px;">
+          ${table(c.items.map(itemRow).join(''))}
+        </td></tr>`, 'border-collapse:separate;border-spacing:0;')}`).join('');
+
+  const html = `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light">
+<title>${esc(subject)}</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+@media (max-width: 620px) { .hero-pad { padding: 48px 22px 44px 22px !important; } .hero-h { font-size: 40px !important; } }
+</style></head>
+<body style="margin:0;padding:0;background-color:${CREAM};">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;">${esc(contents)}. What changed for payers in ${esc(stateList)}, and what it may mean for your team.</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:${CREAM};">
+<tr><td align="center" style="padding:28px 12px 40px 12px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;margin:0 auto;border-collapse:collapse;background-color:${CREAM};color:${BODY};font-family:${SANS};">
+  <tr><td style="padding:0;">
+
+      <!-- MASTHEAD -->
+      ${table(`<tr>
+          <td valign="middle" style="padding:0 4px 20px 4px;"><a href="${SITE}?${utm}"><img src="${LOGO}" width="74" height="32" alt="Carelu" style="display:block;border:0;width:74px;height:auto;"></a></td>
+          <td align="right" valign="middle" style="padding:0 4px 20px 4px;font-family:${SANS};font-size:13px;font-weight:500;color:${MUTED};">Payer updates &middot; ${fmt(new Date().toISOString().slice(0, 10))}</td>
+        </tr>`)}
+
+      <!-- HERO: sky -->
+      ${table(`<tr><td bgcolor="#8FB2BF" background="https://carelu.com/hero-sky-1920.jpg" style="background-color:#8FB2BF;background-image:url('https://carelu.com/hero-sky-1920.jpg');background-size:cover;background-position:center 30%;background-repeat:no-repeat;border-radius:22px;padding:0;">
+          ${table(`<tr><td align="center" class="hero-pad" style="padding:60px 40px 54px 40px;background:linear-gradient(180deg,rgba(0,0,0,0.30) 0%,rgba(0,0,0,0.12) 60%,rgba(0,0,0,0.04) 100%);border-radius:22px;">
+              <div class="hero-h" style="font-family:${SERIF};font-weight:400;font-size:50px;line-height:1.05;letter-spacing:-0.01em;color:#FFFFFF;text-shadow:0 2px 28px rgba(0,0,0,0.32);">What changed in <em style="font-style:italic;">${esc(stateList)}</em></div>
+              <div style="padding-top:16px;font-family:${SANS};font-size:16px;line-height:1.6;color:rgba(255,255,255,0.95);text-shadow:0 1px 2px rgba(0,0,0,0.3),0 2px 14px rgba(0,0,0,0.35);">${count} payer ${count === 1 ? 'change' : 'changes'} since ${fmt(since)}</div>
+            </td></tr>`)}
+        </td></tr>`, 'border-collapse:separate;border-spacing:0;')}
+
+      <!-- AT A GLANCE -->
+      ${table(`<tr><td style="background-color:#FFFFFF;border:1px solid ${LINE};border-radius:18px;padding:22px 12px;">
+          ${table(`<tr>${contentsRow}</tr>`)}
+        </td></tr>`, 'border-collapse:separate;border-spacing:0;margin-top:16px;')}
+
+      ${hasIntake ? careluNote : ''}
+
+      ${blocks}
+
+      <!-- CLOSING BAND -->
+      ${table(`<tr><td align="center" style="background-color:${DEEP};border-radius:22px;padding:48px 36px 46px 36px;">
+          <div style="font-family:${SERIF};font-weight:400;font-size:36px;line-height:1.12;letter-spacing:-0.01em;color:${CREAM};">Have a payer question?</div>
+          <div style="padding-top:14px;max-width:420px;margin:0 auto;font-family:${SANS};font-size:15px;line-height:1.65;color:rgba(250,248,243,0.82);">Ask the Carelu payer directory in plain English and get a sourced answer. Missing a payer you bill every day? Reply and tell us.</div>
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:separate;margin:26px auto 0 auto;">
+            <tr><td style="background-color:${LIME};border-radius:100px;"><a href="${SITE}/payers?${utm}" style="display:inline-block;padding:13px 26px;font-family:${SANS};font-size:14px;font-weight:600;color:${DEEP};text-decoration:none;white-space:nowrap;">Open the directory &rarr;</a></td></tr>
+          </table>
+        </td></tr>`, 'border-collapse:separate;border-spacing:0;margin-top:44px;')}
+
+      <!-- FOOTER -->
+      ${table(`<tr><td align="center" style="padding:32px 24px 0 24px;">
+          <a href="${SITE}?${utm}"><img src="${LOGO}" width="60" height="26" alt="Carelu" style="display:block;border:0;width:60px;height:auto;margin:0 auto;opacity:0.85;"></a>
+          <div style="padding-top:16px;font-family:${SANS};font-size:12px;line-height:1.7;color:${MUTED};">
+            &ldquo;What this may mean for you&rdquo; notes are suggestions to talk through with your team, not legal, billing or clinical advice. Always check the payer's current policy for a specific member.<br><br>
+            You get this because you joined the payer updates list on carelu.com.<br>
+            <a href="${SITE}/payers?${utm}#payer-updates" style="color:${DEEP};">Change your states or topics</a> &nbsp;&middot;&nbsp; <a href="${unsubscribeUrl}" style="color:${MUTED};">Unsubscribe</a>${POSTAL ? `<br>${esc(POSTAL)}` : ''}
+          </div>
+        </td></tr>`)}
+
+  </td></tr>
+</table>
+</td></tr>
+</table>
 </body></html>`;
 
   const text = [
     `Carelu payer updates: what changed in ${names.join(', ')} since ${fmt(since)}.`,
-    ...per.flatMap(({ st, cats }) => [
-      '', (STATE_NAME[st] ?? st).toUpperCase(),
-      ...cats.flatMap((c) => ['', c.t.label, ...c.items.map((i) => `- ${i.headline}\n  ${i.detail}\n  ${guideUrl(i.slug)}`)]),
+    `In this email: ${contents}`,
+    ...(cats.some((c) => c.t.key === 'intake') ? ['', 'Using Carelu? Your intake is covered. We make the intake changes below in your Carelu intake for you, automatically, and let you know once each one is live.'] : []),
+    ...cats.flatMap((c) => [
+      '', c.t.label.toUpperCase(),
+      ...c.items.map((i) => `- [${STATE_NAME[i.st] ?? i.st}] ${i.headline}\n  ${i.detail}${i.suggestion ? `\n  What this may mean for you: ${i.suggestion}` : ''}\n  ${guideUrl(i.slug)}`),
     ]),
-    '', `Change states or topics: ${SITE}/payers#payer-updates`, `Unsubscribe: ${unsubscribeUrl}`, ...(POSTAL ? [POSTAL] : []),
+    '', 'The "what this may mean for you" notes are suggestions, not legal, billing or clinical advice.',
+    `Change states or topics: ${SITE}/payers#payer-updates`, `Unsubscribe: ${unsubscribeUrl}`, ...(POSTAL ? [POSTAL] : []),
   ].join('\n');
 
   return { subject, html, text };

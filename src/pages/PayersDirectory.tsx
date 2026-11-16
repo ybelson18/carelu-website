@@ -8,6 +8,7 @@ import { payers, PAYER_REVIEWED, STATE_META } from '../data/payers';
 import { paShort } from '../lib/payerPa';
 import SiteFooter from '../components/SiteFooter';
 import PayerUpdatesSignup from '../components/PayerUpdatesSignup';
+import PayerUpdatesPopup from '../components/PayerUpdatesPopup';
 
 /* ================================================================
    CARELU — PAYER HUB (/payers)
@@ -343,6 +344,7 @@ export default function PayersDirectory() {
       <section style={{ paddingBottom: 'clamp(28px, 4vw, 44px)' }}>
         <div style={{ ...W, maxWidth: 860 }}>
           <PayerUpdatesSignup defaultStates={stateF !== 'All' ? [stateF] : []} />
+          <PayerUpdatesPopup />
         </div>
       </section>
 

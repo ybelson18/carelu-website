@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { STATE_META } from '../data/payers';
+import { PAYER_UPDATE_STATES as STATES, OPT_IN, joinPayerUpdates } from './payerUpdates';
 
 /* ================================================================
    "Get payer updates for your states" — the every-two-weeks list.
@@ -11,13 +11,11 @@ import { STATE_META } from '../data/payers';
 const INK = '#1A1A1A';
 const GREEN = '#3f7a34';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-const STATES = [...STATE_META].sort((a, b) => a.name.localeCompare(b.name));
 const TOPICS = [
   { key: 'intake', label: 'Intake', hint: 'eligibility, diagnosis, referrals, documents' },
   { key: 'clinical', label: 'Clinical care', hint: 'hours, supervision, treatment plans, reauths' },
   { key: 'billing', label: 'Billing & ops', hint: 'codes, rates, claims, credentialing' },
 ];
-const OPT_IN = 'Yes, add me to the Carelu payer updates list. One email every two weeks with what changed for payers in my states. Unsubscribe any time.';
 
 const field: React.CSSProperties = {
   fontFamily: 'var(--font-body)', fontSize: 14, padding: '11px 14px', borderRadius: 10,
@@ -53,22 +51,12 @@ export default function PayerUpdatesSignup({ defaultStates = [] }: { defaultStat
     if (topics.length === 0) return setError('Pick at least one topic.');
     if (!optIn) return setError('Tick the box to join the list.');
     setStatus('busy');
-    try {
-      const res = await fetch('/api/payer-updates', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ email: email.trim(), states, topics, optIn: true, page: window.location.pathname, website: hp.current?.value ?? '' }),
-      });
-      if (!res.ok) {
-        const d = (await res.json().catch(() => ({}))) as { error?: string };
-        setStatus('idle');
-        return setError(d.error === 'invalid email' ? 'Enter a valid email.' : 'Something went wrong. Try again.');
-      }
-      setStatus('done');
-    } catch {
+    const r = await joinPayerUpdates({ email, states, topics, website: hp.current?.value ?? '' });
+    if (!r.ok) {
       setStatus('idle');
-      setError('Something went wrong. Try again.');
+      return setError(r.error === 'invalid email' ? 'Enter a valid email.' : 'Something went wrong. Try again.');
     }
+    setStatus('done');
   }
 
   const names = STATES.filter((s) => states.includes(s.code)).map((s) => s.name);
