@@ -23,6 +23,9 @@ export function hasJoined(): boolean {
 
 export async function joinPayerUpdates(p: {
   email: string; states: string[]; topics?: string[]; website?: string;
+  /* 'add' keeps the person's existing states (popup, Ask box); omitted
+     replaces them (the inline box, which shows the full picker). */
+  mode?: 'add';
 }): Promise<{ ok: boolean; error?: string }> {
   try {
     const res = await fetch('/api/payer-updates', {
@@ -33,6 +36,7 @@ export async function joinPayerUpdates(p: {
         states: p.states,
         topics: p.topics ?? ALL_TOPICS,
         optIn: true,
+        ...(p.mode ? { mode: p.mode } : {}),
         page: window.location.pathname,
         website: p.website ?? '',
       }),

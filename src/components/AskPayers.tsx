@@ -86,7 +86,7 @@ export default function AskPayers() {
     const clean = gateEmail.trim();
     if (!EMAIL_RE.test(clean)) { setGateError('That doesn’t look like an email.'); return; }
     if (puJoin && !puState) { setGateError('Pick your state for the updates, or untick the box.'); return; }
-    if (puJoin) void joinPayerUpdates({ email: clean, states: [puState], website: hpRef.current?.value ?? '' });
+    if (puJoin) void joinPayerUpdates({ email: clean, states: [puState], website: hpRef.current?.value ?? '', mode: 'add' });
     try { localStorage.setItem(GIVEN_KEY, clean); } catch { /* private mode */ }
     fetch('/api/leads', {
       method: 'POST',
