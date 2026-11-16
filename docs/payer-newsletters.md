@@ -4,7 +4,7 @@ Every payer and state Medicaid program in the directory, with the official page 
 
 Use this list to subscribe the **payer-news@carelu.com** inbox: the *Email sign-up* column is the subscribe page where one exists. *Login* = the archive (or the newsletter itself) sits behind a provider portal login.
 
-Compiled 2026-10-18; updated 2026-11-01 (weekly inbox check: added the Montana Claim Jumper archive, moved the Empower Provider Alerts row out of the no-archive table). 321 distinct lists covering 304 of 331 payer guides (49 of 51 state Medicaid programs; no public archive found for Alaska Medicaid and New Hampshire Medicaid). 111 lists have an email sign-up; 1 public list needs a provider login to read, and 7 payers keep provider news only inside a login-gated portal (listed at the end).
+Compiled 2026-10-18; updated 2026-11-01 (weekly inbox check: added the Montana Claim Jumper archive, moved the Empower Provider Alerts row out of the no-archive table); 2026-11-15 (weekly refresh: added 7 archive indexes — BCBSTX, BCBSKS, AZ Blue, Molina Iowa and the Ambetter TX, IN and GA provider-news pages). 321 distinct lists covering 304 of 331 payer guides (49 of 51 state Medicaid programs; no public archive found for Alaska Medicaid and New Hampshire Medicaid). 111 lists have an email sign-up; 1 public list needs a provider login to read, and 7 payers keep provider news only inside a login-gated portal (listed at the end).
 
 **Per-state Aetna, Cigna and UnitedHealthcare commercial guides** (`aetna-<state>`, `cigna-<state>`, `unitedhealthcare-<state>`) publish no state newsletter; they are covered by the national indexes on the `aetna`, `cigna` and `unitedhealthcare-optum` guides (first rows).
 
@@ -36,6 +36,7 @@ Compiled 2026-10-18; updated 2026-11-01 (weekly inbox check: added the Montana C
 | AZ | AHCCCS (Arizona Medicaid) | AHCCCS Claims Clues | <https://www.azahcccs.gov/PlansProviders/RatesAndBilling/FFS/claimsclues.html> | <https://www.azahcccs.gov/PlansProviders/AHCCCSlistserve.html> | no | `arizona-ahcccs` |
 | AZ | Arizona Complete Health - Complete Care Plan | AzCH Medicaid Provider News | <https://www.azcompletehealth.com/providers/provider-news/medicaid-news.html> | <https://www.azcompletehealth.com/providers/provider-news/provider-update-signup.html> | no | `arizona-complete-health` |
 | AZ | Banner-University Family Care | Banner Provider Newsletters / Newsbriefs | <https://www.bannerhealth.com/bhpprovider/news/newsletters> |  | no | `banner-university-family-care` |
+| AZ | Blue Cross Blue Shield of Arizona (AZ Blue, commercial) | AZ Blue Provider Newsletter | <https://www.azblue.com/provider/newsletter> |  | no | `blue-cross-blue-shield-arizona` |
 | AZ | Blue Cross Blue Shield of Arizona Health Choice | Health Choice Provider Announcements | <https://www.azblue.com/medicaid/providers/provider-announcements> |  | no | `health-choice-arizona` |
 | AZ | DES/DDD (Arizona Division of Developmental Disabilities) | DDD Vendor Announcements | <https://des.az.gov/services/disabilities/developmental-disabilities/vendors-providers/vendor-announcements> |  | no | `arizona-ddd` |
 | AZ | Mercy Care (AZ) | Mercy Care Provider Newsletters & Notices | <https://www.mercycareaz.org/providers/newsletters-notices.html> |  | no | `mercy-care-arizona` |
@@ -81,20 +82,22 @@ Compiled 2026-10-18; updated 2026-11-01 (weekly inbox check: added the Montana C
 | FL | Sunshine Health (FL) | Sunshine Health Newsroom | <https://www.sunshinehealth.com/newsroom.html> |  | no | `sunshine-health-florida` |
 | FL | Sunshine Health (FL) | Connected In Care | <https://www.sunshinehealth.com/providers/resources/Newsletters.html> |  | no | `sunshine-health-florida` |
 | FL | UnitedHealthcare Community Plan of Florida | UHC Community Plan FL state news, bulletins and alerts | <https://www.uhcprovider.com/en/health-plans-by-state/florida-health-plans/fl-comm-plan-home.html> | <https://www.uhcprovider.com/en/resource-library/news/news-subscribe.html> | no | `unitedhealthcare-community-plan-florida` |
+| GA | Ambetter from Peach State Health Plan | Newsroom | <https://www.ambetterhealth.com/en/ga/newsroom/> |  | no | `ambetter-peach-state` |
 | GA | Amerigroup (GA Medicaid CMO) | Amerigroup Georgia Provider News | <https://providernews.amerigroup.com/ga> | <https://providernews.amerigroup.com/ga/signup> | no | `amerigroup-georgia` |
 | GA | Anthem BCBS Georgia | Anthem Provider News (Georgia) | <https://providernews.anthem.com/georgia> | <https://providernews.anthem.com/georgia/signup> | no | `anthem-bcbs-georgia` |
 | GA | CareSource (Georgia Medicaid CMO) | CareSource GA Updates & Announcements | <https://www.caresource.com/ga/providers/tools-resources/updates-announcements/medicaid/> |  | no | `caresource-georgia` |
 | GA | CareSource (Georgia Medicaid CMO) | ProviderSource | <https://www.caresource.com/ga/providers/education/newsletters-communications/medicaid/> |  | no | `caresource-georgia` |
 | GA | Georgia Medicaid | GAMMIS Provider Notices | <https://www.mmis.georgia.gov/portal/PubAccess.Provider%20Information/Provider%20Notices/tabId/16/Default.aspx> |  | no | `georgia-medicaid` |
 | GA | Peach State Health Plan (GA Medicaid CMO) | Peach State Health Plan Newsroom | <https://www.pshpgeorgia.com/newsroom.html> |  | no | `peach-state-georgia` |
+| HI |  | Med-QUEST Provider Memos | <https://medquest.hawaii.gov/en/plans-providers/provider-memo.html> |  | no | `hawaii-medicaid` |
 | HI | AlohaCare (QUEST Integration) | AlohaCare Provider Advisories / Provider Newsletters | <https://www.alohacare.org/Providers/PlanPublications> |  | no | `alohacare` |
 | HI | Hawaii Medical Service Assoc (HMSA) - Blue Cross Blue Shield of Hawaii | HealthPro News | <https://hmsa.com/prc/working-with-hmsa/healthpro-news/> |  | no | `hmsa` |
 | HI | Hawaii Medical Service Assoc (HMSA) - Blue Cross Blue Shield of Hawaii | HMSA Provider News | <https://hmsa.com/prc/news/> |  | no | `hmsa` |
 | HI | Ohana Health Plan (WellCare of Hawaii) | Ohana Provider Bulletins | <https://www.ohanahealthplan.com/providers/news-and-education/bulletins.html> |  | no | `ohana-health-plan` |
-| HI |  | Med-QUEST Provider Memos | <https://medquest.hawaii.gov/en/plans-providers/provider-memo.html> |  | no | `hawaii-medicaid` |
 | HI | UnitedHealthcare Community Plan of Hawaii | UHC Community Plan HI bulletins, news and alerts | <https://www.uhcprovider.com/en/health-plans-by-state/hawaii-health-plans/hi-comm-plan-home/hi-cp-news.html> | <https://www.uhcprovider.com/en/resource-library/news/news-subscribe.html> | no | `unitedhealthcare-community-plan-hawaii` |
 | IA | Iowa Medicaid (IA Health Link) | Iowa Medicaid Informational Letters | <https://secureapp.dhs.state.ia.us/IMPA/Information/Bulletins.aspx> |  | no | `iowa-medicaid` |
 | IA | Iowa Total Care (Centene) | Iowa Total Care Provider Alerts | <https://www.iowatotalcare.com/newsroom.html> |  | no | `iowa-total-care` |
+| IA | Molina Healthcare of Iowa | Molina Iowa Provider Communications (quarterly newsletters, notices) | <https://www.molinahealthcare.com/providers/ia/communications> |  | no | `molina-healthcare-iowa` |
 | IA | Wellpoint Iowa (formerly Amerigroup Iowa) | Wellpoint Provider News (Iowa) | <https://providernews.wellpoint.com/ia> | <https://providernews.wellpoint.com/ia/signup> | no | `wellpoint-iowa` |
 | ID | Blue Cross of Idaho | Blue Cross of Idaho Medical Provider Newsletter | <https://providers.bcidaho.com/forms-and-resources/newsletters.page> |  | no | `blue-cross-of-idaho` |
 | ID | Idaho Medicaid | Idaho Medicaid Provider News (Telligen) | <https://idmedicaid.telligen.com/provider-news/> |  | no | `idaho-medicaid` |
@@ -107,6 +110,7 @@ Compiled 2026-10-18; updated 2026-11-01 (weekly inbox check: added the Montana C
 | IL | Meridian (Meridian Health Plan of Illinois) | Meridian Illinois Newsroom | <https://www.ilmeridian.com/newsroom.html> |  | no | `meridian-illinois` |
 | IL | Molina Healthcare of Illinois | Molina Illinois provider memos and newsletters | <https://www.molinahealthcare.com/providers/il/communications> | <https://molinahealthcare.activehosted.com/f/1> | no | `molina-healthcare-illinois` |
 | IL | YouthCare (HealthChoice Illinois for DCFS youth) | YouthCare Newsroom | <https://www.ilyouthcare.com/newsroom.html> |  | no | `youthcare-illinois` |
+| IN | Ambetter of Indiana | Provider News | <https://www.ambetterhealth.com/en/in/provider-resources/provider-news/> |  | no | `ambetter-indiana` |
 | IN | Anthem BCBS Indiana | Anthem Provider News (Indiana) | <https://providernews.anthem.com/indiana> | <https://providernews.anthem.com/indiana/signup> | no | `anthem-bcbs-indiana`, `anthem-indiana` |
 | IN | Anthem BCBS Indiana (Medicaid) | Anthem Provider News (Indiana) | <https://providernews.anthem.com/indiana/plan-type/CD> | <https://providernews.anthem.com/indiana/signup> | no | `anthem-indiana-medicaid` |
 | IN | CareSource Indiana | CareSource ProviderSource Newsletter | <https://www.caresource.com/in/providers/education/newsletters-communications/medicaid/> |  | no | `caresource-indiana` |
@@ -114,6 +118,7 @@ Compiled 2026-10-18; updated 2026-11-01 (weekly inbox check: added the Montana C
 | IN | Indiana Medicaid (IHCP) | IHCP Bulletins | <https://www.in.gov/medicaid/providers/provider-references/bulletins-banner-pages-and-reference-modules/ihcp-bulletins> | <https://www.in.gov/medicaid/providers/provider-references/email-notifications> | no | `indiana-medicaid` |
 | IN | MHS — Managed Health Services (Indiana) | MHS Provider News | <https://www.mhsindiana.com/newsroom.html> |  | no | `mhs-indiana` |
 | IN | UnitedHealthcare Community Plan of Indiana | UHC Community Plan Indiana bulletins | <https://www.uhcprovider.com/en/health-plans-by-state/indiana-health-plans/in-comm-plan-home/in-cp-news.html> | <https://www.uhcprovider.com/en/health-plans-by-state/indiana-health-plans/in-comm-plan-home/in-cp-news/in-cp-news-subscribe.html> | no | `unitedhealthcare-community-plan-indiana` |
+| KS | Blue Cross and Blue Shield of Kansas | Professional Provider Publications (Blue Shield Report) | <https://www.bcbsks.com/providers/professional/publications> |  | no | `blue-cross-blue-shield-kansas` |
 | KS | Healthy Blue Kansas | Healthy Blue Kansas Provider News | <https://providernews.healthybluekansas.com/> | <https://providernews.healthybluekansas.com/signup> | no | `healthy-blue-kansas` |
 | KS | KanCare (Kansas Medicaid) | KMAP Provider Bulletins | <https://portal.kmap-state-ks.us/PublicPage/Public/Bulletins> |  | no | `kansas-medicaid` |
 | KS | Sunflower Health Plan (KS) | Sunflower Provider News | <https://www.sunflowerhealthplan.com/newsroom.html> |  | no | `sunflower-health-plan-kansas` |
@@ -287,6 +292,8 @@ Compiled 2026-10-18; updated 2026-11-01 (weekly inbox check: added the Montana C
 | TN | UnitedHealthcare Community Plan of Tennessee | UHC CP TN news & bulletins | <https://www.uhcprovider.com/en/health-plans-by-state/tennessee-health-plans/tn-comm-plan-home/tn-cp-news.html> | <https://www.uhcprovider.com/en/resource-library/news/news-subscribe.html> | no | `unitedhealthcare-community-plan-tennessee` |
 | TN | Wellpoint Tennessee (formerly Amerigroup) | Wellpoint Provider News (TN) | <https://providernews.wellpoint.com/tn> |  | no | `wellpoint-tennessee` |
 | TX | Aetna Better Health of Texas | ABHTX Provider Notices & Newsletters | <https://www.aetnabetterhealth.com/texas/providers/notices-newsletters.html> |  | no | `aetna-better-health-texas` |
+| TX | Ambetter from Superior HealthPlan | Provider News | <https://www.ambetterhealth.com/en/tx/provider-resources/provider-news/> |  | no | `ambetter-from-superior-healthplan-texas` |
+| TX | Blue Cross and Blue Shield of Texas | News and Updates | <https://www.bcbstx.com/provider/education/education/news> |  | no | `blue-cross-blue-shield-texas` |
 | TX | Blue Cross Blue Shield of Texas (Medicaid) | BCBSTX Medicaid News and Updates | <https://www.bcbstx.com/provider/medicaid/education-and-reference/news/2026> |  | no | `bcbs-texas-medicaid` |
 | TX | Community First Health Plans | CFHP Provider News | <https://communityfirsthealthplans.com/category/provider-news/> |  | no | `community-first-health-plans` |
 | TX | Community Health Choice | Community Health Choice Provider Notices | <https://provider.communityhealthchoice.org/resources/provider-notices/> |  | no | `community-health-choice-texas` |

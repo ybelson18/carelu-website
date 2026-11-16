@@ -221,11 +221,12 @@ export const californiaPayers: Record<string, PayerConfig> = {
         blocker: 'per-case',
       },
       referral: {
-        value: 'Yes — a written recommendation from a licensed physician/surgeon or psychologist that BHT is medically necessary is the front door (APL 23-010 eligibility criterion 1; State Plan item 13c). No validity period is stated at the state level. Treatment then runs under a plan-approved behavioral treatment plan.',
+        value: 'Yes — a written recommendation from a licensed physician/surgeon or psychologist that BHT is medically necessary is the front door (APL 23-010 eligibility criterion 1; State Plan item 13c). No validity period is stated at the state level. Treatment then runs under a plan-approved behavioral treatment plan. The fee-for-service BHT manual (November 2025) says only that "a physician or a psychologist must recommend BHT services as medically necessary"; it prescribes no recommendation form and no validity period, and each Medi-Cal plan sets how the recommendation travels with its authorization request (see the plan guides).',
         status: 'verified',
         cites: [
           { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
           { title: 'Medi-Cal State Plan — Limitations on Att. 3.1-A, item 13c BHT (TN CA-24-0031, eff. 1/1/2025)', url: 'https://www.dhcs.ca.gov/file/limitations-to-attachment-3-1-a-pdf/' },
+          { title: 'Medi-Cal Provider Manual — Behavioral Health Treatment (bht), Nov 2025', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=bht.pdf' },
         ],
       },
       telehealth: {
@@ -328,6 +329,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Can the ABA assessment (97151) or supervision (97155) be done by telehealth under Medi-Cal?', a: 'Yes under the state rule, when clinically appropriate: APL 23-007 lets any covered code be delivered by telehealth (POS 02 or 10, modifier 95 or 93, documented consent, in-person option preserved). Each plan can add its own BHT telehealth limits, so check the member\'s plan.' },
       { q: 'Can a Medi-Cal family keep its ABA provider when switching providers or plans?', a: 'For up to 12 months, yes in most cases: APL 23-010 requires plans to offer continued access to out-of-network BHT providers (continuity of care) under APL 23-022. Whether an authorization follows the child to a new agency inside the plan is the plan\'s call; ask before switching.' },
       { q: 'What is the timely filing limit for fee-for-service Medi-Cal BHT claims?', a: 'Six months following the month of service. Late claims without an approved delay reason are cut to 75% (months 7–9) or 50% (months 10–12) and denied after month 12. Managed-care members are billed to their plan, which sets its own limit.' },
+      { q: 'Can a licensed marriage and family therapist (LMFT) be the QAS provider for Medi-Cal ABA?', a: 'Yes, with conditions. The Medi-Cal BHT manual (November 2025) lists marriage and family therapists among the "Licensed Practitioners" who are QAS Providers, if they "have completed twelve semester units in ABA and have two years of experience designing and implementing behavioral modification intervention services." An associate MFT (AMFT) is a QAS Professional and must work under a QAS Provider\'s supervision. Each Medi-Cal managed care plan credentials its own BHT network, so a plan member\'s plan still decides whether it contracts with an LMFT-led agency.' },
     ],
   },
 
@@ -421,6 +423,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
       { title: 'L.A. Care — thePULSE provider e-newsletter archive', url: 'https://lacare.org/providers/news/thepulse' },
+      { title: 'Medi-Cal Provider Manual — Behavioral Health Treatment (bht), Nov 2025', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=bht.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -553,6 +556,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'What happens when a family is switching providers or plans with L.A. Care?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask L.A. Care for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
       { q: 'What are L.A. Care’s ABA prior authorization and diagnostic requirements?', a: 'Fax form LA5480 (05/26) to (213) 438-5054. All four criteria must be met: the member is under 21; a licensed physician, surgeon or psychologist recommends BHT "with documentation demonstrating medical necessity"; the child is medically stable (e.g. a physician note); and no 24-hour or ICF/ID care is needed. No autism diagnosis is required, no instrument is required behind the recommendation, and L.A. Care publishes no recency window for it. The FBA is H0032, up to 12 hours (48 units); treatment is requested as hours per month on H2019, H0031 and S5111. Decisions follow the state clock — five business days, 72 hours urgent, never more than 7 calendar days from 2026.' },
       { q: 'What is L.A. Care’s timely filing limit for Medi-Cal ABA claims?', a: 'Within 180 calendar days from the date of service for Medi-Cal (MCLA) claims, per the 2026 Universal Provider Manual. Clean claims are processed within 30 calendar days, and provider disputes are due within 365 calendar days of L.A. Care’s last action.' },
+      { q: 'Can a licensed marriage and family therapist (LMFT) be the QAS provider for L.A. Care ABA?', a: 'Medi-Cal allows it. Its BHT manual (November 2025) lists marriage and family therapists among the licensed practitioners who can be QAS Providers, if they "have completed twelve semester units in ABA and have two years of experience designing and implementing behavioral modification intervention services." An associate MFT (AMFT) is a QAS Professional and works under supervision. We found no L.A. Care document that says whether it credentials LMFTs as BHT providers. Ask L.A. Care\'s provider network or credentialing team before an LMFT signs treatment plans as the QAS provider.' },
     ],
   },
 
@@ -659,6 +663,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
       { title: 'Health Net — Medi-Cal provider updates and notices (index)', url: 'https://providerlibrary.healthnetcalifornia.com/medi-cal/news.html' },
       { title: 'Health Net California provider manual (Medi-Cal) — Continuity of Care Assistance', url: 'https://providerlibrary.healthnetcalifornia.com/medi-cal/provider-manual/utilization-management/continuity-of-care-assistance-medi-cal.html' },
+      { title: 'Medi-Cal Provider Manual — Behavioral Health Treatment (bht), Nov 2025', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=bht.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -691,7 +696,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       referral: {
-        value: 'The physician or psychologist completes the ABA referral form and gives it "to the parent/caregiver or their chosen in-network ABA provider," or sends it to ABA@healthnet.com / fax 855-427-4798; no PCP or medical-group referral is needed — members "do not need to contact their primary care physician (PCP), participating physician group (PPG)… to request a referral for mental health care services."',
+        value: 'The physician or psychologist completes the ABA referral form and gives it "to the parent/caregiver or their chosen in-network ABA provider," or sends it to ABA@healthnet.com / fax 855-427-4798; no PCP or medical-group referral is needed — members "do not need to contact their primary care physician (PCP), participating physician group (PPG)… to request a referral for mental health care services." The form must be signed and dated by the physician or licensed psychologist with license type and ID number, and records the primary diagnosis, referral reasons and "ABA recommended: Yes/No." Health Net prints no validity period on it.',
         status: 'verified',
         cites: [
           { title: 'Health Net — ABA Recommendation and Referral Form (24-989)', url: 'https://providerlibrary.healthnetcalifornia.com/content/dam/centene/healthnet/pdfs/providerlibrary/500231-ABA-Referral-Form-MCL.pdf' },
@@ -781,6 +786,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Is there an hour cap on Health Net Medi-Cal ABA?', a: 'Not a hard cap. CA.CP.BH.104 expects no more than 6 hours a day and 30 hours a week unless clinical documentation justifies more, and hours cannot be reduced for school time.' },
       { q: 'How do I change hours on a Health Net ABA authorization?', a: 'Submit a new complete PA request with a letter explaining the clinical reason — addendums are no longer accepted, and the existing authorization is ended.' },
       { q: 'What happens when a family is switching providers or plans with Health Net?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask Health Net for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
+      { q: 'Can a licensed marriage and family therapist (LMFT) be the QAS provider for Health Net Medi-Cal ABA?', a: 'Medi-Cal allows it. Its BHT manual (November 2025) lists marriage and family therapists among the licensed practitioners who can be QAS Providers, if they "have completed twelve semester units in ABA and have two years of experience designing and implementing behavioral modification intervention services." An associate MFT (AMFT) is a QAS Professional and works under supervision. We found no Health Net Medi-Cal document that says whether it credentials LMFTs as BHT providers. Ask Health Net\'s provider network or credentialing team before an LMFT signs treatment plans as the QAS provider.' },
     ],
   },
 
@@ -877,6 +883,8 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
       { title: 'IEHP — Provider notices (index of provider notices by date)', url: 'https://www.providerservices.iehp.org/en/news-and-updates/notices' },
+      { title: 'Medi-Cal Provider Manual — Behavioral Health Treatment (bht), Nov 2025', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=bht.pdf' },
+      { title: 'IEHP — Impacted Members Will Transition from IEHP Coverage to DHCS Medi-Cal Fee-for-Service (FFS) (provider notice, Nov. 12, 2026)', url: 'https://www.providerservices.iehp.org/content/dam/provider-services-rd/en/documents/providers/plan-updates/provider_notices/2026/11---november/20261112%20-%20Impacted%20Members%20Will%20Transition%20from%20IEHP%20Coverage%20to%20DHCS%20Medi-Cal%20Fee-for-Service%20(FFS)%20_%20PCPs.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1009,6 +1017,8 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'How much supervision does IEHP authorize?', a: 'Up to two hours of case supervision (H0032) per 10 hours of direct treatment; more needs clinical justification.' },
       { q: 'What happens when a family is switching providers or plans with IEHP?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask IEHP for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
       { q: 'What is IEHP’s timely filing limit for Medi-Cal ABA claims?', a: 'Whatever your IEHP contract says, but never less than 90 days from the date of service for contracted providers; non-contracted providers have one year (full payment only within 180 days after the month of service). Disputes are due within 365 days of payment or denial.' },
+      { q: 'Can a licensed marriage and family therapist (LMFT) be the QAS provider for IEHP ABA?', a: 'Medi-Cal allows it. Its BHT manual (November 2025) lists marriage and family therapists among the licensed practitioners who can be QAS Providers, if they "have completed twelve semester units in ABA and have two years of experience designing and implementing behavioral modification intervention services." An associate MFT (AMFT) is a QAS Professional and works under supervision. IEHP\'s BHT criteria (UM_BH 08) do not name provider types. Ask IEHP\'s provider network or credentialing team before an LMFT signs treatment plans as the QAS provider.' },
+      { q: 'What happens to IEHP members with unsatisfactory immigration status on January 1, 2027?', a: 'They leave IEHP. IEHP\'s November 12, 2026 notice says "Effective January 1, 2027, IEHP Members with unsatisfactory immigration status (UIS) will lose their IEHP coverage and will transition to the DHCS Medi-Cal Fee-for-Service (FFS) delivery system." IEHP "will continue to process and authorize service requests received through December 31, 2026"; for services on or after January 1, 2027, "providers should submit a Treatment Authorization Request (TAR) through the DHCS Medi-Cal Fee-for-Service (FFS) TAR process." To keep treating these children and be paid, the agency must be enrolled in Medi-Cal FFS through PAVE, approved by January 1, 2027. Agencies that will not continue should hand off records to an FFS-enrolled provider.' },
     ],
   },
 
@@ -1101,6 +1111,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
       { title: 'CalOptima Health — Provider Updates and Provider Press newsletters (archive)', url: 'https://www.caloptima.org/for-providers/news-and-announcements/provider-updates-and-newsletters' },
+      { title: 'Medi-Cal Provider Manual — Behavioral Health Treatment (bht), Nov 2025', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=bht.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1225,6 +1236,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Who can write the ABA recommendation for CalOptima?', a: 'A licensed physician, surgeon or licensed clinical psychologist — in one dated, signed document that also carries the diagnosis. LMFTs, LCSWs, LPCCs and educational psychologists are not accepted, and NP/PA recommendations need an MD signature.' },
       { q: 'How fast does CalOptima decide?', a: 'Seven calendar days for routine requests (no more than 14) and 72 hours for expedited ones; a missed deadline counts as a denial.' },
       { q: 'What happens when a family is switching providers or plans with CalOptima Health?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask CalOptima Health for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
+      { q: 'Can a licensed marriage and family therapist (LMFT) be the QAS provider for CalOptima Health ABA?', a: 'Medi-Cal allows it. Its BHT manual (November 2025) lists marriage and family therapists among the licensed practitioners who can be QAS Providers, if they "have completed twelve semester units in ABA and have two years of experience designing and implementing behavioral modification intervention services." An associate MFT (AMFT) is a QAS Professional and works under supervision. CalOptima\'s BHT policy asks for a treatment plan signed by "a BCBA or licensed practitioner," but we found no CalOptima document that lists which licenses it credentials for BHT. Ask CalOptima Health\'s provider network or credentialing team before an LMFT signs treatment plans as the QAS provider.' },
     ],
   },
 
@@ -1327,6 +1339,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
       { title: 'Anthem Blue Cross California — Provider News (Medi-Cal + commercial)', url: 'https://providernews.anthem.com/california' },
+      { title: 'Medi-Cal Provider Manual — Behavioral Health Treatment (bht), Nov 2025', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=bht.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1461,6 +1474,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'How fast does Anthem Medi-Cal decide an ABA request?', a: 'Its July 2026 manual says 7 calendar days (up to 14 if information is missing) and 72 hours for urgent requests; an older policy says 5 business days. Plan on the shorter clock.' },
       { q: 'What happens when a family is switching providers or plans with Anthem Blue Cross Medi-Cal?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask Anthem Blue Cross Medi-Cal for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
       { q: 'What is Anthem Blue Cross Medi-Cal’s timely filing limit for ABA claims?', a: 'Within 180 days of the date of service for professional claims, per Anthem’s July 2026 Medi-Cal manual. Clean claims are paid within 30 calendar days, and reconsideration requests are due within 12 months of the last action on the claim.' },
+      { q: 'Can a licensed marriage and family therapist (LMFT) be the QAS provider for Anthem Medi-Cal ABA?', a: 'Medi-Cal allows it. Its BHT manual (November 2025) lists marriage and family therapists among the licensed practitioners who can be QAS Providers, if they "have completed twelve semester units in ABA and have two years of experience designing and implementing behavioral modification intervention services." An associate MFT (AMFT) is a QAS Professional and works under supervision. We found no Anthem Medi-Cal document that says whether it credentials LMFTs as BHT providers. Ask Anthem\'s provider network or credentialing team before an LMFT signs treatment plans as the QAS provider.' },
     ],
   },
 
@@ -1566,6 +1580,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
       { title: 'Molina Healthcare of California — Provider communications (provider bulletins + quarterly newsletters)', url: 'https://www.molinahealthcare.com/providers/ca/communications' },
+      { title: 'Medi-Cal Provider Manual — Behavioral Health Treatment (bht), Nov 2025', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=bht.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1602,7 +1617,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       referral: {
-        value: 'Yes — the ABA Referral Form from an MD or licensed clinical psychologist goes to Molina’s ABA department (PedsCA@molinahealthcare.com, fax 855-297-3010), and a Molina case manager connects the family to a provider. In-network specialist referrals otherwise need no PA; non-participating providers need approval for all services.',
+        value: 'Yes — the ABA Referral Form from an MD or licensed clinical psychologist goes to Molina’s ABA department (PedsCA@molinahealthcare.com, fax 855-297-3010), and a Molina case manager connects the family to a provider. In-network specialist referrals otherwise need no PA; non-participating providers need approval for all services. The referral form "must be completed by an M.D. or Licensed Clinical Psychologist who has seen the member within the last 12 months," with referral reasons "clearly detailed," and goes to the ABA team "along with the most recent clinicals (within 1 year)." A Molina case manager then works with the ABA provider "to get authorization in place."',
         status: 'verified',
         cites: [
           { title: 'Molina Healthcare of California — Applied Behavior Analysis Services & ABA Referral Form', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/CA/Prior-Auth/ABA-Referral-Form.pdf' },
@@ -1690,6 +1705,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Can ABA be done by telehealth with Molina?', a: 'Only the indirect parts under Policy 482 — caregiver training, supervision and similar — alongside in-person services. Direct technician sessions by telehealth are likely to be denied.' },
       { q: 'What is Molina Healthcare of California’s timely filing limit for ABA claims?', a: '90 calendar days from the date of service, unless your contract says otherwise. If Molina is secondary, you have 90 calendar days from the primary payer’s final determination, and corrected claims are due within 180 calendar days of the date of service (2026 Medi-Cal provider manual).' },
       { q: 'What happens when a family is switching providers or plans with Molina?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask Molina for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
+      { q: 'Can a licensed marriage and family therapist (LMFT) be the QAS provider for Molina Medi-Cal ABA?', a: 'Not named. Molina\'s 2026 Medi-Cal provider manual lists who can provide BHT as "Licensed Clinician (MD, Ph.D., LCSW)" (modifier AH), BCBA-D (HP) and BCBA (HO) at the QAS Provider level, with associate MFTs as QAS Professionals (HN). A licensed MFT is not in the table, although the table says its terms are "as defined in the California Health and Safety Code § 1374.73," and that definition does include licensed MFTs. The Medi-Cal BHT manual also counts an LMFT with "twelve semester units in ABA" and two years of experience as a QAS Provider. Ask Molina credentialing before an LMFT bills with the AH modifier.' },
     ],
   },
 
@@ -1796,6 +1812,8 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'KP NCAL — Provider Authorizations FAQ', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/provider-authorizations-faq-en.pdf' },
       { title: 'CHHS Open Data — Medi-Cal Managed Care Enrollment Report (August 2026)', url: 'https://data.chhs.ca.gov/dataset/medi-cal-managed-care-enrollment-report' },
       { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
+      { title: 'Medi-Cal Provider Manual — Behavioral Health Treatment (bht), Nov 2025', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=bht.pdf' },
+      { title: 'KP NCAL HMO Provider Manual 2027 — Section 11, Additional Service Specific Information (§ 11.7 ASD Services)', url: 'https://healthy.kaiserpermanente.org/content/dam/kporg/final/documents/community-providers/ncal/ever/hmo-additional-service-specific-information-en.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -1924,6 +1942,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Kaiser Medi-Cal require an autism diagnosis for ABA?', a: 'Not in Southern California’s criteria, which cover ASD, suspected ASD and non-ASD members — but for a child without ASD the service must be delivered by a licensed clinician.' },
       { q: 'How long does Kaiser take to decide?', a: 'Five business days from receiving the information reasonably needed (H&S 1367.01(h)(1)), and 72 hours for expedited requests.' },
       { q: 'What happens when a family is switching providers or plans with Kaiser Permanente Medi-Cal?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask Kaiser Permanente Medi-Cal for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
+      { q: 'Can a licensed marriage and family therapist (LMFT) be the QAS provider for Kaiser Medi-Cal ABA?', a: 'Medi-Cal allows it. Its BHT manual (November 2025) lists marriage and family therapists among the licensed practitioners who can be QAS Providers, if they "have completed twelve semester units in ABA and have two years of experience designing and implementing behavioral modification intervention services." An associate MFT (AMFT) is a QAS Professional and works under supervision. Kaiser\'s provider manual requires contracted BHT providers to meet the H&S § 1374.73(c)(3) QAS definitions, and that definition includes licensed MFTs, but Kaiser decides whom it refers to. Ask Kaiser\'s provider network or credentialing team before an LMFT signs treatment plans as the QAS provider.' },
     ],
   },
 
@@ -2004,7 +2023,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
         cites: [
           { title: 'Partnership HealthPlan CLPM-05 — Partnership HealthPlan of California Billing Limit (reviewed and approved 9/1/2026)', url: 'https://public.powerdms.com/PHC/documents/3548907' },
-          { title: 'Partnership HealthPlan CLPM-15 — Claims Processing and Payment Standards (last reviewed 4/23/2026)', url: 'https://public.powerdms.com/PHC/documents/3548943' },
+          { title: 'Partnership HealthPlan CLPM-15 — Claims Processing and Payment Standards (last reviewed 11/9/2026)', url: 'https://public.powerdms.com/PHC/documents/3548943' },
           { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
           { title: 'Partnership HealthPlan CLPM-41 — Provider Claims Dispute Resolution Mechanism (last review 10/1/2026)', url: 'https://public.powerdms.com/PHC/documents/3548969' },
         ],
@@ -2032,6 +2051,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'DHCS APL 23-010 (Revised 11/22/2023) — BHT Coverage for Members Under 21', url: 'https://www.dhcs.ca.gov/file/apl23-010-pdf/' },
       { title: 'Partnership HealthPlan of California — Provider Newsletter archive', url: 'https://www.partnershiphp.org/providers/medi-cal/provider-newsletter' },
       { title: 'Partnership HealthPlan of California — Provider Bulletins (2026/2025)', url: 'https://www.partnershiphp.org/providers/medi-cal/provider-bulletins' },
+      { title: 'Medi-Cal Provider Manual — Behavioral Health Treatment (bht), Nov 2025', url: 'https://mcweb.apps.prd.cammis.medi-cal.ca.gov/file/manual?fn=bht.pdf' },
     ],
     intakeGates: {
       ageLimit: {
@@ -2064,7 +2084,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
         ],
       },
       referral: {
-        value: 'No PCP referral form is required for BHT: the TAR is "to be submitted by the provider performing these services," and the fax cover also accepts a "Referral for BHT services for review." What is required is the physician/surgeon/psychologist recommendation and the signed ROI.',
+        value: 'No PCP referral form is required for BHT: the TAR is "to be submitted by the provider performing these services," and the fax cover also accepts a "Referral for BHT services for review." What is required is the physician/surgeon/psychologist recommendation and the signed ROI. What goes with each TAR, per Partnership\'s BHT fax cover: a Comprehensive Diagnostic Evaluation confirming the ASD diagnosis with the assessment TAR, the treatment plan with the initial-services TAR, and "A copy of the ROI must be submitted with any request for BHT related services." No validity period for the recommendation is published.',
         status: 'verified',
         cites: [
           { title: 'Partnership MCUP3041 Attachment A — Partnership TAR Requirements (rev. 8/12/2026)', url: 'https://public.powerdms.com/PHC/documents/1850202' },
@@ -2156,6 +2176,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'How fast does Partnership decide a BHT TAR?', a: 'Within 7 calendar days of receipt (up to 14 if information is missing), and within 72 hours for urgent requests.' },
       { q: 'What happens when a family is switching providers or plans with Partnership HealthPlan?', a: 'State rule: APL 23-010 requires every Medi-Cal plan to offer continued access to out-of-network BHT providers (continuity of care) for up to 12 months under APL 23-022, so ask Partnership HealthPlan for a continuity-of-care arrangement before treatment stops. No state document says whether an existing authorization follows the child to a new agency within the plan; ask the plan before switching.' },
       { q: 'What is Partnership HealthPlan’s timely filing limit for BHT claims?', a: '365 days from the date of service (a 12-month billing limit, policy CLPM-05). Disputes are due within 365 calendar days of the date on the Partnership remittance advice and are answered within 45 working days.' },
+      { q: 'Can a licensed marriage and family therapist (LMFT) be the QAS provider for Partnership ABA?', a: 'Unclear. Partnership\'s credentialing policy MPCR303 (last reviewed 6/10/2026) says it "only credentials Licensed Medical Professionals or BACB® certified providers for Autism Spectrum Disorder treatment," and the ABA practitioner types it lists are BCaBA, BCBA and BCBA-D. It does not say whether an LMFT counts as a "Licensed Medical Professional." The Medi-Cal BHT manual counts an LMFT with "twelve semester units in ABA" and two years of experience as a QAS Provider. Ask Partnership credentialing before relying on an LMFT as the QAS provider.' },
     ],
   },
 
@@ -2427,6 +2448,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'What does the California autism mandate require?', a: 'H&S § 1374.73 / Ins. Code § 10144.51 require fully insured plans to cover behavioral health treatment, including ABA, for autism — with no age or dollar caps, a treatment plan reviewed at least every six months, and (from 2026) no forced rediagnosis to keep coverage. Self-funded ERISA plans and Medi-Cal plans are exempt.' },
       { q: 'Does California license behavior analysts?', a: 'No. BCBAs practice as qualified autism service providers on national certification; technicians are unlicensed QAS paraprofessionals working under supervision.' },
       { q: 'What is Kaiser Permanente California’s timely filing limit for ABA claims?', a: 'Kaiser’s 2026 Southern California provider manual says 90 calendar days after the date of service unless your agreement says otherwise; disputes are due within 365 calendar days of Kaiser’s action. Your ABA agreement with Kaiser controls if it sets a different period.' },
+      { q: 'Can a licensed marriage and family therapist (LMFT) be the QAS provider for Kaiser ABA?', a: 'Yes under Kaiser\'s contract terms. The NCAL provider manual (2027, § 11.7) requires BHT "administered by Qualified Autism Service Providers, Qualified Autism Service Professionals and/or Qualified Autism Service Paraprofessionals (as those terms are defined by California Health and Safety Code Section 1374.73(c)(3))." That statutory definition includes a licensed marriage and family therapist who designs, supervises or provides autism treatment within the licensee\'s "experience and competence." Providers "must provide documentary evidence to KP upon request" that each QAS provider meets the criteria. Whether Kaiser contracts with a given LMFT-led agency is still a network decision.' },
     ],
   },
 
@@ -2701,6 +2723,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'What does the California autism mandate require?', a: 'Fully insured plans must cover behavioral health treatment, including ABA, for autism with no age or dollar caps, a treatment plan reviewed at least every six months, and — from 2026 — no forced rediagnosis to keep coverage. Self-funded ERISA and Medi-Cal plans are exempt.' },
       { q: 'What is Blue Shield of California’s timely filing limit for ABA claims?', a: 'Twelve months from the date of service unless your contract says otherwise, per Blue Shield’s July 2026 provider manual. Provider disputes are due within 365 days of Blue Shield’s action (or longer if your agreement allows) and are resolved within 45 working days.' },
       { q: 'I am in Blue Shield of California’s network. How do I handle a child with another state’s Blue plan?', a: 'Bill Blue Shield of California under BlueCard. Get ABA prior authorization from the member’s home plan: use the out-of-area pre-service review tool on Provider Connection with the member’s prefix, or call (800) 676-BLUE and ask for Behavioral Health pre-certification.' },
+      { q: 'Can a licensed marriage and family therapist (LMFT) be the QAS provider for Blue Shield ABA?', a: 'Yes on the policy\'s terms. Blue Shield\'s ABA medical policy (BSC3.01) defines a qualified autism service provider as a BACB-certified person or "a person licensed as a physician and surgeon, physical therapist, occupational therapist, psychologist, marriage and family therapist, educational psychologist, clinical social worker, professional clinical counselor, speech-language pathologist, or audiologist … who designs, supervises, or provides treatment for pervasive developmental disorder or autism, provided the services are within the experience and competence of the licensee." Joining the network is still Blue Shield\'s credentialing decision.' },
     ],
   },
 
@@ -2986,6 +3009,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'What are Anthem Blue Cross of California’s ABA prior auth and diagnostic requirements?', a: 'Every ABA code needs precertification — 97151, 97152, 0362T for the assessment and 97153–97158, 0373T plus the QAS H-codes for treatment — and Anthem itself, not Carelon, is the responsible reviewer on the October 2026 list, using AACAP criteria for fully insured plans and MCG B-806-T for self-funded ones. Claims bill on an autism diagnosis and the mandate needs a physician prescription or psychologist-developed plan. Anthem\'s April 2026 California commercial Treatment Plan Request Form for Autism Spectrum Disorders sets the diagnostic packet: for the initial assessment request (or new coverage), a diagnostic evaluation "completed by a doctorate-level clinician or allowable qualified healthcare provider per state regulations," showing DSM-5-TR criteria and standardized tools such as the ADI-R, ADOS-2 or CARS-2; the form asks who made the diagnosis. It sets no recency window, and for fully insured contracts renewed from 2026 Anthem may not demand a rediagnosis to keep coverage. The treatment plan should be dated within 30 days of the start date. Submit on ICR in Availity or fax 866-582-2287.' },
       { q: 'Whose NPI goes on an Anthem Blue Cross California ABA claim when a technician delivers the session?', a: 'The rendering NPI should be the provider named on the authorization, and Anthem’s California ABA Provider Resource Guide says technician-delivered ABA "must show the supervising BCBA or other QHP in box 31," with HM/HN/HO modifiers for the technician’s education level.' },
       { q: 'What is Anthem Blue Cross of California’s timely filing limit for ABA claims?', a: 'Anthem’s behavioral health group guide says to submit original claims within 90 days of the service. For the DMHC-licensed plan, state regulation bars deadlines shorter than 90 days for contracted providers (180 for non-contracted) and, since January 1, 2026, payment of a complete claim within 30 calendar days of receipt (H&S § 1371 as amended by AB 3275).' },
+      { q: 'Can a licensed marriage and family therapist (LMFT) be the QAS provider for Anthem Blue Cross ABA?', a: 'Not stated. Anthem\'s California commercial BH and ABA groups guide lets a group add "a licensed provider or a board-certified behavior analyst (BCBA)" to its agreement, and says supervised associates are not contracted directly: "We do not directly contract with these provider types." It does not list which licenses Anthem accepts for ABA. On fully insured plans the statute (H&S § 1374.73) counts a licensed MFT as a qualified autism service provider. Ask Anthem\'s California network team whether it will credential an LMFT for ABA.' },
     ],
   },
 
@@ -3254,6 +3278,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Health Net cover ABA therapy in California?', a: 'Yes — for ASD under California’s mandate, with prior authorization through the Health Net Behavioral Health Autism Center (ABA@healthnet.com, fax 855-427-4798).' },
       { q: 'Is Health Net leaving California?', a: 'Its commercial employer-group business is: many group plans are expected to end February 28, 2027, and Health Net says its prior authorizations "may not transfer" to the new carrier. Medi-Cal, Ambetter (Covered California) and Medicare continue.' },
       { q: 'Can I add hours to an existing Health Net ABA authorization?', a: 'Not by addendum. Health Net requires a new, complete PA request covering all codes, with a letter explaining the clinical reason; the existing authorization is ended.' },
+      { q: 'Can a licensed marriage and family therapist (LMFT) be the QAS provider for Health Net ABA?', a: 'Yes under the definition Health Net uses. Its HMO provider manual quotes the statute: a qualified autism service provider includes "a person licensed as a physician and surgeon, physical therapist, occupational therapist, psychologist, marriage and family therapist" and other listed licensees, if the services are "within the experience and competence of the licensee." The same page says a plan "is not prevented from selectively contracting with providers," so an LMFT still needs a Health Net contract.' },
     ],
   },
 
@@ -3559,6 +3584,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Does Aetna require prior authorization for ABA in California?', a: 'Nationally yes, but Aetna’s California supplement says outpatient behavioral health on fully insured plans has not required prior authorization since March 1, 2024, without mentioning ABA. Call Aetna precertification (1-888-632-3862) for each member and keep the reference number.' },
       { q: 'Does Aetna have a Medi-Cal plan in California?', a: 'No. Aetna Better Health of California stopped operating on January 1, 2024; Medi-Cal ABA runs through the county Medi-Cal plan.' },
       { q: 'Does Aetna require a referring provider (box 17) on ABA claims?', a: 'Aetna publishes no such requirement for ABA. A referral has to accompany a claim only when the member’s plan requires PCP referrals for specialist care. Behavioral health is a direct-access benefit in Aetna’s behavioral health manual.' },
+      { q: 'Can a licensed marriage and family therapist (LMFT) be the QAS provider for Aetna ABA?', a: 'Not by default. Aetna\'s ABA medical necessity guide says services "must be provided directly or billed by licensed behavior analysts (in states with behavior analyst licensure laws), board-certified behavior analysts, or licensed psychologists where behavior analysis is within their scope of practice definition, unless state mandates, plan documents or contracts require otherwise." California has no behavior analyst license, so the default list is BCBAs and licensed psychologists. On fully insured California plans the mandate counts a licensed MFT as a qualified autism service provider, which falls under that "state mandates" exception. Self-funded plans may hold to Aetna\'s default. Confirm with Aetna before an LMFT bills.' },
     ],
   },
 
@@ -3850,6 +3876,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'Is Cigna accepting new ABA providers in California?', a: 'Evernorth says it is committed to expanding its autism network. Apply with the Behavioral Provider Information Form (individuals) or the Screening Application for Autism Clinics (groups); allow up to 90 days, plus 60 to 90 days of individual credentialing for a clinic.' },
       { q: 'Does Cigna pay for ABA delivered at school in California?', a: 'EN0499 treats school as a possible treatment setting but excludes educational services. It lists school among the settings where treatment goals may be set ("home, clinic, school, community setting"), requires the record to show that ABA in an academic setting still meets the direct-treatment definition, and excludes services "primarily educational or vocational in nature, or related to academic or work performance." Whether school hours are payable on a given plan is a benefit-document question.' },
       { q: 'Does Cigna require a referring provider (box 17) on ABA claims?', a: 'No. Evernorth’s complete-claim definition for the CMS-1500 lists the rendering and billing providers but no referring provider. If you report a referring provider on an electronic claim, include both the name and the NPI.' },
+      { q: 'Can a licensed marriage and family therapist (LMFT) be the QAS provider for Cigna ABA?', a: 'Yes, if Evernorth credentials them. Evernorth "requires providers to be certified by a national governing agency or a state licensing board (e.g., Board Certified Behavior Analyst®, … licensed behavior analyst, licensed behavior specialist, or other behavioral health licensure)," and its code table lets a "licensed mental health provider" deliver and bill 97151, 97155 and 97156. A licensed MFT falls under "other behavioral health licensure." Each provider must still be credentialed, which Evernorth says can take 60 to 90 days after the clinic contract.' },
     ],
   },
 
@@ -3997,7 +4024,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { title: 'Physician or psychologist prescription', desc: 'The California mandate keys covered BHT to a physician prescription or a psychologist-developed plan.' },
       { title: 'Other coverage', desc: 'Birthday rule between parents; UHC pays before Medi-Cal, TRICARE and CHAMPVA.' },
     ],
-    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, 
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 13, 2026; medical services only) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, 
       { title: 'AB 3275 (Ch. 763, Stats. 2024) — claim reimbursement within 30 calendar days from 1/1/2026 (H&S § 1371, Ins. Code § 10123.13, W&I § 14093.08)', url: 'https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240AB3275' },
       { title: 'Optum — ABA Supplemental Clinical Criteria (BH803ABASCC, interim review 4/21/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — ABA State Mandates (BH 803ABA STM72026, eff. July 2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
@@ -4150,7 +4177,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
-      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'No ABA code changes. UnitedHealthcare\'s under-18 prior-authorization reduction (effective Dec. 1, 2026) is for medical services: the code lists revised Nov. 13, 2026 say "This list applies to medical services only. Continue to reference your usual channels for behavioral health services." The Nov. 6 commercial list had included 0362T and 0373T; the Nov. 13 revision dropped them, and none of the commercial, Individual Exchange or Community Plan lists names 97151–97158. ABA authorization through Optum is unchanged. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool.' },
       { q: 'Does UnitedHealthcare / Optum give single case agreements for ABA?', a: 'Not automatically. Optum\'s ABA FAQ says an SCA may be approved "In exception cases, based on clinical need, new business implementations, or other gaps in the network" after review with the clinical team. Credentialing takes 45 to 120 days, and new agencies also need a site audit.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in California?', a: 'Yes — through Optum Behavioral Health, for autism, with prior authorization on every ABA service. Fully insured California plans also fall under the state mandate and Optum’s California-specific criteria.' },
       { q: 'Can UHC deny ABA because the child has an IEP?', a: 'Not on that basis alone for California commercial members: Optum’s California State Mandates entry and H&S § 1374.72(h) bar limiting coverage because special education, an IEP or Medicaid could provide the service.' },
@@ -4160,6 +4187,7 @@ export const californiaPayers: Record<string, PayerConfig> = {
       { q: 'What is UnitedHealthcare\'s ABA fee schedule in California?', a: 'There is no public one. Optum pays contracted providers at the rate on the fee schedule in their Optum agreement.' },
       { q: 'Is UnitedHealthcare (Optum) accepting new ABA providers in California?', a: 'Optum takes ABA applications through the "Join Our Autism/ABA Network" section of Provider Express. Credentialing takes 45 to 120 days after a complete submission, plus a site audit for new agencies. Optum publishes no statement that its network is closed.' },
       { q: 'Does UnitedHealthcare require a referring provider (box 17) on ABA claims?', a: 'No. Optum’s claim requirements do not include a referring provider. UnitedHealthcare makes the referring name and NPI mandatory only for lab, DME, imaging and home health claims. For other claims it encourages the referring NPI but does not require it.' },
+      { q: 'Can a licensed marriage and family therapist (LMFT) be the QAS provider for UnitedHealthcare ABA?', a: 'Yes, once Optum credentials them for ABA. Optum\'s ABA Supplemental Clinical Criteria accept, besides a BCBA, "A licensed behavioral health clinician who has attested to having sufficient expertise and has been credentialed to provide ABA services." Optum does not list which licenses count, so an LMFT applies through that route and attests to ABA expertise.' },
     ],
   },
 };

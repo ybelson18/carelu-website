@@ -61,6 +61,48 @@ const TX_CRED_SECTION_G8 = {
   cites: [TX_1452_G8, TX_HB586_G8],
 };
 
+/* Texas Medicaid authorization packet, consent, supervision records, enrollment and members outside Texas — weekly refresh 2026-11-15, read 2026-11-15. */
+const TX_TMPPM_DOC_N15 = { title: 'TMPPM Children\'s Services Handbook, § 2.3.7 Documentation Requirements (§ 2.3.7.2 initial evaluation, § 2.3.7.3 treatment, § 2.3.7.9 client record, § 2.3.7.10 CDE, § 2.3.7.12 Consent, § 2.3.7.13 Treatment Note) and § 2.3.11 Submission Guidelines', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/2_04_Childrens_Services/2_04_Childrens_Services.htm' };
+const TX_TMPPM_ENR_N15 = { title: 'TMPPM Vol. 1, Section 1: Provider Enrollment and Responsibilities — § 1.1.1 Revalidation, § 1.1.5 ACA requirements (§ 1.1.5.2 revalidation, § 1.1.5.3 application fee), § 1.9 Out-of-State Providers', url: 'https://www.tmhp.com/sites/default/files/microsites/provider-manuals/tmppm/html/TMPPM/1_01_Provider_Enrollment/1_01_Provider_Enrollment.htm' };
+const TX_FP_FAQ_N15 = { title: 'TMHP — Texas Medicaid Provider Fingerprinting Requirement FAQ (D00412)', url: 'https://www.tmhp.com/sites/default/files/file-library/topics/provider-enrollment/texas-medicaid-provider-fingerprinting-requirement-FAQ.pdf' };
+const MOLINA_TX_PM_N15 = { title: 'Molina Healthcare of Texas — Medicaid/CHIP Provider Manual 2026 (last updated 04/2026): Chapter 7, Out of Network Providers and Services', url: 'https://www.molinahealthcare.com/-/media/Project/PWS/Healthcare/PDF/PDF/Providers/TX/MHTX-MEDICAID-CHIP-Provider-Manual-EN-508.pdf' };
+const TX_MCD_PACKET_N15 = {
+  h2: 'What goes in the ABA authorization packet, and what stays on file?',
+  body: [
+    'Standardized tool results. For the initial evaluation request, the TMPPM asks for the referral and for "Documentation of comprehensive diagnostic evaluation or re-evaluation of diagnosis for ASD signed and dated by the diagnosing physician and dated within 3 years," and that documentation must show the diagnostic criteria, the DSM severity level and that "A reliable, valid, standardized diagnostic tool or combination of tools must have been a part of the initial evaluation or re-evaluation" (§§ 2.3.7.2, 2.3.11.2). The manual does not require the raw score sheets as a separate attachment: "All required elements of the comprehensive evaluation must be retained by the diagnosing provider in the child or youth\'s medical record" (§ 2.3.7.10). For treatment, the LBA\'s ABA assessment must include "Validated assessments of cognitive abilities and adaptive behaviors, such as the Vineland Adaptive Behavior Scales," and every re-evaluation needs "Documentation of the child or youth\'s status using a reliable, valid standardized assessment tool" (§§ 2.3.7.3, 2.3.7.8). An MCO may ask for more through its own form.',
+    'Parent consent. Yes, on file, not in the packet: "Formal documentation of signed consent to ABA treatment signed by the child or youth\'s legally authorized representative must be kept in the child or youth\'s file" (§ 2.3.7.12). What is submitted carries the parent\'s agreement in other ways: the ABA assessment and treatment plan need a "Signature with date by the parent or caregiver," the 90-day progress summary is signed by the parent, and at re-evaluation the LBA attests that the family "has agreed to the treatment plan," its frequency and places of service. Care coordination with other providers and schools is "contingent upon a signed release of information"; a parent\'s refusal to sign is documented but "should not preclude access to treatment."',
+    'Supervision records. The TMPPM requires no separate supervision log. Supervision is documented in the treatment notes: 97153 and 97154 notes are signed by the rendering provider "with full signature and credentials," "Additional supervisory signatures must be made in accordance with state licensure requirements and professional standards of care," and 97155/97158 notes add the "Description of protocol modification decision points (may include supervision of BT or LaBA for procedure code 97155)." Only direct supervision, billed as 97155, is reimbursed. The logs Texas Medicaid does require are attendance logs, with the percentage of scheduled sessions attended by the child and by the parent, submitted after the first 90 days and with every extension or recertification (§ 2.3.7.5). Supervision records the BACB or the RBT credential require are a certification matter, not a Medicaid claim requirement.',
+  ],
+  cites: [TX_TMPPM_DOC_N15],
+};
+const TX_MCD_ENROLL_N15 = {
+  h2: 'Enrolling in Texas Medicaid: application fee, revalidation, fingerprinting and CAQH',
+  body: [
+    'Order and fee. Enrollment comes first, through TMHP\'s Provider Enrollment and Management System (PEMS); managed care credentialing follows, since providers "must be enrolled in Texas Medicaid before they can be enrolled by an MCO." The federal application fee applies to institutional providers: "Under ACA, institutional providers are subject to an application fee," the amount "is subject to change every calendar year," PEMS tells the applicant whether it owes it, and a fee already paid to Medicare or another state\'s Medicaid or CHIP satisfies it (§ 1.1.5.3). An individual LBA or an LBA group is not named as an institutional provider in this section; PEMS gives the answer for your application.',
+    'Revalidation. "All other provider types must revalidate their enrollment information at least once every five years" (§ 1.1.5.2); "Most providers have a five-year enrollment period," the due date shows in PEMS, revalidation opens up to 180 days early, and a provider not Closed–Enrolled within the 45-day grace period "will be disenrolled from all Texas state health care programs, including Medicaid managed care organizations" (§ 1.1.1). Screening repeats at every revalidation.',
+    'Background check and fingerprinting. Every applicant is screened by categorical risk level (§ 1.1.5.1). Fingerprint-based background checks are "required for all high categorical risk providers and their owners who have a 5% or greater direct or indirect ownership interest"; your Screen Risk Category shows in PEMS, proof of fingerprinting (IdentoGO, $10 a person) must be uploaded within 30 days of submitting the application or it is closed (TMHP fingerprinting FAQ D00412). CAQH is not part of Texas Medicaid enrollment; MCO credentialing runs through the Texas Association of Health Plans\' credentialing verification organization (see the network section above), and whether a plan wants a CAQH profile is that plan\'s rule.',
+  ],
+  cites: [TX_TMPPM_ENR_N15, TX_FP_FAQ_N15],
+};
+const TX_MCD_OOS_MEMBER_N15 = {
+  h2: 'Does Texas Medicaid ABA have to be delivered in Texas?',
+  body: [
+    'Generally yes, with listed exceptions. "Texas Medicaid covers medical assistance services provided to eligible Texas Medicaid clients while in a state other than Texas, as long as the client does not leave Texas to receive out-of-state healthcare that can be received in Texas" (TMPPM Vol. 1, § 1.9). A provider rendering from an address outside Texas is an out-of-state provider and "is ineligible to participate in Medicaid unless HHSC or its designee approves the enrollment" under one of the criteria in 1 TAC § 352.17: emergency care, care where travel to Texas would endanger the client, services "more readily available" where the client is, Title IV-E foster care or adoption assistance, services prior authorized by HHSC or its designee (TMHP or the MCO) with documented justification, a customary practice within 50 miles of the border, or services not readily available in Texas. Enrollment under most criteria is time-limited. Providers within 50 miles driving distance of the border are treated as in-state.',
+    'For ABA the licence still binds: the LBA must hold a current Texas license (TMPPM § 2.3.6.1), and that license does not authorize practice in another state, whose own licensure law applies where the child is. The TMPPM names office, home, clinic and community settings for ABA and does not say whether a child care center is a community setting; a member who attends day care in another state needs the MCO (or TMHP for fee-for-service) to approve the out-of-state service before it starts.',
+  ],
+  cites: [TX_TMPPM_ENR_N15, G1_TX_TMPPM_CS],
+};
+
+/* Ambetter from Superior HealthPlan (Texas Marketplace) — weekly refresh 2026-11-15, read 2026-11-15. */
+const AMB_TX_PAT = { title: 'Ambetter from Superior HealthPlan — Pre-Auth Needed tool (code lookups 2026-11-15: 97151, 97152, 97153, 97155, 97156, 0362T)', url: 'https://www.ambetterhealth.com/en/tx/provider-resources/manuals-and-forms/pre-auth/' };
+const AMB_TX_PRM = { title: 'Ambetter from Superior HealthPlan / Ambetter Health — 2026 Provider and Billing Manual (Texas): Utilization Management; Preauthorization; Timely Filing; Credentialing', url: 'https://www.ambetterhealth.com/content/dam/centene/Superior/Ambetter/PDFs/2026-tx-provider-manual.pdf' };
+const AMB_TX_PAG = { title: 'Ambetter from Superior HealthPlan — Prior Authorization Guide (last updated October 2026)', url: 'https://www.ambetterhealth.com/content/dam/centene/Superior/Ambetter/PDFs/TX-Ambetter-PA-Guide.pdf' };
+const AMB_TX_BH104 = { title: 'Centene Clinical Policy CP.BH.104 — Applied Behavior Analysis (Superior/Ambetter copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Superior/Provider/clinical-policies/CP.BH.104.pdf' };
+const AMB_TX_BH105 = { title: 'Centene Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Superior/Provider/clinical-policies/CP.BH.105.pdf' };
+const AMB_TX_POL = { title: 'Superior HealthPlan — Clinical, Payment & Pharmacy Policies (Ambetter section lists CP.BH.104 and CP.BH.105)', url: 'https://www.superiorhealthplan.com/providers/resources/clinical-payment-policies.html' };
+const AMB_TX_EOC_HMO = { title: 'Ambetter from Superior HealthPlan — 2026 Evidence of Coverage, HMO (87226TX011-2026): Autism Spectrum Disorder Benefits; Referrals; Coordination of Benefits', url: 'https://api.centene.com/EOC/2026/87226TX011.pdf' };
+const AMB_TX_EOC_EPO = { title: 'Celtic Insurance Company for Ambetter from Superior HealthPlan — 2026 Evidence of Coverage, EPO (29418TX016-2026): Autism Spectrum Disorder Benefits', url: 'https://api.centene.com/EOC/2026/29418TX016.pdf' };
+
 export const texasPayers: Record<string, PayerConfig> = {
   'texas-medicaid': {
     slug: 'texas-medicaid',
@@ -223,6 +265,9 @@ export const texasPayers: Record<string, PayerConfig> = {
         ],
         cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
+      TX_MCD_PACKET_N15,
+      TX_MCD_ENROLL_N15,
+      TX_MCD_OOS_MEMBER_N15,
     ],
     collect: [
       { title: 'Program & plan', desc: 'FFS vs. STAR / STAR Kids / STAR Health, and which MCO — same clinical rules, different PA machinery.' },
@@ -376,6 +421,11 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Does Texas Medicaid require standardized assessment results with the initial ABA assessment request?', a: 'The request must include the comprehensive diagnostic evaluation (or re-evaluation), signed and dated by the diagnosing provider within 3 years, showing that a reliable, valid, standardized diagnostic tool was part of it, plus the signed referral. The TMPPM does not require separate raw score sheets: the diagnosing provider keeps all elements of the evaluation in the medical record (§§ 2.3.7.2, 2.3.7.10, 2.3.11.2). The treatment request adds the LBA\'s validated cognitive and adaptive assessments, such as the Vineland.' },
+      { q: 'Does Texas Medicaid require parent consent on file for ABA?', a: 'Yes. Signed consent to ABA treatment from the child\'s legally authorized representative must be kept in the child\'s file (TMPPM § 2.3.7.12). It is not a separate submission, but the assessment and treatment plan sent with the request must carry the parent\'s dated signature.' },
+      { q: 'Does Texas Medicaid require a separate BCBA supervision log?', a: 'No separate log is named in the TMPPM. Supervision shows up in the treatment notes (supervisory signatures per Texas licensure, and 97155 notes describing protocol-modification decision points, which may include supervising the BT). The logs Texas Medicaid does require are attendance logs for the child and the parent, submitted with each extension and recertification.' },
+      { q: 'Is there an enrollment fee for Texas Medicaid, and how often must ABA providers revalidate?', a: 'The ACA application fee applies to institutional providers (PEMS tells you whether yours owes it; a fee already paid to Medicare or another state counts). Revalidation is at least every five years, opens 180 days before the due date, and has a 45-day grace period. Fingerprinting applies only to high-risk providers and 5% owners; CAQH is not part of Texas Medicaid enrollment.' },
+      { q: 'Do Texas Medicaid ABA services have to be rendered in Texas?', a: 'Generally. Texas Medicaid covers care in another state only when the member does not leave Texas to get care available in Texas, and an out-of-state provider must be approved under 1 TAC § 352.17 criteria such as prior authorization by HHSC, TMHP or the MCO. The LBA must also hold a Texas license (TMPPM §§ 1.9, 2.3.6.1).' },
       { q: 'Does Texas Medicaid cover ABA therapy?', a: 'Yes — since February 1, 2022, as the Autism Services benefit under THSteps-CCP (EPSDT), for members from birth through age 20 with an ASD diagnosis. Everything requires prior authorization, from the evaluation forward. CHIP is excluded.' },
       { q: 'How recent does the autism diagnosis need to be?', a: 'The diagnosis — with DSM criteria and a symptom severity level — must be made or reconfirmed within the 3 years before the PA request. Older diagnoses need reconfirmation before the evaluation PA can be approved.' },
       { q: 'What changed on April 1, 2025?', a: 'TMHP removed the prescribing-provider signature requirement from the CCP PA form for the 90-day treatment extension. The initial 180-day treatment plan still needs the prescriber\'s signature; the mid-cycle extension no longer does.' },
@@ -1816,6 +1866,14 @@ export const texasPayers: Record<string, PayerConfig> = {
         ],
         cites: [G1_TX_TMPPM_CS, G1_TX_TMPPM_ENR, G1_TX_TMPPM_TEL, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
       },
+      {
+        h2: 'Members receiving ABA outside Texas (including day care in another state)',
+        body: [
+          'Molina\'s 2026 Texas Medicaid/CHIP provider manual (last updated 04/2026) has no ABA-specific out-of-state rule; it requires network care and prior authorization for anything else: "Molina requires Members to receive medical care within the participating, contracted network of Providers unless it is for Emergency Services," "all care provided by non-contracted, non-network Providers must be prior authorized by Molina," and non-network providers may give emergency services "for a Member who is temporarily outside the service area, without prior authorization." The manual does not address a member who attends day care outside Texas.',
+          'The state rule underneath it: Texas Medicaid covers care in another state only "as long as the client does not leave Texas to receive out-of-state healthcare that can be received in Texas," and a provider rendering from outside Texas must be approved under 1 TAC § 352.17, one criterion being services "prior authorized by HHSC or its designee (TMHP, or MCO)" (TMPPM § 1.9). The LBA must hold a Texas license (TMPPM § 2.3.6.1), and the TMPPM names office, home, clinic and community settings without saying whether a child care center counts. So ABA at an out-of-state day care needs Molina\'s prior approval of the out-of-state service before it starts, and the other state\'s licensure law applies where the child is.',
+        ],
+        cites: [MOLINA_TX_PM_N15, TX_TMPPM_ENR_N15, G1_TX_TMPPM_CS],
+      },
     ],
     collect: [
       { title: 'Program line', desc: 'STAR (pediatric ABA) vs. STAR+PLUS (adult) vs. CHIP (excluded) — the answer routes everything.' },
@@ -1991,6 +2049,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
+      { q: 'Can a Molina Texas Medicaid member receive ABA at a day care outside Texas?', a: 'Only with Molina\'s prior approval. Molina\'s 2026 manual requires non-network care to be prior authorized and covers out-of-area care without authorization only for emergencies; Texas Medicaid covers out-of-state care only when it is not available in Texas or another 1 TAC § 352.17 criterion (such as MCO prior authorization) applies, and the LBA needs a Texas license. Neither document says whether a day care counts as a community setting, so ask Molina before scheduling.' },
       { q: 'Does Molina Healthcare of Texas cover ABA?', a: 'Yes — the statewide THSteps-CCP Autism Services benefit on TMPPM criteria, with PA on evaluation and treatment. Pediatric ABA members sit on Molina STAR; STAR+PLUS is the adult program and CHIP is excluded.' },
       { q: 'Does Molina have its own Texas ABA criteria?', a: 'We found no evidence of distinct criteria — Texas MCOs must apply the TMPPM. Plan clinically to the state baseline, and confirm code-level PA handling in Molina\'s PA Code Matrix / Look-Up Tool since its PA guide PDFs are not reliably accessible online.' },
       { q: 'What happened to Cigna\'s Texas Medicaid members?', a: 'Molina acquired Cigna\'s Texas Medicaid (STAR+PLUS) business in 2021 — those are adult-program members. A "Cigna Medicaid" mention in Texas today means Molina.' },
@@ -5477,7 +5536,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Member ID + card photo', desc: 'Enough to run a live benefits verification — the only reliable answer on limits and cost-sharing.' },
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date.' },
     ],
-    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' },  TX_1452_G8,
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 13, 2026; medical services only, no ABA codes) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' },  TX_1452_G8,
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Optum — ABA State Mandates supplemental criteria (BH803ABA STM 1/2026)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/guidelines/scc/ABA_SCC_SM.pdf' },
       { title: 'Tex. Ins. Code § 1355.015 (full text + history)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
@@ -5631,7 +5690,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       },
     },
     faq: [
-      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'No ABA code is on the list any more. UnitedHealthcare’s commercial code list for members younger than 18 (effective Dec. 1, 2026) was revised on Nov. 13, 2026, and the revised list names no ABA code (97151–97158, 0362T, 0373T) and now says it "applies to medical services only. Continue to reference your usual channels for behavioral health services." So keep requesting ABA authorization as before, and check plan-specific rules in the Prior Authorization and Advance Notification tool.' },
       { q: 'Does UnitedHealthcare cover ABA therapy in Texas?', a: 'Yes — under Optum\'s national clinical criteria for ASD, layered on Texas\'s mandate (Tex. Ins. Code § 1355.015) for state-regulated group plans. Self-funded employer plans are exempt from the mandate, so always verify plan funding type first.' },
       { q: 'What does the Texas autism mandate require?', a: 'For covered group plans: treatment coverage from the date of diagnosis, provided the ASD diagnosis was made before the child\'s 10th birthday (coverage continues once eligible), with no dollar cap under 10 and a $36,000/year ABA cap at 10+ that federal parity arguably limits for large-group plans.' },
       { q: 'Does Optum have Texas-specific ABA criteria?', a: 'No — Optum\'s ABA State Mandates supplement contains no Texas entry, so its standard national criteria apply, with the Texas mandate as the legal floor for state-regulated plans.' },
@@ -5753,7 +5812,7 @@ export const texasPayers: Record<string, PayerConfig> = {
       { title: 'Skills assessment within 30 days', desc: 'VB-MAPP, ABLLS, AFLS, ABAS or Vineland, dated within the last 30 days of the request.' },
       { title: 'Line staff roster', desc: '18+, high school diploma or GED, background check, 40 hours of training, BCBA oversight of at least 5% of hours worked.' },
     ],
-    sources: [
+    sources: [{ title: 'BCBSTX — Provider News and Updates (archive index)', url: 'https://www.bcbstx.com/provider/education/education/news' }, 
       { title: 'BCBSTX — Fee Schedules via Availity (Professional Providers)', url: 'https://www.bcbstx.com/provider/education/education/tools/fee-sched-via-availity-prof-pvdrs' }, TX_1452_G8,G1_BCBSTX_FORM, G1_BCBSTX_ASSESS, G1_BCBSTX_TELEATT, G1_BCBSTX_CHANGE, G1_BCBSTX_BHPAGE, G1_BCBSTX_CALL, G1_BCBSTX_CLAIMNEWS, G1_BCBSTX_CPCP, G1_BCBSTX_RP033, G1_BCBSTX_ADM, G1_BCBSTX_PRM, G1_BCBSTX_BLUECARD, G1_BCBSTX_M015, G1_BCBSTX_M002, G1_BCBSTX_M003, G1_BCBSTX_I1301, G1_BCBSTX_I843, G1_BCBSTX_TDLR],
     intakeGates: {
       ageLimit: {
@@ -5839,6 +5898,225 @@ export const texasPayers: Record<string, PayerConfig> = {
       { q: 'What is BCBSTX’s timely filing limit for ABA claims?', a: '365 days from the date of service, per BCBSTX’s PPO and Blue HPN provider manual (September 2026). Clean electronic claims must be paid within 30 days under the Texas Prompt Pay Act (45 days on paper).' },
       { q: 'Can an out-of-state BCBA treat a BCBSTX member in Texas?', a: 'Only briefly without a Texas license: Texas exempts an analyst licensed elsewhere, or BACB-certified, for no more than 20 days a calendar year, with written notice to the family (Occ. Code § 506.057). BCBSTX’s request form also has the supervisor attest to a license in the state where the member is served, and its telehealth policy requires the license needed to treat members of the plan’s state.' },
       { q: 'How long does it take to credential a new BCBA with BCBSTX in Texas?', a: 'Texas law sets no deadline for behavior analysts. The expedited credentialing and pay-while-pending rules in Insurance Code chapter 1452 cover only physicians, podiatrists and therapeutic optometrists joining a contracted group; a 2025 bill to add behavior analysts (H.B. 586) died in committee. The plan\'s own turnaround governs, so ask for it when you apply.' },
+    ],
+  },
+  /* Ambetter from Superior HealthPlan — Texas Marketplace (QHP). Added weekly refresh 2026-11-15; every fact read 2026-11-15
+     from Ambetter/Superior's own documents (Pre-Auth Needed JSON, CP.BH.104, CP.BH.105, 2026 Provider and Billing Manual, 2026 EOCs). */
+  'ambetter-from-superior-healthplan-texas': {
+    slug: 'ambetter-from-superior-healthplan-texas',
+    family: 'centene',
+    cardDesc: 'Superior HealthPlan\'s Texas Marketplace (ACA) plan, not Medicaid: ABA covered with no benefit limit, PA on every ABA code, Centene CP.BH.104 criteria, six-month authorization periods.',
+    assessmentPA: {
+      value: 'Required — Ambetter Texas\'s Pre-Auth Needed tool returns "Pre-authorization is required for all providers" for 97151, 97152 and 0362T. Submit on Availity Essentials or the Secure Provider Portal, by phone (Utilization Management 1-877-687-1196) or on the posted fax forms (outpatient BH fax 1-844-307-4442). Request at least five business days before the service date',
+      status: 'verified',
+      cites: [AMB_TX_PAT, AMB_TX_PRM, AMB_TX_PAG],
+    },
+    treatmentPA: {
+      value: 'Required — the Pre-Auth Needed tool flags 97153, 97155 and 97156 "Pre-authorization is required for all providers," and both 2026 Evidence of Coverage documents say ABA services are "subject to prior authorization to determine medical necessity." Medical necessity is reviewed under Centene policy CP.BH.104; Centene\'s ABA documentation policy CP.BH.105 counts billing over "the entire six-month authorization period"',
+      status: 'verified',
+      cites: [AMB_TX_PAT, AMB_TX_EOC_HMO, AMB_TX_EOC_EPO, AMB_TX_BH104, AMB_TX_BH105],
+    },
+    dxRequired: {
+      value: 'Yes — ASD. CP.BH.104 requires "a confirmed autism spectrum disorder (ASD) diagnosis, according to the current version of the Diagnostic and Statistical Manual of Mental Disorders (DSM) criteria," with severity level, intellectual and language impairment status documented, and a comprehensive diagnostic evaluation (CDE). The Evidence of Coverage covers ABA under its "Autism Spectrum Disorder Benefits"',
+      status: 'verified',
+      cites: [AMB_TX_BH104, AMB_TX_EOC_HMO],
+    },
+    payer: 'Ambetter from Superior HealthPlan',
+    state: 'TX', kind: 'commercial',
+    pill: 'Payer Guide · Ambetter · Texas',
+    h1: 'Ambetter from Superior HealthPlan ABA coverage in Texas: the intake guide.',
+    metaTitle: 'Ambetter (Superior HealthPlan) Texas ABA Coverage & Prior Auth Guide | Carelu',
+    metaDescription:
+      'How Ambetter from Superior HealthPlan, Texas\'s Centene Marketplace plan, covers ABA: commercial rules not Medicaid, prior authorization on every ABA code, six-month authorization periods, CP.BH.104 criteria and hour caps, the diagnosis-currency windows, and what intake should collect.',
+    intro: [
+      'Ambetter from Superior HealthPlan is the Health Insurance Marketplace (ACA individual-market) plan of Superior HealthPlan, the Centene company that also runs STAR, STAR Kids and CHIP Medicaid plans in Texas. Ambetter is not Medicaid. Its EPO products are underwritten by Celtic Insurance Company and its HMO products by Superior HealthPlan, Inc., "each Qualified Health Plan issuers in the Texas Health Insurance Marketplace." A sister product, Ambetter Health, is HMO coverage underwritten by Ambetter Health of Texas, Inc.',
+      'For an ABA intake that means commercial rules: a deductible and coinsurance, a state-regulated insurance contract (the Evidence of Coverage), and Centene\'s national ABA criteria (CP.BH.104 and CP.BH.105) applied by Ambetter\'s Utilization Management team. The Texas Medicaid rules (TMPPM, the TMHP fee schedule, Texas Health Steps referrals) do not apply. A family that also has Medicaid is in a different position, covered under coordination of benefits below.',
+    ],
+    atGlance: [
+      { label: 'Covers ABA?', value: 'Yes — for ASD; the 2026 EOCs say "No limitation exists within the benefits for applied behavior analysis services"' },
+      { label: 'Line of business', value: 'Marketplace / ACA individual plan (Qualified Health Plan), state-regulated insurance — not Medicaid or CHIP' },
+      { label: 'State mandate', value: 'Tex. Ins. Code § 1355.015 sits in a subchapter limited to group plans (§ 1355.002); the Ambetter EOC writes its own autism benefit, with no ABA limit' },
+      { label: 'Mandate age', value: 'No age gate in the Ambetter EOC autism benefit (the § 1355.015 before-age-10 rule is a group-plan rule)' },
+      { label: 'Mandate caps', value: 'None in the EOC; cost sharing applies, with a separate copay or coinsurance per provider per day' },
+      { label: 'Exempt from mandate', value: 'Not applicable as written: individual Marketplace plan; benefits come from the EOC' },
+      { label: 'Authorization period', value: 'Six months — CP.BH.105 counts billing over "the entire six-month authorization period"; reassessment and treatment plan update at least every six months' },
+      { label: 'Licensure', value: 'TX Licensed Behavior Analyst — TDLR (Occupations Code ch. 506)' },
+    ],
+    sections: [
+      {
+        h2: 'Is Ambetter in Texas commercial or Medicaid?',
+        body: [
+          'Commercial. Ambetter\'s own 2026 Provider and Billing Manual describes it as Qualified Health Plan coverage sold "in the Texas Health Insurance Marketplace," underwritten by Celtic Insurance Company (EPO) and Superior HealthPlan, Inc. (HMO). The member holds an Evidence of Coverage, a state-regulated insurance contract with premiums, deductibles and coinsurance. Superior HealthPlan\'s Medicaid and CHIP members (STAR, STAR Kids, STAR Health) are covered under the state Medicaid rules and a separate guide; Superior\'s own policy page lists Ambetter policies and Medicaid policies under separate headings.',
+          'So the experience a provider reports, where the assessment "seems like a commercial plan," is right: prior authorization, review against Centene\'s ABA clinical policy, and commercial claim rules (95-day filing from the date of service for participating and non-participating providers).',
+        ],
+        cites: [AMB_TX_PRM, AMB_TX_EOC_HMO, AMB_TX_EOC_EPO, AMB_TX_POL],
+      },
+      {
+        h2: 'How long is an Ambetter Texas ABA authorization?',
+        body: [
+          'Six months. Centene\'s ABA documentation policy, CP.BH.105, which Superior lists among the Ambetter policies, measures protocol-modification billing across "the entire six-month authorization period." The clinical policy CP.BH.104 sets the same cadence for continued care: an "Updated behavior assessment is completed at least every six months" and an "Updated treatment plan completed at least every six months or as clinically appropriate." Neither policy sets a different length for the first authorization; the initial behavioral assessment must be completed "no more than two months prior to the start of the initial treatment authorization."',
+          'A partial approval usually reflects hours, not the period. CP.BH.104 says that "If clinical documentation justifies that services at a lower intensity, frequency, or duration than requested are sufficient to reasonably achieve treatment goals, the health plan may authorize services at a lower intensity, frequency, or duration than requested." Requests above "six hours per day up to a total of 30 hours per week" need the documentation the policy lists (severity, escalating behavior, a rationale for how the extra hours are used, and parent and BCBA signatures on the revised plan), and the plan must allow for school: "less than 20 hours per week if attending school full-time." The reason for a specific partial approval is in the determination letter; ask Ambetter Utilization Management (1-877-687-1196) and request a peer-to-peer discussion, which the manual offers before an adverse medical-necessity determination.',
+        ],
+        cites: [AMB_TX_BH105, AMB_TX_BH104, AMB_TX_PRM, AMB_TX_POL],
+      },
+      {
+        h2: 'What goes in the authorization packet',
+        body: [
+          'Diagnosis. A comprehensive diagnostic evaluation (CDE) with direct observation, a parent or caregiver interview, and a report that includes the "Test administered with scores and date completed" and the evaluator\'s name, signature and credentials. The diagnosis must rest on "at least one primary clinician tool and one parent/caregiver tool" (for example ADOS-2, ADI-R, CARS-2 or STAT plus M-CHAT-R/F, SCQ or SRS-2). For starting treatment the CDE must be from the past three years (or three to five years old with a diagnostic interview in the last 12 months); for continuing treatment, within five years.',
+          'Behavioral assessment and plan. A BCBA assessment no more than two months old with record review, interviews, rating scales, direct observation and results of a skills or maladaptive-behavior assessment (VB-MAPP, ABLLS-R, AFLS, PEAK, FBA and so on; a Vineland alone is not enough). The treatment plan needs measurable goals with baseline data, a crisis plan, a school-based plan where applicable, caregiver training goals (two to four, ideally two hours a month), a titration and discharge plan, and the "HIPAA-compliant signature, credentials, and role" of the responsible BCBA and the parent or guardian.',
+        ],
+        cites: [AMB_TX_BH104],
+      },
+      {
+        h2: 'Claims, timely filing and documentation',
+        body: [
+          'Ambetter\'s 2026 Texas manual sets 95 calendar days from the date of service for initial claims (participating and non-participating), 120 days for reconsiderations, disputes and appeals, and 95 days from the primary payer\'s explanation of payment for coordination-of-benefits claims. Telehealth claims use place of service 02 or 10 with the appropriate modifier, and "will be reimbursed at the facility rate unless otherwise required per state guidelines."',
+          'CP.BH.105 requires session notes "completed prior to claim submission" with start and end times, location, code, the rendering provider\'s or technician\'s signature and a summary of treatment. For 97155 it requires monthly one-on-one protocol modification by the ABA supervisor, "Not delivered via telemedicine/telehealth unless allowed by state guidelines," and protocol modification of at least two hours a week or 10% of direct hours: 97153/97154 hours over an authorization period not supported by that floor "are subject to denial of payment or recoupment."',
+        ],
+        cites: [AMB_TX_PRM, AMB_TX_BH105],
+      },
+      {
+        h2: 'Credentialing',
+        body: [
+          'BCBAs are listed among the eligible behavioral health providers, credentialing goes through CAQH ProView, and recredentialing runs "at least every 36 months." The manual\'s expedited credentialing covers only "A physician, podiatrist or therapeutic optometrist" joining a contracted group, so a new BCBA is not paid in network until credentialing is complete.',
+        ],
+        cites: [AMB_TX_PRM],
+      },
+      {
+        h2: 'Technician credentials and out-of-state BCBAs',
+        body: [
+          'Ambetter publishes no technician-certification rule of its own: CP.BH.104 asks that treatment "be delivered or supervised by an ABA-credentialed professional," and the EOC accepts treatment from a practitioner "Who is acting under the supervision of a health care practitioner" who is licensed, certified or registered in Texas. Texas law then applies.',
+          G1_TX_LAW,
+        ],
+        cites: [AMB_TX_BH104, AMB_TX_EOC_HMO, G1_TX_OCC251, G1_TX_OCC054, G1_TX_OCC057, G1_TX_OCC256],
+      },
+      TX_CRED_SECTION_G8,
+    ],
+    collect: [
+      { title: 'Which Ambetter product', desc: 'Ambetter from Superior HealthPlan (HMO or EPO) or Ambetter Health (Ambetter Health of Texas, Inc.). The card says which; HMO members need PCP referrals for most specialists (not for a behavioral health provider).' },
+      { title: 'Confirm it is not Medicaid', desc: 'Superior also runs STAR/STAR Kids/CHIP. Marketplace coverage means commercial rules and cost sharing; a child with both follows coordination of benefits.' },
+      { title: 'Member ID + card photo', desc: 'For eligibility and benefits on Availity Essentials: deductible, coinsurance and any premium grace period.' },
+      { title: 'Comprehensive diagnostic evaluation', desc: 'DSM diagnosis with severity level, one clinician tool and one parent tool with scores and dates, evaluator signature and credentials; under three years old for a new start.' },
+      { title: 'ABA recommendation', desc: 'From a licensed physician, psychologist or other qualified licensed professional (may be inside the CDE).' },
+      { title: 'Other coverage', desc: 'Any employer plan or Medicaid: the birthday rule decides between two parents\' plans; Medicaid pays last.' },
+    ],
+    sources: [
+      { title: 'Ambetter from Superior HealthPlan — Pre-Auth Needed tool (code lookups 2026-11-15)', url: 'https://www.ambetterhealth.com/en/tx/provider-resources/manuals-and-forms/pre-auth/' },
+      { title: 'Ambetter from Superior HealthPlan / Ambetter Health — 2026 Provider and Billing Manual (Texas)', url: 'https://www.ambetterhealth.com/content/dam/centene/Superior/Ambetter/PDFs/2026-tx-provider-manual.pdf' },
+      { title: 'Ambetter from Superior HealthPlan / Ambetter Health — 2027 Provider and Billing Manual (Texas)', url: 'https://www.ambetterhealth.com/content/dam/centene/Superior/Ambetter/PDFs/2027-tx-provider-manual.pdf' },
+      { title: 'Ambetter from Superior HealthPlan — Prior Authorization Guide (last updated October 2026)', url: 'https://www.ambetterhealth.com/content/dam/centene/Superior/Ambetter/PDFs/TX-Ambetter-PA-Guide.pdf' },
+      { title: 'Centene Clinical Policy CP.BH.104 — Applied Behavior Analysis (Superior/Ambetter copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Superior/Provider/clinical-policies/CP.BH.104.pdf' },
+      { title: 'Centene Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/Superior/Provider/clinical-policies/CP.BH.105.pdf' },
+      { title: 'Superior HealthPlan — Clinical, Payment & Pharmacy Policies (Ambetter section lists CP.BH.104 and CP.BH.105)', url: 'https://www.superiorhealthplan.com/providers/resources/clinical-payment-policies.html' },
+      { title: 'Ambetter from Superior HealthPlan — 2026 Evidence of Coverage, HMO (87226TX011-2026)', url: 'https://api.centene.com/EOC/2026/87226TX011.pdf' },
+      { title: 'Celtic Insurance Company for Ambetter from Superior HealthPlan — 2026 Evidence of Coverage, EPO (29418TX016-2026)', url: 'https://api.centene.com/EOC/2026/29418TX016.pdf' },
+      { title: 'Ambetter from Superior HealthPlan — Provider News', url: 'https://www.ambetterhealth.com/en/tx/provider-resources/provider-news/' },
+      { title: 'Tex. Ins. Code § 1355.002 — Applicability of Subchapter (group plans; TRS plans)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.002' },
+      { title: 'Tex. Ins. Code § 1355.015 — Required Coverage for Certain Enrollees (autism)', url: 'https://texas.public.law/statutes/tex._ins._code_section_1355.015' },
+      TX_1452_G8,
+    ],
+    deliveryRules: {
+      supervision: {
+        value:
+          'A range, in CP.BH.104: "Adaptive Behavior Treatment with Protocol Modification occurs for at least two hours per week or 10% of the direct service hours provided (whichever is greater), and no more than 20% of direct service hours provided (unless clinical documentation justifies)." CP.BH.105 enforces it at claim level: 97153/97154 hours over the authorization period not supported by that floor are "subject to denial of payment or recoupment," and the ABA supervisor must deliver at least monthly one-on-one protocol work with the member, not by telehealth unless state guidelines allow.',
+        status: 'verified',
+        cites: [AMB_TX_BH104, AMB_TX_BH105],
+      },
+      concurrentBilling: {
+        value:
+          'Not published. CP.BH.104 and CP.BH.105 reproduce the CPT descriptor for 97155 ("which may include simultaneous direction of technician") but state no rule on paying 97153 and 97155 for the same clock time, and the manual\'s code-editing chapter names no ABA pair.',
+        status: 'unverified',
+        cites: [AMB_TX_BH104, AMB_TX_BH105, AMB_TX_PRM],
+        verifyVia: 'Ambetter Utilization Management or Provider Services 1-877-687-1196 — ask whether 97155 pays alongside 97153 for the same time on the Marketplace plan.',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value:
+          'No benefit cap, but a medical-necessity ceiling. Both 2026 EOCs: "No limitation exists within the benefits for applied behavior analysis services." CP.BH.104 then sizes the request: hours must "not exceed six hours per day up to a total of 30 hours per week" unless clinical documentation justifies more, and should be "less than 20 hours per week if attending school full-time."',
+        status: 'verified',
+        cites: [AMB_TX_EOC_HMO, AMB_TX_EOC_EPO, AMB_TX_BH104],
+      },
+      noteSignature: {
+        value:
+          'CP.BH.105: service notes are "completed prior to claim submission" and carry the "Signature of qualified rendering provider/technician"; clinical documentation "includes the signature and printed names of the member/enrollee, legal guardian, rendering clinician/technician and supervising practitioner/Qualified Healthcare Provider (as applicable)"; caregiver signature is "recommended" on 97156/97157 notes. Treatment plans carry the BCBA\'s and parent\'s signatures (CP.BH.104 I.D).',
+        status: 'verified',
+        cites: [AMB_TX_BH105, AMB_TX_BH104],
+      },
+      placeOfService: {
+        value:
+          'Home, clinic, school and community are contemplated — CP.BH.104: "Services may be provided in various settings (e.g., home, clinic, school, community) and modalities (e.g., in-person, telehealth)." School hours need a "Detailed school-based plan" (hours, target behaviors, a titration plan for reducing school services). Services that are "otherwise covered under the Individuals with Disabilities Education Act (IDEA)" are not medically necessary, and services "in lieu of school, respite care" are grounds for discontinuation.',
+        status: 'verified',
+        cites: [AMB_TX_BH104],
+      },
+      billAsProvider: {
+        value:
+          'Not published. The manual requires the rendering provider\'s NPI and taxonomy on the claim (CMS-1500 box 24J / loop 2310B) and lists BCBAs as eligible behavioral health providers, but neither it, the EOC nor CP.BH.104 says whose NPI carries technician 97153 time. The EOC adds that "If multiple services are provided on the same day by different providers, a separate copayment and/or percentage copayment will apply to each provider."',
+        status: 'unverified',
+        cites: [AMB_TX_PRM, AMB_TX_EOC_HMO],
+        verifyVia: 'Ambetter Provider Services 1-877-687-1196 or your Provider Relations Representative, and your participation agreement, for the rendering-provider field on technician lines.',
+        blocker: 'per-case',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'No age limit. The EOC autism benefit carries none ("No limitation exists within the benefits for applied behavior analysis services"), and CP.BH.104 sets none. The Texas mandate\'s before-age-10 diagnosis rule and $36,000 cap from age 10 (§ 1355.015) sit in a subchapter that "applies only to a group health benefit plan" (§ 1355.002), so they are not what governs this individual Marketplace contract.',
+        status: 'verified',
+        cites: [AMB_TX_EOC_HMO, AMB_TX_EOC_EPO, AMB_TX_BH104, G1_BCBSTX_M002, G1_BCBSTX_M015],
+      },
+      dxRecency: {
+        value:
+          'CP.BH.104: to start treatment the comprehensive diagnostic evaluation must have been "conducted in the past three years," or, if it is three to five years old, a diagnostic interview/evaluation must be "conducted within 12 months of the authorization request." To continue treatment the CDE must be "within the past five years," with re-evaluation sooner for a provisional diagnosis, no formal evaluation, a mismatch between tools and diagnosis, or transitions. The behavioral assessment behind an initial authorization must be no more than two months old.',
+        status: 'verified',
+        cites: [AMB_TX_BH104],
+      },
+      diagnosingProviders: {
+        value:
+          'CP.BH.104: the diagnosis must be "established by a licensed physician, psychologist, or other licensed professional with specialized training in diagnosis and treatment of ASD, or a provider otherwise authorized under state law/regulation." The same group must make the recommendation for ABA (it may sit inside the CDE).',
+        status: 'verified',
+        cites: [AMB_TX_BH104],
+      },
+      diagnosticTools: {
+        value:
+          'CP.BH.104 requires "at least one primary clinician tool and one parent/caregiver tool": clinician tools STAT, ADI-R, CARS/CARS-2, ASRS, ADOS/ADOS-2, EarliPoint, RITA-T or CSBS DP-ITC; parent tools M-CHAT/M-CHAT-R/F, SCQ, ASSQ, CAST, SRS-2 Parent Report, SWYC POSI or CSBS DP ITC (other evidence-based tools case by case). The report must list each "Test administered with scores and date completed."',
+        status: 'verified',
+        cites: [AMB_TX_BH104],
+      },
+      referral: {
+        value:
+          'No PCP referral for ABA, but a recommendation for ABA is required. The HMO EOC requires PCP referrals for services outside the medical group but says members "may seek services from" "a behavioral health provider without a referral." CP.BH.104 (I.C) requires the "Recommendation for ABA" from a licensed physician, psychologist or other licensed professional with specialized ASD training, based on the member\'s presenting symptoms, whenever an initial or updated CDE is required; it "may be included within the CDE." No Ambetter order form is published; out-of-network services need prior authorization.',
+        status: 'verified',
+        cites: [AMB_TX_EOC_HMO, AMB_TX_BH104, AMB_TX_PRM],
+      },
+      telehealth: {
+        value:
+          'Allowed for some ABA work, with limits. CP.BH.104 contemplates ABA by telehealth as a supplement to in-person care; CP.BH.105 requires a HIPAA-compliant platform with the provider\'s "camera turned on," and the monthly one-on-one 97155 protocol work is "Not delivered via telemedicine/telehealth unless allowed by state guidelines." The manual bills telehealth with POS 02 or 10 and the appropriate modifier. No Ambetter document lists which ABA codes (including 97151) may be delivered remotely.',
+        status: 'plan-dependent',
+        cites: [AMB_TX_BH104, AMB_TX_BH105, AMB_TX_PRM],
+        verifyVia: 'Ambetter Utilization Management 1-877-687-1196 — ask, code by code, whether 97151 and 97153 may be delivered by telehealth for the member\'s plan before scheduling remote hours.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'The 2026 manual\'s Utilization Determination Timeframes: prospective non-urgent requests are decided by the "third calendar day after receipt of the request for adverse determinations and two working days after receipt of the request for approvals"; prospective urgent within three calendar days (approvals two working days); concurrent urgent within 24 hours; retrospective within 30 calendar days. Ambetter asks for outpatient prior authorization requests "five (5) business days prior to the outpatient service date," and approval notices go out "not later than the second working day after receiving the request and all information necessary."',
+        status: 'verified',
+        cites: [AMB_TX_PRM],
+      },
+      coordinationOfBenefits: {
+        value:
+          'The EOC uses the NAIC order-of-benefit rules: for a child of married or cohabiting parents, "The plan of the parent whose birthday falls earlier in the calendar year is the primary plan" (same birthday: the plan that has covered the parent longer). "A state plan under Medicaid" is excluded from the plans Ambetter coordinates with, so Medicaid pays after Ambetter. Coordination-of-benefits claims are due within 95 days of the primary payer\'s EOP.',
+        status: 'verified',
+        cites: [AMB_TX_EOC_HMO, AMB_TX_PRM],
+      },
+    },
+    faq: [
+      { q: 'Is Ambetter in Texas a commercial plan or a Medicaid plan?', a: 'Commercial. Ambetter from Superior HealthPlan is Marketplace (ACA individual) coverage issued by Celtic Insurance Company (EPO) and Superior HealthPlan, Inc. (HMO) as Qualified Health Plans; Superior\'s STAR, STAR Kids and CHIP plans are the Medicaid side. ABA follows the Evidence of Coverage and Centene\'s CP.BH.104 criteria, with cost sharing.' },
+      { q: 'How long is an Ambetter Texas ABA authorization?', a: 'Six months. Centene\'s CP.BH.105 refers to "the entire six-month authorization period," and CP.BH.104 requires an updated behavior assessment and treatment plan at least every six months. Neither sets a shorter first authorization.' },
+      { q: 'Why did Ambetter approve fewer hours than we asked for?', a: 'CP.BH.104 lets the plan "authorize services at a lower intensity, frequency, or duration than requested" when documentation shows that is enough, and treats more than six hours a day or 30 a week, or 20 or more a week for a child in school full time, as needing extra justification. The determination letter gives the reason; ask Utilization Management (1-877-687-1196) for a peer-to-peer discussion.' },
+      { q: 'Does Ambetter Texas require prior authorization for the ABA assessment?', a: 'Yes. The Pre-Auth Needed tool returns "Pre-authorization is required for all providers" for 97151, 97152 and 0362T, and for the treatment codes. Submit at least five business days before the service date.' },
+      { q: 'Does the Texas autism mandate\'s age-10 rule apply to Ambetter?', a: 'Not as written: § 1355.015 sits in a subchapter that applies only to group plans (§ 1355.002). Ambetter\'s individual Evidence of Coverage writes in its own autism benefit and says "No limitation exists within the benefits for applied behavior analysis services."' },
+      { q: 'What is Ambetter Texas\'s timely filing limit?', a: '95 days from the date of service for initial claims, 120 days for reconsiderations and disputes, and 95 days from the primary payer\'s EOP for secondary claims (2026 Provider and Billing Manual).' },
+      { q: 'How long does Ambetter take to decide an ABA prior authorization?', a: 'For a standard (non-urgent) request, approvals within two working days and adverse determinations by the third calendar day after receipt, per the 2026 manual; urgent concurrent requests within 24 hours.' },
     ],
   },
 };

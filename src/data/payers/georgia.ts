@@ -407,9 +407,10 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       },
       authTurnaround: {
         value:
-          'It depends on how the plan is funded. A fully insured Anthem Blue Cross and Blue Shield plan sold in Georgia follows the Ensuring Transparency in Prior Authorization Act. A standard request gets notice "within 7 calendar days of obtaining all necessary information to make such authorization or adverse determination" (O.C.G.A. 33-46-26). Urgent requests get notice "no later than 72 hours after receiving all information needed" (33-46-27). A missed deadline means "automatic authorization" of the service (33-46-29), with a narrow de minimis exception. Both clocks start only once the plan has everything it needs, so send a complete packet. The Act also binds DCH contracts under the State Health Benefit Plan. A self-funded employer plan is governed by ERISA instead: "not later than 15 days after receipt of the claim," with one 15-day extension, and 72 hours for urgent care. No reauthorization lead time is published for Anthem Blue Cross and Blue Shield ABA in Georgia.',
+          'It depends on how the plan is funded. A fully insured Anthem Blue Cross and Blue Shield plan sold in Georgia follows the Ensuring Transparency in Prior Authorization Act. A standard request gets notice "within 7 calendar days of obtaining all necessary information to make such authorization or adverse determination" (O.C.G.A. 33-46-26). Urgent requests get notice "no later than 72 hours after receiving all information needed" (33-46-27). A missed deadline means "automatic authorization" of the service (33-46-29), with a narrow de minimis exception. Both clocks start only once the plan has everything it needs, so send a complete packet. The Act also binds DCH contracts under the State Health Benefit Plan. A self-funded employer plan is governed by ERISA instead: "not later than 15 days after receipt of the claim," with one 15-day extension, and 72 hours for urgent care. The assessment codes (97151, 97152, 0362T) go through the same prior-authorization review, and Anthem publishes no separate clock for them: its 2026 Georgia provider manual says only that "UM review timeframes follow Federal, State, and accreditation requirements as applicable to the review," and asks providers to "supply requested information within twenty-four (24) hours of request." No reauthorization lead time is published for Anthem Blue Cross and Blue Shield ABA in Georgia.',
         status: 'plan-dependent',
         cites: [
+          { title: 'Anthem Blue Cross and Blue Shield — Georgia Facility and Professional Provider Manual, effective January 1, 2026 (GABCBS-CM-PM-091749-25), Utilization Management', url: 'https://www.anthem.com/content/dam/digital/docs/provider/commercial/manuals/PM_GA_00016.pdf' },
           { title: 'Georgia SB 80 (2021) — O.C.G.A. 33-46-26, -27, -29, -30 (Ensuring Transparency in Prior Authorization Act)', url: 'https://gov.georgia.gov/document/2021-signed-legislation/sb-80/download' },
           { title: 'O.C.G.A. 33-46-26 — prior authorization notice within 7 calendar days (FindLaw)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-46-26/' },
           { title: '29 CFR 2560.503-1 — ERISA claims procedure (eCFR)', url: 'https://www.ecfr.gov/current/title-29/section-2560.503-1' },
@@ -755,7 +756,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
         cites: [{ title: 'Behavioral Health Business — Georgia ABA providers brace for 20% rate cut from CareSource (Apr. 8, 2026; secondary source)', url: 'https://bhbusiness.com/2026/04/08/georgia-aba-providers-brace-for-20-rate-cut-from-caresource/' }, { title: 'CareSource GA MCD-MM-0212 (ABA policy, eff. 7/1/2026)', url: 'https://www.caresource.com/documents/medicaid-ga-policy-medical-mm-0212-20260701' }, { title: 'CareSource Georgia Medicaid — current reimbursement policies list (checked October 18, 2026)', url: 'https://www.caresource.com/ga/providers/tools-resources/health-partner-policies/reimbursement-policies/medicaid/' }],
         body: [
           'CareSource told Behavioral Health Business it had “recently notified certain providers in our Georgia network of adjustments to reimbursement for applied behavior analysis therapy services”; the reported term is 80% of the then-current Georgia Medicaid fee schedule from May 2026. The amendment went to providers individually and is not published, and neither edition of CareSource’s ABA policy mentions it, so confirm the rate in your own CareSource agreement before modelling revenue. It does not change coverage.',
-          'The payment terms now sit in a policy nobody outside CareSource can read. The revision history of MCD-MM-0212 (effective 7/1/2026) says “Split payment info into PY-1634,” but as of October 25, 2026 PY-1634 is not on CareSource’s list of current Georgia Medicaid reimbursement policies, so its rules (rates, unit edits, modifiers) cannot be checked publicly. Ask CareSource provider services for a copy, and rely on your own CareSource letters for whether any 2026 rate change applies to your agreement.',
+          'The payment terms now sit in a policy nobody outside CareSource can read. The revision history of MCD-MM-0212 (effective 7/1/2026) says “Split payment info into PY-1634,” but as of November 15, 2026 PY-1634 is not on CareSource’s list of current Georgia Medicaid reimbursement policies, so its rules (rates, unit edits, modifiers) cannot be checked publicly. Ask CareSource provider services for a copy, and rely on your own CareSource letters for whether any 2026 rate change applies to your agreement.',
         ],
       },
       {
@@ -859,7 +860,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { q: 'Is the CareSource Georgia Medicaid ABA network open to new providers?', a: 'Enroll in Georgia Medicaid through GAMMIS, then request a CareSource contract (New Health Partner Contract Form or 1-855-202-1058). Credentialing is done by DCH’s centralized CVO, about 51 days for a complete application, and CareSource pays nothing before the approval date. CareSource does not publish whether its ABA network is open, so ask provider contracting.' },
       { q: 'Can an out-of-state BCBA treat CareSource members in Georgia, including by telehealth?', a: 'Georgia prohibits unlicensed ABA practice (O.C.G.A. 43-7A-6); a temporary license of up to 30 days a year and reciprocity exist. To enroll in Georgia Medicaid a BCBA needs a Georgia license and active BACB certification; since October 2026 there is no requirement to live in Georgia or within 50 miles of its border.' },
       { q: 'Can CareSource authorize ABA retroactively in Georgia?', a: 'Only if you request it within 30 calendar days of the service date; CareSource decides within 30 days and administratively denies late requests.' },
-      { q: 'What is CareSource Georgia’s reimbursement policy PY-1634?', a: 'It is the ABA payment policy CareSource split out of its clinical policy: the revision history of MCD-MM-0212 (effective 7/1/2026) says “Split payment info into PY-1634.” As of October 25, 2026, PY-1634 is not on CareSource’s list of current Georgia Medicaid reimbursement policies, so its terms cannot be read publicly. Ask CareSource provider services for a copy, and check the rate in your own CareSource agreement.' },
+      { q: 'What is CareSource Georgia’s reimbursement policy PY-1634?', a: 'It is the ABA payment policy CareSource split out of its clinical policy: the revision history of MCD-MM-0212 (effective 7/1/2026) says “Split payment info into PY-1634.” As of November 15, 2026, PY-1634 is not on CareSource’s list of current Georgia Medicaid reimbursement policies, so its terms cannot be read publicly. Ask CareSource provider services for a copy, and check the rate in your own CareSource agreement.' },
       { q: 'What is CareSource Georgia’s timely filing limit for ABA claims?', a: 'Six months from the month the service was rendered, for in-network providers (CareSource Georgia provider manual). Corrected claims may be sent within 180 calendar days of the date of service, and the manual also allows 90 days from the EOP date to submit a clean claim.' },
       { q: 'How do I dispute or appeal a CareSource Georgia ABA claim?', a: 'Payment-amount disputes: in writing within three months of the payment date; CareSource decides within 15 calendar days. Denials: a claim appeal within 30 calendar days of the denial or remittance; medical-necessity appeals within 60 calendar days, with member consent. Then an Administrative Law Hearing request within 30 calendar days of the appeal decision, or binding arbitration.' },
       { q: 'What do we submit to CareSource Georgia for a 97151/97152 assessment authorization?', a: 'The DCH Section 802 packet, which MCD-MM-0212 adopts by reference: diagnostic evaluation, Letter of Medical Necessity, IFSP if applicable, IEP (optional), prior hospitalization or placement records if applicable, the Medicaid Cover Page (Appendix D) and any other supporting clinical documentation. CareSource caps comprehensive behavioral assessments at 8 hours per 6 months without extra justification, rejects school psychoeducational evaluations as the diagnostic evaluation, and wants member-specific symptoms rather than DSM wording.' },
@@ -2139,7 +2140,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'Diagnosis report', desc: 'DSM-5 ASD diagnosis, diagnosing provider and credentials, evaluation date.' },
       { title: 'Age', desc: 'Where the mandate carries age terms, flag edge cases for the parity analysis rather than turning families away.' },
     ],
-    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 6, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, 
+    sources: [{ title: 'UnitedHealthcare — Prior auth reductions continue for members under 18 (Network News, Nov. 2026)', url: 'https://www.uhcprovider.com/en/resource-library/news/2026/prior-auth-reduction-members-under-18.html' }, { title: 'UnitedHealthcare — Procedure codes with reduced prior authorization requirements, commercial plans (eff. Dec. 1, 2026, revised Nov. 13, 2026) (PDF)', url: 'https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/PA-Reduction-Codes-18-Commercial-QRG.pdf' }, 
       { title: 'Optum ABA Supplemental Clinical Criteria (BH803ABASCC)', url: 'https://public.providerexpress.com/content/dam/ope-provexpr/us/pdfs/clinResourcesMain/autismABA/abaSCC.pdf' },
       { title: 'Georgia Code § 33-24-59.10 (Ava\'s Law)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/' },
       { title: 'Autism Speaks — Georgia state-regulated coverage', url: 'https://www.autismspeaks.org/georgia-state-regulated-insurance-coverage' },
@@ -2155,7 +2156,7 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { title: 'O.C.G.A. § 43-10A-3 — definitions incl. “diagnose” and “social work” (FindLaw)', url: 'https://codes.findlaw.com/ga/title-43-professions-and-businesses/ga-code-sect-43-10a-3/' },
     ],
     faq: [
-      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'Only two ABA codes change. From Dec. 1, 2026, UnitedHealthcare no longer requires prior authorization for 0362T and 0373T when provided to members younger than 18 on its commercial plans (commercial code list revised Nov. 6, 2026). 97151–97158 are not on the list and still need authorization, and the Individual Exchange and Community Plan lists name no ABA code. UHC says to check plan-specific exceptions in the Prior Authorization and Advance Notification tool. 0362T and 0373T are deleted from CPT on Jan. 1, 2027, so the change covers December 2026 dates of service.' },
+      { q: 'Does UnitedHealthcare still require prior authorization for ABA for members under 18 after Dec. 1, 2026?', a: 'No ABA code changes. UnitedHealthcare\'s under-18 prior-authorization reduction starts Dec. 1, 2026, but the commercial code list as revised Nov. 13, 2026 names no ABA code (it no longer lists 0362T or 0373T) and says it "applies to medical services only. Continue to reference your usual channels for behavioral health services." The Individual Exchange and Community Plan lists (also revised Nov. 13) say the same and name no ABA code. Keep requesting Optum authorization for 97151–97158 and check plan-specific exceptions in the Prior Authorization and Advance Notification tool.' },
       { q: 'Does UnitedHealthcare (Optum) require graphs for ABA reauthorization?', a: 'Optum\'s criteria do not require graphs; they require progress measured the same way as the baseline, mastery rates, change scores and updated standardized adaptive measures at each continued-treatment review.' },
       { q: 'Does UnitedHealthcare (Optum) accept H0031 or H0032 for ABA in Georgia?', a: 'Not on commercial plans: Optum\'s commercial ABA reimbursement policy lists CPT 97151–97158, 0362T and 0373T as the reimbursable ABA codes, with the credential modifier of the person who delivered the service.' },
       { q: 'How long do I have to file a UnitedHealthcare (Optum) ABA claim in Georgia, including as secondary?', a: 'Optum\'s National Network Manual requires everything needed to process the claim within 90 calendar days of the date of service (or longer where state or federal law or the member\'s plan allows), with corrections within 90 days of initial receipt. It sets no separate secondary-claim deadline; as secondary, Optum pays up to its contracted rate.' },
@@ -2167,6 +2168,281 @@ export const georgiaPayers: Record<string, PayerConfig> = {
       { q: 'How old can a diagnosis report be for UnitedHealthcare (Optum) ABA in Georgia?', a: 'Optum publishes no age limit on the diagnosis. It must be a DSM-5 ASD diagnosis (an older Asperger’s or PDD-NOS label needs updating) from a licensed clinician who confirmed it with at least one validated tool; a later evaluation does not have to be comprehensive unless the diagnosis is in question (Optum ABA FAQ and Supplemental Clinical Criteria).' },
       { q: 'Does a doctor’s referral count as the diagnosis for UnitedHealthcare ABA in Georgia, or is a new evaluation needed?', a: 'A referral alone is not enough. Optum needs the comprehensive diagnostic evaluation from a licensed physician, psychologist or other qualified clinician, with the diagnosis and severity confirmed by a validated tool. If the referring doctor did that evaluation, send it; if not, a diagnostic evaluation is needed.' },
       { q: 'What is UnitedHealthcare’s timely filing limit for ABA in Georgia?', a: 'Optum’s National Network Manual: 90 calendar days from the date of service, unless state law, the benefit plan or your agreement allows longer. Reconsideration and appeal together must be filed within 12 months.' },
+    ],
+  },
+  'ambetter-peach-state': {
+    slug: 'ambetter-peach-state',
+    family: 'centene',
+    cardDesc: 'Peach State Health Plan\'s Marketplace HMO (Ambetter of Peach State Inc.): ABA covered with no benefit limit, PA on every ABA code except 97157, Centene policy CP.BH.104, in-network only.',
+    assessmentPA: {
+      value: 'Required. Ambetter Georgia\'s Pre-Auth Needed tool returns "Pre-authorization is required for all providers" for 97151, 97152 and 0362T. Submit on the secure provider portal, by phone (1-877-687-1180) or by fax (1-855-685-6508)',
+      status: 'verified',
+      cites: [
+        { title: 'Ambetter from Peach State Health Plan — Pre-Auth Needed tool (code lookups 2026-11-15)', url: 'https://www.ambetterhealth.com/en/ga/provider-resources/manuals-and-forms/pre-auth/' },
+        { title: 'Ambetter from Peach State Health Plan — 2026 Provider and Billing Manual', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/PDFs/2026-ga-provider-manual.pdf' },
+      ],
+    },
+    treatmentPA: {
+      value: 'Required for 97153, 97154, 97155, 97156, 97158 and 0373T ("Pre-authorization is required for all providers"). The tool shows 97157 (multiple-family group caregiver training) as "No pre-authorization is required." The 2026 Evidence of Coverage says ABA services "are subject to prior authorization to determine medical necessity." Authorization periods run six months: CP.BH.105 refers to "the entire six-month authorization period," and CP.BH.104 requires an updated behavior assessment and treatment plan "at least every six months"',
+      status: 'verified',
+      cites: [
+        { title: 'Ambetter from Peach State Health Plan — Pre-Auth Needed tool (code lookups 2026-11-15)', url: 'https://www.ambetterhealth.com/en/ga/provider-resources/manuals-and-forms/pre-auth/' },
+        { title: 'Ambetter from Peach State Health Plan — 2026 Evidence of Coverage (70893GA001-2026)', url: 'https://api.centene.com/EOC/2026/70893GA001.pdf' },
+        { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.104.pdf' },
+        { title: 'Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.105.pdf' },
+      ],
+    },
+    dxRequired: {
+      value: 'Yes, ASD. The Evidence of Coverage covers autism services "when prescribed by a physician or behavioral health practitioner," and CP.BH.104 requires "a confirmed autism spectrum disorder (ASD) diagnosis, according to the current version of the Diagnostic and Statistical Manual of Mental Disorders (DSM)," with the severity level documented',
+      status: 'verified',
+      cites: [
+        { title: 'Ambetter from Peach State Health Plan — 2026 Evidence of Coverage (70893GA001-2026)', url: 'https://api.centene.com/EOC/2026/70893GA001.pdf' },
+        { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.104.pdf' },
+      ],
+    },
+    payer: 'Ambetter from Peach State Health Plan',
+    state: 'GA', kind: 'commercial',
+    deliveryRules: {
+      supervision: {
+        value:
+          'A range, set in CP.BH.104: the treatment plan must show "Adaptive Behavior Treatment with Protocol Modification occurs for at least two hours per week or 10% of the direct service hours provided (whichever is greater), and no more than 20% of direct service hours provided (unless clinical documentation justifies)," and that treatment "will be delivered or supervised by an ABA-credentialed professional." CP.BH.105 enforces it: at least monthly one-on-one 97155 with the child "Rendered by ABA supervisor," and "Technician supervision only or team meetings do not constitute protocol modification." 97153/97154 units for "the entire six-month authorization period" that the 10% floor does not support "are subject to denial of payment or recoupment."',
+        status: 'verified',
+        cites: [
+          { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.104.pdf' },
+          { title: 'Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.105.pdf' },
+        ],
+      },
+      concurrentBilling: {
+        value:
+          'Not stated as a billing rule. CP.BH.105 says "97155 may be used to demonstrate new or modified protocol to a technician with the member/enrollee present," which implies 97155 time alongside a technician, but no Ambetter Georgia document says whether the technician\'s 97153 for the same minutes also pays.',
+        status: 'unverified',
+        cites: [{ title: 'Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.105.pdf' }],
+        verifyVia: 'Ambetter Utilization Management / Provider Services 1-877-687-1180: ask whether 97153 and 97155 both pay for the same clock time on the Marketplace plan.',
+        blocker: 'per-case',
+      },
+      dailyLimits: {
+        value:
+          'No benefit cap, but a medical-necessity ceiling. The 2026 Evidence of Coverage: "No limitation exists within the benefits for applied behavior analysis services." CP.BH.104 sizes the request: treatment hours must "not exceed six hours per day up to a total of 30 hours per week" unless clinical documentation justifies more, and should be "less than 20 hours per week if attending school full-time." No per-code daily unit table is published.',
+        status: 'verified',
+        cites: [
+          { title: 'Ambetter from Peach State Health Plan — 2026 Evidence of Coverage (70893GA001-2026)', url: 'https://api.centene.com/EOC/2026/70893GA001.pdf' },
+          { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.104.pdf' },
+        ],
+      },
+      noteSignature: {
+        value:
+          'The rendering provider or technician signs each note. CP.BH.105 requires session notes "completed prior to claim submission" with the exact start and end time, pauses, location, the service code and the "Signature of qualified rendering provider/technician." Clinical documentation as a whole carries the signatures and printed names of the member, legal guardian, rendering clinician/technician and supervising practitioner "as applicable." A caregiver signature is "recommended" on caregiver-training notes. Treatment plans need the signature, credentials and role of the responsible BCBA and the parent or guardian (CP.BH.104).',
+        status: 'verified',
+        cites: [
+          { title: 'Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.105.pdf' },
+          { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.104.pdf' },
+        ],
+      },
+      placeOfService: {
+        value:
+          'Home, clinic, school and community are all contemplated. CP.BH.104: "Services may be provided in various settings (e.g., home, clinic, school, community) and modalities (e.g., in-person, telehealth)." The treatment plan needs a "Treatment setting with rationale," and school-based ABA needs a detailed school plan (hours, operationally defined target behaviors, a titration plan for when school services can be reduced or stopped, school-specific graphs). ABA is not medically necessary for "Services that are otherwise covered under the Individuals with Disabilities Education Act (IDEA)," and may be discontinued when "Services are in lieu of school, respite care, or other community-based settings." Telehealth is billed with POS 02 or 10 (2026 manual).',
+        status: 'verified',
+        cites: [
+          { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.104.pdf' },
+          { title: 'Ambetter from Peach State Health Plan — 2026 Provider and Billing Manual', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/PDFs/2026-ga-provider-manual.pdf' },
+        ],
+      },
+      billAsProvider: {
+        value:
+          'Not settled by a published ABA rule. The 2026 manual\'s general CMS-1500 instructions put the rendering provider\'s NPI in box 24J (with the rendering taxonomy in the shaded part of 24J) when it differs from the billing NPI, and it lists BCBA among credentialed behavioral health provider types. It lists no technician or BCaBA type and does not say whose NPI carries RBT time. The Evidence of Coverage adds: "If multiple services are provided on the same day by different providers, a separate copayment and/or coinsurance amount will apply to each provider."',
+        status: 'unverified',
+        cites: [
+          { title: 'Ambetter from Peach State Health Plan — 2026 Provider and Billing Manual', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/PDFs/2026-ga-provider-manual.pdf' },
+          { title: 'Ambetter from Peach State Health Plan — 2026 Evidence of Coverage (70893GA001-2026)', url: 'https://api.centene.com/EOC/2026/70893GA001.pdf' },
+        ],
+        verifyVia: 'Ambetter Provider Services 1-877-687-1180 or your Provider Relations Representative, and your participation agreement: ask whether technician 97153 goes out under the supervising BCBA\'s NPI.',
+        blocker: 'per-case',
+      },
+    },
+    intakeGates: {
+      ageLimit: {
+        value:
+          'None stated. The Evidence of Coverage\'s Autism Spectrum Disorder Benefits carry no age limit and say "No limitation exists within the benefits for applied behavior analysis services," and CP.BH.104 sets none. Georgia\'s Ava\'s Law (O.C.G.A. 33-24-59.10) is written for individuals "20 years of age or under" and lets a policy cap ABA at $35,000 a year, but this contract does not use either limit.',
+        status: 'verified',
+        cites: [
+          { title: 'Ambetter from Peach State Health Plan — 2026 Evidence of Coverage (70893GA001-2026)', url: 'https://api.centene.com/EOC/2026/70893GA001.pdf' },
+          { title: 'O.C.G.A. 33-24-59.10 — Ava\'s Law (FindLaw)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/' },
+        ],
+      },
+      dxRecency: {
+        value:
+          'Three years, with a bridge to five. To start treatment, CP.BH.104 needs a comprehensive diagnostic evaluation (CDE) "conducted in the past three years," or, if the CDE is three to five years old, "A diagnostic interview/evaluation has been conducted within 12 months of the authorization request." For continuation the CDE must be within the past five years, and a re-evaluation may be required sooner (provisional diagnosis, no formal psychological evaluation, or more than three years since diagnosis with no evidence of ongoing assessment).',
+        status: 'verified',
+        cites: [{ title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.104.pdf' }],
+      },
+      diagnosingProviders: {
+        value:
+          '"The documented diagnosis of ASD is established by a licensed physician, psychologist, or other licensed professional with specialized training in diagnosis and treatment of ASD, or a provider otherwise authorized under state law/regulation." The same class of provider makes the ABA recommendation, which "may be included within the CDE."',
+        status: 'verified',
+        cites: [{ title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.104.pdf' }],
+      },
+      diagnosticTools: {
+        value:
+          'Two instruments minimum: the diagnosis must rest on the CDE, "including at least one primary clinician tool and one parent/caregiver tool." Clinician tools: STAT, ADI-R, CARS/CARS-2, ASRS, ADOS/ADOS-2, EarliPoint, RITA-T or CSBS DP-ITC. Parent tools: M-CHAT/M-CHAT-R/F, SCQ, ASSQ, CAST, SRS-2 Parent Report, SWYC POSI or CSBS DP ITC. Other evidence-based tools are reviewed case by case. The report must list each test with scores and date and carry the evaluator\'s name, signature and credentials.',
+        status: 'verified',
+        cites: [{ title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.104.pdf' }],
+      },
+      referral: {
+        value:
+          'A prescription and a recommendation, but no PCP referral. The Evidence of Coverage covers autism services "when prescribed by a physician or behavioral health practitioner," and for behavioral health a member "do[es] not need a referral from your PCP in order to initiate treatment." CP.BH.104 requires a "Recommendation for ABA" from a licensed physician, psychologist or other qualified licensed professional; it "may be included within the CDE" and is required whenever an initial or updated CDE is required. No Ambetter order form is published, and no validity period or signature-date rule is stated beyond those CDE time limits.',
+        status: 'verified',
+        cites: [
+          { title: 'Ambetter from Peach State Health Plan — 2026 Evidence of Coverage (70893GA001-2026)', url: 'https://api.centene.com/EOC/2026/70893GA001.pdf' },
+          { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.104.pdf' },
+        ],
+      },
+      telehealth: {
+        value:
+          'Covered, with no ABA code list published. The Evidence of Coverage covers medically necessary telehealth, and telehealth outside its Virtual 24/7 Care vendor carries "the same cost sharing as the same health care services when delivered to an insured in-person." CP.BH.104 names telehealth as an ABA modality, and CP.BH.105 says the monthly one-on-one protocol-modification 97155 is "Not delivered via telemedicine/telehealth unless allowed by state guidelines," and telehealth notes must confirm a HIPAA-compliant platform with camera and audio on. Telehealth claims use POS 02 or 10 with "the appropriate modifier."',
+        status: 'plan-dependent',
+        cites: [
+          { title: 'Ambetter from Peach State Health Plan — 2026 Evidence of Coverage (70893GA001-2026)', url: 'https://api.centene.com/EOC/2026/70893GA001.pdf' },
+          { title: 'Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.105.pdf' },
+          { title: 'Ambetter from Peach State Health Plan — 2026 Provider and Billing Manual', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/PDFs/2026-ga-provider-manual.pdf' },
+        ],
+        verifyVia: 'Ambetter Utilization Management 1-877-687-1180: confirm which ABA codes (including 97151 and 97153) it will authorize by telehealth for this member.',
+        blocker: 'per-case',
+      },
+      authTurnaround: {
+        value:
+          'The 2026 manual\'s Utilization Determination Timeframes follow Georgia\'s prior-authorization law: prospective non-urgent "Within 7 calendar days of obtaining all necessary information to make such authorization or adverse determination, not to exceed 15 calendar days from date of request"; prospective urgent "No later than 72 hours after receiving all information needed … not to exceed 3 calendar days from date of request"; concurrent urgent 1 calendar day (one extension to 3); retrospective 30 calendar days. The 2027 manual keeps the same table. Elective outpatient services need the request "five (5) days prior to the elective outpatient service date." Under O.C.G.A. 33-46 (SB 80) a missed deadline means "automatic authorization."',
+        status: 'verified',
+        cites: [
+          { title: 'Ambetter from Peach State Health Plan — 2026 Provider and Billing Manual, Utilization Determination Timeframes', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/PDFs/2026-ga-provider-manual.pdf' },
+          { title: 'Ambetter from Peach State Health Plan — 2027 Provider and Billing Manual', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/PDFs/2027-ga-provider-manual.pdf' },
+          { title: 'Georgia SB 80 (2021) — O.C.G.A. 33-46-26, -27, -29, -30 (Ensuring Transparency in Prior Authorization Act)', url: 'https://gov.georgia.gov/document/2021-signed-legislation/sb-80/download' },
+        ],
+      },
+      coordinationOfBenefits: {
+        value:
+          'Other coverage pays first, and Medicaid is never "other plan." The Evidence of Coverage excludes "Any services where other coverage is primary to Ambetter" until "first paid by the primary payor," defines "Other plan" to include group and individual policies, HMOs and self-insured group plans, and says "Other plan will not include Medicaid." Its Medicaid Reimbursement clause says benefits "will not be changed or limited" because a member is Medicaid-eligible, and Ambetter repays the state when Medicaid has already paid. The manual gives participating providers 180 days (non-par 90) from the primary payer\'s EOP to file the secondary claim. The contract prints no birthday rule.',
+        status: 'verified',
+        cites: [
+          { title: 'Ambetter from Peach State Health Plan — 2026 Evidence of Coverage (70893GA001-2026)', url: 'https://api.centene.com/EOC/2026/70893GA001.pdf' },
+          { title: 'Ambetter from Peach State Health Plan — 2026 Provider and Billing Manual, Timely Filing', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/PDFs/2026-ga-provider-manual.pdf' },
+        ],
+      },
+    },
+    pill: 'Payer Guide · Ambetter · Georgia',
+    h1: 'Ambetter from Peach State Health Plan ABA coverage: the intake guide.',
+    metaTitle: 'Ambetter from Peach State Health Plan (Georgia Marketplace) ABA Coverage & Prior Auth | Carelu',
+    metaDescription:
+      'How Ambetter from Peach State Health Plan, Georgia\'s Centene Marketplace HMO, covers ABA: no ABA benefit limit in the 2026 Evidence of Coverage, prior authorization on every ABA code except 97157, Centene CP.BH.104 criteria, six-month authorization periods, Georgia\'s 7-day PA clock, and in-network-only care.',
+    intro: [
+      'Ambetter from Peach State Health Plan is the Georgia Marketplace (ACA individual) product of Centene, underwritten by Ambetter of Peach State Inc. It is not the Peach State Health Plan Medicaid plan: different contract, different rules, and the family pays a deductible and coinsurance. The 2026 Evidence of Coverage is an Individual Member HMO contract, so services from a non-network provider "are not covered" except emergencies. Being credentialed in the Ambetter network matters before anything else.',
+      'Three facts drive intake. The contract covers applied behavior analysis with "No limitation" on the benefit, and with no age limit. Every ABA code except 97157 needs prior authorization, decided under Centene\'s CP.BH.104 criteria. Authorizations run six months, each renewal needs an updated assessment, treatment plan and progress data, and CP.BH.105 can recoup technician hours when protocol modification falls under 10%.',
+    ],
+    atGlance: [
+      { label: 'Product', value: 'ACA Marketplace HMO (Ambetter of Peach State Inc.) — not the Peach State Health Plan Medicaid plan' },
+      { label: 'Covers ABA?', value: 'Yes — 2026 Evidence of Coverage, Autism Spectrum Disorder Benefits; "No limitation" on ABA' },
+      { label: 'Prior auth', value: 'Required for 97151–97156, 97158, 0362T, 0373T; not for 97157' },
+      { label: 'Authorization period', value: 'Six months; updated assessment and treatment plan at least every six months' },
+      { label: 'Clinical criteria', value: 'Centene CP.BH.104: 6 hrs/day, 30 hrs/week unless justified; CDE within 3 years' },
+      { label: 'PA decision clock', value: '7 calendar days from complete information (15 max); urgent 72 hours' },
+      { label: 'Network', value: 'HMO: non-network services not covered (emergencies aside); BCBAs credentialed, recredentialed every 36 months' },
+      { label: 'State mandate', value: 'O.C.G.A. 33-24-59.10 (Ava\'s Law): age 20 and under, $35,000/yr cap allowed; this contract sets neither' },
+      { label: 'Licensure', value: 'Georgia licenses behavior analysts (O.C.G.A. 43-7A, HB 412, effective July 1, 2023)' },
+      { label: 'Claims', value: 'Payer ID 68069; 180 days from DOS (par), 90 (non-par)' },
+    ],
+    sections: [
+      {
+        h2: 'What the 2026 Evidence of Coverage says about ABA',
+        body: [
+          'The contract\'s Autism Spectrum Disorder Benefits cover autism "when prescribed by a physician or behavioral health practitioner," including "Evaluation and assessment services," "Applied behavior analysis therapy," behavior training and management, habilitation, speech, occupational and physical therapy, psychiatric care and medications. "No limitation exists within the benefits for applied behavior analysis services. These services are subject to prior authorization to determine medical necessity. If multiple services are provided on the same day by different providers, a separate copayment and/or coinsurance amount will apply to each provider." ABA is also listed among the outpatient mental health benefits, and a member may "choose any network provider in our behavioral health and substance use provider network" without a PCP referral.',
+          'It is an HMO. Services from a non-network provider "are not covered, except as specifically stated in this contract" (emergencies, and some care at network facilities). Deductibles, copayments and coinsurance apply under the member\'s Schedule of Benefits, the same way as for physical health.',
+        ],
+        cites: [{ title: 'Ambetter from Peach State Health Plan — 2026 Evidence of Coverage (70893GA001-2026)', url: 'https://api.centene.com/EOC/2026/70893GA001.pdf' }],
+      },
+      {
+        h2: 'Prior authorization: which codes, how to submit, how long',
+        body: [
+          'The Pre-Auth Needed tool (looked up November 15, 2026) returns "Pre-authorization is required for all providers" for 97151, 97152, 0362T, 97153, 97154, 97155, 97156, 97158 and 0373T, and "No pre-authorization is required" for 97157. The manual says "Failure to obtain the required prior authorization or pre-certification will result in a denied claim" and "All out of network services require prior authorization." Submit on the secure provider portal (the preferred route), by calling Utilization Management at 1-877-687-1180, or on the posted fax forms to 1-855-685-6508. Each request needs the member\'s name, date of birth and ID, the provider\'s Tax ID, NPI, taxonomy and phone number, the procedure codes and the clinical information. If the codes billed will differ from those authorized, call within 72 hours or before the claim goes in.',
+          'Decision clocks (2026 manual, unchanged in the 2027 edition): prospective non-urgent within 7 calendar days of complete information, at most 15 calendar days from the request; prospective urgent within 72 hours, at most 3 calendar days; concurrent urgent 1 calendar day. Elective outpatient requests are due five days before the service date. Georgia\'s SB 80 (O.C.G.A. 33-46) sets the same 7-day and 72-hour clocks and makes a missed deadline an "automatic authorization."',
+          'Authorization length: Centene\'s documentation policy refers to "the entire six-month authorization period," and CP.BH.104 requires an updated behavior assessment and treatment plan "at least every six months." The behavior assessment behind the first treatment request must be "completed no more than two months prior to the start of the initial treatment authorization." No separate length is published for the assessment authorization itself.',
+        ],
+        cites: [
+          { title: 'Ambetter from Peach State Health Plan — Pre-Auth Needed tool (code lookups 2026-11-15)', url: 'https://www.ambetterhealth.com/en/ga/provider-resources/manuals-and-forms/pre-auth/' },
+          { title: 'Ambetter from Peach State Health Plan — 2026 Provider and Billing Manual', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/PDFs/2026-ga-provider-manual.pdf' },
+          { title: 'Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.105.pdf' },
+          { title: 'Georgia SB 80 (2021) — O.C.G.A. 33-46-26, -27, -29, -30 (Ensuring Transparency in Prior Authorization Act)', url: 'https://gov.georgia.gov/document/2021-signed-legislation/sb-80/download' },
+        ],
+      },
+      {
+        h2: 'CP.BH.104: what the initial and continuing requests must contain',
+        body: [
+          'Initial treatment: a confirmed DSM ASD diagnosis with severity level; a CDE from the past three years (or a diagnostic interview within 12 months if the CDE is three to five years old) built on at least one clinician tool and one parent tool; a recommendation for ABA; and a BCBA behavior assessment done no more than two months before the authorization starts, with record review, interviews, rating scales, direct observation and an FBA or skills assessment (VB-MAPP, ABLLS-R, AFLS, PEAK, EFL and others; a Vineland used as the skills tool needs a direct skills assessment as well). The treatment plan needs measurable goals with baselines and mastery criteria, a crisis plan, the setting and its rationale, justified hours (at most six a day and 30 a week unless documented), 10–20% protocol modification, two to four caregiver goals with about two hours a month of caregiver training, coordination of care, and a titration and discharge plan. Plans are signed by the responsible BCBA and the parent or guardian.',
+          'Continuation: an updated behavior assessment and treatment plan at least every six months, the percentage of scheduled sessions completed (attendance under 80% of authorized hours needs a written explanation), graphed progress for behavior reduction and updated data for each skill goal across every setting, and, where progress is limited, what is changing in the plan. Services can be stepped down or stopped when goals are met, when there is no measurable progress for six months, or when services stand "in lieu of school, respite care, or other community-based settings."',
+        ],
+        cites: [{ title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.104.pdf' }],
+      },
+      {
+        h2: 'Documentation that protects the claim (CP.BH.105)',
+        body: [
+          'Every session note must be finished before the claim is submitted and show the organization and rendering provider at the top, the member\'s name on each page, the date and exact start and end time, any pauses, the location, the code, the rendering provider\'s or technician\'s signature, the techniques used, the child\'s response, progress toward goals and everyone who took part. "Billed units not fully supported by documentation may be subject to payment denial or recoupment." For 97155, 0373T and 97158 the note lists the protocol modifications made, or why none were needed. If protocol modification averages under 10% of direct hours across the six-month authorization, the unsupported share of 97153/97154 hours is denied or recouped. The policy gives a worked example where 7% protocol modification costs 30 of 100 technician hours.',
+          'Discharge needs its own summary: referrals given, the reason for discharge with a progress summary, the rendering provider\'s and caregiver\'s signatures and the discharge date.',
+        ],
+        cites: [{ title: 'Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.105.pdf' }],
+      },
+      {
+        h2: 'Georgia law: the mandate and licensure',
+        body: [
+          'Ava\'s Law (O.C.G.A. 33-24-59.10) requires coverage of autism treatment for individuals "20 years of age or under," lets a policy "limit coverage for applied behavior analysis to $35,000.00 per year," and does not apply to plans of employers with ten or fewer employees. The Ambetter contract is more generous than the mandate on both points: no age limit and no ABA limitation.',
+          'Georgia licenses the practice: "The unlicensed practice of applied behavior analysis is prohibited in this state" (O.C.G.A. 43-7A-6, added by HB 412, effective July 1, 2023). Ambetter credentials BCBAs as behavioral health providers and recredentials every 36 months.',
+        ],
+        cites: [
+          { title: 'O.C.G.A. 33-24-59.10 — Ava\'s Law (FindLaw)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/' },
+          { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
+          { title: 'Ambetter from Peach State Health Plan — 2026 Provider and Billing Manual', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/PDFs/2026-ga-provider-manual.pdf' },
+        ],
+      },
+      {
+        h2: 'Claims: payer ID, filing limits and secondary claims',
+        body: [
+          'Electronic claims go to payer ID 68069. Initial claims are due 180 calendar days from the date of service for participating providers (90 for non-participating). Reconsiderations and disputes are due 180 days (90 non-par) from Ambetter\'s explanation of payment. Secondary claims are due 180 days (90 non-par) from the primary payer\'s EOP. When the rendering NPI differs from the billing NPI, put it in box 24J (loop 2310B/2420A) with the rendering taxonomy. Telehealth claims carry POS 02 or 10 and the appropriate modifier.',
+        ],
+        cites: [
+          { title: 'Ambetter from Peach State Health Plan — 2026 Provider and Billing Manual, Timely Filing', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/PDFs/2026-ga-provider-manual.pdf' },
+          { title: 'Ambetter from Peach State Health Plan — Provider Quick Reference Guide', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/PDFs/GA-Ambetter-Provider-QRG.pdf' },
+        ],
+      },
+    ],
+    collect: [
+      { title: 'Ambetter card and plan name', desc: 'Marketplace Ambetter, not Peach State Medicaid. Note the plan variant (Select, Select Plus, Wellstar, St. Joseph\'s/Candler, Gwinnett): network differs, and the HMO pays nothing out of network.' },
+      { title: 'Comprehensive diagnostic evaluation', desc: 'Dated within 3 years (or 3–5 years plus a diagnostic interview within 12 months), with one clinician tool and one parent tool, scores and dates, and the evaluator\'s signature and credentials.' },
+      { title: 'Recommendation for ABA', desc: 'From the physician, psychologist or qualified licensed professional; it can sit inside the CDE.' },
+      { title: 'Cost-share estimate', desc: 'Deductible and coinsurance apply, with a separate copay or coinsurance per provider on the same day. Run a benefits check before the first session.' },
+      { title: 'Other coverage', desc: 'Any employer plan pays first; Medicaid is not "other plan" under this contract.' },
+    ],
+    sources: [
+      { title: 'Ambetter from Peach State Health Plan — 2026 Evidence of Coverage (70893GA001-2026)', url: 'https://api.centene.com/EOC/2026/70893GA001.pdf' },
+      { title: 'Ambetter from Peach State Health Plan — 2026 plan documents (Evidence of Coverage index)', url: 'https://www.ambetterhealth.com/en/ga/2026-brochures/' },
+      { title: 'Ambetter from Peach State Health Plan — 2026 Provider and Billing Manual', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/PDFs/2026-ga-provider-manual.pdf' },
+      { title: 'Ambetter from Peach State Health Plan — 2027 Provider and Billing Manual', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/PDFs/2027-ga-provider-manual.pdf' },
+      { title: 'Ambetter from Peach State Health Plan — Pre-Auth Needed tool (code lookups 2026-11-15)', url: 'https://www.ambetterhealth.com/en/ga/provider-resources/manuals-and-forms/pre-auth/' },
+      { title: 'Ambetter from Peach State Health Plan — Manuals and Forms', url: 'https://www.ambetterhealth.com/en/ga/provider-resources/manuals-and-forms/' },
+      { title: 'Ambetter from Peach State Health Plan — Clinical and Payment Policies', url: 'https://www.ambetterhealth.com/en/ga/provider-resources/clinical-payment-policies/' },
+      { title: 'Ambetter from Peach State Health Plan — Georgia Newsroom (provider and plan notices index)', url: 'https://www.ambetterhealth.com/en/ga/newsroom/' },
+      { title: 'Clinical Policy CP.BH.104 — Applied Behavior Analysis (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.104.pdf' },
+      { title: 'Clinical Policy CP.BH.105 — Applied Behavioral Analysis Documentation Requirements (Ambetter Georgia copy; last revision 02/26)', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/Clinical_Policies/CP.BH.105.pdf' },
+      { title: 'Ambetter from Peach State Health Plan — Provider Quick Reference Guide', url: 'https://www.ambetterhealth.com/content/dam/centene/peachstate/ambetter/PDFs/GA-Ambetter-Provider-QRG.pdf' },
+      { title: 'Georgia SB 80 (2021) — O.C.G.A. 33-46-26, -27, -29, -30 (Ensuring Transparency in Prior Authorization Act)', url: 'https://gov.georgia.gov/document/2021-signed-legislation/sb-80/download' },
+      { title: 'O.C.G.A. 33-24-59.10 — Ava\'s Law (FindLaw)', url: 'https://codes.findlaw.com/ga/title-33-insurance/ga-code-sect-33-24-59-10/' },
+      { title: 'Georgia HB 412 (2022) — O.C.G.A. Title 43, Ch. 7A behavior analyst licensure (effective July 1, 2023)', url: 'https://gov.georgia.gov/document/2022-signed-legislation/hb-412/download' },
+    ],
+    faq: [
+      { q: 'Does Ambetter from Peach State Health Plan cover ABA therapy?', a: 'Yes. The 2026 Evidence of Coverage covers applied behavior analysis for autism when prescribed by a physician or behavioral health practitioner, and says "No limitation exists within the benefits for applied behavior analysis services." Prior authorization and the plan\'s cost sharing apply, and providers must be in the Ambetter network.' },
+      { q: 'Is Ambetter the same as Peach State Health Plan Medicaid?', a: 'No. Ambetter from Peach State Health Plan is the Marketplace (ACA individual) HMO, underwritten by Ambetter of Peach State Inc. It has its own contract, network and prior-authorization rules, and members pay deductibles and coinsurance.' },
+      { q: 'Does Ambetter Georgia require prior authorization for the ABA assessment?', a: 'Yes. The Pre-Auth Needed tool requires authorization for 97151, 97152 and 0362T, and for every treatment code except 97157. Submit on the provider portal, by phone at 1-877-687-1180 or by fax to 1-855-685-6508.' },
+      { q: 'How long does Ambetter Georgia take to decide an ABA prior authorization?', a: 'Within 7 calendar days of receiving all the information it needs, and no more than 15 calendar days from the request. Urgent requests are decided within 72 hours. Submit elective requests at least five days ahead.' },
+      { q: 'How long does an Ambetter Georgia ABA authorization last?', a: 'Six months. Centene\'s documentation policy refers to the "six-month authorization period," and an updated behavior assessment and treatment plan are required at least every six months. The first request needs a behavior assessment no more than two months old.' },
+      { q: 'How old can the autism diagnosis be for Ambetter Georgia?', a: 'To start, the comprehensive diagnostic evaluation must be from the past three years, or three to five years old plus a diagnostic interview within 12 months. To continue, it must be within five years.' },
+      { q: 'Does Ava\'s Law cap ABA for an Ambetter Georgia member?', a: 'Not in practice. Ava\'s Law allows a policy to cap ABA at $35,000 a year and covers people 20 and under, but the Ambetter contract sets no ABA limitation and no age limit.' },
+      { q: 'What is the Ambetter Georgia timely filing limit for ABA claims?', a: '180 calendar days from the date of service for participating providers (90 for non-participating), and 180 days from the primary payer\'s EOP for secondary claims. The payer ID is 68069.' },
     ],
   },
 };
