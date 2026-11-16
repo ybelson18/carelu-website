@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { PAYER_UPDATE_STATES, joinPayerUpdates } from './payerUpdates';
 
 /* ================================================================
    Ask-the-directory chat (/payers hero). Streams grounded answers
@@ -75,12 +76,17 @@ export default function AskPayers() {
   const [gatedQuestion, setGatedQuestion] = useState<string | null>(null);
   const [gateEmail, setGateEmail] = useState('');
   const [gateError, setGateError] = useState('');
+  // Optional: join the payer updates list in the same step.
+  const [puJoin, setPuJoin] = useState(false);
+  const [puState, setPuState] = useState('');
   const hpRef = useRef<HTMLInputElement>(null);
 
   function submitGate(e: React.FormEvent) {
     e.preventDefault();
     const clean = gateEmail.trim();
     if (!EMAIL_RE.test(clean)) { setGateError('That doesn’t look like an email.'); return; }
+    if (puJoin && !puState) { setGateError('Pick your state for the updates, or untick the box.'); return; }
+    if (puJoin) void joinPayerUpdates({ email: clean, states: [puState], website: hpRef.current?.value ?? '' });
     try { localStorage.setItem(GIVEN_KEY, clean); } catch { /* private mode */ }
     fetch('/api/leads', {
       method: 'POST',
@@ -253,6 +259,22 @@ export default function AskPayers() {
           }}>
             Continue
           </button>
+          <div style={{ flexBasis: '100%', display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', margin: '4px 0 0 12px' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13.5, color: 'rgba(43,42,38,0.8)', cursor: 'pointer' }}>
+              <input type="checkbox" checked={puJoin} onChange={(e) => { setPuJoin(e.target.checked); setGateError(''); }} style={{ accentColor: GREEN }} />
+              Also send me payer updates for my state
+            </label>
+            {puJoin && (
+              <select value={puState} onChange={(e) => { setPuState(e.target.value); setGateError(''); }} aria-label="Your state" style={{
+                fontFamily: 'var(--font-body)', fontSize: 13.5, color: puState ? INK : 'rgba(43,42,38,0.5)', background: '#FAF8F3',
+                border: '1px solid rgba(43,42,38,0.14)', borderRadius: 100, padding: '7px 12px', cursor: 'pointer',
+              }}>
+                <option value="">Which state?</option>
+                {PAYER_UPDATE_STATES.map((st) => <option key={st.code} value={st.code}>{st.name}</option>)}
+              </select>
+            )}
+            {puJoin && <span style={{ flexBasis: '100%', fontSize: 12, color: 'rgba(43,42,38,0.55)' }}>One email every two weeks with what changed for payers in your state. Unsubscribe any time.</span>}
+          </div>
           {gateError && <p style={{ flexBasis: '100%', fontSize: 12.5, color: '#c0392b', margin: '2px 0 0 12px' }}>{gateError}</p>}
         </form>
       ) : (

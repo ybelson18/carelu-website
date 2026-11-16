@@ -63,5 +63,11 @@
         }
       ]
     }
+  ],
+  "crons": [
+    {
+      "path": "/api/payer-digest",
+      "schedule": "0 14 * * 1"
+    }
   ]
 }
