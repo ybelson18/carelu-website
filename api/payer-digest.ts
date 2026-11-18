@@ -262,8 +262,8 @@ export function renderEmail(
 
       <!-- CLOSING BAND -->
       ${table(`<tr><td align="center" style="background-color:${DEEP};border-radius:22px;padding:48px 36px 46px 36px;">
-          <div style="font-family:${SERIF};font-weight:400;font-size:36px;line-height:1.12;letter-spacing:-0.01em;color:${CREAM};">Have a payer question?</div>
-          <div style="padding-top:14px;max-width:420px;margin:0 auto;font-family:${SANS};font-size:15px;line-height:1.65;color:rgba(250,248,243,0.82);">Ask the Carelu payer directory in plain English and get a sourced answer. Missing a payer you bill every day? Reply and tell us.</div>
+          <div style="font-family:${SERIF};font-weight:400;font-size:36px;line-height:1.12;letter-spacing:-0.01em;color:${CREAM};">Have any questions?</div>
+          <div style="padding-top:14px;max-width:420px;margin:0 auto;font-family:${SANS};font-size:15px;line-height:1.65;color:rgba(250,248,243,0.82);">Reply to this email, and we're happy to answer them. Every answer comes from our payer guides with a link to the source. You can also ask the payer directory any time.</div>
           <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:separate;margin:26px auto 0 auto;">
             <tr><td style="background-color:${LIME};border-radius:100px;"><a href="${SITE}/payers?${utm}" style="display:inline-block;padding:13px 26px;font-family:${SANS};font-size:14px;font-weight:600;color:${DEEP};text-decoration:none;white-space:nowrap;">Open the directory &rarr;</a></td></tr>
           </table>
@@ -293,6 +293,7 @@ export function renderEmail(
       '', c.t.label.toUpperCase(),
       ...c.items.map((i) => `- [${STATE_NAME[i.st] ?? i.st}] ${i.headline}\n  ${i.detail}${i.suggestion ? `\n  What this may mean for you: ${i.suggestion}` : ''}\n  ${guideUrl(i.slug)}`),
     ]),
+    '', "Have any questions? Reply to this email, and we're happy to answer them.",
     '', 'The "what this may mean for you" notes are suggestions, not legal, billing or clinical advice.',
     `Change states or topics: ${SITE}/payers#payer-updates`, `Unsubscribe: ${unsubscribeUrl}`, ...(POSTAL ? [POSTAL] : []),
   ].join('\n');

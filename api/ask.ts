@@ -18,7 +18,7 @@ export const config = { maxDuration: 60 };
 
 type ChatMessage = { role: 'user' | 'assistant'; content: string };
 
-interface Chunk {
+export interface Chunk {
   payer: string;
   state: string;
   slug: string;
@@ -178,7 +178,7 @@ const CHUNKS: Chunk[] = Object.values(payers).flatMap((p) => {
 // so the assistant knows every payer and can answer general or comparative
 // questions ("which state pays best?") that no keyword pick of sections can serve.
 // Retrieved sections below then add the detail for the payers a question names.
-const DIRECTORY = Object.values(payers)
+export const DIRECTORY = Object.values(payers)
   .map((p) => {
     // At-a-glance lines only (~54K tokens). The long assessment/treatment PA and
     // diagnosis facts used to ride along too (~101K tokens, $0.50 per cache write);
@@ -265,7 +265,7 @@ const STATE_NAMES: Record<string, string> = {
   id: 'idaho', ca: 'california', mi: 'michigan', pa: 'pennsylvania', hi: 'hawaii', ia: 'iowa', ok: 'oklahoma', nh: 'new hampshire', de: 'delaware', ms: 'mississippi', dc: 'district of columbia', wv: 'west virginia', wy: 'wyoming', ri: 'rhode island', ar: 'arkansas', nd: 'north dakota', ak: 'alaska', mt: 'montana', nv: 'nevada', sd: 'south dakota', al: 'alabama', vt: 'vermont', me: 'maine', mn: 'minnesota', or: 'oregon', la: 'louisiana', il: 'illinois', ct: 'connecticut', wa: 'washington', ky: 'kentucky', sc: 'south carolina', wi: 'wisconsin',
 };
 
-function retrieve(question: string, prevUser: string | undefined, limit = 14): Chunk[] {
+export function retrieve(question: string, prevUser: string | undefined, limit = 14): Chunk[] {
   const q = `${prevUser ?? ''} ${question}`.toLowerCase();
   const asked = q.split(/[^a-z0-9]+/).filter((w) => w.length > 2 && !STOPWORDS.has(w));
   const words = Array.from(new Set([...asked, ...asked.flatMap((w) => SYNONYMS[w] ?? [])]));
@@ -321,7 +321,7 @@ function retrieve(question: string, prevUser: string | undefined, limit = 14): C
   return picked;
 }
 
-const SYSTEM = `You are the Carelu ABA Payer Directory assistant, embedded on carelu.com/payers. You answer questions from ABA-provider intake and billing teams about insurance payers — prior authorization, assessment PA, diagnosis requirements, rates, reauthorization cadence, licensure, mandates.
+export const SYSTEM = `You are the Carelu ABA Payer Directory assistant, embedded on carelu.com/payers. You answer questions from ABA-provider intake and billing teams about insurance payers — prior authorization, assessment PA, diagnosis requirements, rates, reauthorization cadence, licensure, mandates.
 
 You have two sources:
 - The DIRECTORY below: every payer guide Carelu publishes, at a glance (key facts and guide page). Use it to know what the directory covers and to answer general or comparative questions across payers and states.
