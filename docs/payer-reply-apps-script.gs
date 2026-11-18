@@ -7,6 +7,10 @@
 
    - answered     -> replies in the same thread, from payers@, and
                      sends COPY_TO a copy of the question and answer
+   - not_covered  -> replies "we don't have a verified answer yet, we're
+                     adding it to our next guide" (with whatever part we
+                     do know) and sends COPY_TO a copy; the question goes
+                     into the same research list as unanswered Ask questions
    - needs_human  -> forwards the email to COPY_TO ("Needs you: ...")
    - no_question  -> files it (thanks, out of office, etc.)
 
@@ -21,6 +25,7 @@ const API = 'https://www.carelu.com/api/payer-reply';
 const COPY_TO = 'yoni@leadtrap.com';
 const LABELS = {
   answered: 'Payer replies/Answered',
+  not_covered: 'Payer replies/Not in guides yet',
   needs_human: 'Payer replies/Needs a person',
   no_question: 'Payer replies/No question',
 };
@@ -84,9 +89,10 @@ function handle(thread, msg) {
   }
 
   const question = newText(msg.getPlainBody());
-  if (result.status === 'answered') {
+  if (result.status === 'answered' || result.status === 'not_covered') {
     msg.reply(result.text, { htmlBody: result.html, name: 'Carelu Payer Updates' });
-    GmailApp.sendEmail(COPY_TO, 'Answered: ' + msg.getSubject(),
+    const tag = result.status === 'answered' ? 'Answered: ' : 'Not in guides yet (' + (result.reason || '') + '): ';
+    GmailApp.sendEmail(COPY_TO, tag + msg.getSubject(),
       'From: ' + msg.getFrom() + '\n\nTheir question:\n' + question + '\n\n---- Our answer ----\n\n' + result.text,
       { name: 'Carelu Payer Updates' });
   } else if (result.status === 'needs_human') {
