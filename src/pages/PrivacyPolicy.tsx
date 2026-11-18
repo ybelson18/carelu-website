@@ -12,7 +12,7 @@ import { useSeo } from '../hooks/useSeo';
 const INK = '#1A1A1A';
 const BONE = '#FAF8F3';
 const MUTED = 'rgba(43,42,38,0.72)';
-const UPDATED = 'September 7, 2026';
+const UPDATED = 'November 18, 2026';
 
 function H2({ id, children }: { id?: string; children: React.ReactNode }) {
   return (
@@ -35,7 +35,7 @@ function LI({ children }: { children: React.ReactNode }) {
 export default function PrivacyPolicy() {
   useSeo({
     title: 'Privacy Policy — Carelu',
-    description: 'How Carelu (LeadTrap, Inc.) collects, uses, and shares information on carelu.com, including cookies, analytics, connected email accounts, connected Google Ads and Meta advertising accounts, and B2B visitor identification.',
+    description: 'How Carelu (LeadTrap, Inc.) collects, uses, and shares information on carelu.com, including cookies, analytics, connected email accounts, connected Google Ads accounts, connected Meta accounts and Instant Forms, and B2B visitor identification.',
     canonical: '/privacy',
   });
   return (
@@ -62,11 +62,12 @@ export default function PrivacyPolicy() {
           provider &mdash; including any Protected Health Information (PHI) &mdash; is governed by our{' '}
           <a href="/terms" style={{ color: '#2e5a26', fontWeight: 600 }}>Terms of Service</a> and, where applicable, a
           signed Business Associate Agreement (BAA), not by this Site policy. We do not collect PHI through this Site.
-          Three exceptions, which cover the Carelu application at app.leadtrap.ai as well as the Site: our handling of data from email accounts a provider connects to the Carelu product (Google
+          Three exceptions, which cover the Carelu application at app.carelu.com and app.leadtrap.ai as well as the Site: our handling of data from email accounts a provider connects to the Carelu product (Google
           or Microsoft) is described in <a href="#connected-email" style={{ color: '#2e5a26', fontWeight: 600 }}>Connected
           Google and Microsoft accounts</a> below; our handling of data from Meta (Facebook) accounts a provider
-          connects is described in <a href="#connected-meta" style={{ color: '#2e5a26', fontWeight: 600 }}>Connected
-          advertising accounts (Meta)</a>; and our handling of data from Google Ads accounts a provider connects is
+          connects, including Meta Instant Forms submissions, is described in{' '}
+          <a href="#connected-meta" style={{ color: '#2e5a26', fontWeight: 600 }}>Connected Meta accounts and Instant
+          Forms</a>; and our handling of data from Google Ads accounts a provider connects is
           described in <a href="#connected-google-ads" style={{ color: '#2e5a26', fontWeight: 600 }}>Connected
           advertising accounts (Google Ads)</a>.
         </P>
@@ -98,6 +99,11 @@ export default function PrivacyPolicy() {
           <LI><B>Service providers</B> that operate the Site on our behalf, including hosting (Vercel), demo scheduling
             (Calendly), analytics and advertising (Google), visitor identification (Snitcher), and, for customers,
             payment processing (Stripe) &mdash; each authorized to use the data only to provide their service to us;</LI>
+          <LI><B>Services a provider directs</B> &mdash; in the Carelu product, a provider can choose to send its
+            lead and intake records to its own connected CRM or communication services, and to send lead-stage events
+            to Meta as described under{' '}
+            <a href="#connected-meta" style={{ color: '#2e5a26', fontWeight: 600 }}>Connected Meta accounts and Instant
+            Forms</a>. We make these transfers on the provider&rsquo;s instructions;</LI>
           <LI><B>Legal and safety</B> recipients where required by law, legal process, or to protect rights, property,
             and safety; and</LI>
           <LI><B>Business transfers</B> &mdash; in connection with a merger, acquisition, financing, or sale of assets,
@@ -152,27 +158,61 @@ export default function PrivacyPolicy() {
           for connected email accounts are stored encrypted and are never shared.
         </P>
 
-        <H2 id="connected-meta">Connected advertising accounts (Meta)</H2>
+        <H2 id="connected-meta">Connected Meta accounts and Instant Forms</H2>
         <P>
           Providers using the Carelu product may connect a Meta (Facebook) account through our Meta app,{' '}
           <B>Carelu Connector</B>, so they can see how their Facebook and Instagram advertising performs alongside the
-          leads and intakes those ads generate. Access is granted by the provider through Facebook Login and
-          Meta&rsquo;s permission dialogs, and Carelu accesses Meta data only through Meta&rsquo;s official APIs
-          (including the Marketing API).
+          leads and intakes those ads generate, and so inquiries submitted on their Meta Instant Forms arrive in Carelu.
+          Access is granted by the provider through Facebook Login and Meta&rsquo;s permission dialogs, and Carelu
+          accesses Meta data only through Meta&rsquo;s official APIs (including the Marketing API).
         </P>
         <P>
-          <B>What we receive.</B> With the provider&rsquo;s permission, we receive: basic profile information of the
-          connecting user (such as name and email address); the ad accounts, Pages, and business assets the provider
-          chooses to share; and advertising data from those assets &mdash; such as campaign, ad set, and ad names and
-          settings, and aggregate performance metrics (for example spend, impressions, reach, clicks, and conversion
-          counts).
+          <B>What we receive through the connection.</B> With the provider&rsquo;s permission, we receive: basic profile
+          information of the connecting user (such as name and Meta user ID); the ad accounts, Pages, and business
+          assets the provider chooses to share; and advertising data from those assets &mdash; such as campaign, ad set,
+          and ad names and settings, and aggregate performance metrics (for example spend, impressions, reach, clicks,
+          and conversion counts). We do not request the connecting user&rsquo;s email address through this connection.
+        </P>
+        <P id="meta-instant-forms">
+          <B>Instant Form submissions.</B> When a provider connects a Facebook Page to Carelu Connector, Carelu receives
+          notifications of new submissions to that Page&rsquo;s Meta Instant Forms and retrieves those submissions
+          through Meta&rsquo;s APIs. We receive the contact details and other answers submitted on the form, which may
+          include name, email address, phone number and answers to the provider&rsquo;s questions, together with the
+          Meta lead identifier, Page and form details, submission time, and available advertising attribution and
+          consent information. (Email addresses submitted on a form are the form respondent&rsquo;s, not the connecting
+          user&rsquo;s.) We also periodically check connected forms for submissions that were not delivered by a
+          notification.
         </P>
         <P>
-          <B>How we use it.</B> We use Meta data only to provide the features the provider has enabled: displaying
-          advertising performance in that provider&rsquo;s dashboard, attributing leads and intakes to the campaigns
-          that generated them, and reporting on the results. We do not sell Meta data or use it for our own advertising;
+          <B>How we use submissions.</B> We map these submissions to the provider&rsquo;s configured fields and create
+          lead records in that provider&rsquo;s Carelu workspace. The provider can use those records to respond to
+          inquiries, manage its intake process, and run follow-up or CRM-export workflows it has configured. Where
+          enabled by the provider, these features involve processing by our service providers and transfer to the
+          provider&rsquo;s connected CRM or communication services. The provider determines its form questions and
+          follow-up settings and is responsible for providing the notices and obtaining the permissions required for
+          its collection and use of that information.
+        </P>
+        <P id="meta-stage-updates">
+          <B>Optional stage updates to Meta.</B> A provider can separately enable &ldquo;Send lead stages back to
+          Meta&rdquo; by selecting a dataset (Pixel) in Carelu&rsquo;s Meta integration settings. When a lead received
+          through a connected Meta form changes stage in Carelu, we send Meta the original Meta lead identifier, an
+          event name representing the stage, the event time, and identifiers describing Carelu as the CRM source.
+          Examples of stage events are <em>qualified</em> and <em>intake_complete</em>. Meta can associate these events
+          with the original lead and use them for the provider&rsquo;s conversion measurement and lead-ad optimization.
+          These events are linked to a lead; they are not anonymous statistics. The stage-update payload does not
+          include the person&rsquo;s name, email address, phone number, form answers, clinical notes or uploaded
+          documents. The provider can stop future stage updates by selecting &ldquo;Not sending&rdquo; in the dataset
+          setting.
+        </P>
+        <P>
+          <B>How we use Meta data.</B> We use Meta data only to provide the features the provider has enabled:
+          displaying advertising performance in that provider&rsquo;s dashboard, importing Instant Form submissions
+          into that provider&rsquo;s workspace and running the follow-up and CRM workflows it has configured,
+          attributing leads and intakes to the campaigns that generated them, sending the optional stage updates
+          described above, and reporting on the results. We do not sell Meta data or use it for our own advertising;
           we do not share it with third parties except service providers who host and operate the product for us under
-          contract, or where required by law; we do not use it to build or train generalized artificial-intelligence or
+          contract, the provider&rsquo;s own connected CRM or communication services and Meta as the provider directs
+          above, or where required by law; we do not use it to build or train generalized artificial-intelligence or
           machine-learning models; and access tokens for connected Meta accounts are never shared, and are accessible
           only to the systems that use them. Our collection, use, and deletion of Meta data (&ldquo;Platform Data&rdquo;) complies with the{' '}
           <a href="https://developers.facebook.com/terms/" target="_blank" rel="noreferrer"
@@ -180,12 +220,19 @@ export default function PrivacyPolicy() {
           <a href="https://developers.facebook.com/devpolicy/" target="_blank" rel="noreferrer"
             style={{ color: '#2e5a26', fontWeight: 600 }}>Developer Policies</a>.
         </P>
+        <P>
+          <B>Disconnecting and stored records.</B> Disconnecting a Page stops Carelu from importing new submissions from
+          that connection. Disconnecting the Meta account clears the access credentials stored for that connection and
+          stops its future synchronization. Previously imported lead records and historical advertising reports are not
+          automatically deleted by disconnection. Requests to delete stored Meta data can be made through the Meta
+          data-deletion process described below. Disconnecting Carelu does not delete information already delivered to
+          Meta or to another service the provider connected.
+        </P>
         <P id="data-deletion">
-          <B>Disconnecting and data deletion.</B> Providers can disconnect a Meta account at any time from their
-          settings, which revokes our access. You can also remove the &ldquo;Carelu Connector&rdquo; app yourself in
-          your Facebook settings under <B>Settings &amp; Privacy &rarr; Settings &rarr; Apps and Websites</B>, which
-          invalidates our access tokens. To have the Meta data we have stored deleted, disconnect (or remove the app)
-          and email <a href="mailto:privacy@carelu.com" style={{ color: '#2e5a26', fontWeight: 600 }}>privacy@carelu.com</a>{' '}
+          <B>Data deletion.</B> You can remove the &ldquo;Carelu Connector&rdquo; app yourself in your Facebook
+          settings under <B>Settings &amp; Privacy &rarr; Settings &rarr; Apps and Websites</B>, which invalidates our
+          access tokens. To have the Meta data we have stored deleted, including imported Instant Form submissions,
+          email <a href="mailto:privacy@carelu.com" style={{ color: '#2e5a26', fontWeight: 600 }}>privacy@carelu.com</a>{' '}
           from the account owner&rsquo;s address with the subject &ldquo;Meta data deletion request.&rdquo; We will
           delete the stored Meta data associated with the connection within 30 days and confirm by email.
         </P>
