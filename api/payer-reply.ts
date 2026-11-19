@@ -31,6 +31,10 @@ import type { PayerUpdateSubscriber } from './payer-updates.js';
    the same per-sender daily limits as the Ask box. The agent never
    describes Carelu itself: a demo ask gets the booking link, any other
    question about Carelu goes to a person.
+
+   Slack: every reply posts to #marketing (who wrote, what they said,
+   what we did); a demo request posts to #sales instead. Same two-variable
+   workflow payload as api/leads.ts: { email, source }.
    ================================================================ */
 
 export const config = { maxDuration: 60 };
@@ -38,6 +42,36 @@ export const config = { maxDuration: 60 };
 const SITE = 'https://carelu.com';
 const SUBS_FILE = 'payer-updates.json';
 const EMAIL_RE = /[A-Za-z0-9._%+'-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/;
+const SALES_SLACK = process.env.SLACK_SALES_WEBHOOK_URL ?? '';
+const MARKETING_SLACK = process.env.SLACK_MARKETING_WEBHOOK_URL ?? '';
+const WHAT_WE_DID: Record<string, string> = {
+  answered: 'answered from the payer guides',
+  not_covered: 'partly answered; the rest is being added to the guides',
+  needs_human: 'needs a person, forwarded to the team',
+  no_question: 'nothing to answer, filed',
+  demo: 'sent the book-a-demo link',
+};
+
+/** One Slack ping per reply. Demo asks go to sales (falling back to
+    marketing so a missing var never loses the lead); the rest to marketing.
+    The workflows render only `email` and `source`, so the story goes in source. */
+async function notify(opts: { sender: string; from: string; subject: string; text: string; status: string; reason?: string; answer?: string; demo?: boolean }): Promise<void> {
+  const webhook = (opts.demo && SALES_SLACK) || MARKETING_SLACK;
+  if (!webhook) return;
+  const clip = (s: string, n: number) => (s.length > n ? `${s.slice(0, n - 1)}…` : s);
+  const source = [
+    `${opts.demo ? 'DEMO REQUEST' : 'Payer updates reply'} from ${opts.sender || opts.from}`,
+    `Subject: ${opts.subject}`,
+    `They wrote: ${clip(opts.text.replace(/\s+/g, ' '), 600)}`,
+    `What we did: ${WHAT_WE_DID[opts.status] ?? opts.status}${opts.reason ? ` (${opts.reason})` : ''}`,
+    opts.answer ? `Our reply: ${clip(opts.answer.replace(/\s+/g, ' '), 500)}` : '',
+  ].filter(Boolean).join(' | ');
+  try {
+    await fetch(webhook, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: opts.from, source }) });
+  } catch (err) {
+    console.error('payer-reply: slack notify failed (non-fatal)', err);
+  }
+}
 
 const EMAIL_RULES = `
 You are now answering an EMAIL. Someone replied to a Carelu payer updates email (the every-two-weeks email of payer changes, or our invite to join it). Their reply is below.
@@ -111,11 +145,14 @@ export async function POST(request: Request): Promise<Response> {
   } catch {
     return json({ error: 'bad request' }, 400);
   }
-  const from = (typeof body.from === 'string' ? body.from.match(EMAIL_RE)?.[0] ?? '' : '').toLowerCase();
+  const sender = typeof body.from === 'string' ? body.from.slice(0, 200) : '';
+  const from = (sender.match(EMAIL_RE)?.[0] ?? '').toLowerCase();
   const subject = typeof body.subject === 'string' ? body.subject.slice(0, 300) : '';
   const text = typeof body.body === 'string' ? body.body.trim().slice(0, 4000) : '';
   if (!from) return json({ error: 'no sender' }, 400);
   if (!text) return json({ status: 'no_question', reason: 'empty reply' });
+  const ping = (status: string, extra: { reason?: string; answer?: string; demo?: boolean } = {}) =>
+    notify({ sender, from, subject, text, status, ...extra });
 
   // Only people on the list get an automatic answer; anyone else goes to a person.
   const cfg = requireConfig();
@@ -132,7 +169,10 @@ export async function POST(request: Request): Promise<Response> {
   // Same daily limits and spend cap as the Ask box, counted per subscriber.
   const ip = `email:${from}`;
   const verdict = await check(ip, from);
-  if (!verdict.ok) return json({ status: 'needs_human', reason: `ask limit: ${verdict.reason}` });
+  if (!verdict.ok) {
+    await ping('needs_human', { reason: `ask limit: ${verdict.reason}` });
+    return json({ status: 'needs_human', reason: `ask limit: ${verdict.reason}` });
+  }
 
   const question = `Subject: ${subject}\nTheir states on the list: ${sub ? sub.states.join(', ') : 'not on the list yet'}\n\n${text}`;
   const chunks = retrieve(`${subject} ${text}`.slice(0, 2000), undefined, 10);
@@ -161,8 +201,12 @@ export async function POST(request: Request): Promise<Response> {
   console.log('payer-reply usage', JSON.stringify({ from, cost: Math.round(cost * 10000) / 10000, stop: msg.stop_reason }));
 
   const m = out.match(/^STATUS:\s*(ANSWERED|NOT_COVERED|DEMO|NEEDS_HUMAN|NO_QUESTION)\b[ \t]*(.*)$/m);
-  if (msg.stop_reason === 'refusal' || !m) return json({ status: 'needs_human', reason: 'assistant could not answer' });
+  if (msg.stop_reason === 'refusal' || !m) {
+    await ping('needs_human', { reason: 'assistant could not answer' });
+    return json({ status: 'needs_human', reason: 'assistant could not answer' });
+  }
   if (m[1] === 'DEMO') {
+    await ping('demo', { demo: true });
     // Fixed text, never model-written, so nothing about Carelu is made up.
     return json({
       status: 'answered', reason: 'demo request',
@@ -171,12 +215,19 @@ export async function POST(request: Request): Promise<Response> {
     });
   }
   const status = m[1].toLowerCase() as 'answered' | 'not_covered' | 'needs_human' | 'no_question';
-  if (status === 'needs_human' || status === 'no_question') return json({ status, reason: m[2].trim() || status });
+  if (status === 'needs_human' || status === 'no_question') {
+    await ping(status, { reason: m[2].trim() });
+    return json({ status, reason: m[2].trim() || status });
+  }
 
   let answer = out.slice(out.indexOf(m[0]) + m[0].length).trim();
   const wantsDemo = /^DEMO:\s*YES\b.*$/im.test(answer);
   answer = answer.replace(/^DEMO:\s*YES\b.*$\n?/im, '').trim();
-  if (answer.length < 40) return json({ status: 'needs_human', reason: 'answer came back empty' });
+  if (answer.length < 40) {
+    await ping('needs_human', { reason: 'answer came back empty' });
+    return json({ status: 'needs_human', reason: 'answer came back empty' });
+  }
+  await ping(status, { reason: [m[2].trim(), wantsDemo ? 'they also asked for a demo; sent the booking link' : ''].filter(Boolean).join('; '), answer: toText(answer), demo: wantsDemo });
 
   // Logged like an Ask box question: the classifier marks a not-covered one
   // with what is missing, and the Sunday payer routine researches those gaps.
