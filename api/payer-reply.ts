@@ -27,7 +27,7 @@ import type { PayerUpdateSubscriber } from './payer-updates.js';
 
 export const config = { maxDuration: 60 };
 
-const SITE = 'https://www.carelu.com';
+const SITE = 'https://carelu.com';
 const SUBS_FILE = 'payer-updates.json';
 const EMAIL_RE = /[A-Za-z0-9._%+'-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/;
 

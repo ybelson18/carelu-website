@@ -1,6 +1,8 @@
 import { randomBytes } from 'node:crypto';
 import { json, requireConfig, isResponse, getRepoFileText, commitFiles } from './sources/_shared.js';
 import { STATE_META } from '../src/data/payers/types.js';
+import { sesClient, sendEmail } from './_ses.js';
+import { renderWelcome } from './_payerWelcome.js';
 
 /* ================================================================
    /api/payer-updates  (public, no auth)
@@ -32,6 +34,9 @@ const FILE = 'payer-updates.json';
 const VALID_STATES = new Set([...STATE_META.map((s) => s.code), 'US']);
 const ALL_TOPICS = ['intake', 'clinical', 'billing'];
 const MARKETING_SLACK_WEBHOOK_URL = process.env.SLACK_MARKETING_WEBHOOK_URL ?? '';
+const SITE = 'https://carelu.com'; // not www: it redirects, and one-click unsubscribe POSTs must not
+const FROM = process.env.PAYER_DIGEST_FROM ?? 'Carelu Payer Updates <payers@carelu.com>';
+const POSTAL = process.env.PAYER_DIGEST_POSTAL_ADDRESS ?? '';
 
 export interface PayerUpdateSubscriber {
   email: string;
@@ -145,6 +150,7 @@ export async function POST(request: Request): Promise<Response> {
 
   const now = new Date().toISOString();
   let isNew = false;
+  let joined: PayerUpdateSubscriber | null = null;
   const stored = await mutate(cfg.token, (rows) => {
     const existing = rows.find((r) => r.email === email);
     if (existing) {
@@ -160,16 +166,34 @@ export async function POST(request: Request): Promise<Response> {
       existing.optInText = OPT_IN_TEXT;
     } else {
       isNew = true;
-      rows.push({
+      joined = {
         email, states, topics, ts: now, updated: now,
         token: randomBytes(16).toString('hex'),
         ...(page ? { page } : {}),
         optInText: OPT_IN_TEXT,
-      });
+      };
+      rows.push(joined);
     }
     return { rows, message: `payer-updates: ${email} (${states.join(',')} / ${topics.join(',')})` };
   });
   if (!stored) console.error('payer-updates: GAVE UP storing', email);
+
+  // First email a new subscriber gets: the confirmation (what they picked,
+  // what comes next, how to change or leave).
+  const welcome = joined as PayerUpdateSubscriber | null;
+  if (stored && welcome) {
+    const ses = sesClient();
+    if (!ses) console.error('payer-updates: SES not configured, no confirmation email', email);
+    else {
+      try {
+        const unsubscribeUrl = `${SITE}/api/payer-updates?unsubscribe=${welcome.token}`;
+        const e = renderWelcome(welcome.states, welcome.topics ?? ALL_TOPICS, unsubscribeUrl, POSTAL);
+        await sendEmail(ses, { from: FROM, to: email, subject: e.subject, html: e.html, text: e.text, unsubscribeUrl });
+      } catch (err) {
+        console.error('payer-updates: confirmation email failed (non-fatal)', email, err);
+      }
+    }
+  }
 
   if (stored && isNew && MARKETING_SLACK_WEBHOOK_URL) {
     try {

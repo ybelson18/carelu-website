@@ -102,7 +102,7 @@ export default function PayerUpdatesPopup({ defaultState = '' }: { defaultState?
 
         {status === 'done' ? (
           <p style={{ fontSize: 15, color: '#2e5a26', fontWeight: 600, lineHeight: 1.55, margin: '6px 0 0' }}>
-            You're on the list for {stateName}. Your first update comes the next time a payer there changes.
+            You're on the list for {stateName}. We just emailed you a confirmation. Your first update comes the next time a payer there changes.
           </p>
         ) : (
           <>

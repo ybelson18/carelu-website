@@ -74,7 +74,7 @@ export default function PayerUpdatesSignup({ defaultStates = [] }: { defaultStat
 
         {status === 'done' ? (
           <p style={{ fontSize: 15, color: '#2e5a26', fontWeight: 600, margin: 0 }}>
-            You're on the list for {names.join(', ')}. Your first update comes the next time a payer in your states changes.
+            You're on the list for {names.join(', ')}. We just emailed you a confirmation. Your first update comes the next time a payer in your states changes.
           </p>
         ) : (
           <form onSubmit={submit} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
