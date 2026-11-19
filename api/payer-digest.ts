@@ -37,7 +37,7 @@ export const config = { maxDuration: 300 };
 
 const STATE_FILE = 'payer-digest-state.json';
 const SUBS_FILE = 'payer-updates.json';
-const SITE = 'https://www.carelu.com';
+const SITE = 'https://carelu.com'; // not www: it redirects, and one-click unsubscribe POSTs must not
 const MIN_DAYS = 13;
 
 const FROM = process.env.PAYER_DIGEST_FROM ?? 'Carelu Payer Updates <payers@carelu.com>';
