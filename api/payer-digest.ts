@@ -269,6 +269,15 @@ export function renderEmail(
           </table>
         </td></tr>`, 'border-collapse:separate;border-spacing:0;margin-top:44px;')}
 
+      <!-- BOOK A DEMO -->
+      ${table(`<tr><td align="center" style="background-color:#FFFFFF;border:1px solid ${LINE};border-radius:18px;padding:30px 28px;">
+          <div style="font-family:${SERIF};font-weight:400;font-size:24px;line-height:1.2;color:${DEEP};">See Carelu run your intake</div>
+          <div style="padding-top:8px;max-width:400px;margin:0 auto;font-family:${SANS};font-size:14px;line-height:1.6;color:${MUTED};">A short walkthrough with our team, built around your states and payers.</div>
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:separate;margin:20px auto 0 auto;">
+            <tr><td style="background-color:${DEEP};border-radius:100px;"><a href="${SITE}/demo?${utm}&utm_content=book-demo" style="display:inline-block;padding:13px 26px;font-family:${SANS};font-size:14px;font-weight:600;color:${CREAM};text-decoration:none;white-space:nowrap;">Book a demo with Carelu &rarr;</a></td></tr>
+          </table>
+        </td></tr>`, 'border-collapse:separate;border-spacing:0;margin-top:16px;')}
+
       <!-- FOOTER -->
       ${table(`<tr><td align="center" style="padding:32px 24px 0 24px;">
           <a href="${SITE}?${utm}"><img src="${LOGO}" width="60" height="26" alt="Carelu" style="display:block;border:0;width:60px;height:auto;margin:0 auto;opacity:0.85;"></a>
@@ -294,6 +303,7 @@ export function renderEmail(
       ...c.items.map((i) => `- [${STATE_NAME[i.st] ?? i.st}] ${i.headline}\n  ${i.detail}${i.suggestion ? `\n  What this may mean for you: ${i.suggestion}` : ''}\n  ${guideUrl(i.slug)}`),
     ]),
     '', "Have any questions? Reply to this email, and we're happy to answer them.",
+    '', `Book a demo with Carelu: ${SITE}/demo?${utm}&utm_content=book-demo`,
     '', 'The "what this may mean for you" notes are suggestions, not legal, billing or clinical advice.',
     `Change states or topics: ${SITE}/payers#payer-updates`, `Unsubscribe: ${unsubscribeUrl}`, ...(POSTAL ? [POSTAL] : []),
   ].join('\n');
