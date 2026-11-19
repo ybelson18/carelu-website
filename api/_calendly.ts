@@ -18,6 +18,8 @@ export const CALENDLY_URL = 'https://calendly.com/avi-leadtrap/30min';
 export const DEMO_TZ = 'America/New_York';
 
 let eventTypeUri: string | null = null;
+let eventLocation: { kind: string; location?: string } | null | undefined;
+export let lastError = '';
 
 async function call<T>(path: string, init: RequestInit = {}): Promise<T> {
   const res = await fetch(`${API}${path}`, {
@@ -56,6 +58,16 @@ async function eventType(): Promise<string> {
   }
   if (!hit) throw new Error(`calendly: no active event type at ${CALENDLY_URL}`);
   eventTypeUri = hit.uri;
+  // POST /invitees needs the meeting location when the event type has one
+  // (Google Meet, Zoom, a phone number...). Use the event type's first.
+  try {
+    const et = await call<{ resource: { locations?: { kind: string; location?: string }[] | null } }>(`/event_types/${hit.uri.split('/').pop()}`);
+    const loc = et.resource.locations?.[0];
+    eventLocation = loc ? { kind: loc.kind, ...(loc.location ? { location: loc.location } : {}) } : null;
+  } catch (err) {
+    console.error('calendly: event type location lookup failed', err);
+    eventLocation = null;
+  }
   return hit.uri;
 }
 
@@ -83,11 +95,17 @@ export async function book(startIso: string, name: string, email: string): Promi
     const et = await eventType();
     const res = await call<{ resource: { uri: string } }>('/invitees', {
       method: 'POST',
-      body: JSON.stringify({ event_type: et, start_time: startIso, invitee: { name, email, timezone: DEMO_TZ } }),
+      body: JSON.stringify({
+        event_type: et, start_time: startIso,
+        invitee: { name, email, timezone: DEMO_TZ },
+        ...(eventLocation ? { location: eventLocation } : {}),
+      }),
     });
+    lastError = '';
     return { uri: res.resource?.uri ?? '' };
   } catch (err) {
-    console.error('calendly: booking failed', err);
+    lastError = String((err as Error).message ?? err).slice(0, 400);
+    console.error('calendly: booking failed', lastError);
     return null;
   }
 }
