@@ -40,6 +40,17 @@ export default function PayerUpdatesSignup({ defaultStates = [] }: { defaultStat
     return () => document.removeEventListener('mousedown', close);
   }, [open]);
 
+  // Invite emails link here with ?states=NY,NJ (the states we found for
+  // that practice), so the box opens with them already picked. States
+  // only: never put an email address or other personal data in a link.
+  useEffect(() => {
+    const raw = new URLSearchParams(window.location.search).get('states');
+    if (!raw) return;
+    const valid = new Set(STATES.map((s) => s.code));
+    const picked = raw.split(',').map((x) => x.trim().toUpperCase()).filter((x) => valid.has(x));
+    if (picked.length) setStates(picked);
+  }, []);
+
   // The emails link to /payers#payer-updates ("Change your states or
   // topics"). The page renders after the browser's own hash jump, so
   // scroll here once the box is on the page.
