@@ -40,6 +40,17 @@ export default function PayerUpdatesSignup({ defaultStates = [] }: { defaultStat
     return () => document.removeEventListener('mousedown', close);
   }, [open]);
 
+  // The emails link to /payers#payer-updates ("Change your states or
+  // topics"). The page renders after the browser's own hash jump, so
+  // scroll here once the box is on the page.
+  useEffect(() => {
+    if (window.location.hash !== '#payer-updates') return;
+    const t = window.setTimeout(() => {
+      document.getElementById('payer-updates')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 300);
+    return () => window.clearTimeout(t);
+  }, []);
+
   const toggle = (list: string[], set: (v: string[]) => void, v: string) =>
     set(list.includes(v) ? list.filter((x) => x !== v) : [...list, v]);
 
