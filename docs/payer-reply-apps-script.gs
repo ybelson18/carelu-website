@@ -3,7 +3,7 @@
 
    Lives in the payers@carelu.com Gmail (script.google.com, signed in
    as payers@). Every 5 minutes it looks for new replies to a payer
-   updates email and hands each one to https://www.carelu.com/api/payer-reply.
+   updates email and hands each one to https://carelu.com/api/payer-reply.
 
    - answered     -> replies in the same thread, from payers@, and
                      sends COPY_TO a copy of the question and answer
@@ -21,7 +21,7 @@
    setup() once and approve the Gmail access. That's it.
    ================================================================ */
 
-const API = 'https://www.carelu.com/api/payer-reply';
+const API = 'https://carelu.com/api/payer-reply';
 const COPY_TO = 'yoni@leadtrap.com';
 const LABELS = {
   answered: 'Payer replies/Answered',
