@@ -139,12 +139,12 @@ function toText(md: string): string {
   return md.trim().replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_m, t, u) => `${t} (${absolute(u)})`).replace(/\*\*([^*]+)\*\*/g, '$1');
 }
 
-const SIGN_HTML = `<p style="margin:18px 0 0 0;">Carelu Payer Updates<br><span style="color:#6B675E;font-size:13px;">Answered by the Carelu payer assistant from our payer guides, each fact linked to its source. A person on our team reads every reply; just write back if anything is unclear.</span></p>`;
+const SIGN_HTML = `<p style="margin:18px 0 0 0;">The Carelu team<br><span style="color:#6B675E;font-size:13px;">Answered by the Carelu payer assistant from our payer guides, each fact linked to its source. A person on our team reads every reply; just write back if anything is unclear.</span></p>`;
 const DEMO_URL = `${SITE}/demo?utm_source=payer-updates&utm_medium=email-reply&utm_campaign=demo`;
 const DEMO_HTML = `<p style="margin:0 0 14px 0;">You can book a time with our team here: <a href="${DEMO_URL}" style="color:#3F6E35;font-weight:600;">Book a demo with Carelu</a>.</p>`;
 const DEMO_TEXT = `You can book a time with our team here: ${DEMO_URL}`;
-const DEMO_SIGN_HTML = `<p style="margin:18px 0 0 0;">Carelu<br><span style="color:#6B675E;font-size:13px;">A person on our team reads every reply; just write back if anything is unclear.</span></p>`;
-const DEMO_SIGN_TEXT = `\n\nCarelu\nA person on our team reads every reply; just write back if anything is unclear.`;
+const DEMO_SIGN_HTML = `<p style="margin:18px 0 0 0;">The Carelu team<br><span style="color:#6B675E;font-size:13px;">A person on our team reads every reply; just write back if anything is unclear.</span></p>`;
+const DEMO_SIGN_TEXT = `\n\nThe Carelu team\nA person on our team reads every reply; just write back if anything is unclear.`;
 const DEMO_OFFERS_FILE = 'payer-demo-offers.json';
 const P = (t: string) => `<p style="margin:0 0 14px 0;">${t}</p>`;
 const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -159,7 +159,7 @@ function offerBlock(times: string[], lead: string): { html: string; text: string
 
 const wrap = (inner: string) => `<div style="font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;color:#1A2E1F;">${inner}</div>`;
 
-const SIGN_TEXT = `\n\nCarelu Payer Updates\nAnswered by the Carelu payer assistant from our payer guides, each fact linked to its source. A person on our team reads every reply; just write back if anything is unclear.`;
+const SIGN_TEXT = `\n\nThe Carelu team\nAnswered by the Carelu payer assistant from our payer guides, each fact linked to its source. A person on our team reads every reply; just write back if anything is unclear.`;
 
 export async function POST(request: Request): Promise<Response> {
   if (!process.env.ANTHROPIC_API_KEY) return json({ error: 'not configured' }, 503);

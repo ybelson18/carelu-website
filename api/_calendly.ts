@@ -2,8 +2,8 @@
    Calendly, for booking demos straight from an email reply.
 
    Same event the /demo page embeds (src/components/DemoModal.tsx).
-   CALENDLY_TOKEN is a personal access token from that Calendly account
-   (Integrations > API & Webhooks). Booking uses Calendly's Scheduling
+   CALENDLY_TOKEN is a personal access token (Integrations > API &
+   Webhooks) from that Calendly account or an admin of its organization. Booking uses Calendly's Scheduling
    API (POST /invitees), which needs a paid Calendly plan; Calendly then
    sends the calendar invite and confirmation exactly as if the person
    had booked on the page. Without the token, everything here returns
@@ -36,11 +36,24 @@ export function calendlyReady(): boolean {
 /** The URI of the 30-minute demo event, found by its public booking URL. */
 async function eventType(): Promise<string> {
   if (eventTypeUri) return eventTypeUri;
-  const me = await call<{ resource: { uri: string } }>('/users/me');
-  const list = await call<{ collection: { uri: string; scheduling_url: string; active: boolean }[] }>(
-    `/event_types?user=${encodeURIComponent(me.resource.uri)}&count=100`
-  );
-  const hit = list.collection.find((e) => e.active && e.scheduling_url.replace(/\/$/, '') === CALENDLY_URL);
+  // The token can belong to anyone in the Calendly organization (an org
+  // admin sees every member's event types), so look org-wide first.
+  const me = await call<{ resource: { uri: string; current_organization?: string } }>('/users/me');
+  type ET = { uri: string; scheduling_url: string; active: boolean };
+  const scopes = [
+    me.resource.current_organization ? `organization=${encodeURIComponent(me.resource.current_organization)}` : '',
+    `user=${encodeURIComponent(me.resource.uri)}`,
+  ].filter(Boolean);
+  let hit: ET | undefined;
+  for (const scope of scopes) {
+    try {
+      const list = await call<{ collection: ET[] }>(`/event_types?${scope}&count=100`);
+      hit = list.collection.find((e) => e.active && e.scheduling_url.replace(/\/$/, '') === CALENDLY_URL);
+      if (hit) break;
+    } catch (err) {
+      console.error('calendly: event type lookup failed for', scope.split('=')[0], err);
+    }
+  }
   if (!hit) throw new Error(`calendly: no active event type at ${CALENDLY_URL}`);
   eventTypeUri = hit.uri;
   return hit.uri;
