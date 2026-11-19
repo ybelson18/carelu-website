@@ -2,7 +2,8 @@ import Anthropic from '@anthropic-ai/sdk';
 import { DIRECTORY, SYSTEM, retrieve } from './ask.js';
 import { check, record, costOf } from './_askGuard.js';
 import { json, requireConfig, isResponse, getRepoFileText, commitFiles } from './sources/_shared.js';
-import { calendlyReady, openSlots, book, whenEt, pickOffers } from './_calendly.js';
+import * as calendly from './_calendly.js';
+const { calendlyReady, openSlots, book, whenEt, pickOffers } = calendly;
 import type { PayerUpdateSubscriber } from './payer-updates.js';
 
 /* ================================================================
@@ -280,7 +281,7 @@ export async function POST(request: Request): Promise<Response> {
     }
     const booked = await book(iso, inviteeName, from);
     if (!booked) {
-      return offerReply("Sorry, that time just got taken. Here are a few others that are open (Eastern time):", `booking ${iso} failed`);
+      return offerReply("Sorry, that time just got taken. Here are a few others that are open (Eastern time):", `booking ${iso} failed: ${calendly.lastError}`);
     }
     delete offers[from];
     await commitFiles(cfg.token, [{ path: DEMO_OFFERS_FILE, content: JSON.stringify(offers, null, 1) + '\n' }], 'payer-reply: demo booked')
