@@ -7175,4 +7175,20 @@ export const PAYER_CHANGELOG: PayerChangeEntry[] = [
     ],
     totals: { guides: 496, states: 51 },
   },
+  {
+    date: '2026-11-19',
+    type: 'correction',
+    summary:
+      'South Dakota Medicaid: the referral fact now says the physician, NP or PA order is needed before the ABA assessment, not only before treatment. The ABA manual lists the Behavior Identification Assessment among the services that "must be ordered", and every ABA claim must name the ordering provider in block 17.',
+    guides: ['south-dakota-medicaid'],
+    details: [
+      {
+        slug: 'south-dakota-medicaid',
+        field: 'intakeGates.referral',
+        change: 'Added when the order is needed: before the assessment (97151, 97152) as well as treatment, because the assessment is a covered ABA service that must be ordered and its claim must name the ordering provider. Noted that the initial-assessment PA packet does not list the order as an attachment.',
+        sourceUrl: 'https://dss.sd.gov/docs/medicaid/providers/billingmanuals/Professional/Applied_Behavioral_Analysis.pdf',
+      },
+    ],
+    totals: { guides: 496, states: 51 },
+  },
 ];
