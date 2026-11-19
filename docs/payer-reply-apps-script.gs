@@ -11,6 +11,8 @@
                      adding it to our next guide" (with whatever part we
                      do know) and sends COPY_TO a copy; the question goes
                      into the same research list as unanswered Ask questions
+   - demo request -> (status answered, reason "demo request") replies with the
+                     book-a-demo link and sends COPY_TO "Demo request: ..."
    - needs_human  -> forwards the email to COPY_TO ("Needs you: ...")
    - no_question  -> files it (thanks, out of office, etc.)
 
@@ -91,7 +93,9 @@ function handle(thread, msg) {
   const question = newText(msg.getPlainBody());
   if (result.status === 'answered' || result.status === 'not_covered') {
     msg.reply(result.text, { htmlBody: result.html, name: 'Carelu Payer Updates' });
-    const tag = result.status === 'answered' ? 'Answered: ' : 'Not in guides yet (' + (result.reason || '') + '): ';
+    const demo = /demo request/.test(result.reason || '');
+    const tag = (demo ? 'Demo request (sent them the booking link): ' : '')
+      + (result.status === 'answered' ? (result.reason === 'demo request' ? '' : 'Answered: ') : 'Not in guides yet (' + (result.reason || '') + '): ');
     GmailApp.sendEmail(COPY_TO, tag + msg.getSubject(),
       'From: ' + msg.getFrom() + '\n\nTheir question:\n' + question + '\n\n---- Our answer ----\n\n' + result.text,
       { name: 'Carelu Payer Updates' });
