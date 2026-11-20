@@ -2,7 +2,7 @@ import { randomBytes } from 'node:crypto';
 import { json, requireConfig, isResponse, getRepoFileText, commitFiles } from './sources/_shared.js';
 import { STATE_META } from '../src/data/payers/types.js';
 import { sesClient, sendEmail } from './_ses.js';
-import { renderWelcome } from './_payerWelcome.js';
+import { renderWelcome, type RecentItem } from './_payerWelcome.js';
 
 /* ================================================================
    /api/payer-updates  (public, no auth)
@@ -54,6 +54,29 @@ export interface PayerUpdateSubscriber {
 export const OPT_IN_TEXT =
   'Yes, add me to the Carelu payer updates list. One email every two weeks with ' +
   'what changed for payers in my states. Unsubscribe any time.';
+
+/* The last 30 days of changes for these states and topics, from the
+   file /api/payer-recent writes daily. Intake first, then clinical, then
+   billing; national plans only after the person's own states; at most 8.
+   Any failure means no section, never a failed signup. */
+const RECENT_FILE = 'payer-recent.json';
+const RECENT_MAX = 8;
+async function recentFor(token: string, states: string[], topics: string[]): Promise<RecentItem[]> {
+  try {
+    const file = JSON.parse(await getRepoFileText(token, RECENT_FILE)) as {
+      built: string; sections: Record<string, Omit<RecentItem, 'st'>[]>;
+    };
+    if (Date.now() - Date.parse(file.built) > 3 * 86400e3) return []; // stale: the daily job stopped
+    const own = states.filter((s) => s !== 'US');
+    const order = [...own, ...(states.includes('US') ? ['US'] : [])];
+    const all = order.flatMap((st) => (file.sections[st] ?? []).filter((i) => topics.includes(i.category)).map((i) => ({ ...i, st })));
+    const rank = (i: RecentItem) => ALL_TOPICS.indexOf(i.category) * 100 + order.indexOf(i.st);
+    return all.sort((a, b) => rank(a) - rank(b)).slice(0, RECENT_MAX);
+  } catch (err) {
+    console.error('payer-updates: recent changes unavailable (non-fatal)', err);
+    return [];
+  }
+}
 
 function str(v: unknown, max: number): string {
   return typeof v === 'string' ? v.trim().slice(0, max) : '';
@@ -187,7 +210,8 @@ export async function POST(request: Request): Promise<Response> {
     else {
       try {
         const unsubscribeUrl = `${SITE}/api/payer-updates?unsubscribe=${welcome.token}`;
-        const e = renderWelcome(welcome.states, welcome.topics ?? ALL_TOPICS, unsubscribeUrl, POSTAL);
+        const recent = await recentFor(cfg.token, welcome.states, welcome.topics ?? ALL_TOPICS);
+        const e = renderWelcome(welcome.states, welcome.topics ?? ALL_TOPICS, unsubscribeUrl, POSTAL, recent);
         await sendEmail(ses, { from: FROM, to: email, subject: e.subject, html: e.html, text: e.text, unsubscribeUrl });
       } catch (err) {
         console.error('payer-updates: confirmation email failed (non-fatal)', email, err);
