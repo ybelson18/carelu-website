@@ -15,8 +15,11 @@ function esc(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+/** One recent change, as written by /api/payer-recent. */
+export interface RecentItem { st: string; slug: string; category: string; headline: string; detail: string; suggestion: string }
+
 export function renderWelcome(
-  states: string[], topics: string[], unsubscribeUrl: string, postal: string
+  states: string[], topics: string[], unsubscribeUrl: string, postal: string, recent: RecentItem[] = []
 ): { subject: string; html: string; text: string } {
   const names = states.map((s) => STATE_NAME[s] ?? s);
   const stateList = names.length > 1 ? `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}` : names[0];
@@ -37,6 +40,25 @@ export function renderWelcome(
   const LOGO = 'https://carelu.com/carelu-logo.png';
   const table = (inner: string, style = 'border-collapse:collapse;') => `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="${style}">${inner}</table>`;
   const pill = (t: string) => `<span style="display:inline-block;margin:0 6px 8px 0;padding:5px 12px;border-radius:100px;background-color:${SAGE};font-family:${SANS};font-size:13px;font-weight:600;color:${LINK};">${esc(t)}</span>`;
+  const recentRow = (i: RecentItem, k: number) => `<tr><td style="padding:22px 0;${k ? `border-top:1px solid ${LINE};` : ''}">
+          ${pill(STATE_NAME[i.st] ?? i.st)}
+          <div style="padding-top:4px;font-family:${SANS};font-size:17px;font-weight:600;line-height:1.4;color:${DEEP};">${esc(i.headline)}</div>
+          <div style="padding-top:6px;font-family:${SANS};font-size:15px;line-height:1.65;color:${BODY};">${esc(i.detail)}</div>
+          ${i.suggestion ? `<div style="margin-top:14px;padding:2px 0 2px 16px;border-left:3px solid ${LIME};">
+            <div style="font-family:${SANS};font-size:13px;font-weight:600;color:${DEEP};">What this may mean for you</div>
+            <div style="padding-top:4px;font-family:${SANS};font-size:15px;line-height:1.65;color:${BODY};">${esc(i.suggestion)}</div>
+          </div>` : ''}
+          <div style="padding-top:14px;"><a href="${SITE}/payers/${encodeURIComponent(i.slug)}?${utm}" style="font-family:${SANS};font-size:14px;font-weight:600;color:${LINK};text-decoration:none;">Read the full guide &rarr;</a></div>
+        </td></tr>`;
+  const recentBlock = recent.length ? `
+      ${table(`<tr><td style="padding:40px 4px 12px 4px;">
+          <div style="font-family:${SERIF};font-size:30px;line-height:1.15;letter-spacing:-0.01em;color:${DEEP};">What changed recently in ${names.length > 2 ? 'your states' : esc(stateList)}</div>
+          <div style="padding-top:6px;font-family:${SANS};font-size:14px;line-height:1.55;color:${MUTED};">No need to wait for the first email. Here's what changed in the last 30 days.</div>
+        </td></tr>`)}
+      ${table(`<tr><td style="background-color:#FFFFFF;border:1px solid ${LINE};border-radius:18px;padding:2px 28px;">
+          ${table(recent.map(recentRow).join(''))}
+        </td></tr>`, 'border-collapse:separate;border-spacing:0;')}` : '';
+
   const step = (n: number, title: string, body: string) => `<tr><td style="padding:16px 0;${n > 1 ? `border-top:1px solid ${LINE};` : ''}">
           ${table(`<tr>
             <td width="38" valign="top"><div style="width:26px;height:26px;border-radius:50%;background-color:${LIME};text-align:center;font-family:${SANS};font-size:13px;font-weight:700;line-height:26px;color:${DEEP};">${n}</div></td>
@@ -78,6 +100,8 @@ export function renderWelcome(
           <div style="padding-top:10px;">${topicNames.map(pill).join('')}</div>
           <div style="padding-top:4px;font-family:${SANS};font-size:14px;line-height:1.6;color:${MUTED};"><a href="${SITE}/payers?${utm}#payer-updates" style="color:${LINK};font-weight:600;text-decoration:none;">Change your states or topics &rarr;</a></div>
         </td></tr>`, 'border-collapse:separate;border-spacing:0;margin-top:16px;')}
+
+      ${recentBlock}
 
       <!-- WHAT HAPPENS NEXT -->
       ${table(`<tr><td style="padding:40px 4px 12px 4px;">
@@ -128,6 +152,7 @@ export function renderWelcome(
     "You're on the Carelu payer updates list. Thanks for joining.",
     '', `Your states: ${names.join(', ')}`, `Your topics: ${topicNames.join(', ')}`,
     `Change them: ${SITE}/payers#payer-updates`,
+    ...(recent.length ? ['', 'WHAT CHANGED RECENTLY (LAST 30 DAYS)', ...recent.map((i) => `- [${STATE_NAME[i.st] ?? i.st}] ${i.headline}\n  ${i.detail}${i.suggestion ? `\n  What this may mean for you: ${i.suggestion}` : ''}\n  ${SITE}/payers/${i.slug}`)] : []),
     '', 'WHAT HAPPENS NEXT',
     `1. One email every two weeks with what changed for payers in ${stateList}, each change linked to the payer's own source. If nothing changed, we skip it.`,
     '2. Every change comes with a short note on what it may mean for your team.',
